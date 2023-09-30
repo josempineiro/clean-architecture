@@ -8,6 +8,7 @@ import resolvers from "@/server/infrastructure/graphql/resolvers"
 const apolloServer = new ApolloServer({
   typeDefs,
   resolvers,
+  // @ts-ignore
   plugins: [ApolloServerPluginLandingPageGraphQLPlayground()]
 })
 

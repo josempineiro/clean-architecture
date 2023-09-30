@@ -5,11 +5,11 @@ import ProductCard from '@/client/presentation/components/product-card'
 import Link from "next/link";
 
 export function Products() {
-  const { data, isError, isLoading } = useProducts()
+  const { data, error, isLoading } = useProducts()
   return (
     <>
       {isLoading && <div>Loading...</div>}
-      {isError && <div>Error</div>}
+      {error && <div>Error</div>}
       {data && (
         <div className="grid grid-cols-8 gap-4">
                 <Link href="/admin/products/create">

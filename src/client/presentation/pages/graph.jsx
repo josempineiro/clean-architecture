@@ -1,7 +1,7 @@
+'use client'
 import cn from 'classnames'
 import ForceGraph3D from '3d-force-graph';
 import ForceGraph from 'force-graph';
-
 import { useEffect, useState, useRef } from "react";
 import data from "@/../imports.json";
 
@@ -94,13 +94,15 @@ useEffect(() => {
         return 0
       })
       .linkColor((link) =>{
-        if (link.target.match(/domain/)) {
+        const target = link.target.id || link.target || ''
+
+        if (target.match(/domain/)) {
           return 'rgba(255,255,127,0.66)'
         }
-        if (link.target.match(/infrastructure/)) {
+        if (target.match(/infrastructure/)) {
           return 'rgba(38, 194, 129, 0.66)'
         }
-        if (link.target.match(/application/)) {
+        if (target.match(/application/)) {
           return 'rgba(255, 76, 48, 0.66)'
         }
         return 'blue'
@@ -114,7 +116,7 @@ useEffect(() => {
   
   return <div className={"h-full flex-1 overflow-hidden"} ref={wrapperRef}>
     <header className="absolute top-0 left-0 w-full z-10 flex py-4 px-20 gap-20">
-      <select defaultValue={groupBy} onChange={(event) => setGroupBy(event.target.value)} class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+      <select defaultValue={groupBy} onChange={(event) => setGroupBy(event.target.value)} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
         <option value="imports">Imports</option>
         <option value="layers">Layers</option>
         <option value="files">Files</option>
@@ -122,7 +124,7 @@ useEffect(() => {
         <option value="layersAndModules">Layers and modules</option>
       </select>
 
-      <select defaultValue={vision} onChange={(event) => setVision(event.target.value)} class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+      <select defaultValue={vision} onChange={(event) => setVision(event.target.value)} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
         <option value="2d">2D</option>
         <option value="3d">3D</option>
       </select>

@@ -8,18 +8,25 @@ export interface UseCaseOptions<TVariables, TResult> {
   onError?: (error: string) => void;
 }
 
-export function useUseCaseQuery<TVariables, TResult>(useCase: UseCase<TVariables,TResult>, options: UseCaseOptions<TVariables,TResult>) {
+export interface UseCaseResults<TVariables, TResult> {
+  data: TResult | undefined;
+  isLoading: boolean;
+  error: string | undefined;
+}
+
+export function useUseCaseQuery<TVariables, TResult>(useCase: UseCase<TVariables,TResult>, options: UseCaseOptions<TVariables,TResult>): UseCaseResults<TVariables, TResult> {
   const { key, variables, onError } = options;
-  return useQuery<
-  TResult,
-  string,
-  TVariables
-  >([
+  const query = useQuery([
     key,
     variables
-  ], () => useCase.execute(variables), {
+  ], () => variables ? useCase.execute(variables) : useCase.execute(), {
     onError,
   });
+  return {
+    data: query.data,
+    isLoading: query.isLoading,
+    error: query.error || ''
+  }
 }
 
 export function useUseCaseMutation<TVariables, TResult>(useCase: UseCase<TVariables, TResult>, options: UseCaseOptions<TVariables, TResult>): [
