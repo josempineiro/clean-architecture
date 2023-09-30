@@ -1,5 +1,5 @@
 import { useMutation, useQuery } from "@tanstack/react-query";
-import { UseCase } from "@/core/domain/use-case";
+import { UseCase } from "@/core/domain/entities/use-case";
 
 export interface UseCaseOptions<TVariables, TResult> {
   key: string;

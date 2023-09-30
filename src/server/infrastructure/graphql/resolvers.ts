@@ -1,4 +1,4 @@
-import { Repository } from '@/core/domain/repository'
+import { Repository } from '@/core/domain/entities/repository'
 import { Product, create } from '@/ecommerce/domain/entities/product'
 import { Category } from '@/ecommerce/domain/entities/category'
 import { GetProductsUseCase } from '@/server/application/use-cases/get-products'

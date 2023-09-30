@@ -1,5 +1,5 @@
-import { Repository } from '@/core/domain/repository'
-import { Entity } from '@/core/domain/entity';
+import { Repository } from '@/core/domain/entities/repository'
+import { Entity } from '@/core/domain/entities/entity';
 
 export abstract class MockRepository<T extends Entity> implements Repository<T> {
   private data: T[] = []

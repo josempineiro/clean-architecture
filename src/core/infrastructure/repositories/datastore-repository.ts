@@ -1,9 +1,22 @@
-import { Repository } from '@/core/domain/repository'
-import { Entity } from '@/core/domain/entity';
+import { Repository } from '@/core/domain/entities/repository'
+import { Entity } from '@/core/domain/entities/entity';
 
 export class DatastoreRepository<T extends Entity> implements Repository<T>  {
   constructor(private key: string) {}
   
+  
+  public getEntities<T>(): T | undefined {
+    const data = localStorage.getItem(this.key)
+    if (data) {
+      return JSON.parse(data)
+    }
+    return undefined
+  }
+  
+  public setEntities<T>(data: T): T {
+    localStorage.setItem(this.key, JSON.stringify(data))
+    return data
+  }
   public create (entity: T)  {
     const entities = this.getEntities<Array<T>>() || []
     entities.push({
@@ -44,18 +57,5 @@ export class DatastoreRepository<T extends Entity> implements Repository<T>  {
   public findAll() {
     const entities = this.getEntities<Array<T>>() || []
     return Promise.resolve(entities)
-  }
-  
-  public getEntities<T>(): T | undefined {
-    const data = localStorage.getItem(this.key)
-    if (data) {
-      return JSON.parse(data)
-    }
-    return undefined
-  }
-  
-  public setEntities<T>(data: T): T {
-    localStorage.setItem(this.key, JSON.stringify(data))
-    return data
   }
 }

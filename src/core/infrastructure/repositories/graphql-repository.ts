@@ -1,7 +1,4 @@
-
-import { Product, create } from '@/ecommerce/domain/entities/product'
-import { Repository } from '@/core/domain/repository';
-import { getSdk } from '@/ecommerce/infrastructure/graphql/generated/client';
+import { Repository } from '@/core/domain/entities/repository';
 import { GraphQLClient } from 'graphql-request';
 import { GraphQLMapper } from '@/core/infrastructure/mappers/graphql-mapper';
 

@@ -1,15 +1,3 @@
-export * from './domain/repository'
-export * from './domain/entity'
-/**
-export * from './domain/ValueObject'
-export * from './domain/AggregateRoot'
-export * from './domain/Event'
-export * from './domain/EventBus'
-export * from './domain/EventStore'
-export * from './domain/EventStream'
-export * from './domain/EventSubscriber'
-export * from './domain/EventPublisher'
-export * from './domain/Command'
-export * from './domain/CommandBus'
-export * from './domain/CommandHandler'
-**/
+export * from '@/core/domain/entities/repository'
+export * from '@/core/domain/entities/entity'
+

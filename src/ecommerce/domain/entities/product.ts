@@ -1,4 +1,4 @@
-import { Entity } from '@/core'
+import { Entity } from '@/core/domain/entities/entity'
 import { Category } from '@/ecommerce/domain/entities/category'
 
 export interface Price {

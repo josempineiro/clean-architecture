@@ -1,0 +1,277 @@
+{
+  "nodes": [
+    {
+      "group": "client",
+      "id": "@/client/application",
+      "name": "ClientApplication",
+      "module": "client",
+      "layer": "application",
+      "type": "application",
+      "value": 1
+    },
+    {
+      "id": "@/client/application/use-cases/create-product",
+      "name": "CreateProduct",
+      "module": "client",
+      "layer": "application",
+      "type": "use-cases",
+      "external": false,
+      "value": 1
+    },
+    {
+      "id": "@/core/domain/entities/repository",
+      "name": "Repository",
+      "module": "core",
+      "layer": "domain",
+      "type": "entities",
+      "external": false,
+      "value": 5
+    },
+    {
+      "id": "@/ecommerce/domain/entities/product",
+      "name": "Product",
+      "module": "ecommerce",
+      "layer": "domain",
+      "type": "entities",
+      "external": false,
+      "value": 6
+    },
+    {
+      "id": "@/core/domain/entities/entity",
+      "name": "Entity",
+      "module": "core",
+      "layer": "domain",
+      "type": "entities",
+      "external": false,
+      "value": 7
+    },
+    {
+      "id": "@/ecommerce/domain/entities/category",
+      "name": "Category",
+      "module": "ecommerce",
+      "layer": "domain",
+      "type": "entities",
+      "external": false,
+      "value": 6
+    },
+    {
+      "id": "@/ecommerce/application/use-cases/create-product",
+      "name": "CreateProduct",
+      "module": "ecommerce",
+      "layer": "application",
+      "type": "use-cases",
+      "external": false,
+      "value": 1
+    },
+    {
+      "id": "@/core/domain/entities/use-case",
+      "name": "UseCase",
+      "module": "core",
+      "layer": "domain",
+      "type": "entities",
+      "external": false,
+      "value": 2
+    },
+    {
+      "id": "@/client/application/use-cases/get-products",
+      "name": "GetProducts",
+      "module": "client",
+      "layer": "application",
+      "type": "use-cases",
+      "external": false,
+      "value": 1
+    },
+    {
+      "id": "@/ecommerce/application/use-cases/get-products",
+      "name": "GetProducts",
+      "module": "ecommerce",
+      "layer": "application",
+      "type": "use-cases",
+      "external": false,
+      "value": 1
+    },
+    {
+      "id": "@/client/infrastructure/repositories/products-datastore-repository",
+      "name": "ProductsDatastoreRepository",
+      "module": "client",
+      "layer": "infrastructure",
+      "type": "repositories",
+      "external": false,
+      "value": 1
+    },
+    {
+      "id": "@/core/infrastructure/repositories/datastore-repository",
+      "name": "DatastoreRepository",
+      "module": "core",
+      "layer": "infrastructure",
+      "type": "repositories",
+      "external": false,
+      "value": 1
+    },
+    {
+      "id": "@/client/infrastructure/repositories/products-graphql-repository",
+      "name": "ProductsGraphqlRepository",
+      "module": "client",
+      "layer": "infrastructure",
+      "type": "repositories",
+      "external": false,
+      "value": 1
+    },
+    {
+      "id": "@/core/infrastructure/repositories/graphql-repository",
+      "name": "GraphqlRepository",
+      "module": "core",
+      "layer": "infrastructure",
+      "type": "repositories",
+      "external": false,
+      "value": 1
+    },
+    {
+      "id": "graphql-request",
+      "name": "GraphqlRequest",
+      "external": true,
+      "value": 1
+    },
+    {
+      "id": "@/core/infrastructure/mappers/graphql-mapper",
+      "name": "GraphqlMapper",
+      "module": "core",
+      "layer": "infrastructure",
+      "type": "mappers",
+      "external": false,
+      "value": 1
+    },
+    {
+      "id": "@/client/infrastructure/graphql/generated",
+      "name": "Generated",
+      "module": "client",
+      "layer": "infrastructure",
+      "type": "graphql",
+      "external": false,
+      "value": 2
+    },
+    {
+      "id": "@/client/infrastructure/mappers/product-graphql-mapper",
+      "name": "ProductGraphqlMapper",
+      "module": "client",
+      "layer": "infrastructure",
+      "type": "mappers",
+      "external": false,
+      "value": 1
+    }
+  ],
+  "links": [
+    {
+      "target": "@/client/application",
+      "source": "@/client/application/use-cases/create-product"
+    },
+    {
+      "target": "@/client/application/use-cases/create-product",
+      "source": "@/core/domain/entities/repository"
+    },
+    {
+      "target": "@/client/application/use-cases/create-product",
+      "source": "@/ecommerce/domain/entities/product"
+    },
+    {
+      "target": "@/ecommerce/domain/entities/product",
+      "source": "@/core/domain/entities/entity"
+    },
+    {
+      "target": "@/ecommerce/domain/entities/product",
+      "source": "@/ecommerce/domain/entities/category"
+    },
+    {
+      "target": "@/client/application/use-cases/create-product",
+      "source": "@/ecommerce/application/use-cases/create-product"
+    },
+    {
+      "target": "@/ecommerce/application/use-cases/create-product",
+      "source": "@/core/domain/entities/use-case"
+    },
+    {
+      "target": "@/ecommerce/application/use-cases/create-product",
+      "source": "@/core/domain/entities/repository"
+    },
+    {
+      "target": "@/ecommerce/application/use-cases/create-product",
+      "source": "@/ecommerce/domain/entities/product"
+    },
+    {
+      "target": "@/client/application",
+      "source": "@/client/application/use-cases/get-products"
+    },
+    {
+      "target": "@/client/application/use-cases/get-products",
+      "source": "@/core/domain/entities/repository"
+    },
+    {
+      "target": "@/client/application/use-cases/get-products",
+      "source": "@/ecommerce/domain/entities/product"
+    },
+    {
+      "target": "@/client/application/use-cases/get-products",
+      "source": "@/ecommerce/application/use-cases/get-products"
+    },
+    {
+      "target": "@/ecommerce/application/use-cases/get-products",
+      "source": "@/core/domain/entities/use-case"
+    },
+    {
+      "target": "@/ecommerce/application/use-cases/get-products",
+      "source": "@/ecommerce/domain/entities/product"
+    },
+    {
+      "target": "@/client/application",
+      "source": "@/client/infrastructure/repositories/products-datastore-repository"
+    },
+    {
+      "target": "@/client/infrastructure/repositories/products-datastore-repository",
+      "source": "@/ecommerce/domain/entities/product"
+    },
+    {
+      "target": "@/client/infrastructure/repositories/products-datastore-repository",
+      "source": "@/core/infrastructure/repositories/datastore-repository"
+    },
+    {
+      "target": "@/core/infrastructure/repositories/datastore-repository",
+      "source": "@/core/domain/entities/repository"
+    },
+    {
+      "target": "@/core/infrastructure/repositories/datastore-repository",
+      "source": "@/core/domain/entities/entity"
+    },
+    {
+      "target": "@/client/application",
+      "source": "@/client/infrastructure/repositories/products-graphql-repository"
+    },
+    {
+      "target": "@/client/infrastructure/repositories/products-graphql-repository",
+      "source": "@/core/infrastructure/repositories/graphql-repository"
+    },
+    {
+      "target": "@/core/infrastructure/repositories/graphql-repository",
+      "source": "@/core/domain/entities/repository"
+    },
+    {
+      "target": "@/core/infrastructure/repositories/graphql-repository",
+      "source": "graphql-request"
+    },
+    {
+      "target": "@/core/infrastructure/repositories/graphql-repository",
+      "source": "@/core/infrastructure/mappers/graphql-mapper"
+    },
+    {
+      "target": "@/client/infrastructure/repositories/products-graphql-repository",
+      "source": "@/client/infrastructure/graphql/generated"
+    },
+    {
+      "target": "@/client/infrastructure/repositories/products-graphql-repository",
+      "source": "@/ecommerce/domain/entities/product"
+    },
+    {
+      "target": "@/client/infrastructure/repositories/products-graphql-repository",
+      "source": "@/client/infrastructure/mappers/product-graphql-mapper"
+    }
+  ]
+}

@@ -1,17 +1,10 @@
-'use client'
-import { Application } from '@/core/domain/application'
 import ApplicationContextProvider, { useApplicationContext } from '@/core/infrastructure/contexts/application-context'
 import { CreateProductClientUseCase } from '@/client/application/use-cases/create-product';
 import { GetProductsClientUseCase } from '@/client/application/use-cases/get-products'
 import { ProductsRepository } from '@/ecommerce/domain/repositories/products-repository';
 import { QueryClientProvider, QueryClient } from "@tanstack/react-query"
+import { EcommerceApplication } from '@/ecommerce/application';
 
-interface EcommerceClientApplication extends Application {
-  useCases: {
-    getProducts: GetProductsClientUseCase,
-    createProduct: CreateProductClientUseCase,
-  }
-}
 
 const client = new QueryClient({
   defaultOptions: {
@@ -23,7 +16,7 @@ const client = new QueryClient({
 })
 
 export function useEcommerceApplication() {
-  return useApplicationContext<EcommerceClientApplication>()
+  return useApplicationContext<EcommerceApplication>()
 }
 
 export default function EcommerceApplicationProvider({
@@ -37,7 +30,7 @@ export default function EcommerceApplicationProvider({
 }) {
   return (
     <QueryClientProvider client={client}>
-      <ApplicationContextProvider<EcommerceClientApplication> application={{
+      <ApplicationContextProvider<EcommerceApplication> application={{
         useCases: {
           getProducts: new GetProductsClientUseCase({
             productsRepository: repositories.productsRepository

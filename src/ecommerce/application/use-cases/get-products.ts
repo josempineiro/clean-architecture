@@ -1,4 +1,4 @@
-import { UseCase } from '@/core/domain/use-case'
+import { UseCase } from '@/core/domain/entities/use-case'
 import { Product } from '@/ecommerce/domain/entities/product'
 
 

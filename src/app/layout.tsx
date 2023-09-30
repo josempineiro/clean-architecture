@@ -21,7 +21,7 @@ export default function RootLayout({
           </div>
         </header>
         <DevEcommerceApplicationProvider>
-          <div className="mx-auto max-w-7xl pt-20">
+          <div className="h-screen w-screen pt-20">
             {children}
           </div>
         </DevEcommerceApplicationProvider>

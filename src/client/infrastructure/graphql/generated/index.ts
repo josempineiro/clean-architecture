@@ -1,5 +1,4 @@
 import { GraphQLClient } from 'graphql-request';
-import { GraphQLClientRequestHeaders } from 'graphql-request/build/cjs/types';
 import { print } from 'graphql'
 import gql from 'graphql-tag';
 export type Maybe<T> = T | null;
@@ -104,10 +103,10 @@ const CategoriesDocumentString = print(CategoriesDocument);
 const ProductsDocumentString = print(ProductsDocument);
 export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = defaultWrapper) {
   return {
-    categories(variables?: CategoriesQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<{ data: CategoriesQuery; extensions?: any; headers: Dom.Headers; status: number; }> {
+    categories(variables?: CategoriesQueryVariables, requestHeaders?: any): Promise<{ data: CategoriesQuery; extensions?: any; headers: Dom.Headers; status: number; }> {
         return withWrapper((wrappedRequestHeaders) => client.rawRequest<CategoriesQuery>(CategoriesDocumentString, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'categories', 'query');
     },
-    products(variables?: ProductsQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<{ data: ProductsQuery; extensions?: any; headers: Dom.Headers; status: number; }> {
+    products(variables?: ProductsQueryVariables, requestHeaders?: any): Promise<{ data: ProductsQuery; extensions?: any; headers: Dom.Headers; status: number; }> {
         return withWrapper((wrappedRequestHeaders) => client.rawRequest<ProductsQuery>(ProductsDocumentString, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'products', 'query');
     }
   };
