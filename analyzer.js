@@ -11,8 +11,8 @@ const tsHost = ts.createCompilerHost(
   true,
 );
 
-const entryFile = './src/client/infrastructure/context/index.ts'
-const entryId = '@/client/infrastructure/context/index'
+const entryFile = './src/client/infrastructure/context/ecommerce-application-context.tsx'
+const entryId = '@/client/infrastructure/context/ecommerce-application-context'
 
 const links = []
 const nodes = [{
@@ -20,8 +20,8 @@ const nodes = [{
   "id": entryId,
   "name": 'ClientApplication',
   "module": "client",
-  "layer": "infrastructure",
-  "type": "infrastructure",
+  "layer": "application",
+  "type": "application",
   "value": 1
 }]
 
@@ -38,8 +38,7 @@ function getImports(fileName, name) {
       },
     );
     if (!sourceFile) {
-      
-    return importing;
+      throw new Error(`Failed to parse ${fileName}: ${msg}`);
     }
     delintNode(sourceFile);
     return importing;
@@ -77,11 +76,13 @@ function getImports(fileName, name) {
           } catch (e) {
             try {
               getImports(moduleName.replace('@/', './src/') + '.tsx', moduleName);
-            } catch (e) {            try {
-              getImports(moduleName.replace('@/', './src/') + '/index.ts', moduleName);
             } catch (e) {
-              getImports(moduleName.replace('@/', './src/'), moduleName);
-            }
+              try {
+                getImports(moduleName.replace('@/', './src/') + '/index.ts', moduleName);
+              } catch (e) {
+                console.log('NOT FOUND')
+                getImports(moduleName.replace('@/', './src/'), moduleName);
+              }
             }
           }
         }
@@ -90,8 +91,12 @@ function getImports(fileName, name) {
       };
     }
 }
+try {
 
-getImports(entryFile, entryId)
+  getImports(entryFile, entryId)
+} catch (e) {
+  console.log(e)
+}
 
 const groupByIds = _.groupBy(nodes, 'id')
 

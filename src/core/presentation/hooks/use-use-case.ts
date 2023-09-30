@@ -19,7 +19,7 @@ export function useUseCaseQuery<TVariables, TResult>(useCase: UseCase<TVariables
   const query = useQuery([
     key,
     variables
-  ], () => variables ? useCase.execute(variables) : useCase.execute(), {
+  ], () => useCase.execute(variables as TVariables), {
     onError,
   });
   return {

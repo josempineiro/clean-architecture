@@ -48,6 +48,8 @@ const resolvers: Resolvers<{
     createProduct: async (_, { input }) => {
       products.unshift(create({
         ...input,
+        categories: [],
+        price: undefined
       }))
       return products[0]
     }
