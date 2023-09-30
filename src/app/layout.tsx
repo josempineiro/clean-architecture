@@ -1,8 +1,8 @@
 import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
-import DevEcommerceApplicationProvider from '@/client/infrastructure/context/dev-ecommerce-application-context'
-import { ProductsDatastoreRepository } from '@/client/infrastructure/repositories/products-datastore-repository'
+import EcommerceApplicationProvider from '@/client/infrastructure/context/ecommerce-application-context'
+import devEcommerceApplication from '@/client/infrastructure/context/dev-ecommerce-application'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -15,16 +15,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <header className="fixed top-0 w-full h-20 bg-teal-800 flex items-center">
-          <div className="mx-auto max-w-7xl w-full">
-            App header
-          </div>
-        </header>
-        <DevEcommerceApplicationProvider>
-          <div className="h-screen w-screen pt-20">
+        <EcommerceApplicationProvider application={devEcommerceApplication}>
+          <div className="h-screen w-screen">
             {children}
           </div>
-        </DevEcommerceApplicationProvider>
+        </EcommerceApplicationProvider>
       </body>
     </html>
   )

@@ -1,9 +1,8 @@
-import ProductiveEcommerceApplicationProvider from '@/client/infrastructure/context/productive-ecommerce-application-context'
-import DevEcommerceApplicationProvider from '@/client/infrastructure/context/dev-ecommerce-application-context'
-import EcommerceApplicationProvider from '@/client/infrastructure/context/ecommerce-application-context'
+import productiveEcommerceApplication from '@/client/infrastructure/context/productive-ecommerce-application'
+import devEcommerceApplication from '@/client/infrastructure/context/dev-ecommerce-application'
 
-const CurrentEcommerceApplicationProvider = process.env.NODE_ENV === 'production'
-  ? ProductiveEcommerceApplicationProvider
-  : DevEcommerceApplicationProvider
+const currentEcommerceApplicationProvider = process.env.NODE_ENV === 'production'
+  ? productiveEcommerceApplication
+  : devEcommerceApplication
 
-export default CurrentEcommerceApplicationProvider
+export default currentEcommerceApplicationProvider

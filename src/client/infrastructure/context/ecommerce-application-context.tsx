@@ -1,7 +1,5 @@
+'use client'
 import ApplicationContextProvider, { useApplicationContext } from '@/core/infrastructure/contexts/application-context'
-import { CreateProductClientUseCase } from '@/client/application/use-cases/create-product';
-import { GetProductsClientUseCase } from '@/client/application/use-cases/get-products'
-import { ProductsRepository } from '@/ecommerce/domain/repositories/products-repository';
 import { QueryClientProvider, QueryClient } from "@tanstack/react-query"
 import { EcommerceApplication } from '@/ecommerce/application';
 
@@ -21,25 +19,14 @@ export function useEcommerceApplication() {
 
 export default function EcommerceApplicationProvider({
   children,
-  repositories,
+  application,
 }: {
   children: React.ReactNode,
-  repositories: {
-    productsRepository: ProductsRepository
-  }
+  application: EcommerceApplication
 }) {
   return (
     <QueryClientProvider client={client}>
-      <ApplicationContextProvider<EcommerceApplication> application={{
-        useCases: {
-          getProducts: new GetProductsClientUseCase({
-            productsRepository: repositories.productsRepository
-          }),
-          createProduct: new CreateProductClientUseCase({
-            productsRepository: repositories.productsRepository
-          })
-        }
-      }}>
+      <ApplicationContextProvider<EcommerceApplication> application={application}>
         {children}
       </ApplicationContextProvider>
     </QueryClientProvider>

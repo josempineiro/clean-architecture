@@ -4,4 +4,4 @@ import { Product } from '@/ecommerce/domain/entities/product'
 
 export interface GetProductsVariables {}
 
-export interface GetProductsUseCase extends UseCase<undefined, Product[]> {}
+export interface GetProductsUseCase extends UseCase<void, Product[]> {}
