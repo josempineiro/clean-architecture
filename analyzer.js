@@ -108,7 +108,7 @@ const uniqNodes = _.uniqBy(nodes, 'id').map((node) => ({
 
 const linksModule = uniqLinks.map((link) => ({
   target: link.target.split('/').slice(1, 2).join('/'),
-  source: link.source.split('/').slice(1, 2).join('/') || 'external',
+  source: link.external ? link.source.split('/').slice(1, 3).join('/') : link.source.split('/').slice(1, 2).join('/'),
 }))
 
 const linksByModule = _.uniqBy(linksModule, (link) => link.source + link.target).map((link) => ({
@@ -119,7 +119,7 @@ const linksByModule = _.uniqBy(linksModule, (link) => link.source + link.target)
 
 const linksLayer = uniqLinks.map((link) => ({
   target: link.target.split('/').slice(2, 3).join('/'),
-  source: link.source.split('/').slice(2, 3).join('/') || 'external',
+  source: link.external ? 'external' : link.source.split('/').slice(2, 3).join('/')
 }))
 const linksByLayer = _.uniqBy(linksLayer, (link) => link.source + link.target).map((link) => ({
   ...link,
@@ -212,7 +212,7 @@ fs.writeFileSync(
     },
     layersAndModules: {
       nodes: Object.entries(_.groupBy(uniqNodes, (node) => node.module + '/' + node.layer)).map(([moduleLayer, nodes]) => ({
-        id: moduleLayer.endsWith('external') ?  moduleLayer.split('/').reverse().join('/'): moduleLayer,
+        id: moduleLayer.endsWith('external') ?  `external/` + moduleLayer.split('/').filter(path => path !== 'external').join('/') : moduleLayer,
         name:  moduleLayer,
         layer: moduleLayer.split('/')[1],
         module: moduleLayer.split('/')[0],
