@@ -25,28 +25,28 @@ useEffect(() => {
     .graphData(data[groupBy])
     .nodeColor(node => {
       if (groupBy === 'layers') {
-        if (node.layer.match(/domain/)) {
-          return 'yellow'
+        if (node.id.match(/domain/)) {
+          return '#a3e635'
         }
-        if (node.layer.match(/infrastructure/)) {
-          return 'green'
+        if (node.id.match(/infrastructure/)) {
+          return '#ef4444'
         }
-        if (node.layer.match(/application/)) {
-          return 'red'
+        if (node.id.match(/application/)) {
+          return '#facc15'
         }
-        return 'blue'
+        return '#60a5fa'
       }
       if (groupBy === 'modules') {
-        if (node.id.match(/client/)) {
-          return 'yellow'
-        }
         if (node.id.match(/core/)) {
-          return 'green'
+          return '#a3e635'
+        }
+        if (node.id.match(/client/)) {
+          return '#ef4444'
         }
         if (node.id.match(/ecommerce/)) {
-          return 'red'
+          return '#facc15'
         }
-        return 'blue'
+        return '#60a5fa'
       }
       if (groupBy === 'layersAndModules' || groupBy === 'imports' || groupBy === 'files') {
         if (node.id.match(/client/)) {
