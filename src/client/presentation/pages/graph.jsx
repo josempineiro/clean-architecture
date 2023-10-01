@@ -7,7 +7,7 @@ import data from "@/../imports.json";
 
 const Graph = () => {
   const [vision, setVision] = useState('3d')
-  const [groupBy, setGroupBy] = useState('layers')
+  const [groupBy, setGroupBy] = useState('imports')
   const ref = useRef(null);
   const wrapperRef = useRef(null);
 
@@ -107,7 +107,7 @@ useEffect(() => {
           }
           if (target.match(/application/)) {
             return '#ca8a04'
-          }
+          } 
           return '#2563eb'
         })
         .linkDirectionalArrowLength(3)
