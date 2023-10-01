@@ -1,3 +1,4 @@
+import { Entity } from '@/core/domain'
 import { Category } from '@/ecommerce/domain/entities/category'
 
 export interface Price {
@@ -5,7 +6,7 @@ export interface Price {
   currency: string
 }
 
-export interface Product {
+export interface Product extends Entity {
   __typename: 'Product'
   id: string
   name: string
