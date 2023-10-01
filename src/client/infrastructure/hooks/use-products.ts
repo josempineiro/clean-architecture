@@ -1,4 +1,4 @@
-import { Product } from '@/ecommerce/domain/entities/product';
+import { Product } from '@/ecommerce/domain';
 import { useUseCaseQuery, UseCaseOptions, UseCaseResults } from '@/core/presentation/hooks/use-use-case';
 import { useEcommerceApplication } from "@/client/infrastructure/context/ecommerce-application-context"
 

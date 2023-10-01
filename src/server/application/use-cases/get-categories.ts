@@ -1,5 +1,4 @@
-import { Category } from '@/ecommerce/domain/entities/category'
-import { CategoriesRepository } from '@/ecommerce/domain/repositories/categories-repository'
+import { Category, CategoriesRepository } from '@/ecommerce/domain'
 
 export interface GetCategories {
   execute(): Promise<Category[]>

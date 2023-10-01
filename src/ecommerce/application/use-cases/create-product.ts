@@ -1,9 +1,12 @@
-import { UseCase } from '@/core/domain/entities/use-case'
-import { Repository } from '@/core/domain/entities/repository'
-import { Product } from '@/ecommerce/domain/entities/product'
+import { UseCase } from '@/core/domain'
+import { Repository } from '@/core/domain'
+import { Product } from '@/ecommerce/domain'
 
+export type CreateProductParams = Product
+export type CreateProductResult = Product
 export type CreateProductDependencies = {
   productsRepository: Repository<Product>
 }
 
-export interface CreateProductUseCase extends UseCase<Product, Product> {}
+
+export interface CreateProductUseCase extends UseCase<CreateProductParams, CreateProductResult> {}

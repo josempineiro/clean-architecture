@@ -1,7 +1,7 @@
 
 import { GraphqlRepository } from '@/core/infrastructure/repositories/graphql-repository'
 import { Product as ProductGraphql } from '@/client/infrastructure/graphql/generated'
-import { Product as ProductDomain, create } from '@/ecommerce/domain/entities/product'
+import { Product as ProductDomain, create } from '@/ecommerce/domain'
 import { ProductGraphQLMapper } from '@/client/infrastructure/mappers/product-graphql-mapper';
 import { getSdk } from '@/client/infrastructure/graphql/generated';
 

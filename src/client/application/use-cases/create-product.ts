@@ -1,6 +1,5 @@
-import { Product } from '@/ecommerce/domain/entities/product'
-import { ProductsRepository } from '@/ecommerce/domain/repositories/products-repository'
-import { CreateProductUseCase } from '@/ecommerce/application/use-cases/create-product'
+import { ProductsRepository } from '@/ecommerce/domain'
+import type { CreateProductUseCase, CreateProductParams, CreateProductResult } from '@/ecommerce/application'
 
 export type CreateProductClientUseCaseDependencies = {
   productsRepository:ProductsRepository
@@ -11,7 +10,7 @@ export class CreateProductClientUseCase implements CreateProductUseCase {
     private readonly dependencies: CreateProductClientUseCaseDependencies
   ) {}
 
-  async execute(product: Product): Promise<Product> {
+  async execute(product: CreateProductParams): Promise<CreateProductResult> {
     return await this.dependencies.productsRepository.create(product)
   }
 }

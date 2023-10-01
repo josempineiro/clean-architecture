@@ -1,5 +1,5 @@
-import { UseCase } from '@/core/domain/entities/use-case'
-import { Product } from '@/ecommerce/domain/entities/product'
+import { UseCase } from '@/core/domain'
+import { Product } from '@/ecommerce/domain'
 
 
 export interface GetProductsVariables {}

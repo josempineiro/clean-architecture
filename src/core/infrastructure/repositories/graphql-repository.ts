@@ -1,4 +1,4 @@
-import { Repository } from '@/core/domain/entities/repository';
+import { Repository } from '@/core/domain';
 import { GraphQLClient } from 'graphql-request';
 import { GraphQLMapper } from '@/core/infrastructure/mappers/graphql-mapper';
 

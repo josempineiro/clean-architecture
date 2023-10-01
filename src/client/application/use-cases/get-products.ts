@@ -1,6 +1,5 @@
-import { Product } from '@/ecommerce/domain/entities/product'
-import { ProductsRepository } from '@/ecommerce/domain/repositories/products-repository'
-import { GetProductsUseCase } from '@/ecommerce/application/use-cases/get-products'
+import { Product, ProductsRepository } from '@/ecommerce/domain'
+import { GetProductsUseCase } from '@/ecommerce/application'
 
 export type GetProductsClientUseCaseDependencies = {
   productsRepository: ProductsRepository

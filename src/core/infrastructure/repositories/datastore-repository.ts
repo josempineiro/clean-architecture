@@ -1,5 +1,4 @@
-import { Repository } from '@/core/domain/entities/repository'
-import { Entity } from '@/core/domain/entities/entity';
+import { Repository, Entity } from '@/core/domain';
 
 export class DatastoreRepository<T extends Entity> implements Repository<T>  {
   constructor(private key: string) {}

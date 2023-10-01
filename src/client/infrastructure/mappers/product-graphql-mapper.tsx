@@ -1,5 +1,5 @@
 import { Product as ProductGraphql } from '@/client/infrastructure/graphql/generated'
-import { Product as ProductDomain } from '@/ecommerce/domain/entities/product'
+import { Product as ProductDomain } from '@/ecommerce/domain'
 import { GraphQLMapper } from "@/core/infrastructure/mappers/graphql-mapper";
 
 export class ProductGraphQLMapper extends GraphQLMapper<ProductGraphql, ProductDomain> {

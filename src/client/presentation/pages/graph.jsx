@@ -51,41 +51,41 @@ useEffect(() => {
       if (groupBy === 'layersAndModules' || groupBy === 'imports' || groupBy === 'files') {
         if (node.id.match(/client/)) {
               if (node.id.match(/domain/)) {
-                return 'rgba(255,255,127,0.33)'
+                return '#65a30d'
               }
               if (node.id.match(/infrastructure/)) {
-                return 'rgba(38, 194, 129, 0.33)'
+                return '#b91c1c'
               }
               if (node.id.match(/application/)) {
-                return 'rgba(255, 76, 48, 0.33)'
+                return '#ca8a04'
               }
-              return 'rgba(76, 48, 255, 0.33)'
+              return '#2563eb'
             }
             if (node.id.match(/core/)) {
               if (node.id.match(/domain/)) {
-                return 'rgba(255,255,127,1)'
+                return '#d9f99d'
               }
               if (node.id.match(/infrastructure/)) {
-                return 'rgba(38, 194, 129, 1)'
+                return '#fecaca'
               }
               if (node.id.match(/application/)) {
-                return 'rgba(255, 76, 48, 1)'
+                return '#fef08a'
               }
-              return 'rgba(76, 48, 255, 1)'
+              return '#bfdbfe'
             }
             if (node.id.match(/ecommerce/)) {
               if (node.id.match(/domain/)) {
-                return 'rgba(255,255,127,0.66)'
+                return '#a3e635'
               }
               if (node.id.match(/infrastructure/)) {
-                return 'rgba(38, 194, 129, 0.66)'
+                return '#ef4444'
               }
               if (node.id.match(/application/)) {
-                return 'rgba(255, 76, 48, 0.66)'
+                return '#facc15'
               }
-              return 'rgba(76, 48, 255, 0.66)'
+              return '#60a5fa'
             }
-            return 'rgba(76, 48, 255, 1)'
+            return '#1e3a8a'
           }
         })
         .nodeLabel(node => `${node.name}${node.external?' (external)':''}`)
@@ -99,17 +99,16 @@ useEffect(() => {
         })
         .linkColor((link) =>{
           const target = link.target.id || link.target || ''
-
           if (target.match(/domain/)) {
-            return 'rgba(255,255,127,0.66)'
+            return '#65a30d'
           }
           if (target.match(/infrastructure/)) {
-            return 'rgba(38, 194, 129, 0.66)'
+            return '#b91c1c'
           }
           if (target.match(/application/)) {
-            return 'rgba(255, 76, 48, 0.66)'
+            return '#ca8a04'
           }
-          return 'blue'
+          return '#2563eb'
         })
         .linkDirectionalArrowLength(3)
         .linkWidth(2)

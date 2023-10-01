@@ -1,5 +1,4 @@
-import { Product } from '@/ecommerce/domain/entities/product'
-import { ProductsRepository } from '@/ecommerce/domain/repositories/products-repository'
+import { Product, ProductsRepository } from '@/ecommerce/domain'
 
 export interface GetProducts {
   execute(): Promise<Product[]>

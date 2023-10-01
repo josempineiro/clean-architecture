@@ -1,6 +1,6 @@
 'use client'
 import React, { createContext } from 'react';
-import { Application } from '@/core/domain/entities/application';
+import { Application } from '@/core/domain';
 
 export interface ApplicationContextValue<TApplication extends Application> {
   application: TApplication;

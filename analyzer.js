@@ -44,7 +44,7 @@ function getImports(fileName, name) {
     return importing;
 
     function delintNode(node) {
-      if (ts.isImportDeclaration(node)) {
+      if (ts.isImportDeclaration(node) || ts.isExportDeclaration(node)) {
         const moduleName = node.moduleSpecifier.getText().replace(/['"]/g, '');
         if (
           !moduleName.startsWith('node:') &&
@@ -80,7 +80,7 @@ function getImports(fileName, name) {
               try {
                 getImports(moduleName.replace('@/', './src/') + '/index.ts', moduleName);
               } catch (e) {
-                console.log('NOT FOUND')
+                console.log('NOT FOUND', moduleName)
                 getImports(moduleName.replace('@/', './src/'), moduleName);
               }
             }
@@ -190,7 +190,10 @@ fs.writeFileSync(
       })(),
     },
     imports: {
-      nodes: uniqNodes,
+      nodes: uniqNodes.map((node) => ({
+        ...node,
+        name: node.module + '/' + node.layer + '/' + node.name,
+      })),
       links: uniqLinks,
     },
     modules: {

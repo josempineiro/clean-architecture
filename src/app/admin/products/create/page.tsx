@@ -1,6 +1,6 @@
 'use client'
 import Link from "next/link";
-import { create } from "@/ecommerce/domain/entities/product"
+import { create } from "@/ecommerce/domain"
 import { Form, Field, TextField } from "@/core/presentation/components/forms";
 import { useCreateProduct } from "@/client/infrastructure/hooks/use-create-product";
 

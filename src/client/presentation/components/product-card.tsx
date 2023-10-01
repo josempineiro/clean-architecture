@@ -1,4 +1,4 @@
-import { Product } from '@/ecommerce/domain/entities/product'
+import { Product } from '@/ecommerce/domain'
 
 export function ProductCard({
   product
