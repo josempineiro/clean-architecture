@@ -19,7 +19,7 @@ export interface FormContextValue<TFormValues extends FormValues> {
   values: TFormValues
   onChange: (values: TFormValues, event: React.ChangeEvent<HTMLFormElement>) => void
   onSubmit: (values: TFormValues, event: React.FormEvent) => void,
-  setFieldValue: <FieldValue>(field: string, value: FieldValue) => void,
+  setFieldValue: <FieldValue>(field: string, value: FieldValue, event: React.ChangeEvent<HTMLFormElement>) => void,
   getFieldValue: <FieldValue>(field: string) => FieldValue,
 }
 
@@ -41,11 +41,13 @@ export function Form<TFormValues extends FormValues>({
   ...rest
 }: FormProps<TFormValues>) {
   const [formValues, setTFormValues] = useState<TFormValues>(values)
-  function setFieldValue<FieldValue>(field: string, value: FieldValue) {
-    setTFormValues((formValues) => ({
+  function setFieldValue<FieldValue>(field: string, value: FieldValue, event: React.ChangeEvent<HTMLFormElement>) {
+    const newFormValues = {
       ...formValues,
       [field]: value,
-    }))
+    }
+    setTFormValues(newFormValues)
+    onChange(newFormValues, event)
   }
   function getFieldValue<FieldValue>(field: string): FieldValue {
     return formValues[field] as FieldValue
@@ -54,6 +56,7 @@ export function Form<TFormValues extends FormValues>({
     event.preventDefault()
     onSubmit(formValues, event)
   }
+
   return (
     <FormContext.Provider value={{
       values: formValues,

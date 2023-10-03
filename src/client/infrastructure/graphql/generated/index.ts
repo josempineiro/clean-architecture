@@ -103,11 +103,9 @@ const CategoriesDocumentString = print(CategoriesDocument);
 const ProductsDocumentString = print(ProductsDocument);
 export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = defaultWrapper) {
   return {
-    // @ts-ignore
     categories(variables?: CategoriesQueryVariables, requestHeaders?: any): Promise<{ data: CategoriesQuery; extensions?: any; headers: Dom.Headers; status: number; }> {
         return withWrapper((wrappedRequestHeaders) => client.rawRequest<CategoriesQuery>(CategoriesDocumentString, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'categories', 'query');
     },
-    // @ts-ignore
     products(variables?: ProductsQueryVariables, requestHeaders?: any): Promise<{ data: ProductsQuery; extensions?: any; headers: Dom.Headers; status: number; }> {
         return withWrapper((wrappedRequestHeaders) => client.rawRequest<ProductsQuery>(ProductsDocumentString, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'products', 'query');
     }

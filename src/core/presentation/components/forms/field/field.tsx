@@ -16,8 +16,8 @@ export function Field<TField>({
     label,
     name: field,
     value: form.getFieldValue<TField>(field),
-    onChange: (value: TField) => {
-      form.setFieldValue<TField>(field, value)
+    onChange: (value: TField, event: React.ChangeEvent<HTMLFormElement>) => {
+      form.setFieldValue<TField>(field, value, event)
     }
   })
 }

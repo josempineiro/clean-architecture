@@ -1,5 +1,5 @@
-import { Repository } from '@/core/domain';
 import { GraphQLClient } from 'graphql-request';
+import { Repository } from '@/core/domain';
 import { GraphQLMapper } from '@/core/infrastructure/mappers/graphql-mapper';
 
 export abstract class GraphqlRepository<T, S> implements Repository<T> {

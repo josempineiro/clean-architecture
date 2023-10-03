@@ -2,6 +2,6 @@ import { UseCase } from '@/core/domain'
 import { Product } from '@/ecommerce/domain'
 
 
-export interface GetProductsVariables {}
+export type GetProductsVariables = void
 
-export interface GetProductsUseCase extends UseCase<void, Product[]> {}
+export interface GetProductsUseCase extends UseCase<GetProductsVariables, Product[]> {}

@@ -1,15 +1,16 @@
 import { Product, ProductsRepository } from '@/ecommerce/domain'
+import { GetProductsUseCase } from '@/ecommerce/application'
 
-export interface GetProducts {
-  execute(): Promise<Product[]>
+export type CreateProductServerUseCaseDependencies = {
+  productsRepository: ProductsRepository
 }
 
-export class GetProductsUseCase implements GetProducts {
+export class GetProductsServerUseCase implements GetProductsUseCase {
   constructor(
-    private readonly productRepository: ProductsRepository
+    private readonly dependencies: CreateProductServerUseCaseDependencies
   ) {}
 
   async execute(): Promise<Product[]> {
-    return this.productRepository.findAll()
+    return this.dependencies.productsRepository.findAll()
   }
 }

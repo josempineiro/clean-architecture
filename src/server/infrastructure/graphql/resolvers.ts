@@ -1,14 +1,10 @@
-import { Repository } from '@/core/domain'
-import { Product, create } from '@/ecommerce/domain'
-import { Category } from '@/ecommerce/domain/entities/category'
-import { GetProductsUseCase } from '@/server/application/use-cases/get-products'
-import { GetCategoriesUseCase } from '@/server/application/use-cases/get-categories'
+import { Product, ProductsRepository, create } from '@/ecommerce/domain'
 import { Resolvers } from '@/server/infrastructure/graphql/generated'
+import { ServerApplicationUseCases } from "@/server/application"
 
 let products: Product[] = []
-const categories: Category[] = []
 
-const productsMockRepository: Repository<Product> = {
+const productsMockRepository: ProductsRepository = {
   findAll: () => Promise.resolve(products),
   findById: (id: string) => Promise.resolve(products.find(product => product.id === id)),
   create: (product: Product) => {
@@ -31,17 +27,11 @@ const productsMockRepository: Repository<Product> = {
 }
 
 const resolvers: Resolvers<{
-  useCases: {
-    getProducts: GetProductsUseCase
-    getCategories: GetCategoriesUseCase
-  }
+  useCases: ServerApplicationUseCases
 }> = {
   Query: {
     products: async (_, {}, context) => {
       return await context.useCases.getProducts.execute()
-    },
-    categories: async (_, {}, context) => {
-      return await context.useCases.getCategories.execute()
     }
   },
   Mutation: {

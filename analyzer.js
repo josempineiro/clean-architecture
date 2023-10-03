@@ -6,21 +6,47 @@ const ts = require('typescript');
 const config =require('./tsconfig.json');
 
 const tsHost = ts.createCompilerHost(
-  {...config,
-  },
+  config,
   true,
 );
+const entries = [
+  './src/client/infrastructure/context/ecommerce-application-context.tsx',
+  './src/server/infrastructure/graphql/graphql-application.ts',
+  './src/app/products/page.tsx',
+]
 
-const entryFile = './src/client/infrastructure/context/ecommerce-application-context.tsx'
-const entryId = '@/client/infrastructure/context/ecommerce-application-context'
+const filenameToNode = (filename) => {
+  const id =  filename.replace('./src', '@/').split('.')[0]
+  return {
+    id,
+    group: id.split('/')[1],
+    name: id.split('/').reverse()[0],
+    module: id.split('/')[2],
+    layer: id.startsWith('@/app') ? 'presentation' : id.split('/')[2],
+    type: id.split('/')[4],
+  }
+}
+
+const entryClientFile = './src/client/infrastructure/context/ecommerce-application-context.tsx'
+const entryClientId = '@/client/infrastructure/context/ecommerce-application-context'
+const entryServerFile = './src/server/infrastructure/graphql/graphql-application.ts'
+const entryServerId = '@/server/infrastructure/graphql/graphql-application'
 
 const links = []
-const nodes = [{
+const nodes = entries.map()[{
   "group": "client",
-  "id": entryId,
+  "id": entryClientId,
   "name": 'ClientApplication',
   "module": "client",
-  "layer": "application",
+  "layer": "infrastructure",
+  "type": "application",
+  "value": 1
+},{
+  "group": "server",
+  "id": entryServerId,
+  "name": 'ServerApplication',
+  "module": "server",
+  "layer": "infrastructure",
   "type": "application",
   "value": 1
 }]
@@ -45,6 +71,10 @@ function getImports(fileName, name) {
 
     function delintNode(node) {
       if (ts.isImportDeclaration(node) || ts.isExportDeclaration(node)) {
+        if (!node.moduleSpecifier.getText) {
+          console.log(node)
+          return
+        }
         const moduleName = node.moduleSpecifier.getText().replace(/['"]/g, '');
         if (
           !moduleName.startsWith('node:') &&
@@ -93,9 +123,11 @@ function getImports(fileName, name) {
 }
 try {
 
-  getImports(entryFile, entryId)
+  getImports(entryClientFile, entryClientId)
+  getImports(entryServerFile, entryServerId)
 } catch (e) {
   console.log(e)
+  throw 'error'
 }
 
 const groupByIds = _.groupBy(nodes, 'id')
