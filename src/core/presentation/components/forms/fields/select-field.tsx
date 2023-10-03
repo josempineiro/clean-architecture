@@ -1,6 +1,6 @@
 
 
-export interface Option<OptionValue> {
+export interface SelectOption<OptionValue> {
   label: string
   value: OptionValue
   disabled?: boolean
@@ -10,7 +10,7 @@ export interface SelectFieldProps<OptionValue> extends Omit<React.SelectHTMLAttr
   label?: string
   value?: string
   onChange?: (value: OptionValue | undefined, event: React.ChangeEvent<HTMLSelectElement>) => void
-  options: Option<OptionValue>[]
+  options: SelectOption<OptionValue>[]
 }
 export function SelectField({
   label,

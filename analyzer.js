@@ -237,7 +237,7 @@ fs.writeFileSync(
     },
     layersAndModules: {
       nodes: Object.entries(_.groupBy(uniqNodes, (node) => node.module + '/' + node.layer)).map(([moduleLayer, nodes]) => ({
-        id: moduleLayer.endsWith('external') ?  `external/` + moduleLayer.split('/').filter(path => path !== 'external').join('/') : moduleLayer,
+        id: moduleLayer.endsWith('external') ?  `external/external` : moduleLayer,
         name:  moduleLayer,
         layer: moduleLayer.split('/')[1],
         module: moduleLayer.split('/')[0],

@@ -6,6 +6,65 @@ import { useEffect, useState, useRef } from "react";
 import GraphSettingsForm from '@/client/presentation/components/architecture-graph/graph-settings-form';
 
 import data from "@/../imports.json";
+import { withRouter } from 'next/router';
+
+const colors = {
+  domain: '#ef4444',
+  application: '#fde047',
+  infrastructure: '#60a5fa',
+  presentation: '#65a30d',
+  client: '#3178c6',
+  ecommerce: '#65a30d',
+  server: '#f6069e',
+  core: '#f1dd35',
+  app: '#61DBFB'
+}
+
+const colorByLayer = (layer) => {
+  console.log(layer)
+  return colors[layer] || 'white'
+}
+
+const colorByModule = (module) => {
+  console.log(module)
+  return colors[module] || 'white'
+}
+
+const getModuleColorFromNodeId = (id) => {
+  if (id.match(/client/)) {
+    return colors.client
+  }
+  if (id.match(/ecommerce/)) {
+    return colors.ecommerce
+  }
+  if (id.match(/server/)) {
+    return colors.server
+  }
+  if (id.match(/core/)) {
+    return colors.core
+  }
+  if (id.match(/app/)) {
+    return colors.app
+  }
+  return 'white'
+}
+
+const getLayerColorFromNodeId = (id) => {
+  if (id.match(/domain/)) {
+    return '#ef4444'
+  }
+  if (id.match(/application/)) {
+    return '#fde047'
+  }
+  if (id.match(/infrastructure/)) {
+    return '#60a5fa'
+  }
+  if (id.match(/presentation/)) {
+    return '#65a30d'
+  }
+  return 'white'
+}
+
 
 const getDataByGroup = (groupBy, options) => {
   return {
@@ -16,21 +75,6 @@ const getDataByGroup = (groupBy, options) => {
   }
 }
 
-const nodeLayerColorByModule = (id) => {
-  if (id.match(/core/)) {
-    return "#1d4ed8"
-  }
-  if (id.match(/ecommerce/)) {
-    return '#eab308'
-  }
-  if (id.match(/client/)) {
-    return '#16a34a'
-  }
-  if (id.match(/server/)) {
-    return '#be123c'
-  }
-  return 'white'
-}
 const nodeLayerColorById = (id) => {
   if (id.match(/domain/)) {
     if (id.match(/core/)) {
@@ -194,14 +238,16 @@ const Graph = () => {
     groupBy: 'layers',
     options: {
       showInternalLinks: false,
-    }
+    },
+    palette: 'layers'
   })
   const {
     vision,
     groupBy,
     options: {
       showInternalLinks
-    }
+    },
+    palette,
   } = settings
   
   const ref = useRef(null);
@@ -232,27 +278,24 @@ useEffect(() => {
       })())
       .nodeColor(node => {
         if (groupBy === 'layers') {
-          if (node.id.match(/domain/)) {
-            return '#60a5fa'
-          }
-          if (node.id.match(/application/)) {
-            return '#fde047'
-          }
-          if (node.id.match(/infrastructure/)) {
-            return '#ef4444'
-          }
-          if (node.id.match(/presentation/)) {
-            return '#65a30d'
-          }
-          return 'white'
+          return colorByLayer(node.layer)
         }
-        if (groupBy === 'modules') {
-          return nodeLayerColorByModule(node.id)
+        if (groupBy === 'modules'){
+          return colorByModule(node.id)
         }
-        if (groupBy === 'layersAndModules' || groupBy === 'imports' || groupBy === 'files') {
-          return nodeLayerColorById(node.id)
+        if (groupBy === 'files') {
+          return getModuleColorFromNodeId(node.id)
         }
-        })
+        if (groupBy === 'imports') {
+          return getModuleColorFromNodeId(node.id)
+        }
+        if (groupBy === 'layersAndModules') {
+          if (palette === 'layers') {
+            return getLayerColorFromNodeId(node.id)
+          }
+          return getModuleColorFromNodeId(node.id)
+        }
+      })
         .nodeLabel(node => `${node.name}${node.external?' (external)':''}`)
         .nodeVal(node => 4)
         .backgroundColor('#000000')
@@ -260,9 +303,21 @@ useEffect(() => {
           const target = link.target.id || link.target || ''
           const source = link.source.id || link.source || ''
           if (groupBy === 'modules') {
-            return nodeLayerColorByModule(source)
+            return getModuleColorFromNodeId(source)
           }
-          if (groupBy === 'layers' || groupBy === 'imports') {
+          if (groupBy === 'layers') {
+            return getLayerColorFromNodeId(source)
+          }
+          if (groupBy === 'files') {
+            return getModuleColorFromNodeId(source)
+          }
+          if (groupBy === 'layersAndModules') {
+            if (palette === 'layers') {
+              return getLayerColorFromNodeId(source)
+            }
+            return getModuleColorFromNodeId(source)
+          }
+          if (groupBy === 'imports') {
             if (target.match(/client/)) {
               if (target.match(/domain/)) {
                 return '#60a5fa'
@@ -342,7 +397,7 @@ useEffect(() => {
         .linkDirectionalParticleSpeed=(d => 0.001)
         
     }
-  }, [groupBy, showInternalLinks, vision]);
+  }, [groupBy, palette, showInternalLinks, vision]);
   return <div className={"h-full flex-1 overflow-hidden"} ref={wrapperRef}>
     <header className="absolute top-0 left-0 w-full z-10 flex py-4 px-20 gap-20">
       <GraphSettingsForm values={settings} onChange={setSettings} />

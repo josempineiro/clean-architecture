@@ -1,5 +1,5 @@
 import {  useState } from "react";
-import { Form, Field, TextField, SelectField, CheckboxesField, FormProps } from "@/core/presentation/components/forms";
+import { Form, Field, RadioGroupField, SelectField, CheckboxesField, FormProps } from "@/core/presentation/components/forms";
 
 interface GraphSettings {
   vision: '2d' | '3d'
@@ -43,6 +43,15 @@ const options = [{
   value: 'showInternalLinks'
 }]
 
+const palette = [{
+  label: 'Layer',
+  value: 'layers'
+}, {
+  
+    label: 'Module',
+    value: 'modules'
+}]
+
 
 const GraphSettingsForm = ({ onChange, values}: FormProps<GraphSettings>) => {
   return (
@@ -55,6 +64,9 @@ const GraphSettingsForm = ({ onChange, values}: FormProps<GraphSettings>) => {
       </Field>
       <Field<Record<string, boolean>> field="options" label="Options">
         <CheckboxesField options={options} />
+      </Field>
+      <Field<Record<string, boolean>> field="palette" label="Palette">
+        <RadioGroupField options={palette} />
       </Field>
     </Form>
   )

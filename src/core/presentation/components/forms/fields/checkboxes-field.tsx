@@ -1,6 +1,6 @@
 
 
-export interface Option<OptionValue> {
+export interface CheckboxOption<OptionValue> {
   label: string
   value: OptionValue
   disabled?: boolean
@@ -10,7 +10,7 @@ export interface CheckboxesFieldProps<OptionValue extends string | number> exten
   label?: string
   value?: Record<OptionValue, boolean>
   onChange?: (value: Record<OptionValue, boolean>, event: React.ChangeEvent<HTMLInputElement>) => void
-  options: Option<OptionValue>[]
+  options: CheckboxOption<OptionValue>[]
 }
 
 export function CheckboxesField({
