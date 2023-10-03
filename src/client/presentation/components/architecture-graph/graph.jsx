@@ -3,7 +3,8 @@ import cn from 'classnames'
 import ForceGraph3D from '3d-force-graph';
 import ForceGraph from 'force-graph';
 import { useEffect, useState, useRef } from "react";
-import GraphSettingsForm from './graph-settings-form';
+import GraphSettingsForm from '@/client/presentation/components/architecture-graph/graph-settings-form';
+
 import data from "@/../imports.json";
 
 const getDataByGroup = (groupBy, options) => {
@@ -42,6 +43,9 @@ const nodeLayerColorById = (id) => {
       return '#7e22ce'
     }
     if (id.match(/client/)) {
+      return '#0f766e'
+    }
+    if (id.match(/app/)) {
       return '#0f766e'
     }
     return "#1d4ed8"
@@ -143,6 +147,9 @@ const getLegendByGroup = (groupBy) => {
       label: 'infrastructure',
       color: 'red'
     }, {
+      label: 'presentation',
+      color: 'green'
+    }, {
       label: 'external',
       color: 'gray'
     }]
@@ -184,9 +191,9 @@ const Graph = () => {
 
   const [settings, setSettings] = useState({
     vision: '3d',
-    groupBy: 'modules',
+    groupBy: 'layers',
     options: {
-      showInternalLinks: true,
+      showInternalLinks: false,
     }
   })
   const {
@@ -219,7 +226,7 @@ useEffect(() => {
       }))
       .nodeRelSize((() => {
         if (groupBy === 'files') {
-          return 3;
+          return 1;
         }
         return 1
       })())
@@ -234,6 +241,9 @@ useEffect(() => {
           if (node.id.match(/infrastructure/)) {
             return '#ef4444'
           }
+          if (node.id.match(/presentation/)) {
+            return '#65a30d'
+          }
           return 'white'
         }
         if (groupBy === 'modules') {
@@ -244,7 +254,7 @@ useEffect(() => {
         }
         })
         .nodeLabel(node => `${node.name}${node.external?' (external)':''}`)
-        .nodeVal(node => node.value)
+        .nodeVal(node => 4)
         .backgroundColor('#000000')
         .linkColor((link) =>{
           const target = link.target.id || link.target || ''

@@ -1,1 +1,1 @@
-export * from './field';
+export * from '@/core/presentation/components/forms/field/field';

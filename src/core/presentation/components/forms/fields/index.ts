@@ -1,3 +1,3 @@
-export * from './text-field';
-export * from './select-field';
-export * from './checkboxes-field';
+export * from '@/core/presentation/components/forms/fields/text-field';
+export * from '@/core/presentation/components/forms/fields/select-field';
+export * from '@/core/presentation/components/forms/fields/checkboxes-field';
