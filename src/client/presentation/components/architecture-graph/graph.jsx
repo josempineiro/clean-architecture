@@ -181,7 +181,13 @@ const nodeColorById = (id) => {
 }
 
 const getLegendByGroup = (groupBy, palette) => {
-  if (groupBy === 'layers') {
+  if (groupBy === 'files') {
+    return Object.entries(colors.modules).concat(Object.entries(colors.layers)).map(([label, value]) => ({
+      label,
+      value
+    }))
+  }
+    if (groupBy === 'layers') {
     return Object.entries(colors.layers).map(([label, value]) => ({
       label,
       value
