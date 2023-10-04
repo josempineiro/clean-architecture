@@ -5,15 +5,21 @@ const { builtinModules } =require('module');
 const ts = require('typescript');
 const config =require('./tsconfig.json');
 
-const tsHost = ts.createCompilerHost(
-  config,
-  true,
-);
+
 const entries = [
   './src/client/infrastructure/context/ecommerce-application-context.tsx',
   './src/server/infrastructure/graphql/graphql-application.ts',
   './src/app/products/page.tsx',
 ]
+
+const links = []
+const nodes = entries.map(filenameToNode)
+const importing = [];
+
+const tsHost = ts.createCompilerHost(
+  config,
+  true,
+);
 
 const idToType = (id) => {
   if (id.match('use-cases')) return 'use-case'
@@ -43,12 +49,6 @@ const filenameToNode = (filename) => {
   }
 }
 
-
-const links = []
-const nodes = entries.map(filenameToNode)
-
-
-const importing = [];
 
 function getImports(fileName, name) {
     const sourceFile = tsHost.getSourceFile(

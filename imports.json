@@ -60663,23 +60663,11 @@
       },
       {
         "source": "@",
-        "target": "@tanstack/react-query"
-      },
-      {
-        "source": "@",
         "target": "@/core"
       },
       {
         "source": "@",
         "target": "@/ecommerce"
-      },
-      {
-        "source": "@",
-        "target": "@apollo/server"
-      },
-      {
-        "source": "@",
-        "target": "@as-integrations/next"
       },
       {
         "source": "@/client",

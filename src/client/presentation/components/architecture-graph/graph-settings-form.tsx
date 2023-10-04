@@ -39,7 +39,7 @@ const groups = [{
 }]
 
 const options = [{
-  label: 'Show internal links',
+  label: 'Internals',
   value: 'showInternalLinks'
 }]
 

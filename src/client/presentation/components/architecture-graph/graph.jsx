@@ -1,50 +1,51 @@
 'use client'
+import { useEffect, useState, useRef } from "react";
+import ForceGraph from 'force-graph';
 import cn from 'classnames'
 import ForceGraph3D from '3d-force-graph';
-import ForceGraph from 'force-graph';
-import { useEffect, useState, useRef } from "react";
 import GraphSettingsForm from '@/client/presentation/components/architecture-graph/graph-settings-form';
-
 import data from "@/../imports.json";
-import { withRouter } from 'next/router';
 
 const colors = {
-  domain: '#ef4444',
-  application: '#fde047',
-  infrastructure: '#60a5fa',
-  presentation: '#65a30d',
-  client: '#3178c6',
-  ecommerce: '#65a30d',
-  server: '#f6069e',
-  core: '#f1dd35',
-  app: '#61DBFB'
+  layers: {
+    domain: '#ef4444',
+    application: '#fde047',
+    infrastructure: '#60a5fa',
+    presentation: '#65a30d',
+  },
+  modules: {
+    client: '#3178c6',
+    ecommerce: '#65a30d',
+    server: '#f6069e',
+    core: '#f1dd35',
+    app: '#61DBFB'
+  }
 }
 
 const colorByLayer = (layer) => {
-  console.log(layer)
-  return colors[layer] || 'white'
+  return colors.layers[layer] || 'white'
 }
 
 const colorByModule = (module) => {
-  console.log(module)
-  return colors[module] || 'white'
+  return colors.modules[module] || 'white'
 }
 
 const getModuleColorFromNodeId = (id) => {
+  console.log(id)
   if (id.match(/client/)) {
-    return colors.client
+    return colors.modules.client
   }
   if (id.match(/ecommerce/)) {
-    return colors.ecommerce
+    return colors.modules.ecommerce
   }
   if (id.match(/server/)) {
-    return colors.server
+    return colors.modules.server
   }
   if (id.match(/core/)) {
-    return colors.core
+    return colors.modules.core
   }
   if (id.match(/app/)) {
-    return colors.app
+    return colors.modules.app
   }
   return 'white'
 }
@@ -179,56 +180,23 @@ const nodeColorById = (id) => {
   return 'white'
 }
 
-const getLegendByGroup = (groupBy) => {
+const getLegendByGroup = (groupBy, palette) => {
   if (groupBy === 'layers') {
-    return [{
-      label: 'domain',
-      color: 'blue'
-    }, {
-      label: 'application',
-      color: 'yellow'
-    }, {
-      label: 'infrastructure',
-      color: 'red'
-    }, {
-      label: 'presentation',
-      color: 'green'
-    }, {
-      label: 'external',
-      color: 'gray'
-    }]
+    return Object.entries(colors.layers).map(([label, value]) => ({
+      label,
+      value
+    }))
   }
   if (groupBy === 'modules') {
-    return [{
-      label: 'server',
-      color: 'red'
-    }, {
-      label: 'ecommerce',
-      color: 'yellow'
-    }, {
-      label: 'core',
-      color: 'blue'
-    }, {
-      label: 'client',
-      color: 'green'
-    }, {
-      label: 'external',
-      color: 'gray'
-    }]
+    return Object.entries(colors.modules).map(([label, value]) => ({
+      label,
+      value
+    }))
   }
-  return [{
-    label: 'domain',
-    color: 'blue'
-  }, {
-    label: 'application',
-    color: 'yellow'
-  }, {
-    label: 'infrastructure',
-    color: 'red'
-  }, {
-    label: 'external',
-    color: 'gray'
-  }]
+  return Object.entries(colors[palette]).map(([label, value]) => ({
+    label,
+    value
+  }))
 }
 
 const Graph = () => {
@@ -271,10 +239,7 @@ useEffect(() => {
         showInternalLinks
       }))
       .nodeRelSize((() => {
-        if (groupBy === 'files') {
-          return 1;
-        }
-        return 1
+        return 2
       })())
       .nodeColor(node => {
         if (groupBy === 'layers') {
@@ -284,9 +249,21 @@ useEffect(() => {
           return colorByModule(node.id)
         }
         if (groupBy === 'files') {
+          if (palette === 'layers') {
+            if (Object.keys(colors.modules).includes(node.name)) {
+              return getModuleColorFromNodeId(node.id)
+            }
+            return getLayerColorFromNodeId(node.id)
+          }
           return getModuleColorFromNodeId(node.id)
         }
         if (groupBy === 'imports') {
+          if (palette === 'layers') {
+            if (Object.keys(colors.modules).includes(node.name)) {
+              return getModuleColorFromNodeId(node.id)
+            }
+            return getLayerColorFromNodeId(node.id)
+          }
           return getModuleColorFromNodeId(node.id)
         }
         if (groupBy === 'layersAndModules') {
@@ -300,8 +277,8 @@ useEffect(() => {
         .nodeVal(node => 4)
         .backgroundColor('#000000')
         .linkColor((link) =>{
-          const target = link.target.id || link.target || ''
-          const source = link.source.id || link.source || ''
+          const target = (link.target.id || link.target || '').replace('@/', '')
+          const source = (link.source.id || link.source || '').replace('@/', '')
           if (groupBy === 'modules') {
             return getModuleColorFromNodeId(source)
           }
@@ -309,13 +286,34 @@ useEffect(() => {
             return getLayerColorFromNodeId(source)
           }
           if (groupBy === 'files') {
-            return getModuleColorFromNodeId(source)
+            if (palette === 'layers') {
+              if (Object.keys(colors.modules).includes(target)) {
+                return getModuleColorFromNodeId(target)
+              }
+              if (Object.keys(colors.modules).includes(source)) {
+                return getModuleColorFromNodeId(source)
+              }
+              return getLayerColorFromNodeId(target)
+            }
+            return getModuleColorFromNodeId(target)
           }
           if (groupBy === 'layersAndModules') {
             if (palette === 'layers') {
               return getLayerColorFromNodeId(source)
             }
             return getModuleColorFromNodeId(source)
+          }
+          if (groupBy === 'imports') {
+            if (palette === 'layers') {
+              if (Object.keys(colors.modules).includes(target)) {
+                return getModuleColorFromNodeId(target)
+              }
+              if (Object.keys(colors.modules).includes(source)) {
+                return getModuleColorFromNodeId(source)
+              }
+              return getLayerColorFromNodeId(target)
+            }
+            return getModuleColorFromNodeId(target)
           }
           if (groupBy === 'imports') {
             if (target.match(/client/)) {
@@ -404,9 +402,11 @@ useEffect(() => {
     </header>
     <div ref={ref} className={cn('graph')}></div>
     <div className="absolute bottom-10 left-10 flex flex-col">
-      {getLegendByGroup(groupBy).map((group) => (
+      {getLegendByGroup(groupBy, palette).map((group) => (
         <div key={group.label} className="inline-flex items-center">
-          <span className={`w-2 h-2 inline-block bg-${group.color}-500 rounded-full mr-2`}></span>
+          <span style={{
+            backgroundColor: group.value
+          }} className={`w-2 h-2 inline-block rounded-full mr-2`}></span>
           <span className="text-gray-600 dark:text-gray-400">{group.label}</span>
         </div>
       ))}
