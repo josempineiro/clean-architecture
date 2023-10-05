@@ -8,6 +8,11 @@ export abstract class MockRepository<T extends Entity> implements Repository<T> 
     return Promise.resolve(entity)
   }
 
+  public findAll(): Promise<T[]> {
+    console.log(JSON.stringify(this.data, null, 2)) 
+    return Promise.resolve(this.data)
+  }
+
   public findById(id: string): Promise<T | undefined> {
     return Promise.resolve(this.data.find(entity => entity.id === id))
   }
@@ -25,10 +30,6 @@ export abstract class MockRepository<T extends Entity> implements Repository<T> 
   public delete(id: string): Promise<void> {
     this.data = this.data.filter(entity => entity.id !== id)
     return Promise.resolve()
-  }
-
-  public findAll(): Promise<T[]> {
-    return Promise.resolve(this.data)
   }
   
   public getData(): T[] {

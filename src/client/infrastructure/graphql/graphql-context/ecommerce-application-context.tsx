@@ -6,20 +6,22 @@ import { devClientEcommerceApplication } from '@/client/infrastructure/graphql/g
 import { testClientEcommerceApplication } from '@/client/infrastructure/graphql/graphql-context/test-client-ecommerce-application';
 import { productiveClientEcommerceApplication } from '@/client/infrastructure/graphql/graphql-context/pro-client-ecommerce-application';
 
+type Environment = 'development' | 'test' | 'production'
+
 // TODO: get from env
-const ENV = 'test'
+const ENV: Environment = 'production'
 
 const currentEcommerceApplicationProvider = (
   (ENV === 'development' && devClientEcommerceApplication) ||
   (ENV === 'test' && testClientEcommerceApplication) ||
   (ENV === 'production' && productiveClientEcommerceApplication)
-)
+) as EcommerceApplication
 
 const client = new QueryClient({
   defaultOptions: {
     queries: {
       refetchOnWindowFocus: false,
-      staleTime: 1000 * 60 * 5,
+      refetchOnMount: true,
     },
   },
 })

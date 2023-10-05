@@ -1,4 +1,4 @@
-'use client'
+import _ from "lodash";
 import React, { useState } from "react";
 
 export interface FormValues {
@@ -7,7 +7,7 @@ export interface FormValues {
 
 export interface FormProps<TFormValues extends FormValues> extends Omit<React.FormHTMLAttributes<HTMLFormElement>, 'onChange' | 'onSubmit'> {
   values: TFormValues
-  onChange: (values: TFormValues, event: React.ChangeEvent<HTMLFormElement>) => void
+  onChange?: (values: TFormValues, event: React.ChangeEvent<HTMLFormElement>) => void
   onSubmit: (values: TFormValues, event: React.FormEvent) => void
 }
 
@@ -35,22 +35,19 @@ export function useForm<TFormValues extends FormValues>(): FormContextValue<TFor
 
 export function Form<TFormValues extends FormValues>({
   values,
-  onChange,
+  onChange = _.noop,
   onSubmit,
   children,
   ...rest
 }: FormProps<TFormValues>) {
   const [formValues, setTFormValues] = useState<TFormValues>(values)
   function setFieldValue<FieldValue>(field: string, value: FieldValue, event: React.ChangeEvent<HTMLFormElement>) {
-    const newFormValues = {
-      ...formValues,
-      [field]: value,
-    }
-    setTFormValues(newFormValues)
-    onChange(newFormValues, event)
+    const newFormValue = _.set({... formValues}, field, value) as TFormValues
+    setTFormValues(newFormValue)
+    onChange(newFormValue, event)
   }
   function getFieldValue<FieldValue>(field: string): FieldValue {
-    return formValues[field] as FieldValue
+    return _.get(formValues, field) as FieldValue
   }
   function submit(event: React.FormEvent) {
     event.preventDefault()

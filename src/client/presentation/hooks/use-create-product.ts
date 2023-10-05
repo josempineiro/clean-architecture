@@ -7,10 +7,9 @@ export function useCreateProduct(options: {
   onError?: (error: any) => void
 } = {}) {
   const ecommerceApplication = useEcommerceApplication()
-  const mutation = useUseCaseMutation<Product, Product>(ecommerceApplication.useCases.createProduct, {
+  return useUseCaseMutation(ecommerceApplication.useCases.createProduct, {
     key: 'createProduct',
     onSuccess: options.onSuccess,
     onError: options.onError,
   })
-  return mutation
 }

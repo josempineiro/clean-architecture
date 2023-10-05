@@ -4,10 +4,7 @@ export default function ProductsLayout({
   children: React.ReactNode
 }) {
   return (
-    <div>
-      <header>
-        Products header
-      </header>
+    <div className="max-w-6xl mx-auto p-4 flex flex-col h-full">
       {children}
     </div>
   )

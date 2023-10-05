@@ -1,1 +1,1 @@
-export * from '@/client/presentation/hooks/use-products'
+export * from '@/client/presentation/hooks/use-get-products'

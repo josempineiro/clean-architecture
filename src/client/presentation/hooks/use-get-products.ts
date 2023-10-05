@@ -2,7 +2,7 @@ import { Product } from '@/ecommerce/domain';
 import { useUseCaseQuery, UseCaseOptions } from '@/core/presentation/hooks/use-use-case';
 import { useEcommerceApplication } from "@/client/infrastructure/graphql/graphql-context/ecommerce-application-context"
 
-export function useProducts(options?: UseCaseOptions<void, Product[]>): ReturnType<typeof useUseCaseQuery<void, Product[]>> {
+export function useGetProducts(options?: UseCaseOptions<void, Product[]>): ReturnType<typeof useUseCaseQuery<void, Product[]>> {
   const { useCases: {
     getProducts
   } } = useEcommerceApplication()
@@ -12,4 +12,4 @@ export function useProducts(options?: UseCaseOptions<void, Product[]>): ReturnTy
   })
 }
 
-export default useProducts
+export default useGetProducts

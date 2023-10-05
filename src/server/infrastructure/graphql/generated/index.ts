@@ -16,18 +16,9 @@ export type Scalars = {
   Float: { input: number; output: number; }
 };
 
-export type Category = {
-  __typename?: 'Category';
-  id: Scalars['ID']['output'];
-  name: Scalars['String']['output'];
-};
-
 export type CreateProductInput = {
-  categories: Array<Scalars['ID']['input']>;
-  currency: Scalars['String']['input'];
   description: Scalars['String']['input'];
   name: Scalars['String']['input'];
-  price: Scalars['Float']['input'];
 };
 
 export type Mutation = {
@@ -40,24 +31,15 @@ export type MutationCreateProductArgs = {
   input: CreateProductInput;
 };
 
-export type Price = {
-  __typename?: 'Price';
-  currency: Scalars['String']['output'];
-  value: Scalars['Float']['output'];
-};
-
 export type Product = {
   __typename?: 'Product';
-  categories: Array<Category>;
   description: Scalars['String']['output'];
   id: Scalars['ID']['output'];
   name: Scalars['String']['output'];
-  price: Price;
 };
 
 export type Query = {
   __typename?: 'Query';
-  categories: Array<Category>;
   products: Array<Product>;
 };
 
@@ -139,12 +121,9 @@ export type DirectiveResolverFn<TResult = {}, TParent = {}, TContext = {}, TArgs
 /** Mapping between all available schema types and the resolvers types */
 export type ResolversTypes = ResolversObject<{
   Boolean: ResolverTypeWrapper<Scalars['Boolean']['output']>;
-  Category: ResolverTypeWrapper<Category>;
   CreateProductInput: CreateProductInput;
-  Float: ResolverTypeWrapper<Scalars['Float']['output']>;
   ID: ResolverTypeWrapper<Scalars['ID']['output']>;
   Mutation: ResolverTypeWrapper<{}>;
-  Price: ResolverTypeWrapper<Price>;
   Product: ResolverTypeWrapper<Product>;
   Query: ResolverTypeWrapper<{}>;
   String: ResolverTypeWrapper<Scalars['String']['output']>;
@@ -154,52 +133,32 @@ export type ResolversTypes = ResolversObject<{
 /** Mapping between all available schema types and the resolvers parents */
 export type ResolversParentTypes = ResolversObject<{
   Boolean: Scalars['Boolean']['output'];
-  Category: Category;
   CreateProductInput: CreateProductInput;
-  Float: Scalars['Float']['output'];
   ID: Scalars['ID']['output'];
   Mutation: {};
-  Price: Price;
   Product: Product;
   Query: {};
   String: Scalars['String']['output'];
   UpdateProductInput: UpdateProductInput;
 }>;
 
-export type CategoryResolvers<ContextType = any, ParentType extends ResolversParentTypes['Category'] = ResolversParentTypes['Category']> = ResolversObject<{
-  id?: Resolver<ResolversTypes['ID'], ParentType, ContextType>;
-  name?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
-}>;
-
 export type MutationResolvers<ContextType = any, ParentType extends ResolversParentTypes['Mutation'] = ResolversParentTypes['Mutation']> = ResolversObject<{
   createProduct?: Resolver<ResolversTypes['Product'], ParentType, ContextType, RequireFields<MutationCreateProductArgs, 'input'>>;
 }>;
 
-export type PriceResolvers<ContextType = any, ParentType extends ResolversParentTypes['Price'] = ResolversParentTypes['Price']> = ResolversObject<{
-  currency?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  value?: Resolver<ResolversTypes['Float'], ParentType, ContextType>;
-  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
-}>;
-
 export type ProductResolvers<ContextType = any, ParentType extends ResolversParentTypes['Product'] = ResolversParentTypes['Product']> = ResolversObject<{
-  categories?: Resolver<Array<ResolversTypes['Category']>, ParentType, ContextType>;
   description?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   id?: Resolver<ResolversTypes['ID'], ParentType, ContextType>;
   name?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  price?: Resolver<ResolversTypes['Price'], ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 }>;
 
 export type QueryResolvers<ContextType = any, ParentType extends ResolversParentTypes['Query'] = ResolversParentTypes['Query']> = ResolversObject<{
-  categories?: Resolver<Array<ResolversTypes['Category']>, ParentType, ContextType>;
   products?: Resolver<Array<ResolversTypes['Product']>, ParentType, ContextType>;
 }>;
 
 export type Resolvers<ContextType = any> = ResolversObject<{
-  Category?: CategoryResolvers<ContextType>;
   Mutation?: MutationResolvers<ContextType>;
-  Price?: PriceResolvers<ContextType>;
   Product?: ProductResolvers<ContextType>;
   Query?: QueryResolvers<ContextType>;
 }>;

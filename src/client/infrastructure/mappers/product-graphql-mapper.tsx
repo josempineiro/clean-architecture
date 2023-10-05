@@ -8,9 +8,7 @@ export class ProductGraphQLMapper extends GraphQLMapper<ProductGraphql, ProductD
       __typename: 'Product',
       id: graphql.id,
       name: graphql.name,
-      price: graphql.price,
       description: graphql.description,
-      categories: [],
     }
   }
 
@@ -19,18 +17,13 @@ export class ProductGraphQLMapper extends GraphQLMapper<ProductGraphql, ProductD
       __typename: 'Product',
       id: entity.id,
       name: entity.name,
-      price: entity.price,
       description: entity.description,
-      categories: [],
     }
   }
   toGraphqlInput(entity: ProductDomain): CreateProductGraphqlInput {
     return {
       name: entity.name,
-      price: entity.price.value,
       description: entity.description,
-      currency: entity.price.currency,
-      categories: [],
     }
   }
 }

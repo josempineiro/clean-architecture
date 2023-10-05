@@ -17,8 +17,7 @@ export interface UseCaseResults<TVariables, TResult> {
 export function useUseCaseQuery<TVariables, TResult>(useCase: UseCase<TVariables,TResult>, options: UseCaseOptions<TVariables,TResult>): UseCaseResults<TVariables, TResult> {
   const { key, variables, onError } = options;
   const query = useQuery([
-    key,
-    variables
+    key
   ], () => useCase.execute(variables as TVariables), {
     onError,
   });
