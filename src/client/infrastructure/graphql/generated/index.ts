@@ -42,7 +42,13 @@ export type Product = {
 
 export type Query = {
   __typename?: 'Query';
+  product: Product;
   products: Array<Product>;
+};
+
+
+export type QueryProductArgs = {
+  id: Scalars['ID']['input'];
 };
 
 export type UpdateProductInput = {
@@ -55,7 +61,14 @@ export type CreateProductMutationVariables = Exact<{
 }>;
 
 
-export type CreateProductMutation = { __typename?: 'Mutation', createProduct: { __typename?: 'Product', id: string, name: string } };
+export type CreateProductMutation = { __typename?: 'Mutation', createProduct: { __typename?: 'Product', id: string, name: string, description: string } };
+
+export type ProductQueryVariables = Exact<{
+  id: Scalars['ID']['input'];
+}>;
+
+
+export type ProductQuery = { __typename?: 'Query', product: { __typename?: 'Product', id: string, name: string, description: string } };
 
 export type ProductsQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -68,6 +81,16 @@ export const CreateProductDocument = gql`
   createProduct(input: $input) {
     id
     name
+    description
+  }
+}
+    `;
+export const ProductDocument = gql`
+    query product($id: ID!) {
+  product(id: $id) {
+    id
+    name
+    description
   }
 }
     `;
@@ -86,11 +109,15 @@ export type SdkFunctionWrapper = <T>(action: (requestHeaders?:Record<string, str
 
 const defaultWrapper: SdkFunctionWrapper = (action, _operationName, _operationType) => action();
 const CreateProductDocumentString = print(CreateProductDocument);
+const ProductDocumentString = print(ProductDocument);
 const ProductsDocumentString = print(ProductsDocument);
 export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = defaultWrapper) {
   return {
     createProduct(variables: CreateProductMutationVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<{ data: CreateProductMutation; extensions?: any; headers: Dom.Headers; status: number; }> {
         return withWrapper((wrappedRequestHeaders) => client.rawRequest<CreateProductMutation>(CreateProductDocumentString, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'createProduct', 'mutation');
+    },
+    product(variables: ProductQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<{ data: ProductQuery; extensions?: any; headers: Dom.Headers; status: number; }> {
+        return withWrapper((wrappedRequestHeaders) => client.rawRequest<ProductQuery>(ProductDocumentString, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'product', 'query');
     },
     products(variables?: ProductsQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<{ data: ProductsQuery; extensions?: any; headers: Dom.Headers; status: number; }> {
         return withWrapper((wrappedRequestHeaders) => client.rawRequest<ProductsQuery>(ProductsDocumentString, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'products', 'query');

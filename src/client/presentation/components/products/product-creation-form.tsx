@@ -1,10 +1,10 @@
 import { Product } from "@/ecommerce/domain";
 import { Form, Field, FormProps, NumberField, TextField } from "@/core/presentation/components/forms";
-import { ProductCreationVariables } from "@/ecommerce/application";
+import { CreateProductVariables } from "@/ecommerce/application";
 
-export const ProductCreationForm = ({ children, ...rest }: FormProps<ProductCreationVariables>) => {
+export const ProductCreationForm = ({ children, ...rest }: FormProps<CreateProductVariables>) => {
   return (
-    <Form<ProductCreationVariables> {...rest} className={"flex flex-col gap-4 flex-1"}>
+    <Form<CreateProductVariables> {...rest} className={"flex flex-col gap-4 flex-1"}>
       <div className="flex-1 flex justify-center flex-col gap-5">
         <Field<string> field="name" label="Name">
           <TextField />

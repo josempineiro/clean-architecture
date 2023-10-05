@@ -6,7 +6,6 @@ import { ProductsGrid } from '@/client/presentation/components/products/products
 
 export function ProductsPage() {
   const { data: products, error, isLoading } = useGetProducts()
-  console.log(products)
   return (
     <>
       {isLoading && <div>Loading...</div>}

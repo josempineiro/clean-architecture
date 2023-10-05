@@ -11,7 +11,7 @@ export const Products = {
   create: (product: Partial<Product>): Product => {
     return {
       __typename: 'Product',
-      id: 'ID::' + new Date().getTime().toString(),
+      id: new Date().getTime().toString(),
       name: '',
       description: '',
       ...product,

@@ -4,18 +4,15 @@ import { ApolloServerPluginLandingPageGraphQLPlayground } from "apollo-server-co
 import typeDefs from "@/ecommerce/infrastructure/graphql/schema"
 import resolvers from "@/server/infrastructure/graphql/resolvers"
 import { ProductsMockRepository } from "@/server/infrastructure/repositories/products-mock-repository"
-import { ServerApplicationUseCases, CreateProductServerUseCase, GetProductsServerUseCase } from "@/server/application"
+import { ServerEcommerceApplication} from "@/server/application"
 
 const productsMockRepository = new ProductsMockRepository()
 
-const useCases: ServerApplicationUseCases = {
-  getProducts: new GetProductsServerUseCase({ productsRepository: productsMockRepository }),
-  createProduct: new CreateProductServerUseCase({ productsRepository: productsMockRepository }),
-}
+const serverApplication = new ServerEcommerceApplication({
+  productsRepository: productsMockRepository
+})
 
-const apolloServer = new ApolloServer<{
-  useCases: ServerApplicationUseCases
-}>({
+const apolloServer = new ApolloServer<ServerEcommerceApplication>({
   typeDefs,
   resolvers,
   // @ts-ignore
@@ -23,7 +20,7 @@ const apolloServer = new ApolloServer<{
 })
 
 const handleRequest = startServerAndCreateNextHandler(apolloServer, {
-  context: async (req, res) => ({ req, res, useCases }),
+  context: async (req, res) => ({ req, res, ...serverApplication }),
 })
 
 export { handleRequest as GET, handleRequest as POST }

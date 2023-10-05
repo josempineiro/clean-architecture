@@ -9,6 +9,7 @@ export default gql`
 
   type Query {
     products: [Product!]!
+    product(id: ID!): Product!
   }
 
   input UpdateProductInput {

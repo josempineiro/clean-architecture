@@ -1,14 +1,11 @@
+import { Products } from '@/ecommerce/domain'
 import { CreateProductUseCase } from '@/ecommerce/application'
-import type { ProductCreationVariables, ProductCreationResult } from '@/ecommerce/application'
-import { ProductsRepository, Products } from '@/ecommerce/domain'
+import type { CreateProductVariables, CreateProductResult } from '@/ecommerce/application'
+import type { ClientEcommerceApplicationDependencies } from '@/client/application'
 
-export type CreateProductClientUseCaseDependencies = {
-  productsRepository:ProductsRepository
-}
+export class CreateProductClientUseCase extends CreateProductUseCase<ClientEcommerceApplicationDependencies> {
 
-export class CreateProductClientUseCase extends CreateProductUseCase<CreateProductClientUseCaseDependencies> {
-
-  async execute(product: ProductCreationVariables): Promise<ProductCreationResult> {
+  async execute(product: CreateProductVariables): Promise<CreateProductResult> {
     return await this.dependencies.productsRepository.create(Products.create(product))
   }
 }

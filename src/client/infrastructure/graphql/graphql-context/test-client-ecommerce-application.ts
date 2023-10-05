@@ -1,20 +1,10 @@
-import { CreateProductClientUseCase } from '@/client/application/use-cases/create-product';
-import { GetProductsClientUseCase } from '@/client/application/use-cases/get-products'
 import { ProductsMockRepository } from '@/client/infrastructure/repositories/products-mock-repository'
-import { EcommerceApplication } from '@/ecommerce/application';
-import { Products } from '@/ecommerce/domain';
+import { ClientEcommerceApplication } from '@/client/application';
 
-const productsDatastoreRepository = new ProductsMockRepository()
+const productsMockRepository = new ProductsMockRepository()
 
-export const testClientEcommerceApplication: EcommerceApplication = {
-  useCases: {
-    getProducts: new GetProductsClientUseCase({
-      productsRepository: productsDatastoreRepository
-    }),
-    createProduct: new CreateProductClientUseCase({
-      productsRepository: productsDatastoreRepository
-    })
-  }
-}
+export const testClientEcommerceApplication = new ClientEcommerceApplication({
+  productsRepository: productsMockRepository
+})
 
 export default testClientEcommerceApplication

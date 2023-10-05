@@ -29,6 +29,9 @@ export class DatastoreRepository<T extends Entity> implements Repository<T>  {
   public findById (id: string)  {
     const entities = this.getEntities<Array<T>>() || []
     const entity = entities.find(entity => entity.id === id)
+    if (!entity) {
+      throw `Entity not found`
+    }
     return Promise.resolve(entity)
   }
 

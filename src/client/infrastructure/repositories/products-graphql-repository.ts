@@ -14,11 +14,7 @@ export class ProductsGraphqlRepository extends GraphqlRepository<ProductType, Pr
     return getSdk(this.client).createProduct({ input: this.mapper.toGraphqlInput(product)}).then(({ data }) => this.mapper.toEntity(data.createProduct as ProductGraphql))
   }
   findById (id: string) {
-    return Promise.resolve(Products.create({
-    id: 'string',
-    name: 'string',
-    description: 'string',
-  }))
+    return getSdk(this.client).product({ id }).then(({ data }) => this.mapper.toEntity(data.product))
   }
   update (updated: ProductDomain) {
     return Promise.resolve(Products.create({

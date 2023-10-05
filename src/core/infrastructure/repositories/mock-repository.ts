@@ -9,12 +9,15 @@ export abstract class MockRepository<T extends Entity> implements Repository<T> 
   }
 
   public findAll(): Promise<T[]> {
-    console.log(JSON.stringify(this.data, null, 2)) 
     return Promise.resolve(this.data)
   }
 
-  public findById(id: string): Promise<T | undefined> {
-    return Promise.resolve(this.data.find(entity => entity.id === id))
+  public findById(id: string): Promise<T> {
+    const entity = this.data.find(entity => entity.id === id)
+    if (!entity) {
+      throw `Entity with id ${id} not found`
+    }
+    return Promise.resolve(entity)
   }
 
   public update(entity: T): Promise<T> {

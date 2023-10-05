@@ -1,13 +1,14 @@
 import { Products } from '@/ecommerce/domain'
 import { Resolvers } from '@/server/infrastructure/graphql/generated'
-import { ServerApplicationUseCases } from "@/server/application"
+import { ServerEcommerceApplication } from "@/server/application"
 
-const resolvers: Resolvers<{
-  useCases: ServerApplicationUseCases
-}> = {
+const resolvers: Resolvers<ServerEcommerceApplication> = {
   Query: {
     products: async (_, {}, context) => {
       return await context.useCases.getProducts.execute()
+    },
+    product: async (_, { id }, context) => {
+      return await context.useCases.getProduct.execute({ id })
     }
   },
   Mutation: {

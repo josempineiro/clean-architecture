@@ -40,7 +40,13 @@ export type Product = {
 
 export type Query = {
   __typename?: 'Query';
+  product: Product;
   products: Array<Product>;
+};
+
+
+export type QueryProductArgs = {
+  id: Scalars['ID']['input'];
 };
 
 export type UpdateProductInput = {
@@ -154,6 +160,7 @@ export type ProductResolvers<ContextType = any, ParentType extends ResolversPare
 }>;
 
 export type QueryResolvers<ContextType = any, ParentType extends ResolversParentTypes['Query'] = ResolversParentTypes['Query']> = ResolversObject<{
+  product?: Resolver<ResolversTypes['Product'], ParentType, ContextType, RequireFields<QueryProductArgs, 'id'>>;
   products?: Resolver<Array<ResolversTypes['Product']>, ParentType, ContextType>;
 }>;
 

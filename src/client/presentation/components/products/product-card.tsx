@@ -1,4 +1,5 @@
-import { Product } from "@/server/infrastructure/graphql/generated"
+import Link from "next/link";
+import { Product } from "@/ecommerce/domain"
 
 export interface ProductCardProps {
   product: Product
@@ -10,9 +11,9 @@ export function ProductCard({
   return (
     
 <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-    <a href="#">
+    <Link href={`/products/${product.id}`}>
         <img className="p-8 rounded-t-lg" src="https://flowbite.com/docs/images/products/apple-watch.png" alt="product image" />
-    </a>
+    </Link>
     <div className="px-5 pb-5">
         <a href="#">
             <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">{product.name}</h5>
