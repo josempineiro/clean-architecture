@@ -31,7 +31,6 @@ const colorByModule = (module) => {
 }
 
 const getModuleColorFromNodeId = (id) => {
-  console.log(id)
   if (id.match(/client/)) {
     return colors.modules.client
   }

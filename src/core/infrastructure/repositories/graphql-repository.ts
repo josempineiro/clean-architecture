@@ -2,10 +2,10 @@ import { GraphQLClient } from 'graphql-request';
 import { Repository } from '@/core/domain';
 import { GraphQLMapper } from '@/core/infrastructure/mappers/graphql-mapper';
 
-export abstract class GraphqlRepository<T, S> implements Repository<T> {
-  protected mapper: GraphQLMapper<T, S>;
+export abstract class GraphqlRepository<T, D, I> implements Repository<T> {
+  protected mapper: GraphQLMapper<T, D, I>;
   protected client: GraphQLClient
-  constructor(uri = 'http://localhost:3000/graphql', mapper: GraphQLMapper<T, S>) {
+  constructor(uri = 'http://localhost:3000/graphql', mapper: GraphQLMapper<T, D, I>) {
     this.client = new GraphQLClient(uri)
     this.mapper = mapper
   }

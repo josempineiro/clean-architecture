@@ -1,6 +1,6 @@
 'use client';
 
-import { useProducts } from '@/client/infrastructure/hooks'
+import { useProducts } from '@/client/presentation/hooks'
 import ProductCard from '@/client/presentation/components/product-card'
 import Link from "next/link";
 

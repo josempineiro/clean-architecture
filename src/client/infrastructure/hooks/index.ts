@@ -1,1 +1,0 @@
-export * from '@/client/infrastructure/hooks/use-products'

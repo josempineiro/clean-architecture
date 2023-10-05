@@ -1,0 +1,1 @@
+export * from '@/client/presentation/hooks/use-products'

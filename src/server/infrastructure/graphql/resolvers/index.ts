@@ -1,4 +1,4 @@
-import { Product, ProductsRepository, create } from '@/ecommerce/domain'
+import { Product, ProductsRepository, Products } from '@/ecommerce/domain'
 import { Resolvers } from '@/server/infrastructure/graphql/generated'
 import { ServerApplicationUseCases } from "@/server/application"
 
@@ -35,13 +35,8 @@ const resolvers: Resolvers<{
     }
   },
   Mutation: {
-    createProduct: async (_, { input }) => {
-      products.unshift(create({
-        ...input,
-        categories: [],
-        price: undefined
-      }))
-      return products[0]
+    createProduct: async (_, { input }, context) => {
+      return await context.useCases.createProduct.execute(Products.create(input))
     }
   }
 }

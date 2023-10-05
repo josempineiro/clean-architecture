@@ -18,17 +18,19 @@ export interface Product extends Entity {
   }
 }
 
-export const create = (product: Partial<Product>): Product => {
-  return {
-    __typename: 'Product',
-    id: 'ID::' + new Date().getTime().toString(),
-    name: '',
-    description: '',
-    categories: [],
-    price: {
-      value: 0,
-      currency: '',
-    },
-    ...product,
+export const Products = {
+  create: (product: Partial<Product>): Product => {
+    return {
+      __typename: 'Product',
+      id: 'ID::' + new Date().getTime().toString(),
+      name: '',
+      description: '',
+      categories: [],
+      price: {
+        value: 0,
+        currency: '',
+      },
+      ...product,
+    }
   }
 }

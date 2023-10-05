@@ -1,8 +1,8 @@
 'use client'
 import Link from "next/link";
-import { create } from "@/ecommerce/domain"
+import { Products } from "@/ecommerce/domain"
 import { Form, Field, TextField } from "@/core/presentation/components/forms";
-import { useCreateProduct } from "@/client/infrastructure/hooks/use-create-product";
+import { useCreateProduct } from "@/client/presentation/hooks/use-create-product";
 
 export default function ProductsPage() {
   const [createProduct] = useCreateProduct()
@@ -17,7 +17,7 @@ export default function ProductsPage() {
         name: '',
         description: '',
       }}  onChange={console.log} onSubmit={ (values) => {
-        createProduct(create(values))
+        createProduct(Products.create(values))
       }}>
       <Field<string> field="name" label="Name">
         <TextField />

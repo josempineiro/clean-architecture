@@ -1,17 +1,14 @@
-import { Product, ProductsRepository } from '@/ecommerce/domain'
 import { GetProductsUseCase } from '@/ecommerce/application'
+import type { GetProductsResult } from '@/ecommerce/application'
+import { ProductsRepository } from '@/ecommerce/domain'
 
 export type GetProductsClientUseCaseDependencies = {
-  productsRepository: ProductsRepository
+  productsRepository:ProductsRepository
 }
 
-export class GetProductsClientUseCase implements GetProductsUseCase {
-  private dependencies: GetProductsClientUseCaseDependencies
-  constructor(dependencies: GetProductsClientUseCaseDependencies) {
-    this.dependencies = dependencies
-  }
+export class GetProductsClientUseCase extends GetProductsUseCase<GetProductsClientUseCaseDependencies> {
 
-  async execute(): Promise<Product[]> {
+  async execute(): Promise<GetProductsResult> {
     return await this.dependencies.productsRepository.findAll()
   }
 }

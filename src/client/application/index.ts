@@ -1,8 +1,17 @@
-import productiveEcommerceApplication from '@/client/application/productive-ecommerce-application'
-import devEcommerceApplication from '@/client/application/dev-ecommerce-application'
+import { UseCase } from '@/core/domain'
+import { EcommerceApplication } from '@/ecommerce/application'
 
-const currentEcommerceApplicationProvider = process.env.NODE_ENV === 'production'
-  ? productiveEcommerceApplication
-  : devEcommerceApplication
+import { CreateProductUseCase } from '@/ecommerce/application/use-cases/create-product';
+import { GetProductsUseCase } from '@/ecommerce/application/use-cases/get-products'
 
-export default currentEcommerceApplicationProvider
+export * from '@/ecommerce/application/use-cases/create-product'
+export * from '@/ecommerce/application/use-cases/get-products'
+
+interface EcommerceUseCases extends Record<string, UseCase<any>> {
+  getProducts: GetProductsUseCase,
+  createProduct: CreateProductUseCase,
+}
+
+export class ClientEcommerceApplication extends EcommerceApplication {
+
+}

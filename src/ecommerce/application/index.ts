@@ -1,5 +1,4 @@
-import { UseCase } from '@/core/domain'
-import { Application } from '@/core/domain'
+import { UseCase, Application } from '@/core/domain'
 import { CreateProductUseCase } from '@/ecommerce/application/use-cases/create-product';
 import { GetProductsUseCase } from '@/ecommerce/application/use-cases/get-products'
 
@@ -10,4 +9,11 @@ interface EcommerceUseCases extends Record<string, UseCase<any>> {
   createProduct: CreateProductUseCase,
 }
 
-export interface EcommerceApplication extends Application<EcommerceUseCases> {}
+export abstract class EcommerceApplication implements Application<EcommerceUseCases> {
+  public useCases: EcommerceUseCases
+  constructor(
+    useCases: EcommerceUseCases
+  ) {
+    this.useCases = useCases
+  }
+}

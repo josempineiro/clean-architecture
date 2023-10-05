@@ -7,19 +7,11 @@ const config =require('./tsconfig.json');
 
 
 const entries = [
-  './src/client/infrastructure/context/ecommerce-application-context.tsx',
-  './src/server/infrastructure/graphql/graphql-application.ts',
+  './src/client/infrastructure/graphql/graphql-context/ecommerce-application-context.tsx',
+  './src/server/infrastructure/graphql/graphql-server.ts',
   './src/app/products/page.tsx',
 ]
 
-const links = []
-const nodes = entries.map(filenameToNode)
-const importing = [];
-
-const tsHost = ts.createCompilerHost(
-  config,
-  true,
-);
 
 const idToType = (id) => {
   if (id.match('use-cases')) return 'use-case'
@@ -50,6 +42,15 @@ const filenameToNode = (filename) => {
 }
 
 
+const links = []
+const nodes = entries.map(filenameToNode)
+const importing = [];
+
+const tsHost = ts.createCompilerHost(
+  config,
+  true,
+);
+
 function getImports(fileName, name) {
     const sourceFile = tsHost.getSourceFile(
       fileName,
@@ -60,14 +61,14 @@ function getImports(fileName, name) {
       },
     );
     if (!sourceFile) {
-      throw new Error(`Failed to parse ${fileName}: ${msg}`);
+      throw new Error(`Failed to parse ${fileName}`);
     }
     delintNode(sourceFile);
     return importing;
 
     function delintNode(node) {
       if (ts.isImportDeclaration(node) || ts.isExportDeclaration(node)) {
-        if (!node.moduleSpecifier.getText) {
+        if (!node || !node.moduleSpecifier?.getText) {
           console.log(node)
           return
         }
@@ -159,7 +160,11 @@ const fileNodes = (function () {
 
     for (let i = 1; i <= parts.length; i++) {
       const subPath = parts.slice(0, i).join('/');
-      outputPaths.add(subPath);
+      if (subPath === '@') {
+        outputPaths.add('root');
+      } else {
+        outputPaths.add(subPath.replace('@/', 'root/'));
+      }
     }
   }
 

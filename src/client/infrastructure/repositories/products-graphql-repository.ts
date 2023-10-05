@@ -1,20 +1,20 @@
 
 import { GraphqlRepository } from '@/core/infrastructure/repositories/graphql-repository'
-import { Product as ProductGraphql } from '@/client/infrastructure/graphql/generated'
-import { Product as ProductDomain, create } from '@/ecommerce/domain'
+import { Product as ProductType, CreateProductInput } from '@/client/infrastructure/graphql/generated'
+import { Product as ProductDomain, Products } from '@/ecommerce/domain'
 import { ProductGraphQLMapper } from '@/client/infrastructure/mappers/product-graphql-mapper';
 import { getSdk } from '@/client/infrastructure/graphql/generated';
 
-export class ProductsGraphqlRepository extends GraphqlRepository<ProductGraphql, ProductDomain>  {
+export class ProductsGraphqlRepository extends GraphqlRepository<ProductType, ProductDomain, CreateProductInput>  {
   constructor(uri = 'http://localhost:3000/graphql') {
     super(uri, new ProductGraphQLMapper())
   }
 
   create (product: ProductDomain) {
-    return Promise.resolve(product)
+    return getSdk(this.client).createProduct({ input: this.mapper.toGraphqlInput(product)}).then(({ data }) => this.mapper.toEntity(data.createProduct as ProductGraphql))
   }
   findById (id: string) {
-    return Promise.resolve(create({
+    return Promise.resolve(Products.create({
     id: 'string',
     name: 'string',
     description: 'string',
@@ -25,7 +25,7 @@ export class ProductsGraphqlRepository extends GraphqlRepository<ProductGraphql,
     }}))
   }
   update (updated: ProductDomain) {
-    return Promise.resolve(create({
+    return Promise.resolve(Products.create({
       id: 'string',
       name: 'string',
       description: 'string',
@@ -36,7 +36,7 @@ export class ProductsGraphqlRepository extends GraphqlRepository<ProductGraphql,
       }}))
   }
   delete (id: string) {
-    return Promise.resolve(create({
+    return Promise.resolve(Products.create({
       id: 'string',
       name: 'string',
       description: 'string',
