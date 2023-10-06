@@ -1,4 +1,4 @@
-import { Product } from "@/server/infrastructure/graphql/generated"
+import { Product } from "@/ecommerce/domain"
 
 export interface RenderProductProps {
   product: Product

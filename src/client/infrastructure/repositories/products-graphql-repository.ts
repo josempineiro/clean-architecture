@@ -11,7 +11,7 @@ export class ProductsGraphqlRepository extends GraphqlRepository<ProductType, Pr
   }
 
   create (product: ProductDomain) {
-    return getSdk(this.client).createProduct({ input: this.mapper.toGraphqlInput(product)}).then(({ data }) => this.mapper.toEntity(data.createProduct as ProductGraphql))
+    return getSdk(this.client).createProduct({ input: this.mapper.toGraphqlInput(product)}).then(({ data }) => this.mapper.toEntity(data.createProduct as ProductType))
   }
   findById (id: string) {
     return getSdk(this.client).product({ id }).then(({ data }) => this.mapper.toEntity(data.product))
@@ -31,6 +31,6 @@ export class ProductsGraphqlRepository extends GraphqlRepository<ProductType, Pr
     }))
   }
   findAll() {
-    return getSdk(this.client).products().then(({ data }) => data.products?.map(product => this.mapper.toEntity(product as ProductGraphql)))
+    return getSdk(this.client).products().then(({ data }) => data.products?.map(product => this.mapper.toEntity(product as ProductType)))
   }
 }

@@ -52,6 +52,8 @@ const tsHost = ts.createCompilerHost(
 );
 
 function getImports(fileName, name) {
+  console.log(`fileName: ${fileName}`)
+
     const sourceFile = tsHost.getSourceFile(
       fileName,
       ts.ScriptTarget.Latest,
@@ -69,7 +71,6 @@ function getImports(fileName, name) {
     function delintNode(node) {
       if (ts.isImportDeclaration(node) || ts.isExportDeclaration(node)) {
         if (!node || !node.moduleSpecifier?.getText) {
-          console.log(node)
           return
         }
         const moduleName = node.moduleSpecifier.getText().replace(/['"]/g, '');
@@ -77,33 +78,39 @@ function getImports(fileName, name) {
           !moduleName.startsWith('node:') &&
           !builtinModules.includes(moduleName) &&
           importing.indexOf(moduleName) === -1
-        ) {
-          importing.push(moduleName);
-        }
+          ) {
+            importing.push(moduleName);
+          }
+          const moduleNode = filenameToNode(moduleName)
 
-        const moduleNode = filenameToNode(moduleName)
-        nodes.push(moduleNode)
-        links.push({
-          target: name,
-          source: moduleNode.id,
-          external: moduleNode.module === 'external',
-        });
-        if (moduleName.startsWith('@/')) {
-          try {
-            getImports(moduleName.replace('@/', './src/') + '.ts', moduleName);
-          } catch (e) {
+          links.push({
+            target: name,
+            source: moduleNode.id,
+            external: moduleNode.module === 'external',
+          });
+        if (!nodes.find((node) => node.filename === moduleName)) {
+          nodes.push(moduleNode)
+          if (moduleName.startsWith('@/')) {
             try {
-              getImports(moduleName.replace('@/', './src/') + '.tsx', moduleName);
+              getImports(moduleName.replace('@/', './src/') + '.ts', moduleName);
             } catch (e) {
               try {
-                getImports(moduleName.replace('@/', './src/') + '/index.ts', moduleName);
+                getImports(moduleName.replace('@/', './src/') + '.tsx', moduleName);
               } catch (e) {
-                console.log('NOT FOUND', moduleName)
-                getImports(moduleName.replace('@/', './src/'), moduleName);
+                try {
+                  getImports(moduleName.replace('@/', './src/') + '/index.ts', moduleName);
+                } catch (e) {
+                  console.log('NOT FOUND', moduleName)
+                  getImports(moduleName.replace('@/', './src/'), moduleName);
+                }
               }
             }
           }
+        } else {
+          return
         }
+
+        
       } else {
         ts.forEachChild(node, delintNode)
       };

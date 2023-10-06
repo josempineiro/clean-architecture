@@ -9,7 +9,7 @@ import { productiveClientEcommerceApplication } from '@/client/infrastructure/gr
 type Environment = 'development' | 'test' | 'production'
 
 // TODO: get from env
-const ENV: Environment = 'production'
+const ENV: Environment = process.env.NODE_ENV as Environment
 
 const currentEcommerceApplicationProvider = (
   (ENV === 'development' && devClientEcommerceApplication) ||

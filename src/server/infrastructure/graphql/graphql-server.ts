@@ -23,5 +23,5 @@ const handleRequest = startServerAndCreateNextHandler(apolloServer, {
   context: async (req, res) => ({ req, res, ...serverApplication }),
 })
 
-export { handleRequest as GET, handleRequest as POST }
+// export { handleRequest as GET, handleRequest as POST }
 
