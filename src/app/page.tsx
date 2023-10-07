@@ -43,7 +43,7 @@ export default function Home() {
                 </div>
               </div>
               <p>
-                Welcome to my comprehensive guide on Frontend Clean Architecture, a design philosophy that has revolutionized software development. In this discussion, we`ll explore the principles and benefits of Clean Architecture and illustrate its practical application through the lens of an ecommerce platform.
+                Welcome to my comprehensive guide on Frontend Clean Architecture, a design philosophy that has revolutionized software development. In this discussion, we will explore the principles and benefits of Clean Architecture and illustrate its practical application through the lens of an ecommerce platform.
               </p>
 
               <h2>
