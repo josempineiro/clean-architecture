@@ -1,7 +1,7 @@
 const path =require('path');
 const fs = require('fs');
 const _ = require('lodash');
-const { builtinModules } =require('module');
+const { builtinModules } = require('module');
 const ts = require('typescript');
 const config =require('./tsconfig.json');
 
@@ -12,7 +12,28 @@ const entries = [
   './src/app/products/page.tsx',
   './src/app/products/create/page.tsx',
   './src/app/products/[product-id]/page.tsx',
+  './src/admin/presentation/index.ts',
 ]
+
+
+const idToLayer = (id) => {
+  if (id.match('/domain')) return 'domain'
+  if (id.match('/infrastructure')) return 'infrastructure'
+  if (id.match('/application')) return 'application'
+  if (id.match('/presentation') || id.match('@/app')) return 'presentation'
+  return 'external'
+}
+
+
+const idToModule = (id) => {
+  if (id.match('admin')) return 'admin'
+  if (id.match('ecommerce')) return 'ecommerce'
+  if (id.match('core')) return 'core'
+  if (id.match('server')) return 'server'
+  if (id.match('client')) return 'client'
+  if (id.match('app')) return 'app'
+  return 'external'
+}
 
 
 const idToType = (id) => {
@@ -28,18 +49,14 @@ const idToType = (id) => {
 }
 
 const filenameToNode = (filename) => {
-  const id =  filename.replace('./src/', '@/').split('.')[0]
-  const external = !id.startsWith('@/') && !id.startsWith('.')
+  const id =  filename.replace('./src/', '@/').split('.')[0].replace(/\/index$/, '')
   return {
     id,
-    filename: filename,
-    group: id.split('/')[1],
-    name: _.upperFirst(_.camelCase(id.split('/').reverse()[0])),
-    module: external ?  'external': id.split('/')[1],
-    layer: external ? 'external' : id.startsWith('@/app') ? 'presentation' : id.split('/')[2],
+    filename: filename.replace(/\/index$/, ''),
+    name: _.upperFirst(_.camelCase(id.split('/').reverse()[0])).replace(/\/index$/, ''),
+    module: idToModule(id),
+    layer: idToLayer(id),
     type: idToType(id),
-    value: 1,
-    external
   }
 }
 
@@ -88,7 +105,7 @@ function getImports(fileName, name) {
           links.push({
             target: name,
             source: moduleNode.id,
-            external: moduleNode.module === 'external',
+            external: moduleNode.module.match('external'),
           });
         if (!nodes.find((node) => node.filename === moduleName)) {
           nodes.push(moduleNode)
@@ -251,7 +268,7 @@ fs.writeFileSync(
     },
     layersAndModules: {
       nodes: Object.entries(_.groupBy(uniqNodes, (node) => node.module + '/' + node.layer)).map(([moduleLayer, nodes]) => ({
-        id: moduleLayer.endsWith('external') ?  `external/external` : moduleLayer,
+        id: moduleLayer,
         name:  moduleLayer,
         layer: moduleLayer.split('/')[1],
         module: moduleLayer.split('/')[0],

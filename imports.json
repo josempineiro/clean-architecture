@@ -66,6 +66,7 @@
       "@/client/presentation/hooks/use-get-products",
       "@/client/presentation/hooks/use-create-product",
       "@/client/presentation/components/products/product-card",
+      "next/image",
       "@/client/presentation/components/products/products-grid",
       "@/client/presentation/pages/product-creation-page",
       "next/navigation",
@@ -84,74 +85,69 @@
       "@/core/presentation/components/forms/fields/select-field",
       "@/core/presentation/components/forms/fields/checkboxes-field",
       "@/core/presentation/components/forms/fields/radiogroup-field",
-      "@/client/presentation/pages/product-page"
+      "@/client/presentation/pages/product-page",
+      "@/client/presentation/components/products/product-detail",
+      "@/admin/presentation/views",
+      "@/admin/presentation/views/product-creation-view",
+      "@/admin/presentation/views/products-list-view",
+      "@/admin/presentation/views/product-detail-view"
     ],
     "nodes": [
       {
         "id": "@/client/presentation/contexts/ecommerce-application-context",
         "filename": "./src/client/presentation/contexts/ecommerce-application-context.tsx",
-        "group": "client",
         "name": "EcommerceApplicationContext",
-        "module": "client",
+        "module": "ecommerce",
         "layer": "presentation",
-        "type": "other",
-        "value": 1,
-        "external": false
+        "type": "other"
       },
       {
         "id": "@/server/infrastructure/graphql/server",
         "filename": "./src/server/infrastructure/graphql/server.ts",
-        "group": "server",
         "name": "Server",
         "module": "server",
         "layer": "infrastructure",
-        "type": "graphql",
-        "value": 1,
-        "external": false
+        "type": "graphql"
       },
       {
         "id": "@/app/products/page",
         "filename": "./src/app/products/page.tsx",
-        "group": "app",
         "name": "Page",
         "module": "app",
         "layer": "presentation",
-        "type": "page",
-        "value": 1,
-        "external": false
+        "type": "page"
       },
       {
         "id": "@/app/products/create/page",
         "filename": "./src/app/products/create/page.tsx",
-        "group": "app",
         "name": "Page",
         "module": "app",
         "layer": "presentation",
-        "type": "page",
-        "value": 1,
-        "external": false
+        "type": "page"
       },
       {
         "id": "@/app/products/[product-id]/page",
         "filename": "./src/app/products/[product-id]/page.tsx",
-        "group": "app",
         "name": "Page",
         "module": "app",
         "layer": "presentation",
-        "type": "page",
-        "value": 1,
-        "external": false
+        "type": "page"
+      },
+      {
+        "id": "@/admin/presentation",
+        "filename": "./src/admin/presentation/index.ts",
+        "name": "Presentation",
+        "module": "admin",
+        "layer": "presentation",
+        "type": "other"
       },
       {
         "id": "@/core/infrastructure/contexts/application-context",
         "filename": "@/core/infrastructure/contexts/application-context",
-        "group": "core",
         "name": "ApplicationContext",
         "module": "core",
         "layer": "infrastructure",
-        "type": "other",
-        "value": 1,
-        "external": false
+        "type": "other"
       },
       {
         "id": "react",
@@ -159,361 +155,263 @@
         "name": "React",
         "module": "external",
         "layer": "external",
-        "type": "other",
-        "value": 1,
-        "external": true
+        "type": "other"
       },
       {
         "id": "@tanstack/react-query",
         "filename": "@tanstack/react-query",
-        "group": "react-query",
         "name": "ReactQuery",
         "module": "external",
         "layer": "external",
-        "type": "other",
-        "value": 1,
-        "external": true
+        "type": "other"
       },
       {
         "id": "@/core/domain",
         "filename": "@/core/domain",
-        "group": "core",
         "name": "Domain",
         "module": "core",
         "layer": "domain",
-        "type": "other",
-        "value": 1,
-        "external": false
+        "type": "other"
       },
       {
         "id": "@/core/domain/entities/use-case",
         "filename": "@/core/domain/entities/use-case",
-        "group": "core",
         "name": "UseCase",
         "module": "core",
         "layer": "domain",
-        "type": "entity",
-        "value": 1,
-        "external": false
+        "type": "entity"
       },
       {
         "id": "@/core/domain/entities/repository",
         "filename": "@/core/domain/entities/repository",
-        "group": "core",
         "name": "Repository",
         "module": "core",
         "layer": "domain",
-        "type": "entity",
-        "value": 1,
-        "external": false
+        "type": "entity"
       },
       {
         "id": "@/core/domain/entities/application",
         "filename": "@/core/domain/entities/application",
-        "group": "core",
         "name": "Application",
         "module": "core",
         "layer": "domain",
-        "type": "entity",
-        "value": 1,
-        "external": false
+        "type": "entity"
       },
       {
         "id": "@/core/domain/entities/entity",
         "filename": "@/core/domain/entities/entity",
-        "group": "core",
         "name": "Entity",
         "module": "core",
         "layer": "domain",
-        "type": "entity",
-        "value": 1,
-        "external": false
+        "type": "entity"
       },
       {
         "id": "@/ecommerce/application",
         "filename": "@/ecommerce/application",
-        "group": "ecommerce",
         "name": "Application",
         "module": "ecommerce",
         "layer": "application",
-        "type": "application",
-        "value": 1,
-        "external": false
+        "type": "application"
       },
       {
         "id": "@/ecommerce/application/use-cases/create-product",
         "filename": "@/ecommerce/application/use-cases/create-product",
-        "group": "ecommerce",
         "name": "CreateProduct",
         "module": "ecommerce",
         "layer": "application",
-        "type": "use-case",
-        "value": 1,
-        "external": false
+        "type": "use-case"
       },
       {
         "id": "@/ecommerce/domain",
         "filename": "@/ecommerce/domain",
-        "group": "ecommerce",
         "name": "Domain",
         "module": "ecommerce",
         "layer": "domain",
-        "type": "other",
-        "value": 1,
-        "external": false
+        "type": "other"
       },
       {
         "id": "@/ecommerce/domain/entities/product",
         "filename": "@/ecommerce/domain/entities/product",
-        "group": "ecommerce",
         "name": "Product",
         "module": "ecommerce",
         "layer": "domain",
-        "type": "entity",
-        "value": 1,
-        "external": false
+        "type": "entity"
       },
       {
         "id": "@/ecommerce/domain/entities/cart",
         "filename": "@/ecommerce/domain/entities/cart",
-        "group": "ecommerce",
         "name": "Cart",
         "module": "ecommerce",
         "layer": "domain",
-        "type": "entity",
-        "value": 1,
-        "external": false
+        "type": "entity"
       },
       {
         "id": "@/ecommerce/domain/entities/category",
         "filename": "@/ecommerce/domain/entities/category",
-        "group": "ecommerce",
         "name": "Category",
         "module": "ecommerce",
         "layer": "domain",
-        "type": "entity",
-        "value": 1,
-        "external": false
+        "type": "entity"
       },
       {
         "id": "@/ecommerce/domain/entities/order",
         "filename": "@/ecommerce/domain/entities/order",
-        "group": "ecommerce",
         "name": "Order",
         "module": "ecommerce",
         "layer": "domain",
-        "type": "entity",
-        "value": 1,
-        "external": false
+        "type": "entity"
       },
       {
         "id": "@/ecommerce/domain/repositories/products-repository",
         "filename": "@/ecommerce/domain/repositories/products-repository",
-        "group": "ecommerce",
         "name": "ProductsRepository",
         "module": "ecommerce",
         "layer": "domain",
-        "type": "repository",
-        "value": 1,
-        "external": false
+        "type": "repository"
       },
       {
         "id": "@/ecommerce/domain/repositories/categories-repository",
         "filename": "@/ecommerce/domain/repositories/categories-repository",
-        "group": "ecommerce",
         "name": "CategoriesRepository",
         "module": "ecommerce",
         "layer": "domain",
-        "type": "repository",
-        "value": 1,
-        "external": false
+        "type": "repository"
       },
       {
         "id": "@/ecommerce/application/use-cases/get-products",
         "filename": "@/ecommerce/application/use-cases/get-products",
-        "group": "ecommerce",
         "name": "GetProducts",
         "module": "ecommerce",
         "layer": "application",
-        "type": "use-case",
-        "value": 1,
-        "external": false
+        "type": "use-case"
       },
       {
         "id": "@/ecommerce/application/use-cases/get-product",
         "filename": "@/ecommerce/application/use-cases/get-product",
-        "group": "ecommerce",
         "name": "GetProduct",
         "module": "ecommerce",
         "layer": "application",
-        "type": "use-case",
-        "value": 1,
-        "external": false
+        "type": "use-case"
       },
       {
         "id": "@/client/infrastructure/graphql/application",
         "filename": "@/client/infrastructure/graphql/application",
-        "group": "client",
         "name": "Application",
         "module": "client",
         "layer": "infrastructure",
-        "type": "application",
-        "value": 1,
-        "external": false
+        "type": "application"
       },
       {
         "id": "@/client/infrastructure/graphql/application/dev-client-ecommerce-application",
         "filename": "@/client/infrastructure/graphql/application/dev-client-ecommerce-application",
-        "group": "client",
         "name": "DevClientEcommerceApplication",
-        "module": "client",
+        "module": "ecommerce",
         "layer": "infrastructure",
-        "type": "application",
-        "value": 1,
-        "external": false
+        "type": "application"
       },
       {
         "id": "@/client/infrastructure/repositories/products-datastore-repository",
         "filename": "@/client/infrastructure/repositories/products-datastore-repository",
-        "group": "client",
         "name": "ProductsDatastoreRepository",
         "module": "client",
         "layer": "infrastructure",
-        "type": "repository",
-        "value": 1,
-        "external": false
+        "type": "repository"
       },
       {
         "id": "@/core/infrastructure/repositories/datastore-repository",
         "filename": "@/core/infrastructure/repositories/datastore-repository",
-        "group": "core",
         "name": "DatastoreRepository",
         "module": "core",
         "layer": "infrastructure",
-        "type": "repository",
-        "value": 1,
-        "external": false
+        "type": "repository"
       },
       {
         "id": "@/client/application",
         "filename": "@/client/application",
-        "group": "client",
         "name": "Application",
         "module": "client",
         "layer": "application",
-        "type": "application",
-        "value": 1,
-        "external": false
+        "type": "application"
       },
       {
         "id": "@/client/application/use-cases/create-product",
         "filename": "@/client/application/use-cases/create-product",
-        "group": "client",
         "name": "CreateProduct",
         "module": "client",
         "layer": "application",
-        "type": "use-case",
-        "value": 1,
-        "external": false
+        "type": "use-case"
       },
       {
         "id": "@/client/application/use-cases/get-products",
         "filename": "@/client/application/use-cases/get-products",
-        "group": "client",
         "name": "GetProducts",
         "module": "client",
         "layer": "application",
-        "type": "use-case",
-        "value": 1,
-        "external": false
+        "type": "use-case"
       },
       {
         "id": "@/client/application/use-cases/get-product",
         "filename": "@/client/application/use-cases/get-product",
-        "group": "client",
         "name": "GetProduct",
         "module": "client",
         "layer": "application",
-        "type": "use-case",
-        "value": 1,
-        "external": false
+        "type": "use-case"
       },
       {
         "id": "@/client/infrastructure/graphql/application/test-client-ecommerce-application",
         "filename": "@/client/infrastructure/graphql/application/test-client-ecommerce-application",
-        "group": "client",
         "name": "TestClientEcommerceApplication",
-        "module": "client",
+        "module": "ecommerce",
         "layer": "infrastructure",
-        "type": "application",
-        "value": 1,
-        "external": false
+        "type": "application"
       },
       {
         "id": "@/client/infrastructure/repositories/products-mock-repository",
         "filename": "@/client/infrastructure/repositories/products-mock-repository",
-        "group": "client",
         "name": "ProductsMockRepository",
         "module": "client",
         "layer": "infrastructure",
-        "type": "repository",
-        "value": 1,
-        "external": false
+        "type": "repository"
       },
       {
         "id": "@/core/infrastructure/repositories/mock-repository",
         "filename": "@/core/infrastructure/repositories/mock-repository",
-        "group": "core",
         "name": "MockRepository",
         "module": "core",
         "layer": "infrastructure",
-        "type": "repository",
-        "value": 1,
-        "external": false
+        "type": "repository"
       },
       {
         "id": "@/client/infrastructure/graphql/application/pro-client-ecommerce-application",
         "filename": "@/client/infrastructure/graphql/application/pro-client-ecommerce-application",
-        "group": "client",
         "name": "ProClientEcommerceApplication",
-        "module": "client",
+        "module": "ecommerce",
         "layer": "infrastructure",
-        "type": "application",
-        "value": 1,
-        "external": false
+        "type": "application"
       },
       {
         "id": "@/client/infrastructure/repositories/products-graphql-repository",
         "filename": "@/client/infrastructure/repositories/products-graphql-repository",
-        "group": "client",
         "name": "ProductsGraphqlRepository",
         "module": "client",
         "layer": "infrastructure",
-        "type": "repository",
-        "value": 1,
-        "external": false
+        "type": "repository"
       },
       {
         "id": "@/core/infrastructure/graphql/repository",
         "filename": "@/core/infrastructure/graphql/repository",
-        "group": "core",
         "name": "Repository",
         "module": "core",
         "layer": "infrastructure",
-        "type": "graphql",
-        "value": 1,
-        "external": false
+        "type": "graphql"
       },
       {
         "id": "@/core/infrastructure/graphql/client",
         "filename": "@/core/infrastructure/graphql/client",
-        "group": "core",
         "name": "Client",
         "module": "core",
         "layer": "infrastructure",
-        "type": "graphql",
-        "value": 1,
-        "external": false
+        "type": "graphql"
       },
       {
         "id": "graphql-request",
@@ -521,42 +419,31 @@
         "name": "GraphqlRequest",
         "module": "external",
         "layer": "external",
-        "type": "graphql",
-        "value": 1,
-        "external": true
+        "type": "graphql"
       },
       {
         "id": "@/core/infrastructure/mappers/graphql-mapper",
         "filename": "@/core/infrastructure/mappers/graphql-mapper",
-        "group": "core",
         "name": "GraphqlMapper",
         "module": "core",
         "layer": "infrastructure",
-        "type": "mapper",
-        "value": 1,
-        "external": false
+        "type": "mapper"
       },
       {
         "id": "@/client/infrastructure/graphql/types",
         "filename": "@/client/infrastructure/graphql/types",
-        "group": "client",
         "name": "Types",
         "module": "client",
         "layer": "infrastructure",
-        "type": "graphql",
-        "value": 1,
-        "external": false
+        "type": "graphql"
       },
       {
         "id": "graphql-request/build/cjs/types",
         "filename": "graphql-request/build/cjs/types",
-        "group": "build",
         "name": "Types",
         "module": "external",
         "layer": "external",
-        "type": "graphql",
-        "value": 1,
-        "external": true
+        "type": "graphql"
       },
       {
         "id": "graphql",
@@ -564,9 +451,7 @@
         "name": "Graphql",
         "module": "external",
         "layer": "external",
-        "type": "graphql",
-        "value": 1,
-        "external": true
+        "type": "graphql"
       },
       {
         "id": "graphql-tag",
@@ -574,371 +459,279 @@
         "name": "GraphqlTag",
         "module": "external",
         "layer": "external",
-        "type": "graphql",
-        "value": 1,
-        "external": true
+        "type": "graphql"
       },
       {
         "id": "@/client/infrastructure/mappers/product-graphql-mapper",
         "filename": "@/client/infrastructure/mappers/product-graphql-mapper",
-        "group": "client",
         "name": "ProductGraphqlMapper",
         "module": "client",
         "layer": "infrastructure",
-        "type": "mapper",
-        "value": 1,
-        "external": false
+        "type": "mapper"
       },
       {
         "id": "@/core/infrastructure/graphql/server",
         "filename": "@/core/infrastructure/graphql/server",
-        "group": "core",
         "name": "Server",
         "module": "core",
         "layer": "infrastructure",
-        "type": "graphql",
-        "value": 1,
-        "external": false
+        "type": "graphql"
       },
       {
         "id": "@apollo/server",
         "filename": "@apollo/server",
-        "group": "server",
         "name": "Server",
-        "module": "external",
+        "module": "server",
         "layer": "external",
-        "type": "other",
-        "value": 1,
-        "external": true
+        "type": "other"
       },
       {
         "id": "apollo-server-core",
         "filename": "apollo-server-core",
         "name": "ApolloServerCore",
-        "module": "external",
+        "module": "core",
         "layer": "external",
-        "type": "other",
-        "value": 1,
-        "external": true
+        "type": "other"
       },
       {
         "id": "@/ecommerce/infrastructure/graphql/schema",
         "filename": "@/ecommerce/infrastructure/graphql/schema",
-        "group": "ecommerce",
         "name": "Schema",
         "module": "ecommerce",
         "layer": "infrastructure",
-        "type": "graphql",
-        "value": 1,
-        "external": false
+        "type": "graphql"
       },
       {
         "id": "@/server/application",
         "filename": "@/server/application",
-        "group": "server",
         "name": "Application",
         "module": "server",
         "layer": "application",
-        "type": "application",
-        "value": 1,
-        "external": false
+        "type": "application"
       },
       {
         "id": "@/server/application/use-cases/create-product",
         "filename": "@/server/application/use-cases/create-product",
-        "group": "server",
         "name": "CreateProduct",
         "module": "server",
         "layer": "application",
-        "type": "use-case",
-        "value": 1,
-        "external": false
+        "type": "use-case"
       },
       {
         "id": "@/server/application/use-cases/get-products",
         "filename": "@/server/application/use-cases/get-products",
-        "group": "server",
         "name": "GetProducts",
         "module": "server",
         "layer": "application",
-        "type": "use-case",
-        "value": 1,
-        "external": false
+        "type": "use-case"
       },
       {
         "id": "@/server/application/use-cases/get-product",
         "filename": "@/server/application/use-cases/get-product",
-        "group": "server",
         "name": "GetProduct",
         "module": "server",
         "layer": "application",
-        "type": "use-case",
-        "value": 1,
-        "external": false
+        "type": "use-case"
       },
       {
         "id": "@/server/infrastructure/graphql/resolvers",
         "filename": "@/server/infrastructure/graphql/resolvers",
-        "group": "server",
         "name": "Resolvers",
         "module": "server",
         "layer": "infrastructure",
-        "type": "graphql",
-        "value": 1,
-        "external": false
+        "type": "graphql"
       },
       {
         "id": "@/server/infrastructure/graphql/types",
         "filename": "@/server/infrastructure/graphql/types",
-        "group": "server",
         "name": "Types",
         "module": "server",
         "layer": "infrastructure",
-        "type": "graphql",
-        "value": 1,
-        "external": false
+        "type": "graphql"
       },
       {
         "id": "@/server/infrastructure/graphql/context",
         "filename": "@/server/infrastructure/graphql/context",
-        "group": "server",
         "name": "Context",
         "module": "server",
         "layer": "infrastructure",
-        "type": "graphql",
-        "value": 1,
-        "external": false
+        "type": "graphql"
       },
       {
         "id": "@/server/infrastructure/repositories/products-mock-repository",
         "filename": "@/server/infrastructure/repositories/products-mock-repository",
-        "group": "server",
         "name": "ProductsMockRepository",
         "module": "server",
         "layer": "infrastructure",
-        "type": "repository",
-        "value": 1,
-        "external": false
+        "type": "repository"
       },
       {
         "id": "@/core/infrastructure",
         "filename": "@/core/infrastructure",
-        "group": "core",
         "name": "Infrastructure",
         "module": "core",
         "layer": "infrastructure",
-        "type": "other",
-        "value": 1,
-        "external": false
+        "type": "other"
       },
       {
         "id": "@/core/infrastructure/repositories",
         "filename": "@/core/infrastructure/repositories",
-        "group": "core",
         "name": "Repositories",
         "module": "core",
         "layer": "infrastructure",
-        "type": "repository",
-        "value": 1,
-        "external": false
+        "type": "repository"
       },
       {
         "id": "@/core/infrastructure/repositories/graphql-repository",
         "filename": "@/core/infrastructure/repositories/graphql-repository",
-        "group": "core",
         "name": "GraphqlRepository",
         "module": "core",
         "layer": "infrastructure",
-        "type": "repository",
-        "value": 1,
-        "external": false
+        "type": "repository"
       },
       {
         "id": "@/client/presentation/pages/products-page",
         "filename": "@/client/presentation/pages/products-page",
-        "group": "client",
         "name": "ProductsPage",
         "module": "client",
         "layer": "presentation",
-        "type": "page",
-        "value": 1,
-        "external": false
+        "type": "page"
       },
       {
         "id": "next/link",
         "filename": "next/link",
-        "group": "link",
         "name": "Link",
         "module": "external",
         "layer": "external",
-        "type": "other",
-        "value": 1,
-        "external": true
+        "type": "other"
       },
       {
         "id": "@/client/presentation/hooks",
         "filename": "@/client/presentation/hooks",
-        "group": "client",
         "name": "Hooks",
         "module": "client",
         "layer": "presentation",
-        "type": "other",
-        "value": 1,
-        "external": false
+        "type": "other"
       },
       {
         "id": "@/client/presentation/hooks/use-get-product",
         "filename": "@/client/presentation/hooks/use-get-product",
-        "group": "client",
         "name": "UseGetProduct",
         "module": "client",
         "layer": "presentation",
-        "type": "other",
-        "value": 1,
-        "external": false
+        "type": "other"
       },
       {
         "id": "@/core/presentation/hooks/use-use-case",
         "filename": "@/core/presentation/hooks/use-use-case",
-        "group": "core",
         "name": "UseUseCase",
         "module": "core",
         "layer": "presentation",
-        "type": "other",
-        "value": 1,
-        "external": false
+        "type": "other"
       },
       {
         "id": "@/client/presentation/contexts/ecommerce-application-context",
         "filename": "@/client/presentation/contexts/ecommerce-application-context",
-        "group": "client",
         "name": "EcommerceApplicationContext",
-        "module": "client",
+        "module": "ecommerce",
         "layer": "presentation",
-        "type": "other",
-        "value": 1,
-        "external": false
+        "type": "other"
       },
       {
         "id": "@/client/presentation/hooks/use-get-products",
         "filename": "@/client/presentation/hooks/use-get-products",
-        "group": "client",
         "name": "UseGetProducts",
         "module": "client",
         "layer": "presentation",
-        "type": "other",
-        "value": 1,
-        "external": false
+        "type": "other"
       },
       {
         "id": "@/client/presentation/hooks/use-create-product",
         "filename": "@/client/presentation/hooks/use-create-product",
-        "group": "client",
         "name": "UseCreateProduct",
         "module": "client",
         "layer": "presentation",
-        "type": "other",
-        "value": 1,
-        "external": false
+        "type": "other"
       },
       {
         "id": "@/client/presentation/components/products/product-card",
         "filename": "@/client/presentation/components/products/product-card",
-        "group": "client",
         "name": "ProductCard",
         "module": "client",
         "layer": "presentation",
-        "type": "component",
-        "value": 1,
-        "external": false
+        "type": "component"
+      },
+      {
+        "id": "next/image",
+        "filename": "next/image",
+        "name": "Image",
+        "module": "external",
+        "layer": "external",
+        "type": "other"
       },
       {
         "id": "@/client/presentation/components/products/products-grid",
         "filename": "@/client/presentation/components/products/products-grid",
-        "group": "client",
         "name": "ProductsGrid",
         "module": "client",
         "layer": "presentation",
-        "type": "component",
-        "value": 1,
-        "external": false
+        "type": "component"
       },
       {
         "id": "@/client/presentation/pages/product-creation-page",
         "filename": "@/client/presentation/pages/product-creation-page",
-        "group": "client",
         "name": "ProductCreationPage",
         "module": "client",
         "layer": "presentation",
-        "type": "page",
-        "value": 1,
-        "external": false
+        "type": "page"
       },
       {
         "id": "next/navigation",
         "filename": "next/navigation",
-        "group": "navigation",
         "name": "Navigation",
         "module": "external",
         "layer": "external",
-        "type": "other",
-        "value": 1,
-        "external": true
+        "type": "other"
       },
       {
         "id": "@/core/presentation/components/actions/button",
         "filename": "@/core/presentation/components/actions/button",
-        "group": "core",
         "name": "Button",
         "module": "core",
         "layer": "presentation",
-        "type": "component",
-        "value": 1,
-        "external": false
+        "type": "component"
       },
       {
         "id": "@/client/presentation/components/products/product-creation-form",
         "filename": "@/client/presentation/components/products/product-creation-form",
-        "group": "client",
         "name": "ProductCreationForm",
         "module": "client",
         "layer": "presentation",
-        "type": "component",
-        "value": 1,
-        "external": false
+        "type": "component"
       },
       {
         "id": "@/core/presentation/components/forms",
         "filename": "@/core/presentation/components/forms",
-        "group": "core",
         "name": "Forms",
         "module": "core",
         "layer": "presentation",
-        "type": "component",
-        "value": 1,
-        "external": false
+        "type": "component"
       },
       {
         "id": "@/core/presentation/components/forms/form",
         "filename": "@/core/presentation/components/forms/form",
-        "group": "core",
         "name": "Form",
         "module": "core",
         "layer": "presentation",
-        "type": "component",
-        "value": 1,
-        "external": false
+        "type": "component"
       },
       {
         "id": "@/core/presentation/components/forms/form/form",
         "filename": "@/core/presentation/components/forms/form/form",
-        "group": "core",
         "name": "Form",
         "module": "core",
         "layer": "presentation",
-        "type": "component",
-        "value": 1,
-        "external": false
+        "type": "component"
       },
       {
         "id": "lodash",
@@ -946,1016 +739,1101 @@
         "name": "Lodash",
         "module": "external",
         "layer": "external",
-        "type": "other",
-        "value": 1,
-        "external": true
+        "type": "other"
       },
       {
         "id": "@/core/presentation/components/forms/field",
         "filename": "@/core/presentation/components/forms/field",
-        "group": "core",
         "name": "Field",
         "module": "core",
         "layer": "presentation",
-        "type": "component",
-        "value": 1,
-        "external": false
+        "type": "component"
       },
       {
         "id": "@/core/presentation/components/forms/field/field",
         "filename": "@/core/presentation/components/forms/field/field",
-        "group": "core",
         "name": "Field",
         "module": "core",
         "layer": "presentation",
-        "type": "component",
-        "value": 1,
-        "external": false
+        "type": "component"
       },
       {
         "id": "@/core/presentation/components/forms/fields",
         "filename": "@/core/presentation/components/forms/fields",
-        "group": "core",
         "name": "Fields",
         "module": "core",
         "layer": "presentation",
-        "type": "component",
-        "value": 1,
-        "external": false
+        "type": "component"
       },
       {
         "id": "@/core/presentation/components/forms/fields/text-field",
         "filename": "@/core/presentation/components/forms/fields/text-field",
-        "group": "core",
         "name": "TextField",
         "module": "core",
         "layer": "presentation",
-        "type": "component",
-        "value": 1,
-        "external": false
+        "type": "component"
       },
       {
         "id": "@/core/presentation/components/forms/fields/input-field",
         "filename": "@/core/presentation/components/forms/fields/input-field",
-        "group": "core",
         "name": "InputField",
         "module": "core",
         "layer": "presentation",
-        "type": "component",
-        "value": 1,
-        "external": false
+        "type": "component"
       },
       {
         "id": "@/core/presentation/components/forms/fields/number-field",
         "filename": "@/core/presentation/components/forms/fields/number-field",
-        "group": "core",
         "name": "NumberField",
         "module": "core",
         "layer": "presentation",
-        "type": "component",
-        "value": 1,
-        "external": false
+        "type": "component"
       },
       {
         "id": "@/core/presentation/components/forms/fields/select-field",
         "filename": "@/core/presentation/components/forms/fields/select-field",
-        "group": "core",
         "name": "SelectField",
         "module": "core",
         "layer": "presentation",
-        "type": "component",
-        "value": 1,
-        "external": false
+        "type": "component"
       },
       {
         "id": "@/core/presentation/components/forms/fields/checkboxes-field",
         "filename": "@/core/presentation/components/forms/fields/checkboxes-field",
-        "group": "core",
         "name": "CheckboxesField",
         "module": "core",
         "layer": "presentation",
-        "type": "component",
-        "value": 1,
-        "external": false
+        "type": "component"
       },
       {
         "id": "@/core/presentation/components/forms/fields/radiogroup-field",
         "filename": "@/core/presentation/components/forms/fields/radiogroup-field",
-        "group": "core",
         "name": "RadiogroupField",
         "module": "core",
         "layer": "presentation",
-        "type": "component",
-        "value": 1,
-        "external": false
+        "type": "component"
       },
       {
         "id": "@/client/presentation/pages/product-page",
         "filename": "@/client/presentation/pages/product-page",
-        "group": "client",
         "name": "ProductPage",
         "module": "client",
         "layer": "presentation",
-        "type": "page",
-        "value": 1,
-        "external": false
+        "type": "page"
+      },
+      {
+        "id": "@/client/presentation/components/products/product-detail",
+        "filename": "@/client/presentation/components/products/product-detail",
+        "name": "ProductDetail",
+        "module": "client",
+        "layer": "presentation",
+        "type": "component"
+      },
+      {
+        "id": "@/admin/presentation/views",
+        "filename": "@/admin/presentation/views",
+        "name": "Views",
+        "module": "admin",
+        "layer": "presentation",
+        "type": "other"
+      },
+      {
+        "id": "@/admin/presentation/views/product-creation-view",
+        "filename": "@/admin/presentation/views/product-creation-view",
+        "name": "ProductCreationView",
+        "module": "admin",
+        "layer": "presentation",
+        "type": "other"
+      },
+      {
+        "id": "@/admin/presentation/views/products-list-view",
+        "filename": "@/admin/presentation/views/products-list-view",
+        "name": "ProductsListView",
+        "module": "admin",
+        "layer": "presentation",
+        "type": "other"
+      },
+      {
+        "id": "@/admin/presentation/views/product-detail-view",
+        "filename": "@/admin/presentation/views/product-detail-view",
+        "name": "ProductDetailView",
+        "module": "admin",
+        "layer": "presentation",
+        "type": "other"
       }
     ],
     "links": [
       {
         "target": "@/client/presentation/contexts/ecommerce-application-context",
         "source": "@/core/infrastructure/contexts/application-context",
-        "external": false
+        "external": null
       },
       {
         "target": "@/core/infrastructure/contexts/application-context",
         "source": "react",
-        "external": true
+        "external": [
+          "external"
+        ]
       },
       {
         "target": "@/core/infrastructure/contexts/application-context",
         "source": "@tanstack/react-query",
-        "external": true
+        "external": [
+          "external"
+        ]
       },
       {
         "target": "@/core/infrastructure/contexts/application-context",
         "source": "@/core/domain",
-        "external": false
+        "external": null
       },
       {
         "target": "@/core/domain",
         "source": "@/core/domain/entities/use-case",
-        "external": false
+        "external": null
       },
       {
         "target": "@/core/domain",
         "source": "@/core/domain/entities/repository",
-        "external": false
+        "external": null
       },
       {
         "target": "@/core/domain",
         "source": "@/core/domain/entities/application",
-        "external": false
+        "external": null
       },
       {
         "target": "@/core/domain/entities/application",
         "source": "@/core/domain/entities/use-case",
-        "external": false
+        "external": null
       },
       {
         "target": "@/core/domain",
         "source": "@/core/domain/entities/entity",
-        "external": false
+        "external": null
       },
       {
         "target": "@/client/presentation/contexts/ecommerce-application-context",
         "source": "@/ecommerce/application",
-        "external": false
+        "external": null
       },
       {
         "target": "@/ecommerce/application",
         "source": "@/core/domain",
-        "external": false
+        "external": null
       },
       {
         "target": "@/ecommerce/application",
         "source": "@/ecommerce/application/use-cases/create-product",
-        "external": false
+        "external": null
       },
       {
         "target": "@/ecommerce/application/use-cases/create-product",
         "source": "@/core/domain",
-        "external": false
+        "external": null
       },
       {
         "target": "@/ecommerce/application/use-cases/create-product",
         "source": "@/ecommerce/domain",
-        "external": false
+        "external": null
       },
       {
         "target": "@/ecommerce/domain",
         "source": "@/ecommerce/domain/entities/product",
-        "external": false
+        "external": null
       },
       {
         "target": "@/ecommerce/domain/entities/product",
         "source": "@/core/domain",
-        "external": false
+        "external": null
       },
       {
         "target": "@/ecommerce/domain",
         "source": "@/ecommerce/domain/entities/cart",
-        "external": false
+        "external": null
       },
       {
         "target": "@/ecommerce/domain",
         "source": "@/ecommerce/domain/entities/category",
-        "external": false
+        "external": null
       },
       {
         "target": "@/ecommerce/domain",
         "source": "@/ecommerce/domain/entities/order",
-        "external": false
+        "external": null
       },
       {
         "target": "@/ecommerce/domain",
         "source": "@/ecommerce/domain/repositories/products-repository",
-        "external": false
+        "external": null
       },
       {
         "target": "@/ecommerce/domain/repositories/products-repository",
         "source": "@/core/domain",
-        "external": false
+        "external": null
       },
       {
         "target": "@/ecommerce/domain/repositories/products-repository",
         "source": "@/ecommerce/domain/entities/product",
-        "external": false
+        "external": null
       },
       {
         "target": "@/ecommerce/domain",
         "source": "@/ecommerce/domain/repositories/categories-repository",
-        "external": false
+        "external": null
       },
       {
         "target": "@/ecommerce/domain/repositories/categories-repository",
         "source": "@/core/domain",
-        "external": false
+        "external": null
       },
       {
         "target": "@/ecommerce/domain/repositories/categories-repository",
         "source": "@/ecommerce/domain/entities/category",
-        "external": false
+        "external": null
       },
       {
         "target": "@/ecommerce/application",
         "source": "@/ecommerce/application/use-cases/get-products",
-        "external": false
+        "external": null
       },
       {
         "target": "@/ecommerce/application/use-cases/get-products",
         "source": "@/core/domain",
-        "external": false
+        "external": null
       },
       {
         "target": "@/ecommerce/application/use-cases/get-products",
         "source": "@/ecommerce/domain",
-        "external": false
+        "external": null
       },
       {
         "target": "@/ecommerce/application",
         "source": "@/ecommerce/application/use-cases/get-product",
-        "external": false
+        "external": null
       },
       {
         "target": "@/ecommerce/application/use-cases/get-product",
         "source": "@/core/domain",
-        "external": false
+        "external": null
       },
       {
         "target": "@/ecommerce/application/use-cases/get-product",
         "source": "@/ecommerce/domain",
-        "external": false
+        "external": null
       },
       {
         "target": "@/ecommerce/application",
         "source": "@/ecommerce/application/use-cases/create-product",
-        "external": false
+        "external": null
       },
       {
         "target": "@/ecommerce/application",
         "source": "@/ecommerce/application/use-cases/get-products",
-        "external": false
+        "external": null
       },
       {
         "target": "@/ecommerce/application",
         "source": "@/ecommerce/application/use-cases/get-product",
-        "external": false
+        "external": null
       },
       {
         "target": "@/client/presentation/contexts/ecommerce-application-context",
         "source": "@/client/infrastructure/graphql/application",
-        "external": false
+        "external": null
       },
       {
         "target": "@/client/infrastructure/graphql/application",
         "source": "@/ecommerce/application",
-        "external": false
+        "external": null
       },
       {
         "target": "@/client/infrastructure/graphql/application",
         "source": "@/client/infrastructure/graphql/application/dev-client-ecommerce-application",
-        "external": false
+        "external": null
       },
       {
         "target": "@/client/infrastructure/graphql/application/dev-client-ecommerce-application",
         "source": "@/client/infrastructure/repositories/products-datastore-repository",
-        "external": false
+        "external": null
       },
       {
         "target": "@/client/infrastructure/repositories/products-datastore-repository",
         "source": "@/ecommerce/domain",
-        "external": false
+        "external": null
       },
       {
         "target": "@/client/infrastructure/repositories/products-datastore-repository",
         "source": "@/core/infrastructure/repositories/datastore-repository",
-        "external": false
+        "external": null
       },
       {
         "target": "@/core/infrastructure/repositories/datastore-repository",
         "source": "@/core/domain",
-        "external": false
+        "external": null
       },
       {
         "target": "@/client/infrastructure/graphql/application/dev-client-ecommerce-application",
         "source": "@/client/application",
-        "external": false
+        "external": null
       },
       {
         "target": "@/client/application",
         "source": "@/ecommerce/application",
-        "external": false
+        "external": null
       },
       {
         "target": "@/client/application",
         "source": "@/client/application/use-cases/create-product",
-        "external": false
+        "external": null
       },
       {
         "target": "@/client/application/use-cases/create-product",
         "source": "@/ecommerce/domain",
-        "external": false
+        "external": null
       },
       {
         "target": "@/client/application/use-cases/create-product",
         "source": "@/ecommerce/application",
-        "external": false
+        "external": null
       },
       {
         "target": "@/client/application/use-cases/create-product",
         "source": "@/ecommerce/application",
-        "external": false
+        "external": null
       },
       {
         "target": "@/client/application/use-cases/create-product",
         "source": "@/client/application",
-        "external": false
+        "external": null
       },
       {
         "target": "@/client/application",
         "source": "@/client/application/use-cases/get-products",
-        "external": false
+        "external": null
       },
       {
         "target": "@/client/application/use-cases/get-products",
         "source": "@/ecommerce/application",
-        "external": false
+        "external": null
       },
       {
         "target": "@/client/application/use-cases/get-products",
         "source": "@/ecommerce/application",
-        "external": false
+        "external": null
       },
       {
         "target": "@/client/application/use-cases/get-products",
         "source": "@/client/application",
-        "external": false
+        "external": null
       },
       {
         "target": "@/client/application",
         "source": "@/client/application/use-cases/get-product",
-        "external": false
+        "external": null
       },
       {
         "target": "@/client/application/use-cases/get-product",
         "source": "@/ecommerce/application",
-        "external": false
+        "external": null
       },
       {
         "target": "@/client/application/use-cases/get-product",
         "source": "@/ecommerce/application",
-        "external": false
+        "external": null
       },
       {
         "target": "@/client/application/use-cases/get-product",
         "source": "@/client/application",
-        "external": false
+        "external": null
       },
       {
         "target": "@/client/application",
         "source": "@/ecommerce/domain",
-        "external": false
+        "external": null
       },
       {
         "target": "@/client/application",
         "source": "@/client/application/use-cases/create-product",
-        "external": false
+        "external": null
       },
       {
         "target": "@/client/application",
         "source": "@/client/application/use-cases/get-products",
-        "external": false
+        "external": null
       },
       {
         "target": "@/client/infrastructure/graphql/application",
         "source": "@/client/infrastructure/graphql/application/test-client-ecommerce-application",
-        "external": false
+        "external": null
       },
       {
         "target": "@/client/infrastructure/graphql/application/test-client-ecommerce-application",
         "source": "@/client/infrastructure/repositories/products-mock-repository",
-        "external": false
+        "external": null
       },
       {
         "target": "@/client/infrastructure/repositories/products-mock-repository",
         "source": "@/ecommerce/domain",
-        "external": false
+        "external": null
       },
       {
         "target": "@/client/infrastructure/repositories/products-mock-repository",
         "source": "@/core/infrastructure/repositories/mock-repository",
-        "external": false
+        "external": null
       },
       {
         "target": "@/core/infrastructure/repositories/mock-repository",
         "source": "@/core/domain",
-        "external": false
+        "external": null
       },
       {
         "target": "@/client/infrastructure/graphql/application/test-client-ecommerce-application",
         "source": "@/client/application",
-        "external": false
+        "external": null
       },
       {
         "target": "@/client/infrastructure/graphql/application",
         "source": "@/client/infrastructure/graphql/application/pro-client-ecommerce-application",
-        "external": false
+        "external": null
       },
       {
         "target": "@/client/infrastructure/graphql/application/pro-client-ecommerce-application",
         "source": "@/client/infrastructure/repositories/products-graphql-repository",
-        "external": false
+        "external": null
       },
       {
         "target": "@/client/infrastructure/repositories/products-graphql-repository",
         "source": "@/core/infrastructure/graphql/repository",
-        "external": false
+        "external": null
       },
       {
         "target": "@/core/infrastructure/graphql/repository",
         "source": "@/core/infrastructure/graphql/client",
-        "external": false
+        "external": null
       },
       {
         "target": "@/core/infrastructure/graphql/client",
         "source": "graphql-request",
-        "external": true
+        "external": [
+          "external"
+        ]
       },
       {
         "target": "@/core/infrastructure/graphql/repository",
         "source": "@/core/domain",
-        "external": false
+        "external": null
       },
       {
         "target": "@/core/infrastructure/graphql/repository",
         "source": "@/core/infrastructure/mappers/graphql-mapper",
-        "external": false
+        "external": null
       },
       {
         "target": "@/client/infrastructure/repositories/products-graphql-repository",
         "source": "@/client/infrastructure/graphql/types",
-        "external": false
+        "external": null
       },
       {
         "target": "@/client/infrastructure/graphql/types",
         "source": "graphql-request",
-        "external": true
+        "external": [
+          "external"
+        ]
       },
       {
         "target": "@/client/infrastructure/graphql/types",
         "source": "graphql-request/build/cjs/types",
-        "external": true
+        "external": [
+          "external"
+        ]
       },
       {
         "target": "@/client/infrastructure/graphql/types",
         "source": "graphql",
-        "external": true
+        "external": [
+          "external"
+        ]
       },
       {
         "target": "@/client/infrastructure/graphql/types",
         "source": "graphql-tag",
-        "external": true
+        "external": [
+          "external"
+        ]
       },
       {
         "target": "@/client/infrastructure/repositories/products-graphql-repository",
         "source": "@/ecommerce/domain",
-        "external": false
+        "external": null
       },
       {
         "target": "@/client/infrastructure/repositories/products-graphql-repository",
         "source": "@/client/infrastructure/mappers/product-graphql-mapper",
-        "external": false
+        "external": null
       },
       {
         "target": "@/client/infrastructure/mappers/product-graphql-mapper",
         "source": "@/client/infrastructure/graphql/types",
-        "external": false
+        "external": null
       },
       {
         "target": "@/client/infrastructure/mappers/product-graphql-mapper",
         "source": "@/ecommerce/domain",
-        "external": false
+        "external": null
       },
       {
         "target": "@/client/infrastructure/mappers/product-graphql-mapper",
         "source": "@/core/infrastructure/mappers/graphql-mapper",
-        "external": false
+        "external": null
       },
       {
         "target": "@/client/infrastructure/graphql/application/pro-client-ecommerce-application",
         "source": "@/client/application",
-        "external": false
+        "external": null
       },
       {
         "target": "@/server/infrastructure/graphql/server",
         "source": "@/ecommerce/domain",
-        "external": false
+        "external": null
       },
       {
         "target": "@/server/infrastructure/graphql/server",
         "source": "@/core/infrastructure/graphql/server",
-        "external": false
+        "external": null
       },
       {
         "target": "@/core/infrastructure/graphql/server",
         "source": "@/core/domain",
-        "external": false
+        "external": null
       },
       {
         "target": "@/core/infrastructure/graphql/server",
         "source": "@apollo/server",
-        "external": true
+        "external": null
       },
       {
         "target": "@/core/infrastructure/graphql/server",
         "source": "apollo-server-core",
-        "external": true
+        "external": null
       },
       {
         "target": "@/server/infrastructure/graphql/server",
         "source": "@/ecommerce/infrastructure/graphql/schema",
-        "external": false
+        "external": null
       },
       {
         "target": "@/ecommerce/infrastructure/graphql/schema",
         "source": "graphql-tag",
-        "external": true
+        "external": [
+          "external"
+        ]
       },
       {
         "target": "@/server/infrastructure/graphql/server",
         "source": "@/server/application",
-        "external": false
+        "external": null
       },
       {
         "target": "@/server/application",
         "source": "@/ecommerce/application",
-        "external": false
+        "external": null
       },
       {
         "target": "@/server/application",
         "source": "@/server/application/use-cases/create-product",
-        "external": false
+        "external": null
       },
       {
         "target": "@/server/application/use-cases/create-product",
         "source": "@/ecommerce/domain",
-        "external": false
+        "external": null
       },
       {
         "target": "@/server/application/use-cases/create-product",
         "source": "@/ecommerce/application",
-        "external": false
+        "external": null
       },
       {
         "target": "@/server/application/use-cases/create-product",
         "source": "@/ecommerce/application",
-        "external": false
+        "external": null
       },
       {
         "target": "@/server/application",
         "source": "@/server/application/use-cases/get-products",
-        "external": false
+        "external": null
       },
       {
         "target": "@/server/application/use-cases/get-products",
         "source": "@/ecommerce/domain",
-        "external": false
+        "external": null
       },
       {
         "target": "@/server/application/use-cases/get-products",
         "source": "@/ecommerce/application",
-        "external": false
+        "external": null
       },
       {
         "target": "@/server/application/use-cases/get-products",
         "source": "@/ecommerce/application",
-        "external": false
+        "external": null
       },
       {
         "target": "@/server/application",
         "source": "@/server/application/use-cases/get-product",
-        "external": false
+        "external": null
       },
       {
         "target": "@/server/application/use-cases/get-product",
         "source": "@/ecommerce/domain",
-        "external": false
+        "external": null
       },
       {
         "target": "@/server/application/use-cases/get-product",
         "source": "@/ecommerce/application",
-        "external": false
+        "external": null
       },
       {
         "target": "@/server/application/use-cases/get-product",
         "source": "@/ecommerce/application",
-        "external": false
+        "external": null
       },
       {
         "target": "@/server/application",
         "source": "@/ecommerce/domain",
-        "external": false
+        "external": null
       },
       {
         "target": "@/server/application",
         "source": "@/server/application/use-cases/create-product",
-        "external": false
+        "external": null
       },
       {
         "target": "@/server/application",
         "source": "@/server/application/use-cases/get-products",
-        "external": false
+        "external": null
       },
       {
         "target": "@/server/application",
         "source": "@/server/application/use-cases/get-product",
-        "external": false
+        "external": null
       },
       {
         "target": "@/server/infrastructure/graphql/server",
         "source": "@/server/infrastructure/graphql/resolvers",
-        "external": false
+        "external": null
       },
       {
         "target": "@/server/infrastructure/graphql/resolvers",
         "source": "@/server/infrastructure/graphql/types",
-        "external": false
+        "external": null
       },
       {
         "target": "@/server/infrastructure/graphql/types",
         "source": "graphql",
-        "external": true
+        "external": [
+          "external"
+        ]
       },
       {
         "target": "@/server/infrastructure/graphql/resolvers",
         "source": "@/server/infrastructure/graphql/context",
-        "external": false
+        "external": null
       },
       {
         "target": "@/server/infrastructure/graphql/context",
         "source": "@/server/application",
-        "external": false
+        "external": null
       },
       {
         "target": "@/server/infrastructure/graphql/server",
         "source": "@/server/infrastructure/repositories/products-mock-repository",
-        "external": false
+        "external": null
       },
       {
         "target": "@/server/infrastructure/repositories/products-mock-repository",
         "source": "@/ecommerce/domain",
-        "external": false
+        "external": null
       },
       {
         "target": "@/server/infrastructure/repositories/products-mock-repository",
         "source": "@/core/infrastructure",
-        "external": false
+        "external": null
       },
       {
         "target": "@/core/infrastructure",
         "source": "@/core/infrastructure/repositories",
-        "external": false
+        "external": null
       },
       {
         "target": "@/core/infrastructure/repositories",
         "source": "@/core/infrastructure/repositories/datastore-repository",
-        "external": false
+        "external": null
       },
       {
         "target": "@/core/infrastructure/repositories",
         "source": "@/core/infrastructure/repositories/graphql-repository",
-        "external": false
+        "external": null
       },
       {
         "target": "@/core/infrastructure/repositories/graphql-repository",
         "source": "@/core/domain",
-        "external": false
+        "external": null
       },
       {
         "target": "@/core/infrastructure/repositories/graphql-repository",
         "source": "@/core/infrastructure/graphql/client",
-        "external": false
+        "external": null
       },
       {
         "target": "@/core/infrastructure/repositories/graphql-repository",
         "source": "@/core/infrastructure/mappers/graphql-mapper",
-        "external": false
+        "external": null
       },
       {
         "target": "@/core/infrastructure/repositories",
         "source": "@/core/infrastructure/repositories/mock-repository",
-        "external": false
+        "external": null
       },
       {
         "target": "@/app/products/page",
         "source": "@/client/presentation/pages/products-page",
-        "external": false
+        "external": null
       },
       {
         "target": "@/client/presentation/pages/products-page",
         "source": "next/link",
-        "external": true
+        "external": [
+          "external"
+        ]
       },
       {
         "target": "@/client/presentation/pages/products-page",
         "source": "@/client/presentation/hooks",
-        "external": false
+        "external": null
       },
       {
         "target": "@/client/presentation/hooks",
         "source": "@/client/presentation/hooks/use-get-product",
-        "external": false
+        "external": null
       },
       {
         "target": "@/client/presentation/hooks/use-get-product",
         "source": "@/core/presentation/hooks/use-use-case",
-        "external": false
+        "external": null
       },
       {
         "target": "@/core/presentation/hooks/use-use-case",
         "source": "@tanstack/react-query",
-        "external": true
+        "external": [
+          "external"
+        ]
       },
       {
         "target": "@/core/presentation/hooks/use-use-case",
         "source": "@/core/domain",
-        "external": false
+        "external": null
       },
       {
         "target": "@/client/presentation/hooks/use-get-product",
         "source": "@/ecommerce/application",
-        "external": false
+        "external": null
       },
       {
         "target": "@/client/presentation/hooks/use-get-product",
         "source": "@/client/presentation/contexts/ecommerce-application-context",
-        "external": false
+        "external": null
       },
       {
         "target": "@/client/presentation/contexts/ecommerce-application-context",
         "source": "@/core/infrastructure/contexts/application-context",
-        "external": false
+        "external": null
       },
       {
         "target": "@/client/presentation/contexts/ecommerce-application-context",
         "source": "@/ecommerce/application",
-        "external": false
+        "external": null
       },
       {
         "target": "@/client/presentation/contexts/ecommerce-application-context",
         "source": "@/client/infrastructure/graphql/application",
-        "external": false
+        "external": null
       },
       {
         "target": "@/client/presentation/hooks",
         "source": "@/client/presentation/hooks/use-get-products",
-        "external": false
+        "external": null
       },
       {
         "target": "@/client/presentation/hooks/use-get-products",
         "source": "@/ecommerce/application",
-        "external": false
+        "external": null
       },
       {
         "target": "@/client/presentation/hooks/use-get-products",
         "source": "@/core/presentation/hooks/use-use-case",
-        "external": false
+        "external": null
       },
       {
         "target": "@/client/presentation/hooks/use-get-products",
         "source": "@/client/presentation/contexts/ecommerce-application-context",
-        "external": false
+        "external": null
       },
       {
         "target": "@/client/presentation/hooks",
         "source": "@/client/presentation/hooks/use-create-product",
-        "external": false
+        "external": null
       },
       {
         "target": "@/client/presentation/hooks/use-create-product",
         "source": "@/core/presentation/hooks/use-use-case",
-        "external": false
+        "external": null
       },
       {
         "target": "@/client/presentation/hooks/use-create-product",
         "source": "@/core/presentation/hooks/use-use-case",
-        "external": false
+        "external": null
       },
       {
         "target": "@/client/presentation/hooks/use-create-product",
         "source": "@/client/presentation/contexts/ecommerce-application-context",
-        "external": false
+        "external": null
       },
       {
         "target": "@/client/presentation/hooks/use-create-product",
         "source": "@/ecommerce/application",
-        "external": false
+        "external": null
       },
       {
         "target": "@/client/presentation/pages/products-page",
         "source": "@/client/presentation/components/products/product-card",
-        "external": false
+        "external": null
       },
       {
         "target": "@/client/presentation/components/products/product-card",
         "source": "next/link",
-        "external": true
+        "external": [
+          "external"
+        ]
       },
       {
         "target": "@/client/presentation/components/products/product-card",
         "source": "@/ecommerce/domain",
-        "external": false
+        "external": null
+      },
+      {
+        "target": "@/client/presentation/components/products/product-card",
+        "source": "next/image",
+        "external": [
+          "external"
+        ]
       },
       {
         "target": "@/client/presentation/pages/products-page",
         "source": "@/client/presentation/components/products/products-grid",
-        "external": false
+        "external": null
       },
       {
         "target": "@/client/presentation/components/products/products-grid",
         "source": "@/ecommerce/domain",
-        "external": false
+        "external": null
       },
       {
         "target": "@/app/products/create/page",
         "source": "@/client/presentation/pages/product-creation-page",
-        "external": false
+        "external": null
       },
       {
         "target": "@/client/presentation/pages/product-creation-page",
         "source": "next/link",
-        "external": true
+        "external": [
+          "external"
+        ]
       },
       {
         "target": "@/client/presentation/pages/product-creation-page",
         "source": "next/navigation",
-        "external": true
+        "external": [
+          "external"
+        ]
       },
       {
         "target": "@/client/presentation/pages/product-creation-page",
         "source": "@/core/presentation/components/actions/button",
-        "external": false
+        "external": null
       },
       {
         "target": "@/client/presentation/pages/product-creation-page",
         "source": "@/client/presentation/hooks/use-create-product",
-        "external": false
+        "external": null
       },
       {
         "target": "@/client/presentation/pages/product-creation-page",
         "source": "@/client/presentation/components/products/product-creation-form",
-        "external": false
+        "external": null
       },
       {
         "target": "@/client/presentation/components/products/product-creation-form",
         "source": "@/ecommerce/domain",
-        "external": false
+        "external": null
       },
       {
         "target": "@/client/presentation/components/products/product-creation-form",
         "source": "@/core/presentation/components/forms",
-        "external": false
+        "external": null
       },
       {
         "target": "@/core/presentation/components/forms",
         "source": "@/core/presentation/components/forms/form",
-        "external": false
+        "external": null
       },
       {
         "target": "@/core/presentation/components/forms/form",
         "source": "@/core/presentation/components/forms/form/form",
-        "external": false
+        "external": null
       },
       {
         "target": "@/core/presentation/components/forms/form/form",
         "source": "lodash",
-        "external": true
+        "external": [
+          "external"
+        ]
       },
       {
         "target": "@/core/presentation/components/forms/form/form",
         "source": "react",
-        "external": true
+        "external": [
+          "external"
+        ]
       },
       {
         "target": "@/core/presentation/components/forms",
         "source": "@/core/presentation/components/forms/field",
-        "external": false
+        "external": null
       },
       {
         "target": "@/core/presentation/components/forms/field",
         "source": "@/core/presentation/components/forms/field/field",
-        "external": false
+        "external": null
       },
       {
         "target": "@/core/presentation/components/forms/field/field",
         "source": "react",
-        "external": true
+        "external": [
+          "external"
+        ]
       },
       {
         "target": "@/core/presentation/components/forms/field/field",
         "source": "@/core/presentation/components/forms/form",
-        "external": false
+        "external": null
       },
       {
         "target": "@/core/presentation/components/forms",
         "source": "@/core/presentation/components/forms/fields",
-        "external": false
+        "external": null
       },
       {
         "target": "@/core/presentation/components/forms/fields",
         "source": "@/core/presentation/components/forms/fields/text-field",
-        "external": false
+        "external": null
       },
       {
         "target": "@/core/presentation/components/forms/fields/text-field",
         "source": "@/core/presentation/components/forms/fields/input-field",
-        "external": false
+        "external": null
       },
       {
         "target": "@/core/presentation/components/forms/fields",
         "source": "@/core/presentation/components/forms/fields/number-field",
-        "external": false
+        "external": null
       },
       {
         "target": "@/core/presentation/components/forms/fields/number-field",
         "source": "@/core/presentation/components/forms/fields/input-field",
-        "external": false
+        "external": null
       },
       {
         "target": "@/core/presentation/components/forms/fields",
         "source": "@/core/presentation/components/forms/fields/select-field",
-        "external": false
+        "external": null
       },
       {
         "target": "@/core/presentation/components/forms/fields",
         "source": "@/core/presentation/components/forms/fields/checkboxes-field",
-        "external": false
+        "external": null
       },
       {
         "target": "@/core/presentation/components/forms/fields",
         "source": "@/core/presentation/components/forms/fields/radiogroup-field",
-        "external": false
+        "external": null
       },
       {
         "target": "@/client/presentation/components/products/product-creation-form",
         "source": "@/ecommerce/application",
-        "external": false
+        "external": null
       },
       {
         "target": "@/app/products/[product-id]/page",
         "source": "@/client/presentation/pages/product-page",
-        "external": false
+        "external": null
       },
       {
         "target": "@/client/presentation/pages/product-page",
         "source": "next/navigation",
-        "external": true
+        "external": [
+          "external"
+        ]
       },
       {
         "target": "@/client/presentation/pages/product-page",
         "source": "next/link",
-        "external": true
+        "external": [
+          "external"
+        ]
       },
       {
         "target": "@/client/presentation/pages/product-page",
         "source": "@/client/presentation/hooks",
-        "external": false
+        "external": null
       },
       {
         "target": "@/client/presentation/pages/product-page",
-        "source": "@/client/presentation/components/products/product-card",
-        "external": false
+        "source": "@/client/presentation/components/products/product-detail",
+        "external": null
+      },
+      {
+        "target": "@/client/presentation/components/products/product-detail",
+        "source": "next/image",
+        "external": [
+          "external"
+        ]
+      },
+      {
+        "target": "@/client/presentation/components/products/product-detail",
+        "source": "@/ecommerce/domain",
+        "external": null
+      },
+      {
+        "target": "@/admin/presentation",
+        "source": "@/admin/presentation/views",
+        "external": null
+      },
+      {
+        "target": "@/admin/presentation/views",
+        "source": "@/admin/presentation/views/product-creation-view",
+        "external": null
+      },
+      {
+        "target": "@/admin/presentation/views",
+        "source": "@/admin/presentation/views/products-list-view",
+        "external": null
+      },
+      {
+        "target": "@/admin/presentation/views",
+        "source": "@/admin/presentation/views/product-detail-view",
+        "external": null
       }
     ]
   },
@@ -2039,6 +1917,16 @@
       {
         "id": "root/app/products/[product-id]/page",
         "name": "page",
+        "value": 1
+      },
+      {
+        "id": "root/admin",
+        "name": "admin",
+        "value": 1
+      },
+      {
+        "id": "root/admin/presentation",
+        "name": "presentation",
         "value": 1
       },
       {
@@ -2502,6 +2390,11 @@
         "value": 1
       },
       {
+        "id": "next/image",
+        "name": "image",
+        "value": 1
+      },
+      {
         "id": "root/client/presentation/components/products/products-grid",
         "name": "products-grid",
         "value": 1
@@ -2605,6 +2498,31 @@
         "id": "root/client/presentation/pages/product-page",
         "name": "product-page",
         "value": 1
+      },
+      {
+        "id": "root/client/presentation/components/products/product-detail",
+        "name": "product-detail",
+        "value": 1
+      },
+      {
+        "id": "root/admin/presentation/views",
+        "name": "views",
+        "value": 1
+      },
+      {
+        "id": "root/admin/presentation/views/product-creation-view",
+        "name": "product-creation-view",
+        "value": 1
+      },
+      {
+        "id": "root/admin/presentation/views/products-list-view",
+        "name": "products-list-view",
+        "value": 1
+      },
+      {
+        "id": "root/admin/presentation/views/product-detail-view",
+        "name": "product-detail-view",
+        "value": 1
       }
     ],
     "links": [
@@ -2619,6 +2537,10 @@
       {
         "source": "root",
         "target": "root/app"
+      },
+      {
+        "source": "root",
+        "target": "root/admin"
       },
       {
         "source": "root",
@@ -2715,6 +2637,14 @@
       {
         "source": "root/app/products/[product-id]",
         "target": "root/app/products/[product-id]/page"
+      },
+      {
+        "source": "root/admin",
+        "target": "root/admin/presentation"
+      },
+      {
+        "source": "root/admin/presentation",
+        "target": "root/admin/presentation/views"
       },
       {
         "source": "root/core",
@@ -2986,6 +2916,10 @@
       },
       {
         "source": "next",
+        "target": "next/image"
+      },
+      {
+        "source": "next",
         "target": "next/navigation"
       },
       {
@@ -3027,6 +2961,10 @@
       {
         "source": "root/client/presentation/components/products",
         "target": "root/client/presentation/components/products/product-creation-form"
+      },
+      {
+        "source": "root/client/presentation/components/products",
+        "target": "root/client/presentation/components/products/product-detail"
       },
       {
         "source": "root/core/presentation/components",
@@ -3107,6 +3045,18 @@
       {
         "source": "root/core/presentation/components/forms/fields",
         "target": "root/core/presentation/components/forms/fields/radiogroup-field"
+      },
+      {
+        "source": "root/admin/presentation/views",
+        "target": "root/admin/presentation/views/product-creation-view"
+      },
+      {
+        "source": "root/admin/presentation/views",
+        "target": "root/admin/presentation/views/products-list-view"
+      },
+      {
+        "source": "root/admin/presentation/views",
+        "target": "root/admin/presentation/views/product-detail-view"
       }
     ]
   },
@@ -3115,68 +3065,58 @@
       {
         "id": "@/client/presentation/contexts/ecommerce-application-context",
         "filename": "./src/client/presentation/contexts/ecommerce-application-context.tsx",
-        "group": "client",
-        "name": "client/presentation/EcommerceApplicationContext",
-        "module": "client",
+        "name": "ecommerce/presentation/EcommerceApplicationContext",
+        "module": "ecommerce",
         "layer": "presentation",
-        "type": "other",
-        "value": 1,
-        "external": false
+        "type": "other"
       },
       {
         "id": "@/server/infrastructure/graphql/server",
         "filename": "./src/server/infrastructure/graphql/server.ts",
-        "group": "server",
         "name": "server/infrastructure/Server",
         "module": "server",
         "layer": "infrastructure",
-        "type": "graphql",
-        "value": 1,
-        "external": false
+        "type": "graphql"
       },
       {
         "id": "@/app/products/page",
         "filename": "./src/app/products/page.tsx",
-        "group": "app",
         "name": "app/presentation/Page",
         "module": "app",
         "layer": "presentation",
-        "type": "page",
-        "value": 1,
-        "external": false
+        "type": "page"
       },
       {
         "id": "@/app/products/create/page",
         "filename": "./src/app/products/create/page.tsx",
-        "group": "app",
         "name": "app/presentation/Page",
         "module": "app",
         "layer": "presentation",
-        "type": "page",
-        "value": 1,
-        "external": false
+        "type": "page"
       },
       {
         "id": "@/app/products/[product-id]/page",
         "filename": "./src/app/products/[product-id]/page.tsx",
-        "group": "app",
         "name": "app/presentation/Page",
         "module": "app",
         "layer": "presentation",
-        "type": "page",
-        "value": 1,
-        "external": false
+        "type": "page"
+      },
+      {
+        "id": "@/admin/presentation",
+        "filename": "./src/admin/presentation/index.ts",
+        "name": "admin/presentation/Presentation",
+        "module": "admin",
+        "layer": "presentation",
+        "type": "other"
       },
       {
         "id": "@/core/infrastructure/contexts/application-context",
         "filename": "@/core/infrastructure/contexts/application-context",
-        "group": "core",
         "name": "core/infrastructure/ApplicationContext",
         "module": "core",
         "layer": "infrastructure",
-        "type": "other",
-        "value": 1,
-        "external": false
+        "type": "other"
       },
       {
         "id": "react",
@@ -3184,361 +3124,263 @@
         "name": "external/external/React",
         "module": "external",
         "layer": "external",
-        "type": "other",
-        "value": 1,
-        "external": true
+        "type": "other"
       },
       {
         "id": "@tanstack/react-query",
         "filename": "@tanstack/react-query",
-        "group": "react-query",
         "name": "external/external/ReactQuery",
         "module": "external",
         "layer": "external",
-        "type": "other",
-        "value": 1,
-        "external": true
+        "type": "other"
       },
       {
         "id": "@/core/domain",
         "filename": "@/core/domain",
-        "group": "core",
         "name": "core/domain/Domain",
         "module": "core",
         "layer": "domain",
-        "type": "other",
-        "value": 1,
-        "external": false
+        "type": "other"
       },
       {
         "id": "@/core/domain/entities/use-case",
         "filename": "@/core/domain/entities/use-case",
-        "group": "core",
         "name": "core/domain/UseCase",
         "module": "core",
         "layer": "domain",
-        "type": "entity",
-        "value": 1,
-        "external": false
+        "type": "entity"
       },
       {
         "id": "@/core/domain/entities/repository",
         "filename": "@/core/domain/entities/repository",
-        "group": "core",
         "name": "core/domain/Repository",
         "module": "core",
         "layer": "domain",
-        "type": "entity",
-        "value": 1,
-        "external": false
+        "type": "entity"
       },
       {
         "id": "@/core/domain/entities/application",
         "filename": "@/core/domain/entities/application",
-        "group": "core",
         "name": "core/domain/Application",
         "module": "core",
         "layer": "domain",
-        "type": "entity",
-        "value": 1,
-        "external": false
+        "type": "entity"
       },
       {
         "id": "@/core/domain/entities/entity",
         "filename": "@/core/domain/entities/entity",
-        "group": "core",
         "name": "core/domain/Entity",
         "module": "core",
         "layer": "domain",
-        "type": "entity",
-        "value": 1,
-        "external": false
+        "type": "entity"
       },
       {
         "id": "@/ecommerce/application",
         "filename": "@/ecommerce/application",
-        "group": "ecommerce",
         "name": "ecommerce/application/Application",
         "module": "ecommerce",
         "layer": "application",
-        "type": "application",
-        "value": 1,
-        "external": false
+        "type": "application"
       },
       {
         "id": "@/ecommerce/application/use-cases/create-product",
         "filename": "@/ecommerce/application/use-cases/create-product",
-        "group": "ecommerce",
         "name": "ecommerce/application/CreateProduct",
         "module": "ecommerce",
         "layer": "application",
-        "type": "use-case",
-        "value": 1,
-        "external": false
+        "type": "use-case"
       },
       {
         "id": "@/ecommerce/domain",
         "filename": "@/ecommerce/domain",
-        "group": "ecommerce",
         "name": "ecommerce/domain/Domain",
         "module": "ecommerce",
         "layer": "domain",
-        "type": "other",
-        "value": 1,
-        "external": false
+        "type": "other"
       },
       {
         "id": "@/ecommerce/domain/entities/product",
         "filename": "@/ecommerce/domain/entities/product",
-        "group": "ecommerce",
         "name": "ecommerce/domain/Product",
         "module": "ecommerce",
         "layer": "domain",
-        "type": "entity",
-        "value": 1,
-        "external": false
+        "type": "entity"
       },
       {
         "id": "@/ecommerce/domain/entities/cart",
         "filename": "@/ecommerce/domain/entities/cart",
-        "group": "ecommerce",
         "name": "ecommerce/domain/Cart",
         "module": "ecommerce",
         "layer": "domain",
-        "type": "entity",
-        "value": 1,
-        "external": false
+        "type": "entity"
       },
       {
         "id": "@/ecommerce/domain/entities/category",
         "filename": "@/ecommerce/domain/entities/category",
-        "group": "ecommerce",
         "name": "ecommerce/domain/Category",
         "module": "ecommerce",
         "layer": "domain",
-        "type": "entity",
-        "value": 1,
-        "external": false
+        "type": "entity"
       },
       {
         "id": "@/ecommerce/domain/entities/order",
         "filename": "@/ecommerce/domain/entities/order",
-        "group": "ecommerce",
         "name": "ecommerce/domain/Order",
         "module": "ecommerce",
         "layer": "domain",
-        "type": "entity",
-        "value": 1,
-        "external": false
+        "type": "entity"
       },
       {
         "id": "@/ecommerce/domain/repositories/products-repository",
         "filename": "@/ecommerce/domain/repositories/products-repository",
-        "group": "ecommerce",
         "name": "ecommerce/domain/ProductsRepository",
         "module": "ecommerce",
         "layer": "domain",
-        "type": "repository",
-        "value": 1,
-        "external": false
+        "type": "repository"
       },
       {
         "id": "@/ecommerce/domain/repositories/categories-repository",
         "filename": "@/ecommerce/domain/repositories/categories-repository",
-        "group": "ecommerce",
         "name": "ecommerce/domain/CategoriesRepository",
         "module": "ecommerce",
         "layer": "domain",
-        "type": "repository",
-        "value": 1,
-        "external": false
+        "type": "repository"
       },
       {
         "id": "@/ecommerce/application/use-cases/get-products",
         "filename": "@/ecommerce/application/use-cases/get-products",
-        "group": "ecommerce",
         "name": "ecommerce/application/GetProducts",
         "module": "ecommerce",
         "layer": "application",
-        "type": "use-case",
-        "value": 1,
-        "external": false
+        "type": "use-case"
       },
       {
         "id": "@/ecommerce/application/use-cases/get-product",
         "filename": "@/ecommerce/application/use-cases/get-product",
-        "group": "ecommerce",
         "name": "ecommerce/application/GetProduct",
         "module": "ecommerce",
         "layer": "application",
-        "type": "use-case",
-        "value": 1,
-        "external": false
+        "type": "use-case"
       },
       {
         "id": "@/client/infrastructure/graphql/application",
         "filename": "@/client/infrastructure/graphql/application",
-        "group": "client",
         "name": "client/infrastructure/Application",
         "module": "client",
         "layer": "infrastructure",
-        "type": "application",
-        "value": 1,
-        "external": false
+        "type": "application"
       },
       {
         "id": "@/client/infrastructure/graphql/application/dev-client-ecommerce-application",
         "filename": "@/client/infrastructure/graphql/application/dev-client-ecommerce-application",
-        "group": "client",
-        "name": "client/infrastructure/DevClientEcommerceApplication",
-        "module": "client",
+        "name": "ecommerce/infrastructure/DevClientEcommerceApplication",
+        "module": "ecommerce",
         "layer": "infrastructure",
-        "type": "application",
-        "value": 1,
-        "external": false
+        "type": "application"
       },
       {
         "id": "@/client/infrastructure/repositories/products-datastore-repository",
         "filename": "@/client/infrastructure/repositories/products-datastore-repository",
-        "group": "client",
         "name": "client/infrastructure/ProductsDatastoreRepository",
         "module": "client",
         "layer": "infrastructure",
-        "type": "repository",
-        "value": 1,
-        "external": false
+        "type": "repository"
       },
       {
         "id": "@/core/infrastructure/repositories/datastore-repository",
         "filename": "@/core/infrastructure/repositories/datastore-repository",
-        "group": "core",
         "name": "core/infrastructure/DatastoreRepository",
         "module": "core",
         "layer": "infrastructure",
-        "type": "repository",
-        "value": 1,
-        "external": false
+        "type": "repository"
       },
       {
         "id": "@/client/application",
         "filename": "@/client/application",
-        "group": "client",
         "name": "client/application/Application",
         "module": "client",
         "layer": "application",
-        "type": "application",
-        "value": 1,
-        "external": false
+        "type": "application"
       },
       {
         "id": "@/client/application/use-cases/create-product",
         "filename": "@/client/application/use-cases/create-product",
-        "group": "client",
         "name": "client/application/CreateProduct",
         "module": "client",
         "layer": "application",
-        "type": "use-case",
-        "value": 1,
-        "external": false
+        "type": "use-case"
       },
       {
         "id": "@/client/application/use-cases/get-products",
         "filename": "@/client/application/use-cases/get-products",
-        "group": "client",
         "name": "client/application/GetProducts",
         "module": "client",
         "layer": "application",
-        "type": "use-case",
-        "value": 1,
-        "external": false
+        "type": "use-case"
       },
       {
         "id": "@/client/application/use-cases/get-product",
         "filename": "@/client/application/use-cases/get-product",
-        "group": "client",
         "name": "client/application/GetProduct",
         "module": "client",
         "layer": "application",
-        "type": "use-case",
-        "value": 1,
-        "external": false
+        "type": "use-case"
       },
       {
         "id": "@/client/infrastructure/graphql/application/test-client-ecommerce-application",
         "filename": "@/client/infrastructure/graphql/application/test-client-ecommerce-application",
-        "group": "client",
-        "name": "client/infrastructure/TestClientEcommerceApplication",
-        "module": "client",
+        "name": "ecommerce/infrastructure/TestClientEcommerceApplication",
+        "module": "ecommerce",
         "layer": "infrastructure",
-        "type": "application",
-        "value": 1,
-        "external": false
+        "type": "application"
       },
       {
         "id": "@/client/infrastructure/repositories/products-mock-repository",
         "filename": "@/client/infrastructure/repositories/products-mock-repository",
-        "group": "client",
         "name": "client/infrastructure/ProductsMockRepository",
         "module": "client",
         "layer": "infrastructure",
-        "type": "repository",
-        "value": 1,
-        "external": false
+        "type": "repository"
       },
       {
         "id": "@/core/infrastructure/repositories/mock-repository",
         "filename": "@/core/infrastructure/repositories/mock-repository",
-        "group": "core",
         "name": "core/infrastructure/MockRepository",
         "module": "core",
         "layer": "infrastructure",
-        "type": "repository",
-        "value": 1,
-        "external": false
+        "type": "repository"
       },
       {
         "id": "@/client/infrastructure/graphql/application/pro-client-ecommerce-application",
         "filename": "@/client/infrastructure/graphql/application/pro-client-ecommerce-application",
-        "group": "client",
-        "name": "client/infrastructure/ProClientEcommerceApplication",
-        "module": "client",
+        "name": "ecommerce/infrastructure/ProClientEcommerceApplication",
+        "module": "ecommerce",
         "layer": "infrastructure",
-        "type": "application",
-        "value": 1,
-        "external": false
+        "type": "application"
       },
       {
         "id": "@/client/infrastructure/repositories/products-graphql-repository",
         "filename": "@/client/infrastructure/repositories/products-graphql-repository",
-        "group": "client",
         "name": "client/infrastructure/ProductsGraphqlRepository",
         "module": "client",
         "layer": "infrastructure",
-        "type": "repository",
-        "value": 1,
-        "external": false
+        "type": "repository"
       },
       {
         "id": "@/core/infrastructure/graphql/repository",
         "filename": "@/core/infrastructure/graphql/repository",
-        "group": "core",
         "name": "core/infrastructure/Repository",
         "module": "core",
         "layer": "infrastructure",
-        "type": "graphql",
-        "value": 1,
-        "external": false
+        "type": "graphql"
       },
       {
         "id": "@/core/infrastructure/graphql/client",
         "filename": "@/core/infrastructure/graphql/client",
-        "group": "core",
         "name": "core/infrastructure/Client",
         "module": "core",
         "layer": "infrastructure",
-        "type": "graphql",
-        "value": 1,
-        "external": false
+        "type": "graphql"
       },
       {
         "id": "graphql-request",
@@ -3546,42 +3388,31 @@
         "name": "external/external/GraphqlRequest",
         "module": "external",
         "layer": "external",
-        "type": "graphql",
-        "value": 1,
-        "external": true
+        "type": "graphql"
       },
       {
         "id": "@/core/infrastructure/mappers/graphql-mapper",
         "filename": "@/core/infrastructure/mappers/graphql-mapper",
-        "group": "core",
         "name": "core/infrastructure/GraphqlMapper",
         "module": "core",
         "layer": "infrastructure",
-        "type": "mapper",
-        "value": 1,
-        "external": false
+        "type": "mapper"
       },
       {
         "id": "@/client/infrastructure/graphql/types",
         "filename": "@/client/infrastructure/graphql/types",
-        "group": "client",
         "name": "client/infrastructure/Types",
         "module": "client",
         "layer": "infrastructure",
-        "type": "graphql",
-        "value": 1,
-        "external": false
+        "type": "graphql"
       },
       {
         "id": "graphql-request/build/cjs/types",
         "filename": "graphql-request/build/cjs/types",
-        "group": "build",
         "name": "external/external/Types",
         "module": "external",
         "layer": "external",
-        "type": "graphql",
-        "value": 1,
-        "external": true
+        "type": "graphql"
       },
       {
         "id": "graphql",
@@ -3589,9 +3420,7 @@
         "name": "external/external/Graphql",
         "module": "external",
         "layer": "external",
-        "type": "graphql",
-        "value": 1,
-        "external": true
+        "type": "graphql"
       },
       {
         "id": "graphql-tag",
@@ -3599,360 +3428,271 @@
         "name": "external/external/GraphqlTag",
         "module": "external",
         "layer": "external",
-        "type": "graphql",
-        "value": 1,
-        "external": true
+        "type": "graphql"
       },
       {
         "id": "@/client/infrastructure/mappers/product-graphql-mapper",
         "filename": "@/client/infrastructure/mappers/product-graphql-mapper",
-        "group": "client",
         "name": "client/infrastructure/ProductGraphqlMapper",
         "module": "client",
         "layer": "infrastructure",
-        "type": "mapper",
-        "value": 1,
-        "external": false
+        "type": "mapper"
       },
       {
         "id": "@/core/infrastructure/graphql/server",
         "filename": "@/core/infrastructure/graphql/server",
-        "group": "core",
         "name": "core/infrastructure/Server",
         "module": "core",
         "layer": "infrastructure",
-        "type": "graphql",
-        "value": 1,
-        "external": false
+        "type": "graphql"
       },
       {
         "id": "@apollo/server",
         "filename": "@apollo/server",
-        "group": "server",
-        "name": "external/external/Server",
-        "module": "external",
+        "name": "server/external/Server",
+        "module": "server",
         "layer": "external",
-        "type": "other",
-        "value": 1,
-        "external": true
+        "type": "other"
       },
       {
         "id": "apollo-server-core",
         "filename": "apollo-server-core",
-        "name": "external/external/ApolloServerCore",
-        "module": "external",
+        "name": "core/external/ApolloServerCore",
+        "module": "core",
         "layer": "external",
-        "type": "other",
-        "value": 1,
-        "external": true
+        "type": "other"
       },
       {
         "id": "@/ecommerce/infrastructure/graphql/schema",
         "filename": "@/ecommerce/infrastructure/graphql/schema",
-        "group": "ecommerce",
         "name": "ecommerce/infrastructure/Schema",
         "module": "ecommerce",
         "layer": "infrastructure",
-        "type": "graphql",
-        "value": 1,
-        "external": false
+        "type": "graphql"
       },
       {
         "id": "@/server/application",
         "filename": "@/server/application",
-        "group": "server",
         "name": "server/application/Application",
         "module": "server",
         "layer": "application",
-        "type": "application",
-        "value": 1,
-        "external": false
+        "type": "application"
       },
       {
         "id": "@/server/application/use-cases/create-product",
         "filename": "@/server/application/use-cases/create-product",
-        "group": "server",
         "name": "server/application/CreateProduct",
         "module": "server",
         "layer": "application",
-        "type": "use-case",
-        "value": 1,
-        "external": false
+        "type": "use-case"
       },
       {
         "id": "@/server/application/use-cases/get-products",
         "filename": "@/server/application/use-cases/get-products",
-        "group": "server",
         "name": "server/application/GetProducts",
         "module": "server",
         "layer": "application",
-        "type": "use-case",
-        "value": 1,
-        "external": false
+        "type": "use-case"
       },
       {
         "id": "@/server/application/use-cases/get-product",
         "filename": "@/server/application/use-cases/get-product",
-        "group": "server",
         "name": "server/application/GetProduct",
         "module": "server",
         "layer": "application",
-        "type": "use-case",
-        "value": 1,
-        "external": false
+        "type": "use-case"
       },
       {
         "id": "@/server/infrastructure/graphql/resolvers",
         "filename": "@/server/infrastructure/graphql/resolvers",
-        "group": "server",
         "name": "server/infrastructure/Resolvers",
         "module": "server",
         "layer": "infrastructure",
-        "type": "graphql",
-        "value": 1,
-        "external": false
+        "type": "graphql"
       },
       {
         "id": "@/server/infrastructure/graphql/types",
         "filename": "@/server/infrastructure/graphql/types",
-        "group": "server",
         "name": "server/infrastructure/Types",
         "module": "server",
         "layer": "infrastructure",
-        "type": "graphql",
-        "value": 1,
-        "external": false
+        "type": "graphql"
       },
       {
         "id": "@/server/infrastructure/graphql/context",
         "filename": "@/server/infrastructure/graphql/context",
-        "group": "server",
         "name": "server/infrastructure/Context",
         "module": "server",
         "layer": "infrastructure",
-        "type": "graphql",
-        "value": 1,
-        "external": false
+        "type": "graphql"
       },
       {
         "id": "@/server/infrastructure/repositories/products-mock-repository",
         "filename": "@/server/infrastructure/repositories/products-mock-repository",
-        "group": "server",
         "name": "server/infrastructure/ProductsMockRepository",
         "module": "server",
         "layer": "infrastructure",
-        "type": "repository",
-        "value": 1,
-        "external": false
+        "type": "repository"
       },
       {
         "id": "@/core/infrastructure",
         "filename": "@/core/infrastructure",
-        "group": "core",
         "name": "core/infrastructure/Infrastructure",
         "module": "core",
         "layer": "infrastructure",
-        "type": "other",
-        "value": 1,
-        "external": false
+        "type": "other"
       },
       {
         "id": "@/core/infrastructure/repositories",
         "filename": "@/core/infrastructure/repositories",
-        "group": "core",
         "name": "core/infrastructure/Repositories",
         "module": "core",
         "layer": "infrastructure",
-        "type": "repository",
-        "value": 1,
-        "external": false
+        "type": "repository"
       },
       {
         "id": "@/core/infrastructure/repositories/graphql-repository",
         "filename": "@/core/infrastructure/repositories/graphql-repository",
-        "group": "core",
         "name": "core/infrastructure/GraphqlRepository",
         "module": "core",
         "layer": "infrastructure",
-        "type": "repository",
-        "value": 1,
-        "external": false
+        "type": "repository"
       },
       {
         "id": "@/client/presentation/pages/products-page",
         "filename": "@/client/presentation/pages/products-page",
-        "group": "client",
         "name": "client/presentation/ProductsPage",
         "module": "client",
         "layer": "presentation",
-        "type": "page",
-        "value": 1,
-        "external": false
+        "type": "page"
       },
       {
         "id": "next/link",
         "filename": "next/link",
-        "group": "link",
         "name": "external/external/Link",
         "module": "external",
         "layer": "external",
-        "type": "other",
-        "value": 1,
-        "external": true
+        "type": "other"
       },
       {
         "id": "@/client/presentation/hooks",
         "filename": "@/client/presentation/hooks",
-        "group": "client",
         "name": "client/presentation/Hooks",
         "module": "client",
         "layer": "presentation",
-        "type": "other",
-        "value": 1,
-        "external": false
+        "type": "other"
       },
       {
         "id": "@/client/presentation/hooks/use-get-product",
         "filename": "@/client/presentation/hooks/use-get-product",
-        "group": "client",
         "name": "client/presentation/UseGetProduct",
         "module": "client",
         "layer": "presentation",
-        "type": "other",
-        "value": 1,
-        "external": false
+        "type": "other"
       },
       {
         "id": "@/core/presentation/hooks/use-use-case",
         "filename": "@/core/presentation/hooks/use-use-case",
-        "group": "core",
         "name": "core/presentation/UseUseCase",
         "module": "core",
         "layer": "presentation",
-        "type": "other",
-        "value": 1,
-        "external": false
+        "type": "other"
       },
       {
         "id": "@/client/presentation/hooks/use-get-products",
         "filename": "@/client/presentation/hooks/use-get-products",
-        "group": "client",
         "name": "client/presentation/UseGetProducts",
         "module": "client",
         "layer": "presentation",
-        "type": "other",
-        "value": 1,
-        "external": false
+        "type": "other"
       },
       {
         "id": "@/client/presentation/hooks/use-create-product",
         "filename": "@/client/presentation/hooks/use-create-product",
-        "group": "client",
         "name": "client/presentation/UseCreateProduct",
         "module": "client",
         "layer": "presentation",
-        "type": "other",
-        "value": 1,
-        "external": false
+        "type": "other"
       },
       {
         "id": "@/client/presentation/components/products/product-card",
         "filename": "@/client/presentation/components/products/product-card",
-        "group": "client",
         "name": "client/presentation/ProductCard",
         "module": "client",
         "layer": "presentation",
-        "type": "component",
-        "value": 1,
-        "external": false
+        "type": "component"
+      },
+      {
+        "id": "next/image",
+        "filename": "next/image",
+        "name": "external/external/Image",
+        "module": "external",
+        "layer": "external",
+        "type": "other"
       },
       {
         "id": "@/client/presentation/components/products/products-grid",
         "filename": "@/client/presentation/components/products/products-grid",
-        "group": "client",
         "name": "client/presentation/ProductsGrid",
         "module": "client",
         "layer": "presentation",
-        "type": "component",
-        "value": 1,
-        "external": false
+        "type": "component"
       },
       {
         "id": "@/client/presentation/pages/product-creation-page",
         "filename": "@/client/presentation/pages/product-creation-page",
-        "group": "client",
         "name": "client/presentation/ProductCreationPage",
         "module": "client",
         "layer": "presentation",
-        "type": "page",
-        "value": 1,
-        "external": false
+        "type": "page"
       },
       {
         "id": "next/navigation",
         "filename": "next/navigation",
-        "group": "navigation",
         "name": "external/external/Navigation",
         "module": "external",
         "layer": "external",
-        "type": "other",
-        "value": 1,
-        "external": true
+        "type": "other"
       },
       {
         "id": "@/core/presentation/components/actions/button",
         "filename": "@/core/presentation/components/actions/button",
-        "group": "core",
         "name": "core/presentation/Button",
         "module": "core",
         "layer": "presentation",
-        "type": "component",
-        "value": 1,
-        "external": false
+        "type": "component"
       },
       {
         "id": "@/client/presentation/components/products/product-creation-form",
         "filename": "@/client/presentation/components/products/product-creation-form",
-        "group": "client",
         "name": "client/presentation/ProductCreationForm",
         "module": "client",
         "layer": "presentation",
-        "type": "component",
-        "value": 1,
-        "external": false
+        "type": "component"
       },
       {
         "id": "@/core/presentation/components/forms",
         "filename": "@/core/presentation/components/forms",
-        "group": "core",
         "name": "core/presentation/Forms",
         "module": "core",
         "layer": "presentation",
-        "type": "component",
-        "value": 1,
-        "external": false
+        "type": "component"
       },
       {
         "id": "@/core/presentation/components/forms/form",
         "filename": "@/core/presentation/components/forms/form",
-        "group": "core",
         "name": "core/presentation/Form",
         "module": "core",
         "layer": "presentation",
-        "type": "component",
-        "value": 1,
-        "external": false
+        "type": "component"
       },
       {
         "id": "@/core/presentation/components/forms/form/form",
         "filename": "@/core/presentation/components/forms/form/form",
-        "group": "core",
         "name": "core/presentation/Form",
         "module": "core",
         "layer": "presentation",
-        "type": "component",
-        "value": 1,
-        "external": false
+        "type": "component"
       },
       {
         "id": "lodash",
@@ -3960,965 +3700,1055 @@
         "name": "external/external/Lodash",
         "module": "external",
         "layer": "external",
-        "type": "other",
-        "value": 1,
-        "external": true
+        "type": "other"
       },
       {
         "id": "@/core/presentation/components/forms/field",
         "filename": "@/core/presentation/components/forms/field",
-        "group": "core",
         "name": "core/presentation/Field",
         "module": "core",
         "layer": "presentation",
-        "type": "component",
-        "value": 1,
-        "external": false
+        "type": "component"
       },
       {
         "id": "@/core/presentation/components/forms/field/field",
         "filename": "@/core/presentation/components/forms/field/field",
-        "group": "core",
         "name": "core/presentation/Field",
         "module": "core",
         "layer": "presentation",
-        "type": "component",
-        "value": 1,
-        "external": false
+        "type": "component"
       },
       {
         "id": "@/core/presentation/components/forms/fields",
         "filename": "@/core/presentation/components/forms/fields",
-        "group": "core",
         "name": "core/presentation/Fields",
         "module": "core",
         "layer": "presentation",
-        "type": "component",
-        "value": 1,
-        "external": false
+        "type": "component"
       },
       {
         "id": "@/core/presentation/components/forms/fields/text-field",
         "filename": "@/core/presentation/components/forms/fields/text-field",
-        "group": "core",
         "name": "core/presentation/TextField",
         "module": "core",
         "layer": "presentation",
-        "type": "component",
-        "value": 1,
-        "external": false
+        "type": "component"
       },
       {
         "id": "@/core/presentation/components/forms/fields/input-field",
         "filename": "@/core/presentation/components/forms/fields/input-field",
-        "group": "core",
         "name": "core/presentation/InputField",
         "module": "core",
         "layer": "presentation",
-        "type": "component",
-        "value": 1,
-        "external": false
+        "type": "component"
       },
       {
         "id": "@/core/presentation/components/forms/fields/number-field",
         "filename": "@/core/presentation/components/forms/fields/number-field",
-        "group": "core",
         "name": "core/presentation/NumberField",
         "module": "core",
         "layer": "presentation",
-        "type": "component",
-        "value": 1,
-        "external": false
+        "type": "component"
       },
       {
         "id": "@/core/presentation/components/forms/fields/select-field",
         "filename": "@/core/presentation/components/forms/fields/select-field",
-        "group": "core",
         "name": "core/presentation/SelectField",
         "module": "core",
         "layer": "presentation",
-        "type": "component",
-        "value": 1,
-        "external": false
+        "type": "component"
       },
       {
         "id": "@/core/presentation/components/forms/fields/checkboxes-field",
         "filename": "@/core/presentation/components/forms/fields/checkboxes-field",
-        "group": "core",
         "name": "core/presentation/CheckboxesField",
         "module": "core",
         "layer": "presentation",
-        "type": "component",
-        "value": 1,
-        "external": false
+        "type": "component"
       },
       {
         "id": "@/core/presentation/components/forms/fields/radiogroup-field",
         "filename": "@/core/presentation/components/forms/fields/radiogroup-field",
-        "group": "core",
         "name": "core/presentation/RadiogroupField",
         "module": "core",
         "layer": "presentation",
-        "type": "component",
-        "value": 1,
-        "external": false
+        "type": "component"
       },
       {
         "id": "@/client/presentation/pages/product-page",
         "filename": "@/client/presentation/pages/product-page",
-        "group": "client",
         "name": "client/presentation/ProductPage",
         "module": "client",
         "layer": "presentation",
-        "type": "page",
-        "value": 1,
-        "external": false
+        "type": "page"
+      },
+      {
+        "id": "@/client/presentation/components/products/product-detail",
+        "filename": "@/client/presentation/components/products/product-detail",
+        "name": "client/presentation/ProductDetail",
+        "module": "client",
+        "layer": "presentation",
+        "type": "component"
+      },
+      {
+        "id": "@/admin/presentation/views",
+        "filename": "@/admin/presentation/views",
+        "name": "admin/presentation/Views",
+        "module": "admin",
+        "layer": "presentation",
+        "type": "other"
+      },
+      {
+        "id": "@/admin/presentation/views/product-creation-view",
+        "filename": "@/admin/presentation/views/product-creation-view",
+        "name": "admin/presentation/ProductCreationView",
+        "module": "admin",
+        "layer": "presentation",
+        "type": "other"
+      },
+      {
+        "id": "@/admin/presentation/views/products-list-view",
+        "filename": "@/admin/presentation/views/products-list-view",
+        "name": "admin/presentation/ProductsListView",
+        "module": "admin",
+        "layer": "presentation",
+        "type": "other"
+      },
+      {
+        "id": "@/admin/presentation/views/product-detail-view",
+        "filename": "@/admin/presentation/views/product-detail-view",
+        "name": "admin/presentation/ProductDetailView",
+        "module": "admin",
+        "layer": "presentation",
+        "type": "other"
       }
     ],
     "links": [
       {
         "target": "@/client/presentation/contexts/ecommerce-application-context",
         "source": "@/core/infrastructure/contexts/application-context",
-        "external": false
+        "external": null
       },
       {
         "target": "@/core/infrastructure/contexts/application-context",
         "source": "react",
-        "external": true
+        "external": [
+          "external"
+        ]
       },
       {
         "target": "@/core/infrastructure/contexts/application-context",
         "source": "@tanstack/react-query",
-        "external": true
+        "external": [
+          "external"
+        ]
       },
       {
         "target": "@/core/infrastructure/contexts/application-context",
         "source": "@/core/domain",
-        "external": false
+        "external": null
       },
       {
         "target": "@/core/domain",
         "source": "@/core/domain/entities/use-case",
-        "external": false
+        "external": null
       },
       {
         "target": "@/core/domain",
         "source": "@/core/domain/entities/repository",
-        "external": false
+        "external": null
       },
       {
         "target": "@/core/domain",
         "source": "@/core/domain/entities/application",
-        "external": false
+        "external": null
       },
       {
         "target": "@/core/domain/entities/application",
         "source": "@/core/domain/entities/use-case",
-        "external": false
+        "external": null
       },
       {
         "target": "@/core/domain",
         "source": "@/core/domain/entities/entity",
-        "external": false
+        "external": null
       },
       {
         "target": "@/client/presentation/contexts/ecommerce-application-context",
         "source": "@/ecommerce/application",
-        "external": false
+        "external": null
       },
       {
         "target": "@/ecommerce/application",
         "source": "@/core/domain",
-        "external": false
+        "external": null
       },
       {
         "target": "@/ecommerce/application",
         "source": "@/ecommerce/application/use-cases/create-product",
-        "external": false
+        "external": null
       },
       {
         "target": "@/ecommerce/application/use-cases/create-product",
         "source": "@/core/domain",
-        "external": false
+        "external": null
       },
       {
         "target": "@/ecommerce/application/use-cases/create-product",
         "source": "@/ecommerce/domain",
-        "external": false
+        "external": null
       },
       {
         "target": "@/ecommerce/domain",
         "source": "@/ecommerce/domain/entities/product",
-        "external": false
+        "external": null
       },
       {
         "target": "@/ecommerce/domain/entities/product",
         "source": "@/core/domain",
-        "external": false
+        "external": null
       },
       {
         "target": "@/ecommerce/domain",
         "source": "@/ecommerce/domain/entities/cart",
-        "external": false
+        "external": null
       },
       {
         "target": "@/ecommerce/domain",
         "source": "@/ecommerce/domain/entities/category",
-        "external": false
+        "external": null
       },
       {
         "target": "@/ecommerce/domain",
         "source": "@/ecommerce/domain/entities/order",
-        "external": false
+        "external": null
       },
       {
         "target": "@/ecommerce/domain",
         "source": "@/ecommerce/domain/repositories/products-repository",
-        "external": false
+        "external": null
       },
       {
         "target": "@/ecommerce/domain/repositories/products-repository",
         "source": "@/core/domain",
-        "external": false
+        "external": null
       },
       {
         "target": "@/ecommerce/domain/repositories/products-repository",
         "source": "@/ecommerce/domain/entities/product",
-        "external": false
+        "external": null
       },
       {
         "target": "@/ecommerce/domain",
         "source": "@/ecommerce/domain/repositories/categories-repository",
-        "external": false
+        "external": null
       },
       {
         "target": "@/ecommerce/domain/repositories/categories-repository",
         "source": "@/core/domain",
-        "external": false
+        "external": null
       },
       {
         "target": "@/ecommerce/domain/repositories/categories-repository",
         "source": "@/ecommerce/domain/entities/category",
-        "external": false
+        "external": null
       },
       {
         "target": "@/ecommerce/application",
         "source": "@/ecommerce/application/use-cases/get-products",
-        "external": false
+        "external": null
       },
       {
         "target": "@/ecommerce/application/use-cases/get-products",
         "source": "@/core/domain",
-        "external": false
+        "external": null
       },
       {
         "target": "@/ecommerce/application/use-cases/get-products",
         "source": "@/ecommerce/domain",
-        "external": false
+        "external": null
       },
       {
         "target": "@/ecommerce/application",
         "source": "@/ecommerce/application/use-cases/get-product",
-        "external": false
+        "external": null
       },
       {
         "target": "@/ecommerce/application/use-cases/get-product",
         "source": "@/core/domain",
-        "external": false
+        "external": null
       },
       {
         "target": "@/ecommerce/application/use-cases/get-product",
         "source": "@/ecommerce/domain",
-        "external": false
+        "external": null
       },
       {
         "target": "@/client/presentation/contexts/ecommerce-application-context",
         "source": "@/client/infrastructure/graphql/application",
-        "external": false
+        "external": null
       },
       {
         "target": "@/client/infrastructure/graphql/application",
         "source": "@/ecommerce/application",
-        "external": false
+        "external": null
       },
       {
         "target": "@/client/infrastructure/graphql/application",
         "source": "@/client/infrastructure/graphql/application/dev-client-ecommerce-application",
-        "external": false
+        "external": null
       },
       {
         "target": "@/client/infrastructure/graphql/application/dev-client-ecommerce-application",
         "source": "@/client/infrastructure/repositories/products-datastore-repository",
-        "external": false
+        "external": null
       },
       {
         "target": "@/client/infrastructure/repositories/products-datastore-repository",
         "source": "@/ecommerce/domain",
-        "external": false
+        "external": null
       },
       {
         "target": "@/client/infrastructure/repositories/products-datastore-repository",
         "source": "@/core/infrastructure/repositories/datastore-repository",
-        "external": false
+        "external": null
       },
       {
         "target": "@/core/infrastructure/repositories/datastore-repository",
         "source": "@/core/domain",
-        "external": false
+        "external": null
       },
       {
         "target": "@/client/infrastructure/graphql/application/dev-client-ecommerce-application",
         "source": "@/client/application",
-        "external": false
+        "external": null
       },
       {
         "target": "@/client/application",
         "source": "@/ecommerce/application",
-        "external": false
+        "external": null
       },
       {
         "target": "@/client/application",
         "source": "@/client/application/use-cases/create-product",
-        "external": false
+        "external": null
       },
       {
         "target": "@/client/application/use-cases/create-product",
         "source": "@/ecommerce/domain",
-        "external": false
+        "external": null
       },
       {
         "target": "@/client/application/use-cases/create-product",
         "source": "@/ecommerce/application",
-        "external": false
+        "external": null
       },
       {
         "target": "@/client/application/use-cases/create-product",
         "source": "@/client/application",
-        "external": false
+        "external": null
       },
       {
         "target": "@/client/application",
         "source": "@/client/application/use-cases/get-products",
-        "external": false
+        "external": null
       },
       {
         "target": "@/client/application/use-cases/get-products",
         "source": "@/ecommerce/application",
-        "external": false
+        "external": null
       },
       {
         "target": "@/client/application/use-cases/get-products",
         "source": "@/client/application",
-        "external": false
+        "external": null
       },
       {
         "target": "@/client/application",
         "source": "@/client/application/use-cases/get-product",
-        "external": false
+        "external": null
       },
       {
         "target": "@/client/application/use-cases/get-product",
         "source": "@/ecommerce/application",
-        "external": false
+        "external": null
       },
       {
         "target": "@/client/application/use-cases/get-product",
         "source": "@/client/application",
-        "external": false
+        "external": null
       },
       {
         "target": "@/client/application",
         "source": "@/ecommerce/domain",
-        "external": false
+        "external": null
       },
       {
         "target": "@/client/infrastructure/graphql/application",
         "source": "@/client/infrastructure/graphql/application/test-client-ecommerce-application",
-        "external": false
+        "external": null
       },
       {
         "target": "@/client/infrastructure/graphql/application/test-client-ecommerce-application",
         "source": "@/client/infrastructure/repositories/products-mock-repository",
-        "external": false
+        "external": null
       },
       {
         "target": "@/client/infrastructure/repositories/products-mock-repository",
         "source": "@/ecommerce/domain",
-        "external": false
+        "external": null
       },
       {
         "target": "@/client/infrastructure/repositories/products-mock-repository",
         "source": "@/core/infrastructure/repositories/mock-repository",
-        "external": false
+        "external": null
       },
       {
         "target": "@/core/infrastructure/repositories/mock-repository",
         "source": "@/core/domain",
-        "external": false
+        "external": null
       },
       {
         "target": "@/client/infrastructure/graphql/application/test-client-ecommerce-application",
         "source": "@/client/application",
-        "external": false
+        "external": null
       },
       {
         "target": "@/client/infrastructure/graphql/application",
         "source": "@/client/infrastructure/graphql/application/pro-client-ecommerce-application",
-        "external": false
+        "external": null
       },
       {
         "target": "@/client/infrastructure/graphql/application/pro-client-ecommerce-application",
         "source": "@/client/infrastructure/repositories/products-graphql-repository",
-        "external": false
+        "external": null
       },
       {
         "target": "@/client/infrastructure/repositories/products-graphql-repository",
         "source": "@/core/infrastructure/graphql/repository",
-        "external": false
+        "external": null
       },
       {
         "target": "@/core/infrastructure/graphql/repository",
         "source": "@/core/infrastructure/graphql/client",
-        "external": false
+        "external": null
       },
       {
         "target": "@/core/infrastructure/graphql/client",
         "source": "graphql-request",
-        "external": true
+        "external": [
+          "external"
+        ]
       },
       {
         "target": "@/core/infrastructure/graphql/repository",
         "source": "@/core/domain",
-        "external": false
+        "external": null
       },
       {
         "target": "@/core/infrastructure/graphql/repository",
         "source": "@/core/infrastructure/mappers/graphql-mapper",
-        "external": false
+        "external": null
       },
       {
         "target": "@/client/infrastructure/repositories/products-graphql-repository",
         "source": "@/client/infrastructure/graphql/types",
-        "external": false
+        "external": null
       },
       {
         "target": "@/client/infrastructure/graphql/types",
         "source": "graphql-request",
-        "external": true
+        "external": [
+          "external"
+        ]
       },
       {
         "target": "@/client/infrastructure/graphql/types",
         "source": "graphql-request/build/cjs/types",
-        "external": true
+        "external": [
+          "external"
+        ]
       },
       {
         "target": "@/client/infrastructure/graphql/types",
         "source": "graphql",
-        "external": true
+        "external": [
+          "external"
+        ]
       },
       {
         "target": "@/client/infrastructure/graphql/types",
         "source": "graphql-tag",
-        "external": true
+        "external": [
+          "external"
+        ]
       },
       {
         "target": "@/client/infrastructure/repositories/products-graphql-repository",
         "source": "@/ecommerce/domain",
-        "external": false
+        "external": null
       },
       {
         "target": "@/client/infrastructure/repositories/products-graphql-repository",
         "source": "@/client/infrastructure/mappers/product-graphql-mapper",
-        "external": false
+        "external": null
       },
       {
         "target": "@/client/infrastructure/mappers/product-graphql-mapper",
         "source": "@/client/infrastructure/graphql/types",
-        "external": false
+        "external": null
       },
       {
         "target": "@/client/infrastructure/mappers/product-graphql-mapper",
         "source": "@/ecommerce/domain",
-        "external": false
+        "external": null
       },
       {
         "target": "@/client/infrastructure/mappers/product-graphql-mapper",
         "source": "@/core/infrastructure/mappers/graphql-mapper",
-        "external": false
+        "external": null
       },
       {
         "target": "@/client/infrastructure/graphql/application/pro-client-ecommerce-application",
         "source": "@/client/application",
-        "external": false
+        "external": null
       },
       {
         "target": "@/server/infrastructure/graphql/server",
         "source": "@/ecommerce/domain",
-        "external": false
+        "external": null
       },
       {
         "target": "@/server/infrastructure/graphql/server",
         "source": "@/core/infrastructure/graphql/server",
-        "external": false
+        "external": null
       },
       {
         "target": "@/core/infrastructure/graphql/server",
         "source": "@/core/domain",
-        "external": false
+        "external": null
       },
       {
         "target": "@/core/infrastructure/graphql/server",
         "source": "@apollo/server",
-        "external": true
+        "external": null
       },
       {
         "target": "@/core/infrastructure/graphql/server",
         "source": "apollo-server-core",
-        "external": true
+        "external": null
       },
       {
         "target": "@/server/infrastructure/graphql/server",
         "source": "@/ecommerce/infrastructure/graphql/schema",
-        "external": false
+        "external": null
       },
       {
         "target": "@/ecommerce/infrastructure/graphql/schema",
         "source": "graphql-tag",
-        "external": true
+        "external": [
+          "external"
+        ]
       },
       {
         "target": "@/server/infrastructure/graphql/server",
         "source": "@/server/application",
-        "external": false
+        "external": null
       },
       {
         "target": "@/server/application",
         "source": "@/ecommerce/application",
-        "external": false
+        "external": null
       },
       {
         "target": "@/server/application",
         "source": "@/server/application/use-cases/create-product",
-        "external": false
+        "external": null
       },
       {
         "target": "@/server/application/use-cases/create-product",
         "source": "@/ecommerce/domain",
-        "external": false
+        "external": null
       },
       {
         "target": "@/server/application/use-cases/create-product",
         "source": "@/ecommerce/application",
-        "external": false
+        "external": null
       },
       {
         "target": "@/server/application",
         "source": "@/server/application/use-cases/get-products",
-        "external": false
+        "external": null
       },
       {
         "target": "@/server/application/use-cases/get-products",
         "source": "@/ecommerce/domain",
-        "external": false
+        "external": null
       },
       {
         "target": "@/server/application/use-cases/get-products",
         "source": "@/ecommerce/application",
-        "external": false
+        "external": null
       },
       {
         "target": "@/server/application",
         "source": "@/server/application/use-cases/get-product",
-        "external": false
+        "external": null
       },
       {
         "target": "@/server/application/use-cases/get-product",
         "source": "@/ecommerce/domain",
-        "external": false
+        "external": null
       },
       {
         "target": "@/server/application/use-cases/get-product",
         "source": "@/ecommerce/application",
-        "external": false
+        "external": null
       },
       {
         "target": "@/server/application",
         "source": "@/ecommerce/domain",
-        "external": false
+        "external": null
       },
       {
         "target": "@/server/infrastructure/graphql/server",
         "source": "@/server/infrastructure/graphql/resolvers",
-        "external": false
+        "external": null
       },
       {
         "target": "@/server/infrastructure/graphql/resolvers",
         "source": "@/server/infrastructure/graphql/types",
-        "external": false
+        "external": null
       },
       {
         "target": "@/server/infrastructure/graphql/types",
         "source": "graphql",
-        "external": true
+        "external": [
+          "external"
+        ]
       },
       {
         "target": "@/server/infrastructure/graphql/resolvers",
         "source": "@/server/infrastructure/graphql/context",
-        "external": false
+        "external": null
       },
       {
         "target": "@/server/infrastructure/graphql/context",
         "source": "@/server/application",
-        "external": false
+        "external": null
       },
       {
         "target": "@/server/infrastructure/graphql/server",
         "source": "@/server/infrastructure/repositories/products-mock-repository",
-        "external": false
+        "external": null
       },
       {
         "target": "@/server/infrastructure/repositories/products-mock-repository",
         "source": "@/ecommerce/domain",
-        "external": false
+        "external": null
       },
       {
         "target": "@/server/infrastructure/repositories/products-mock-repository",
         "source": "@/core/infrastructure",
-        "external": false
+        "external": null
       },
       {
         "target": "@/core/infrastructure",
         "source": "@/core/infrastructure/repositories",
-        "external": false
+        "external": null
       },
       {
         "target": "@/core/infrastructure/repositories",
         "source": "@/core/infrastructure/repositories/datastore-repository",
-        "external": false
+        "external": null
       },
       {
         "target": "@/core/infrastructure/repositories",
         "source": "@/core/infrastructure/repositories/graphql-repository",
-        "external": false
+        "external": null
       },
       {
         "target": "@/core/infrastructure/repositories/graphql-repository",
         "source": "@/core/domain",
-        "external": false
+        "external": null
       },
       {
         "target": "@/core/infrastructure/repositories/graphql-repository",
         "source": "@/core/infrastructure/graphql/client",
-        "external": false
+        "external": null
       },
       {
         "target": "@/core/infrastructure/repositories/graphql-repository",
         "source": "@/core/infrastructure/mappers/graphql-mapper",
-        "external": false
+        "external": null
       },
       {
         "target": "@/core/infrastructure/repositories",
         "source": "@/core/infrastructure/repositories/mock-repository",
-        "external": false
+        "external": null
       },
       {
         "target": "@/app/products/page",
         "source": "@/client/presentation/pages/products-page",
-        "external": false
+        "external": null
       },
       {
         "target": "@/client/presentation/pages/products-page",
         "source": "next/link",
-        "external": true
+        "external": [
+          "external"
+        ]
       },
       {
         "target": "@/client/presentation/pages/products-page",
         "source": "@/client/presentation/hooks",
-        "external": false
+        "external": null
       },
       {
         "target": "@/client/presentation/hooks",
         "source": "@/client/presentation/hooks/use-get-product",
-        "external": false
+        "external": null
       },
       {
         "target": "@/client/presentation/hooks/use-get-product",
         "source": "@/core/presentation/hooks/use-use-case",
-        "external": false
+        "external": null
       },
       {
         "target": "@/core/presentation/hooks/use-use-case",
         "source": "@tanstack/react-query",
-        "external": true
+        "external": [
+          "external"
+        ]
       },
       {
         "target": "@/core/presentation/hooks/use-use-case",
         "source": "@/core/domain",
-        "external": false
+        "external": null
       },
       {
         "target": "@/client/presentation/hooks/use-get-product",
         "source": "@/ecommerce/application",
-        "external": false
+        "external": null
       },
       {
         "target": "@/client/presentation/hooks/use-get-product",
         "source": "@/client/presentation/contexts/ecommerce-application-context",
-        "external": false
+        "external": null
       },
       {
         "target": "@/client/presentation/hooks",
         "source": "@/client/presentation/hooks/use-get-products",
-        "external": false
+        "external": null
       },
       {
         "target": "@/client/presentation/hooks/use-get-products",
         "source": "@/ecommerce/application",
-        "external": false
+        "external": null
       },
       {
         "target": "@/client/presentation/hooks/use-get-products",
         "source": "@/core/presentation/hooks/use-use-case",
-        "external": false
+        "external": null
       },
       {
         "target": "@/client/presentation/hooks/use-get-products",
         "source": "@/client/presentation/contexts/ecommerce-application-context",
-        "external": false
+        "external": null
       },
       {
         "target": "@/client/presentation/hooks",
         "source": "@/client/presentation/hooks/use-create-product",
-        "external": false
+        "external": null
       },
       {
         "target": "@/client/presentation/hooks/use-create-product",
         "source": "@/core/presentation/hooks/use-use-case",
-        "external": false
+        "external": null
       },
       {
         "target": "@/client/presentation/hooks/use-create-product",
         "source": "@/client/presentation/contexts/ecommerce-application-context",
-        "external": false
+        "external": null
       },
       {
         "target": "@/client/presentation/hooks/use-create-product",
         "source": "@/ecommerce/application",
-        "external": false
+        "external": null
       },
       {
         "target": "@/client/presentation/pages/products-page",
         "source": "@/client/presentation/components/products/product-card",
-        "external": false
+        "external": null
       },
       {
         "target": "@/client/presentation/components/products/product-card",
         "source": "next/link",
-        "external": true
+        "external": [
+          "external"
+        ]
       },
       {
         "target": "@/client/presentation/components/products/product-card",
         "source": "@/ecommerce/domain",
-        "external": false
+        "external": null
+      },
+      {
+        "target": "@/client/presentation/components/products/product-card",
+        "source": "next/image",
+        "external": [
+          "external"
+        ]
       },
       {
         "target": "@/client/presentation/pages/products-page",
         "source": "@/client/presentation/components/products/products-grid",
-        "external": false
+        "external": null
       },
       {
         "target": "@/client/presentation/components/products/products-grid",
         "source": "@/ecommerce/domain",
-        "external": false
+        "external": null
       },
       {
         "target": "@/app/products/create/page",
         "source": "@/client/presentation/pages/product-creation-page",
-        "external": false
+        "external": null
       },
       {
         "target": "@/client/presentation/pages/product-creation-page",
         "source": "next/link",
-        "external": true
+        "external": [
+          "external"
+        ]
       },
       {
         "target": "@/client/presentation/pages/product-creation-page",
         "source": "next/navigation",
-        "external": true
+        "external": [
+          "external"
+        ]
       },
       {
         "target": "@/client/presentation/pages/product-creation-page",
         "source": "@/core/presentation/components/actions/button",
-        "external": false
+        "external": null
       },
       {
         "target": "@/client/presentation/pages/product-creation-page",
         "source": "@/client/presentation/hooks/use-create-product",
-        "external": false
+        "external": null
       },
       {
         "target": "@/client/presentation/pages/product-creation-page",
         "source": "@/client/presentation/components/products/product-creation-form",
-        "external": false
+        "external": null
       },
       {
         "target": "@/client/presentation/components/products/product-creation-form",
         "source": "@/ecommerce/domain",
-        "external": false
+        "external": null
       },
       {
         "target": "@/client/presentation/components/products/product-creation-form",
         "source": "@/core/presentation/components/forms",
-        "external": false
+        "external": null
       },
       {
         "target": "@/core/presentation/components/forms",
         "source": "@/core/presentation/components/forms/form",
-        "external": false
+        "external": null
       },
       {
         "target": "@/core/presentation/components/forms/form",
         "source": "@/core/presentation/components/forms/form/form",
-        "external": false
+        "external": null
       },
       {
         "target": "@/core/presentation/components/forms/form/form",
         "source": "lodash",
-        "external": true
+        "external": [
+          "external"
+        ]
       },
       {
         "target": "@/core/presentation/components/forms/form/form",
         "source": "react",
-        "external": true
+        "external": [
+          "external"
+        ]
       },
       {
         "target": "@/core/presentation/components/forms",
         "source": "@/core/presentation/components/forms/field",
-        "external": false
+        "external": null
       },
       {
         "target": "@/core/presentation/components/forms/field",
         "source": "@/core/presentation/components/forms/field/field",
-        "external": false
+        "external": null
       },
       {
         "target": "@/core/presentation/components/forms/field/field",
         "source": "react",
-        "external": true
+        "external": [
+          "external"
+        ]
       },
       {
         "target": "@/core/presentation/components/forms/field/field",
         "source": "@/core/presentation/components/forms/form",
-        "external": false
+        "external": null
       },
       {
         "target": "@/core/presentation/components/forms",
         "source": "@/core/presentation/components/forms/fields",
-        "external": false
+        "external": null
       },
       {
         "target": "@/core/presentation/components/forms/fields",
         "source": "@/core/presentation/components/forms/fields/text-field",
-        "external": false
+        "external": null
       },
       {
         "target": "@/core/presentation/components/forms/fields/text-field",
         "source": "@/core/presentation/components/forms/fields/input-field",
-        "external": false
+        "external": null
       },
       {
         "target": "@/core/presentation/components/forms/fields",
         "source": "@/core/presentation/components/forms/fields/number-field",
-        "external": false
+        "external": null
       },
       {
         "target": "@/core/presentation/components/forms/fields/number-field",
         "source": "@/core/presentation/components/forms/fields/input-field",
-        "external": false
+        "external": null
       },
       {
         "target": "@/core/presentation/components/forms/fields",
         "source": "@/core/presentation/components/forms/fields/select-field",
-        "external": false
+        "external": null
       },
       {
         "target": "@/core/presentation/components/forms/fields",
         "source": "@/core/presentation/components/forms/fields/checkboxes-field",
-        "external": false
+        "external": null
       },
       {
         "target": "@/core/presentation/components/forms/fields",
         "source": "@/core/presentation/components/forms/fields/radiogroup-field",
-        "external": false
+        "external": null
       },
       {
         "target": "@/client/presentation/components/products/product-creation-form",
         "source": "@/ecommerce/application",
-        "external": false
+        "external": null
       },
       {
         "target": "@/app/products/[product-id]/page",
         "source": "@/client/presentation/pages/product-page",
-        "external": false
+        "external": null
       },
       {
         "target": "@/client/presentation/pages/product-page",
         "source": "next/navigation",
-        "external": true
+        "external": [
+          "external"
+        ]
       },
       {
         "target": "@/client/presentation/pages/product-page",
         "source": "next/link",
-        "external": true
+        "external": [
+          "external"
+        ]
       },
       {
         "target": "@/client/presentation/pages/product-page",
         "source": "@/client/presentation/hooks",
-        "external": false
+        "external": null
       },
       {
         "target": "@/client/presentation/pages/product-page",
-        "source": "@/client/presentation/components/products/product-card",
-        "external": false
+        "source": "@/client/presentation/components/products/product-detail",
+        "external": null
+      },
+      {
+        "target": "@/client/presentation/components/products/product-detail",
+        "source": "next/image",
+        "external": [
+          "external"
+        ]
+      },
+      {
+        "target": "@/client/presentation/components/products/product-detail",
+        "source": "@/ecommerce/domain",
+        "external": null
+      },
+      {
+        "target": "@/admin/presentation",
+        "source": "@/admin/presentation/views",
+        "external": null
+      },
+      {
+        "target": "@/admin/presentation/views",
+        "source": "@/admin/presentation/views/product-creation-view",
+        "external": null
+      },
+      {
+        "target": "@/admin/presentation/views",
+        "source": "@/admin/presentation/views/products-list-view",
+        "external": null
+      },
+      {
+        "target": "@/admin/presentation/views",
+        "source": "@/admin/presentation/views/product-detail-view",
+        "external": null
       }
     ]
   },
   "modules": {
     "nodes": [
       {
-        "id": "client",
-        "name": "client",
-        "value": 24
+        "id": "ecommerce",
+        "name": "ecommerce",
+        "value": null
       },
       {
         "id": "server",
         "name": "server",
-        "value": 9
+        "value": null
       },
       {
         "id": "app",
         "name": "app",
-        "value": 3
+        "value": null
+      },
+      {
+        "id": "admin",
+        "name": "admin",
+        "value": null
       },
       {
         "id": "core",
         "name": "core",
-        "value": 29
+        "value": null
       },
       {
         "id": "external",
         "name": "external",
-        "value": 11
+        "value": null
       },
       {
-        "id": "ecommerce",
-        "name": "ecommerce",
-        "value": 12
+        "id": "client",
+        "name": "client",
+        "value": null
       }
     ],
     "links": [
       {
-        "target": "client",
+        "target": "ecommerce",
         "source": "core"
       },
       {
@@ -4930,16 +4760,20 @@
         "source": "core"
       },
       {
+        "target": "ecommerce",
+        "source": "ecommerce"
+      },
+      {
+        "target": "ecommerce",
+        "source": "client"
+      },
+      {
         "target": "client",
         "source": "ecommerce"
       },
       {
-        "target": "ecommerce",
+        "target": "client",
         "source": "core"
-      },
-      {
-        "target": "ecommerce",
-        "source": "ecommerce"
       },
       {
         "target": "client",
@@ -4956,6 +4790,10 @@
       {
         "target": "server",
         "source": "core"
+      },
+      {
+        "target": "core",
+        "source": "server"
       },
       {
         "target": "ecommerce",
@@ -4972,6 +4810,10 @@
       {
         "target": "app",
         "source": "client"
+      },
+      {
+        "target": "admin",
+        "source": "admin"
       }
     ]
   },
@@ -4981,31 +4823,31 @@
         "id": "presentation",
         "name": "presentation",
         "layer": "presentation",
-        "value": 28
+        "value": null
       },
       {
         "id": "infrastructure",
         "name": "infrastructure",
         "layer": "infrastructure",
-        "value": 25
+        "value": null
       },
       {
         "id": "external",
         "name": "external",
         "layer": "external",
-        "value": 11
+        "value": null
       },
       {
         "id": "domain",
         "name": "domain",
         "layer": "domain",
-        "value": 12
+        "value": null
       },
       {
         "id": "application",
         "name": "application",
         "layer": "application",
-        "value": 12
+        "value": null
       }
     ],
     "links": [
@@ -5062,100 +4904,128 @@
   "layersAndModules": {
     "nodes": [
       {
-        "id": "client/presentation",
-        "name": "client/presentation",
+        "id": "ecommerce/presentation",
+        "name": "ecommerce/presentation",
         "layer": "presentation",
-        "module": "client",
-        "value": 11
+        "module": "ecommerce",
+        "value": null
       },
       {
         "id": "server/infrastructure",
         "name": "server/infrastructure",
         "layer": "infrastructure",
         "module": "server",
-        "value": 5
+        "value": null
       },
       {
         "id": "app/presentation",
         "name": "app/presentation",
         "layer": "presentation",
         "module": "app",
-        "value": 3
+        "value": null
+      },
+      {
+        "id": "admin/presentation",
+        "name": "admin/presentation",
+        "layer": "presentation",
+        "module": "admin",
+        "value": null
       },
       {
         "id": "core/infrastructure",
         "name": "core/infrastructure",
         "layer": "infrastructure",
         "module": "core",
-        "value": 10
+        "value": null
       },
       {
         "id": "external/external",
         "name": "external/external",
         "layer": "external",
         "module": "external",
-        "value": 11
+        "value": null
       },
       {
         "id": "core/domain",
         "name": "core/domain",
         "layer": "domain",
         "module": "core",
-        "value": 5
+        "value": null
       },
       {
         "id": "ecommerce/application",
         "name": "ecommerce/application",
         "layer": "application",
         "module": "ecommerce",
-        "value": 4
+        "value": null
       },
       {
         "id": "ecommerce/domain",
         "name": "ecommerce/domain",
         "layer": "domain",
         "module": "ecommerce",
-        "value": 7
+        "value": null
       },
       {
         "id": "client/infrastructure",
         "name": "client/infrastructure",
         "layer": "infrastructure",
         "module": "client",
-        "value": 9
-      },
-      {
-        "id": "client/application",
-        "name": "client/application",
-        "layer": "application",
-        "module": "client",
-        "value": 4
+        "value": null
       },
       {
         "id": "ecommerce/infrastructure",
         "name": "ecommerce/infrastructure",
         "layer": "infrastructure",
         "module": "ecommerce",
-        "value": 1
+        "value": null
+      },
+      {
+        "id": "client/application",
+        "name": "client/application",
+        "layer": "application",
+        "module": "client",
+        "value": null
+      },
+      {
+        "id": "server/external",
+        "name": "server/external",
+        "layer": "external",
+        "module": "server",
+        "value": null
+      },
+      {
+        "id": "core/external",
+        "name": "core/external",
+        "layer": "external",
+        "module": "core",
+        "value": null
       },
       {
         "id": "server/application",
         "name": "server/application",
         "layer": "application",
         "module": "server",
-        "value": 4
+        "value": null
+      },
+      {
+        "id": "client/presentation",
+        "name": "client/presentation",
+        "layer": "presentation",
+        "module": "client",
+        "value": null
       },
       {
         "id": "core/presentation",
         "name": "core/presentation",
         "layer": "presentation",
         "module": "core",
-        "value": 14
+        "value": null
       }
     ],
     "links": [
       {
-        "target": "client/presentation",
+        "target": "ecommerce/presentation",
         "source": "core/infrastructure"
       },
       {
@@ -5171,7 +5041,7 @@
         "source": "core/domain"
       },
       {
-        "target": "client/presentation",
+        "target": "ecommerce/presentation",
         "source": "ecommerce/application"
       },
       {
@@ -5195,7 +5065,7 @@
         "source": "core/domain"
       },
       {
-        "target": "client/presentation",
+        "target": "ecommerce/presentation",
         "source": "client/infrastructure"
       },
       {
@@ -5204,6 +5074,10 @@
       },
       {
         "target": "client/infrastructure",
+        "source": "ecommerce/infrastructure"
+      },
+      {
+        "target": "ecommerce/infrastructure",
         "source": "client/infrastructure"
       },
       {
@@ -5215,7 +5089,7 @@
         "source": "core/infrastructure"
       },
       {
-        "target": "client/infrastructure",
+        "target": "ecommerce/infrastructure",
         "source": "client/application"
       },
       {
@@ -5236,6 +5110,10 @@
       },
       {
         "target": "client/infrastructure",
+        "source": "client/infrastructure"
+      },
+      {
+        "target": "client/infrastructure",
         "source": "external/external"
       },
       {
@@ -5245,6 +5123,14 @@
       {
         "target": "server/infrastructure",
         "source": "core/infrastructure"
+      },
+      {
+        "target": "core/infrastructure",
+        "source": "server/external"
+      },
+      {
+        "target": "core/infrastructure",
+        "source": "core/external"
       },
       {
         "target": "server/infrastructure",
@@ -5304,11 +5190,23 @@
       },
       {
         "target": "client/presentation",
+        "source": "ecommerce/application"
+      },
+      {
+        "target": "client/presentation",
+        "source": "ecommerce/presentation"
+      },
+      {
+        "target": "client/presentation",
         "source": "ecommerce/domain"
       },
       {
         "target": "core/presentation",
         "source": "core/presentation"
+      },
+      {
+        "target": "admin/presentation",
+        "source": "admin/presentation"
       }
     ]
   }
