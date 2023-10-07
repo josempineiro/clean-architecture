@@ -1,4 +1,4 @@
-import { Product as ProductGraphql, CreateProductInput as CreateProductGraphqlInput} from '@/client/infrastructure/graphql/generated'
+import { Product as ProductGraphql, CreateProductInput as CreateProductGraphqlInput} from '@/client/infrastructure/graphql/types'
 import { Product as ProductDomain } from '@/ecommerce/domain'
 import { GraphQLMapper } from "@/core/infrastructure/mappers/graphql-mapper";
 

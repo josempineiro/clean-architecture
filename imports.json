@@ -1,9 +1,9 @@
 {
   "base": {
     "importing": [
-      "@tanstack/react-query",
       "@/core/infrastructure/contexts/application-context",
       "react",
+      "@tanstack/react-query",
       "@/core/domain",
       "@/core/domain/entities/use-case",
       "@/core/domain/entities/repository",
@@ -20,67 +20,89 @@
       "@/ecommerce/domain/repositories/categories-repository",
       "@/ecommerce/application/use-cases/get-products",
       "@/ecommerce/application/use-cases/get-product",
-      "@/client/infrastructure/graphql/graphql-context/dev-client-ecommerce-application",
+      "@/client/infrastructure/graphql/application",
+      "@/client/infrastructure/graphql/application/dev-client-ecommerce-application",
       "@/client/infrastructure/repositories/products-datastore-repository",
       "@/core/infrastructure/repositories/datastore-repository",
       "@/client/application",
       "@/client/application/use-cases/create-product",
       "@/client/application/use-cases/get-products",
       "@/client/application/use-cases/get-product",
-      "@/client/infrastructure/graphql/graphql-context/test-client-ecommerce-application",
+      "@/client/infrastructure/graphql/application/test-client-ecommerce-application",
       "@/client/infrastructure/repositories/products-mock-repository",
       "@/core/infrastructure/repositories/mock-repository",
-      "@/client/infrastructure/graphql/graphql-context/pro-client-ecommerce-application",
+      "@/client/infrastructure/graphql/application/pro-client-ecommerce-application",
       "@/client/infrastructure/repositories/products-graphql-repository",
-      "@/core/infrastructure/repositories/graphql-repository",
+      "@/core/infrastructure/graphql/repository",
+      "@/core/infrastructure/graphql/client",
       "graphql-request",
       "@/core/infrastructure/mappers/graphql-mapper",
-      "@/client/infrastructure/graphql/generated",
+      "@/client/infrastructure/graphql/types",
       "graphql-request/build/cjs/types",
       "graphql",
       "graphql-tag",
       "@/client/infrastructure/mappers/product-graphql-mapper",
+      "@/core/infrastructure/graphql/server",
       "@apollo/server",
-      "@as-integrations/next",
       "apollo-server-core",
       "@/ecommerce/infrastructure/graphql/schema",
-      "@/server/infrastructure/graphql/resolvers",
-      "@/server/infrastructure/graphql/generated",
       "@/server/application",
       "@/server/application/use-cases/create-product",
       "@/server/application/use-cases/get-products",
       "@/server/application/use-cases/get-product",
+      "@/server/infrastructure/graphql/resolvers",
+      "@/server/infrastructure/graphql/types",
+      "@/server/infrastructure/graphql/context",
       "@/server/infrastructure/repositories/products-mock-repository",
       "@/core/infrastructure",
       "@/core/infrastructure/repositories",
+      "@/core/infrastructure/repositories/graphql-repository",
       "@/client/presentation/pages/products-page",
       "next/link",
       "@/client/presentation/hooks",
       "@/client/presentation/hooks/use-get-product",
       "@/core/presentation/hooks/use-use-case",
-      "@/client/infrastructure/graphql/graphql-context/ecommerce-application-context",
+      "@/client/presentation/contexts/ecommerce-application-context",
       "@/client/presentation/hooks/use-get-products",
       "@/client/presentation/hooks/use-create-product",
       "@/client/presentation/components/products/product-card",
-      "@/client/presentation/components/products/products-grid"
+      "@/client/presentation/components/products/products-grid",
+      "@/client/presentation/pages/product-creation-page",
+      "next/navigation",
+      "@/core/presentation/components/actions/button",
+      "@/client/presentation/components/products/product-creation-form",
+      "@/core/presentation/components/forms",
+      "@/core/presentation/components/forms/form",
+      "@/core/presentation/components/forms/form/form",
+      "lodash",
+      "@/core/presentation/components/forms/field",
+      "@/core/presentation/components/forms/field/field",
+      "@/core/presentation/components/forms/fields",
+      "@/core/presentation/components/forms/fields/text-field",
+      "@/core/presentation/components/forms/fields/input-field",
+      "@/core/presentation/components/forms/fields/number-field",
+      "@/core/presentation/components/forms/fields/select-field",
+      "@/core/presentation/components/forms/fields/checkboxes-field",
+      "@/core/presentation/components/forms/fields/radiogroup-field",
+      "@/client/presentation/pages/product-page"
     ],
     "nodes": [
       {
-        "id": "@/client/infrastructure/graphql/graphql-context/ecommerce-application-context",
-        "filename": "./src/client/infrastructure/graphql/graphql-context/ecommerce-application-context.tsx",
+        "id": "@/client/presentation/contexts/ecommerce-application-context",
+        "filename": "./src/client/presentation/contexts/ecommerce-application-context.tsx",
         "group": "client",
         "name": "EcommerceApplicationContext",
         "module": "client",
-        "layer": "infrastructure",
-        "type": "graphql",
+        "layer": "presentation",
+        "type": "other",
         "value": 1,
         "external": false
       },
       {
-        "id": "@/server/infrastructure/graphql/graphql-server",
-        "filename": "./src/server/infrastructure/graphql/graphql-server.ts",
+        "id": "@/server/infrastructure/graphql/server",
+        "filename": "./src/server/infrastructure/graphql/server.ts",
         "group": "server",
-        "name": "GraphqlServer",
+        "name": "Server",
         "module": "server",
         "layer": "infrastructure",
         "type": "graphql",
@@ -99,15 +121,26 @@
         "external": false
       },
       {
-        "id": "@tanstack/react-query",
-        "filename": "@tanstack/react-query",
-        "group": "react-query",
-        "name": "ReactQuery",
-        "module": "external",
-        "layer": "external",
-        "type": "other",
+        "id": "@/app/products/create/page",
+        "filename": "./src/app/products/create/page.tsx",
+        "group": "app",
+        "name": "Page",
+        "module": "app",
+        "layer": "presentation",
+        "type": "page",
         "value": 1,
-        "external": true
+        "external": false
+      },
+      {
+        "id": "@/app/products/[product-id]/page",
+        "filename": "./src/app/products/[product-id]/page.tsx",
+        "group": "app",
+        "name": "Page",
+        "module": "app",
+        "layer": "presentation",
+        "type": "page",
+        "value": 1,
+        "external": false
       },
       {
         "id": "@/core/infrastructure/contexts/application-context",
@@ -124,6 +157,17 @@
         "id": "react",
         "filename": "react",
         "name": "React",
+        "module": "external",
+        "layer": "external",
+        "type": "other",
+        "value": 1,
+        "external": true
+      },
+      {
+        "id": "@tanstack/react-query",
+        "filename": "@tanstack/react-query",
+        "group": "react-query",
+        "name": "ReactQuery",
         "module": "external",
         "layer": "external",
         "type": "other",
@@ -307,8 +351,19 @@
         "external": false
       },
       {
-        "id": "@/client/infrastructure/graphql/graphql-context/dev-client-ecommerce-application",
-        "filename": "@/client/infrastructure/graphql/graphql-context/dev-client-ecommerce-application",
+        "id": "@/client/infrastructure/graphql/application",
+        "filename": "@/client/infrastructure/graphql/application",
+        "group": "client",
+        "name": "Application",
+        "module": "client",
+        "layer": "infrastructure",
+        "type": "application",
+        "value": 1,
+        "external": false
+      },
+      {
+        "id": "@/client/infrastructure/graphql/application/dev-client-ecommerce-application",
+        "filename": "@/client/infrastructure/graphql/application/dev-client-ecommerce-application",
         "group": "client",
         "name": "DevClientEcommerceApplication",
         "module": "client",
@@ -384,8 +439,8 @@
         "external": false
       },
       {
-        "id": "@/client/infrastructure/graphql/graphql-context/test-client-ecommerce-application",
-        "filename": "@/client/infrastructure/graphql/graphql-context/test-client-ecommerce-application",
+        "id": "@/client/infrastructure/graphql/application/test-client-ecommerce-application",
+        "filename": "@/client/infrastructure/graphql/application/test-client-ecommerce-application",
         "group": "client",
         "name": "TestClientEcommerceApplication",
         "module": "client",
@@ -417,8 +472,8 @@
         "external": false
       },
       {
-        "id": "@/client/infrastructure/graphql/graphql-context/pro-client-ecommerce-application",
-        "filename": "@/client/infrastructure/graphql/graphql-context/pro-client-ecommerce-application",
+        "id": "@/client/infrastructure/graphql/application/pro-client-ecommerce-application",
+        "filename": "@/client/infrastructure/graphql/application/pro-client-ecommerce-application",
         "group": "client",
         "name": "ProClientEcommerceApplication",
         "module": "client",
@@ -439,13 +494,24 @@
         "external": false
       },
       {
-        "id": "@/core/infrastructure/repositories/graphql-repository",
-        "filename": "@/core/infrastructure/repositories/graphql-repository",
+        "id": "@/core/infrastructure/graphql/repository",
+        "filename": "@/core/infrastructure/graphql/repository",
         "group": "core",
-        "name": "GraphqlRepository",
+        "name": "Repository",
         "module": "core",
         "layer": "infrastructure",
-        "type": "repository",
+        "type": "graphql",
+        "value": 1,
+        "external": false
+      },
+      {
+        "id": "@/core/infrastructure/graphql/client",
+        "filename": "@/core/infrastructure/graphql/client",
+        "group": "core",
+        "name": "Client",
+        "module": "core",
+        "layer": "infrastructure",
+        "type": "graphql",
         "value": 1,
         "external": false
       },
@@ -471,10 +537,10 @@
         "external": false
       },
       {
-        "id": "@/client/infrastructure/graphql/generated",
-        "filename": "@/client/infrastructure/graphql/generated",
+        "id": "@/client/infrastructure/graphql/types",
+        "filename": "@/client/infrastructure/graphql/types",
         "group": "client",
-        "name": "Generated",
+        "name": "Types",
         "module": "client",
         "layer": "infrastructure",
         "type": "graphql",
@@ -524,21 +590,21 @@
         "external": false
       },
       {
+        "id": "@/core/infrastructure/graphql/server",
+        "filename": "@/core/infrastructure/graphql/server",
+        "group": "core",
+        "name": "Server",
+        "module": "core",
+        "layer": "infrastructure",
+        "type": "graphql",
+        "value": 1,
+        "external": false
+      },
+      {
         "id": "@apollo/server",
         "filename": "@apollo/server",
         "group": "server",
         "name": "Server",
-        "module": "external",
-        "layer": "external",
-        "type": "other",
-        "value": 1,
-        "external": true
-      },
-      {
-        "id": "@as-integrations/next",
-        "filename": "@as-integrations/next",
-        "group": "next",
-        "name": "Next",
         "module": "external",
         "layer": "external",
         "type": "other",
@@ -561,28 +627,6 @@
         "group": "ecommerce",
         "name": "Schema",
         "module": "ecommerce",
-        "layer": "infrastructure",
-        "type": "graphql",
-        "value": 1,
-        "external": false
-      },
-      {
-        "id": "@/server/infrastructure/graphql/resolvers",
-        "filename": "@/server/infrastructure/graphql/resolvers",
-        "group": "server",
-        "name": "Resolvers",
-        "module": "server",
-        "layer": "infrastructure",
-        "type": "graphql",
-        "value": 1,
-        "external": false
-      },
-      {
-        "id": "@/server/infrastructure/graphql/generated",
-        "filename": "@/server/infrastructure/graphql/generated",
-        "group": "server",
-        "name": "Generated",
-        "module": "server",
         "layer": "infrastructure",
         "type": "graphql",
         "value": 1,
@@ -633,6 +677,39 @@
         "external": false
       },
       {
+        "id": "@/server/infrastructure/graphql/resolvers",
+        "filename": "@/server/infrastructure/graphql/resolvers",
+        "group": "server",
+        "name": "Resolvers",
+        "module": "server",
+        "layer": "infrastructure",
+        "type": "graphql",
+        "value": 1,
+        "external": false
+      },
+      {
+        "id": "@/server/infrastructure/graphql/types",
+        "filename": "@/server/infrastructure/graphql/types",
+        "group": "server",
+        "name": "Types",
+        "module": "server",
+        "layer": "infrastructure",
+        "type": "graphql",
+        "value": 1,
+        "external": false
+      },
+      {
+        "id": "@/server/infrastructure/graphql/context",
+        "filename": "@/server/infrastructure/graphql/context",
+        "group": "server",
+        "name": "Context",
+        "module": "server",
+        "layer": "infrastructure",
+        "type": "graphql",
+        "value": 1,
+        "external": false
+      },
+      {
         "id": "@/server/infrastructure/repositories/products-mock-repository",
         "filename": "@/server/infrastructure/repositories/products-mock-repository",
         "group": "server",
@@ -659,6 +736,17 @@
         "filename": "@/core/infrastructure/repositories",
         "group": "core",
         "name": "Repositories",
+        "module": "core",
+        "layer": "infrastructure",
+        "type": "repository",
+        "value": 1,
+        "external": false
+      },
+      {
+        "id": "@/core/infrastructure/repositories/graphql-repository",
+        "filename": "@/core/infrastructure/repositories/graphql-repository",
+        "group": "core",
+        "name": "GraphqlRepository",
         "module": "core",
         "layer": "infrastructure",
         "type": "repository",
@@ -721,13 +809,13 @@
         "external": false
       },
       {
-        "id": "@/client/infrastructure/graphql/graphql-context/ecommerce-application-context",
-        "filename": "@/client/infrastructure/graphql/graphql-context/ecommerce-application-context",
+        "id": "@/client/presentation/contexts/ecommerce-application-context",
+        "filename": "@/client/presentation/contexts/ecommerce-application-context",
         "group": "client",
         "name": "EcommerceApplicationContext",
         "module": "client",
-        "layer": "infrastructure",
-        "type": "graphql",
+        "layer": "presentation",
+        "type": "other",
         "value": 1,
         "external": false
       },
@@ -774,22 +862,219 @@
         "type": "component",
         "value": 1,
         "external": false
+      },
+      {
+        "id": "@/client/presentation/pages/product-creation-page",
+        "filename": "@/client/presentation/pages/product-creation-page",
+        "group": "client",
+        "name": "ProductCreationPage",
+        "module": "client",
+        "layer": "presentation",
+        "type": "page",
+        "value": 1,
+        "external": false
+      },
+      {
+        "id": "next/navigation",
+        "filename": "next/navigation",
+        "group": "navigation",
+        "name": "Navigation",
+        "module": "external",
+        "layer": "external",
+        "type": "other",
+        "value": 1,
+        "external": true
+      },
+      {
+        "id": "@/core/presentation/components/actions/button",
+        "filename": "@/core/presentation/components/actions/button",
+        "group": "core",
+        "name": "Button",
+        "module": "core",
+        "layer": "presentation",
+        "type": "component",
+        "value": 1,
+        "external": false
+      },
+      {
+        "id": "@/client/presentation/components/products/product-creation-form",
+        "filename": "@/client/presentation/components/products/product-creation-form",
+        "group": "client",
+        "name": "ProductCreationForm",
+        "module": "client",
+        "layer": "presentation",
+        "type": "component",
+        "value": 1,
+        "external": false
+      },
+      {
+        "id": "@/core/presentation/components/forms",
+        "filename": "@/core/presentation/components/forms",
+        "group": "core",
+        "name": "Forms",
+        "module": "core",
+        "layer": "presentation",
+        "type": "component",
+        "value": 1,
+        "external": false
+      },
+      {
+        "id": "@/core/presentation/components/forms/form",
+        "filename": "@/core/presentation/components/forms/form",
+        "group": "core",
+        "name": "Form",
+        "module": "core",
+        "layer": "presentation",
+        "type": "component",
+        "value": 1,
+        "external": false
+      },
+      {
+        "id": "@/core/presentation/components/forms/form/form",
+        "filename": "@/core/presentation/components/forms/form/form",
+        "group": "core",
+        "name": "Form",
+        "module": "core",
+        "layer": "presentation",
+        "type": "component",
+        "value": 1,
+        "external": false
+      },
+      {
+        "id": "lodash",
+        "filename": "lodash",
+        "name": "Lodash",
+        "module": "external",
+        "layer": "external",
+        "type": "other",
+        "value": 1,
+        "external": true
+      },
+      {
+        "id": "@/core/presentation/components/forms/field",
+        "filename": "@/core/presentation/components/forms/field",
+        "group": "core",
+        "name": "Field",
+        "module": "core",
+        "layer": "presentation",
+        "type": "component",
+        "value": 1,
+        "external": false
+      },
+      {
+        "id": "@/core/presentation/components/forms/field/field",
+        "filename": "@/core/presentation/components/forms/field/field",
+        "group": "core",
+        "name": "Field",
+        "module": "core",
+        "layer": "presentation",
+        "type": "component",
+        "value": 1,
+        "external": false
+      },
+      {
+        "id": "@/core/presentation/components/forms/fields",
+        "filename": "@/core/presentation/components/forms/fields",
+        "group": "core",
+        "name": "Fields",
+        "module": "core",
+        "layer": "presentation",
+        "type": "component",
+        "value": 1,
+        "external": false
+      },
+      {
+        "id": "@/core/presentation/components/forms/fields/text-field",
+        "filename": "@/core/presentation/components/forms/fields/text-field",
+        "group": "core",
+        "name": "TextField",
+        "module": "core",
+        "layer": "presentation",
+        "type": "component",
+        "value": 1,
+        "external": false
+      },
+      {
+        "id": "@/core/presentation/components/forms/fields/input-field",
+        "filename": "@/core/presentation/components/forms/fields/input-field",
+        "group": "core",
+        "name": "InputField",
+        "module": "core",
+        "layer": "presentation",
+        "type": "component",
+        "value": 1,
+        "external": false
+      },
+      {
+        "id": "@/core/presentation/components/forms/fields/number-field",
+        "filename": "@/core/presentation/components/forms/fields/number-field",
+        "group": "core",
+        "name": "NumberField",
+        "module": "core",
+        "layer": "presentation",
+        "type": "component",
+        "value": 1,
+        "external": false
+      },
+      {
+        "id": "@/core/presentation/components/forms/fields/select-field",
+        "filename": "@/core/presentation/components/forms/fields/select-field",
+        "group": "core",
+        "name": "SelectField",
+        "module": "core",
+        "layer": "presentation",
+        "type": "component",
+        "value": 1,
+        "external": false
+      },
+      {
+        "id": "@/core/presentation/components/forms/fields/checkboxes-field",
+        "filename": "@/core/presentation/components/forms/fields/checkboxes-field",
+        "group": "core",
+        "name": "CheckboxesField",
+        "module": "core",
+        "layer": "presentation",
+        "type": "component",
+        "value": 1,
+        "external": false
+      },
+      {
+        "id": "@/core/presentation/components/forms/fields/radiogroup-field",
+        "filename": "@/core/presentation/components/forms/fields/radiogroup-field",
+        "group": "core",
+        "name": "RadiogroupField",
+        "module": "core",
+        "layer": "presentation",
+        "type": "component",
+        "value": 1,
+        "external": false
+      },
+      {
+        "id": "@/client/presentation/pages/product-page",
+        "filename": "@/client/presentation/pages/product-page",
+        "group": "client",
+        "name": "ProductPage",
+        "module": "client",
+        "layer": "presentation",
+        "type": "page",
+        "value": 1,
+        "external": false
       }
     ],
     "links": [
       {
-        "target": "@/client/infrastructure/graphql/graphql-context/ecommerce-application-context",
-        "source": "@tanstack/react-query",
-        "external": true
-      },
-      {
-        "target": "@/client/infrastructure/graphql/graphql-context/ecommerce-application-context",
+        "target": "@/client/presentation/contexts/ecommerce-application-context",
         "source": "@/core/infrastructure/contexts/application-context",
         "external": false
       },
       {
         "target": "@/core/infrastructure/contexts/application-context",
         "source": "react",
+        "external": true
+      },
+      {
+        "target": "@/core/infrastructure/contexts/application-context",
+        "source": "@tanstack/react-query",
         "external": true
       },
       {
@@ -823,7 +1108,7 @@
         "external": false
       },
       {
-        "target": "@/client/infrastructure/graphql/graphql-context/ecommerce-application-context",
+        "target": "@/client/presentation/contexts/ecommerce-application-context",
         "source": "@/ecommerce/application",
         "external": false
       },
@@ -948,12 +1233,22 @@
         "external": false
       },
       {
-        "target": "@/client/infrastructure/graphql/graphql-context/ecommerce-application-context",
-        "source": "@/client/infrastructure/graphql/graphql-context/dev-client-ecommerce-application",
+        "target": "@/client/presentation/contexts/ecommerce-application-context",
+        "source": "@/client/infrastructure/graphql/application",
         "external": false
       },
       {
-        "target": "@/client/infrastructure/graphql/graphql-context/dev-client-ecommerce-application",
+        "target": "@/client/infrastructure/graphql/application",
+        "source": "@/ecommerce/application",
+        "external": false
+      },
+      {
+        "target": "@/client/infrastructure/graphql/application",
+        "source": "@/client/infrastructure/graphql/application/dev-client-ecommerce-application",
+        "external": false
+      },
+      {
+        "target": "@/client/infrastructure/graphql/application/dev-client-ecommerce-application",
         "source": "@/client/infrastructure/repositories/products-datastore-repository",
         "external": false
       },
@@ -973,7 +1268,7 @@
         "external": false
       },
       {
-        "target": "@/client/infrastructure/graphql/graphql-context/dev-client-ecommerce-application",
+        "target": "@/client/infrastructure/graphql/application/dev-client-ecommerce-application",
         "source": "@/client/application",
         "external": false
       },
@@ -1063,12 +1358,12 @@
         "external": false
       },
       {
-        "target": "@/client/infrastructure/graphql/graphql-context/ecommerce-application-context",
-        "source": "@/client/infrastructure/graphql/graphql-context/test-client-ecommerce-application",
+        "target": "@/client/infrastructure/graphql/application",
+        "source": "@/client/infrastructure/graphql/application/test-client-ecommerce-application",
         "external": false
       },
       {
-        "target": "@/client/infrastructure/graphql/graphql-context/test-client-ecommerce-application",
+        "target": "@/client/infrastructure/graphql/application/test-client-ecommerce-application",
         "source": "@/client/infrastructure/repositories/products-mock-repository",
         "external": false
       },
@@ -1088,62 +1383,67 @@
         "external": false
       },
       {
-        "target": "@/client/infrastructure/graphql/graphql-context/test-client-ecommerce-application",
+        "target": "@/client/infrastructure/graphql/application/test-client-ecommerce-application",
         "source": "@/client/application",
         "external": false
       },
       {
-        "target": "@/client/infrastructure/graphql/graphql-context/ecommerce-application-context",
-        "source": "@/client/infrastructure/graphql/graphql-context/pro-client-ecommerce-application",
+        "target": "@/client/infrastructure/graphql/application",
+        "source": "@/client/infrastructure/graphql/application/pro-client-ecommerce-application",
         "external": false
       },
       {
-        "target": "@/client/infrastructure/graphql/graphql-context/pro-client-ecommerce-application",
+        "target": "@/client/infrastructure/graphql/application/pro-client-ecommerce-application",
         "source": "@/client/infrastructure/repositories/products-graphql-repository",
         "external": false
       },
       {
         "target": "@/client/infrastructure/repositories/products-graphql-repository",
-        "source": "@/core/infrastructure/repositories/graphql-repository",
+        "source": "@/core/infrastructure/graphql/repository",
         "external": false
       },
       {
-        "target": "@/core/infrastructure/repositories/graphql-repository",
+        "target": "@/core/infrastructure/graphql/repository",
+        "source": "@/core/infrastructure/graphql/client",
+        "external": false
+      },
+      {
+        "target": "@/core/infrastructure/graphql/client",
         "source": "graphql-request",
         "external": true
       },
       {
-        "target": "@/core/infrastructure/repositories/graphql-repository",
+        "target": "@/core/infrastructure/graphql/repository",
         "source": "@/core/domain",
         "external": false
       },
       {
-        "target": "@/core/infrastructure/repositories/graphql-repository",
+        "target": "@/core/infrastructure/graphql/repository",
         "source": "@/core/infrastructure/mappers/graphql-mapper",
         "external": false
       },
       {
         "target": "@/client/infrastructure/repositories/products-graphql-repository",
-        "source": "@/client/infrastructure/graphql/generated",
+        "source": "@/client/infrastructure/graphql/types",
         "external": false
       },
       {
-        "target": "@/client/infrastructure/graphql/generated",
+        "target": "@/client/infrastructure/graphql/types",
         "source": "graphql-request",
         "external": true
       },
       {
-        "target": "@/client/infrastructure/graphql/generated",
+        "target": "@/client/infrastructure/graphql/types",
         "source": "graphql-request/build/cjs/types",
         "external": true
       },
       {
-        "target": "@/client/infrastructure/graphql/generated",
+        "target": "@/client/infrastructure/graphql/types",
         "source": "graphql",
         "external": true
       },
       {
-        "target": "@/client/infrastructure/graphql/generated",
+        "target": "@/client/infrastructure/graphql/types",
         "source": "graphql-tag",
         "external": true
       },
@@ -1159,7 +1459,7 @@
       },
       {
         "target": "@/client/infrastructure/mappers/product-graphql-mapper",
-        "source": "@/client/infrastructure/graphql/generated",
+        "source": "@/client/infrastructure/graphql/types",
         "external": false
       },
       {
@@ -1173,32 +1473,37 @@
         "external": false
       },
       {
-        "target": "@/client/infrastructure/repositories/products-graphql-repository",
-        "source": "@/client/infrastructure/graphql/generated",
-        "external": false
-      },
-      {
-        "target": "@/client/infrastructure/graphql/graphql-context/pro-client-ecommerce-application",
+        "target": "@/client/infrastructure/graphql/application/pro-client-ecommerce-application",
         "source": "@/client/application",
         "external": false
       },
       {
-        "target": "@/server/infrastructure/graphql/graphql-server",
+        "target": "@/server/infrastructure/graphql/server",
+        "source": "@/ecommerce/domain",
+        "external": false
+      },
+      {
+        "target": "@/server/infrastructure/graphql/server",
+        "source": "@/core/infrastructure/graphql/server",
+        "external": false
+      },
+      {
+        "target": "@/core/infrastructure/graphql/server",
+        "source": "@/core/domain",
+        "external": false
+      },
+      {
+        "target": "@/core/infrastructure/graphql/server",
         "source": "@apollo/server",
         "external": true
       },
       {
-        "target": "@/server/infrastructure/graphql/graphql-server",
-        "source": "@as-integrations/next",
-        "external": true
-      },
-      {
-        "target": "@/server/infrastructure/graphql/graphql-server",
+        "target": "@/core/infrastructure/graphql/server",
         "source": "apollo-server-core",
         "external": true
       },
       {
-        "target": "@/server/infrastructure/graphql/graphql-server",
+        "target": "@/server/infrastructure/graphql/server",
         "source": "@/ecommerce/infrastructure/graphql/schema",
         "external": false
       },
@@ -1208,27 +1513,7 @@
         "external": true
       },
       {
-        "target": "@/server/infrastructure/graphql/graphql-server",
-        "source": "@/server/infrastructure/graphql/resolvers",
-        "external": false
-      },
-      {
-        "target": "@/server/infrastructure/graphql/resolvers",
-        "source": "@/ecommerce/domain",
-        "external": false
-      },
-      {
-        "target": "@/server/infrastructure/graphql/resolvers",
-        "source": "@/server/infrastructure/graphql/generated",
-        "external": false
-      },
-      {
-        "target": "@/server/infrastructure/graphql/generated",
-        "source": "graphql",
-        "external": true
-      },
-      {
-        "target": "@/server/infrastructure/graphql/resolvers",
+        "target": "@/server/infrastructure/graphql/server",
         "source": "@/server/application",
         "external": false
       },
@@ -1318,7 +1603,32 @@
         "external": false
       },
       {
-        "target": "@/server/infrastructure/graphql/graphql-server",
+        "target": "@/server/infrastructure/graphql/server",
+        "source": "@/server/infrastructure/graphql/resolvers",
+        "external": false
+      },
+      {
+        "target": "@/server/infrastructure/graphql/resolvers",
+        "source": "@/server/infrastructure/graphql/types",
+        "external": false
+      },
+      {
+        "target": "@/server/infrastructure/graphql/types",
+        "source": "graphql",
+        "external": true
+      },
+      {
+        "target": "@/server/infrastructure/graphql/resolvers",
+        "source": "@/server/infrastructure/graphql/context",
+        "external": false
+      },
+      {
+        "target": "@/server/infrastructure/graphql/context",
+        "source": "@/server/application",
+        "external": false
+      },
+      {
+        "target": "@/server/infrastructure/graphql/server",
         "source": "@/server/infrastructure/repositories/products-mock-repository",
         "external": false
       },
@@ -1348,13 +1658,23 @@
         "external": false
       },
       {
-        "target": "@/core/infrastructure/repositories",
-        "source": "@/core/infrastructure/repositories/mock-repository",
+        "target": "@/core/infrastructure/repositories/graphql-repository",
+        "source": "@/core/domain",
         "external": false
       },
       {
-        "target": "@/server/infrastructure/graphql/graphql-server",
-        "source": "@/server/application",
+        "target": "@/core/infrastructure/repositories/graphql-repository",
+        "source": "@/core/infrastructure/graphql/client",
+        "external": false
+      },
+      {
+        "target": "@/core/infrastructure/repositories/graphql-repository",
+        "source": "@/core/infrastructure/mappers/graphql-mapper",
+        "external": false
+      },
+      {
+        "target": "@/core/infrastructure/repositories",
+        "source": "@/core/infrastructure/repositories/mock-repository",
         "external": false
       },
       {
@@ -1379,11 +1699,6 @@
       },
       {
         "target": "@/client/presentation/hooks/use-get-product",
-        "source": "@/ecommerce/application",
-        "external": false
-      },
-      {
-        "target": "@/client/presentation/hooks/use-get-product",
         "source": "@/core/presentation/hooks/use-use-case",
         "external": false
       },
@@ -1399,37 +1714,27 @@
       },
       {
         "target": "@/client/presentation/hooks/use-get-product",
-        "source": "@/client/infrastructure/graphql/graphql-context/ecommerce-application-context",
-        "external": false
-      },
-      {
-        "target": "@/client/infrastructure/graphql/graphql-context/ecommerce-application-context",
-        "source": "@tanstack/react-query",
-        "external": true
-      },
-      {
-        "target": "@/client/infrastructure/graphql/graphql-context/ecommerce-application-context",
-        "source": "@/core/infrastructure/contexts/application-context",
-        "external": false
-      },
-      {
-        "target": "@/client/infrastructure/graphql/graphql-context/ecommerce-application-context",
         "source": "@/ecommerce/application",
         "external": false
       },
       {
-        "target": "@/client/infrastructure/graphql/graphql-context/ecommerce-application-context",
-        "source": "@/client/infrastructure/graphql/graphql-context/dev-client-ecommerce-application",
+        "target": "@/client/presentation/hooks/use-get-product",
+        "source": "@/client/presentation/contexts/ecommerce-application-context",
         "external": false
       },
       {
-        "target": "@/client/infrastructure/graphql/graphql-context/ecommerce-application-context",
-        "source": "@/client/infrastructure/graphql/graphql-context/test-client-ecommerce-application",
+        "target": "@/client/presentation/contexts/ecommerce-application-context",
+        "source": "@/core/infrastructure/contexts/application-context",
         "external": false
       },
       {
-        "target": "@/client/infrastructure/graphql/graphql-context/ecommerce-application-context",
-        "source": "@/client/infrastructure/graphql/graphql-context/pro-client-ecommerce-application",
+        "target": "@/client/presentation/contexts/ecommerce-application-context",
+        "source": "@/ecommerce/application",
+        "external": false
+      },
+      {
+        "target": "@/client/presentation/contexts/ecommerce-application-context",
+        "source": "@/client/infrastructure/graphql/application",
         "external": false
       },
       {
@@ -1449,7 +1754,7 @@
       },
       {
         "target": "@/client/presentation/hooks/use-get-products",
-        "source": "@/client/infrastructure/graphql/graphql-context/ecommerce-application-context",
+        "source": "@/client/presentation/contexts/ecommerce-application-context",
         "external": false
       },
       {
@@ -1469,7 +1774,7 @@
       },
       {
         "target": "@/client/presentation/hooks/use-create-product",
-        "source": "@/client/infrastructure/graphql/graphql-context/ecommerce-application-context",
+        "source": "@/client/presentation/contexts/ecommerce-application-context",
         "external": false
       },
       {
@@ -1501,6 +1806,156 @@
         "target": "@/client/presentation/components/products/products-grid",
         "source": "@/ecommerce/domain",
         "external": false
+      },
+      {
+        "target": "@/app/products/create/page",
+        "source": "@/client/presentation/pages/product-creation-page",
+        "external": false
+      },
+      {
+        "target": "@/client/presentation/pages/product-creation-page",
+        "source": "next/link",
+        "external": true
+      },
+      {
+        "target": "@/client/presentation/pages/product-creation-page",
+        "source": "next/navigation",
+        "external": true
+      },
+      {
+        "target": "@/client/presentation/pages/product-creation-page",
+        "source": "@/core/presentation/components/actions/button",
+        "external": false
+      },
+      {
+        "target": "@/client/presentation/pages/product-creation-page",
+        "source": "@/client/presentation/hooks/use-create-product",
+        "external": false
+      },
+      {
+        "target": "@/client/presentation/pages/product-creation-page",
+        "source": "@/client/presentation/components/products/product-creation-form",
+        "external": false
+      },
+      {
+        "target": "@/client/presentation/components/products/product-creation-form",
+        "source": "@/ecommerce/domain",
+        "external": false
+      },
+      {
+        "target": "@/client/presentation/components/products/product-creation-form",
+        "source": "@/core/presentation/components/forms",
+        "external": false
+      },
+      {
+        "target": "@/core/presentation/components/forms",
+        "source": "@/core/presentation/components/forms/form",
+        "external": false
+      },
+      {
+        "target": "@/core/presentation/components/forms/form",
+        "source": "@/core/presentation/components/forms/form/form",
+        "external": false
+      },
+      {
+        "target": "@/core/presentation/components/forms/form/form",
+        "source": "lodash",
+        "external": true
+      },
+      {
+        "target": "@/core/presentation/components/forms/form/form",
+        "source": "react",
+        "external": true
+      },
+      {
+        "target": "@/core/presentation/components/forms",
+        "source": "@/core/presentation/components/forms/field",
+        "external": false
+      },
+      {
+        "target": "@/core/presentation/components/forms/field",
+        "source": "@/core/presentation/components/forms/field/field",
+        "external": false
+      },
+      {
+        "target": "@/core/presentation/components/forms/field/field",
+        "source": "react",
+        "external": true
+      },
+      {
+        "target": "@/core/presentation/components/forms/field/field",
+        "source": "@/core/presentation/components/forms/form",
+        "external": false
+      },
+      {
+        "target": "@/core/presentation/components/forms",
+        "source": "@/core/presentation/components/forms/fields",
+        "external": false
+      },
+      {
+        "target": "@/core/presentation/components/forms/fields",
+        "source": "@/core/presentation/components/forms/fields/text-field",
+        "external": false
+      },
+      {
+        "target": "@/core/presentation/components/forms/fields/text-field",
+        "source": "@/core/presentation/components/forms/fields/input-field",
+        "external": false
+      },
+      {
+        "target": "@/core/presentation/components/forms/fields",
+        "source": "@/core/presentation/components/forms/fields/number-field",
+        "external": false
+      },
+      {
+        "target": "@/core/presentation/components/forms/fields/number-field",
+        "source": "@/core/presentation/components/forms/fields/input-field",
+        "external": false
+      },
+      {
+        "target": "@/core/presentation/components/forms/fields",
+        "source": "@/core/presentation/components/forms/fields/select-field",
+        "external": false
+      },
+      {
+        "target": "@/core/presentation/components/forms/fields",
+        "source": "@/core/presentation/components/forms/fields/checkboxes-field",
+        "external": false
+      },
+      {
+        "target": "@/core/presentation/components/forms/fields",
+        "source": "@/core/presentation/components/forms/fields/radiogroup-field",
+        "external": false
+      },
+      {
+        "target": "@/client/presentation/components/products/product-creation-form",
+        "source": "@/ecommerce/application",
+        "external": false
+      },
+      {
+        "target": "@/app/products/[product-id]/page",
+        "source": "@/client/presentation/pages/product-page",
+        "external": false
+      },
+      {
+        "target": "@/client/presentation/pages/product-page",
+        "source": "next/navigation",
+        "external": true
+      },
+      {
+        "target": "@/client/presentation/pages/product-page",
+        "source": "next/link",
+        "external": true
+      },
+      {
+        "target": "@/client/presentation/pages/product-page",
+        "source": "@/client/presentation/hooks",
+        "external": false
+      },
+      {
+        "target": "@/client/presentation/pages/product-page",
+        "source": "@/client/presentation/components/products/product-card",
+        "external": false
       }
     ]
   },
@@ -1517,22 +1972,17 @@
         "value": 1
       },
       {
-        "id": "root/client/infrastructure",
-        "name": "infrastructure",
+        "id": "root/client/presentation",
+        "name": "presentation",
         "value": 1
       },
       {
-        "id": "root/client/infrastructure/graphql",
-        "name": "graphql",
+        "id": "root/client/presentation/contexts",
+        "name": "contexts",
         "value": 1
       },
       {
-        "id": "root/client/infrastructure/graphql/graphql-context",
-        "name": "graphql-context",
-        "value": 1
-      },
-      {
-        "id": "root/client/infrastructure/graphql/graphql-context/ecommerce-application-context",
+        "id": "root/client/presentation/contexts/ecommerce-application-context",
         "name": "ecommerce-application-context",
         "value": 1
       },
@@ -1552,8 +2002,8 @@
         "value": 1
       },
       {
-        "id": "root/server/infrastructure/graphql/graphql-server",
-        "name": "graphql-server",
+        "id": "root/server/infrastructure/graphql/server",
+        "name": "server",
         "value": 1
       },
       {
@@ -1572,13 +2022,23 @@
         "value": 1
       },
       {
-        "id": "@tanstack",
-        "name": "@tanstack",
+        "id": "root/app/products/create",
+        "name": "create",
         "value": 1
       },
       {
-        "id": "@tanstack/react-query",
-        "name": "react-query",
+        "id": "root/app/products/create/page",
+        "name": "page",
+        "value": 1
+      },
+      {
+        "id": "root/app/products/[product-id]",
+        "name": "[product-id]",
+        "value": 1
+      },
+      {
+        "id": "root/app/products/[product-id]/page",
+        "name": "page",
         "value": 1
       },
       {
@@ -1604,6 +2064,16 @@
       {
         "id": "react",
         "name": "react",
+        "value": 1
+      },
+      {
+        "id": "@tanstack",
+        "name": "@tanstack",
+        "value": 1
+      },
+      {
+        "id": "@tanstack/react-query",
+        "name": "react-query",
         "value": 1
       },
       {
@@ -1712,7 +2182,22 @@
         "value": 1
       },
       {
-        "id": "root/client/infrastructure/graphql/graphql-context/dev-client-ecommerce-application",
+        "id": "root/client/infrastructure",
+        "name": "infrastructure",
+        "value": 1
+      },
+      {
+        "id": "root/client/infrastructure/graphql",
+        "name": "graphql",
+        "value": 1
+      },
+      {
+        "id": "root/client/infrastructure/graphql/application",
+        "name": "application",
+        "value": 1
+      },
+      {
+        "id": "root/client/infrastructure/graphql/application/dev-client-ecommerce-application",
         "name": "dev-client-ecommerce-application",
         "value": 1
       },
@@ -1762,7 +2247,7 @@
         "value": 1
       },
       {
-        "id": "root/client/infrastructure/graphql/graphql-context/test-client-ecommerce-application",
+        "id": "root/client/infrastructure/graphql/application/test-client-ecommerce-application",
         "name": "test-client-ecommerce-application",
         "value": 1
       },
@@ -1777,7 +2262,7 @@
         "value": 1
       },
       {
-        "id": "root/client/infrastructure/graphql/graphql-context/pro-client-ecommerce-application",
+        "id": "root/client/infrastructure/graphql/application/pro-client-ecommerce-application",
         "name": "pro-client-ecommerce-application",
         "value": 1
       },
@@ -1787,8 +2272,18 @@
         "value": 1
       },
       {
-        "id": "root/core/infrastructure/repositories/graphql-repository",
-        "name": "graphql-repository",
+        "id": "root/core/infrastructure/graphql",
+        "name": "graphql",
+        "value": 1
+      },
+      {
+        "id": "root/core/infrastructure/graphql/repository",
+        "name": "repository",
+        "value": 1
+      },
+      {
+        "id": "root/core/infrastructure/graphql/client",
+        "name": "client",
         "value": 1
       },
       {
@@ -1807,8 +2302,8 @@
         "value": 1
       },
       {
-        "id": "root/client/infrastructure/graphql/generated",
-        "name": "generated",
+        "id": "root/client/infrastructure/graphql/types",
+        "name": "types",
         "value": 1
       },
       {
@@ -1847,6 +2342,11 @@
         "value": 1
       },
       {
+        "id": "root/core/infrastructure/graphql/server",
+        "name": "server",
+        "value": 1
+      },
+      {
         "id": "@apollo",
         "name": "@apollo",
         "value": 1
@@ -1854,16 +2354,6 @@
       {
         "id": "@apollo/server",
         "name": "server",
-        "value": 1
-      },
-      {
-        "id": "@as-integrations",
-        "name": "@as-integrations",
-        "value": 1
-      },
-      {
-        "id": "@as-integrations/next",
-        "name": "next",
         "value": 1
       },
       {
@@ -1884,16 +2374,6 @@
       {
         "id": "root/ecommerce/infrastructure/graphql/schema",
         "name": "schema",
-        "value": 1
-      },
-      {
-        "id": "root/server/infrastructure/graphql/resolvers",
-        "name": "resolvers",
-        "value": 1
-      },
-      {
-        "id": "root/server/infrastructure/graphql/generated",
-        "name": "generated",
         "value": 1
       },
       {
@@ -1922,6 +2402,21 @@
         "value": 1
       },
       {
+        "id": "root/server/infrastructure/graphql/resolvers",
+        "name": "resolvers",
+        "value": 1
+      },
+      {
+        "id": "root/server/infrastructure/graphql/types",
+        "name": "types",
+        "value": 1
+      },
+      {
+        "id": "root/server/infrastructure/graphql/context",
+        "name": "context",
+        "value": 1
+      },
+      {
         "id": "root/server/infrastructure/repositories",
         "name": "repositories",
         "value": 1
@@ -1932,8 +2427,8 @@
         "value": 1
       },
       {
-        "id": "root/client/presentation",
-        "name": "presentation",
+        "id": "root/core/infrastructure/repositories/graphql-repository",
+        "name": "graphql-repository",
         "value": 1
       },
       {
@@ -2010,6 +2505,106 @@
         "id": "root/client/presentation/components/products/products-grid",
         "name": "products-grid",
         "value": 1
+      },
+      {
+        "id": "root/client/presentation/pages/product-creation-page",
+        "name": "product-creation-page",
+        "value": 1
+      },
+      {
+        "id": "next/navigation",
+        "name": "navigation",
+        "value": 1
+      },
+      {
+        "id": "root/core/presentation/components",
+        "name": "components",
+        "value": 1
+      },
+      {
+        "id": "root/core/presentation/components/actions",
+        "name": "actions",
+        "value": 1
+      },
+      {
+        "id": "root/core/presentation/components/actions/button",
+        "name": "button",
+        "value": 1
+      },
+      {
+        "id": "root/client/presentation/components/products/product-creation-form",
+        "name": "product-creation-form",
+        "value": 1
+      },
+      {
+        "id": "root/core/presentation/components/forms",
+        "name": "forms",
+        "value": 1
+      },
+      {
+        "id": "root/core/presentation/components/forms/form",
+        "name": "form",
+        "value": 1
+      },
+      {
+        "id": "root/core/presentation/components/forms/form/form",
+        "name": "form",
+        "value": 1
+      },
+      {
+        "id": "lodash",
+        "name": "lodash",
+        "value": 1
+      },
+      {
+        "id": "root/core/presentation/components/forms/field",
+        "name": "field",
+        "value": 1
+      },
+      {
+        "id": "root/core/presentation/components/forms/field/field",
+        "name": "field",
+        "value": 1
+      },
+      {
+        "id": "root/core/presentation/components/forms/fields",
+        "name": "fields",
+        "value": 1
+      },
+      {
+        "id": "root/core/presentation/components/forms/fields/text-field",
+        "name": "text-field",
+        "value": 1
+      },
+      {
+        "id": "root/core/presentation/components/forms/fields/input-field",
+        "name": "input-field",
+        "value": 1
+      },
+      {
+        "id": "root/core/presentation/components/forms/fields/number-field",
+        "name": "number-field",
+        "value": 1
+      },
+      {
+        "id": "root/core/presentation/components/forms/fields/select-field",
+        "name": "select-field",
+        "value": 1
+      },
+      {
+        "id": "root/core/presentation/components/forms/fields/checkboxes-field",
+        "name": "checkboxes-field",
+        "value": 1
+      },
+      {
+        "id": "root/core/presentation/components/forms/fields/radiogroup-field",
+        "name": "radiogroup-field",
+        "value": 1
+      },
+      {
+        "id": "root/client/presentation/pages/product-page",
+        "name": "product-page",
+        "value": 1
       }
     ],
     "links": [
@@ -2035,6 +2630,10 @@
       },
       {
         "source": "root/client",
+        "target": "root/client/presentation"
+      },
+      {
+        "source": "root/client",
         "target": "root/client/infrastructure"
       },
       {
@@ -2042,44 +2641,24 @@
         "target": "root/client/application"
       },
       {
-        "source": "root/client",
-        "target": "root/client/presentation"
+        "source": "root/client/presentation",
+        "target": "root/client/presentation/contexts"
       },
       {
-        "source": "root/client/infrastructure",
-        "target": "root/client/infrastructure/graphql"
+        "source": "root/client/presentation",
+        "target": "root/client/presentation/pages"
       },
       {
-        "source": "root/client/infrastructure",
-        "target": "root/client/infrastructure/repositories"
+        "source": "root/client/presentation",
+        "target": "root/client/presentation/hooks"
       },
       {
-        "source": "root/client/infrastructure",
-        "target": "root/client/infrastructure/mappers"
+        "source": "root/client/presentation",
+        "target": "root/client/presentation/components"
       },
       {
-        "source": "root/client/infrastructure/graphql",
-        "target": "root/client/infrastructure/graphql/graphql-context"
-      },
-      {
-        "source": "root/client/infrastructure/graphql",
-        "target": "root/client/infrastructure/graphql/generated"
-      },
-      {
-        "source": "root/client/infrastructure/graphql/graphql-context",
-        "target": "root/client/infrastructure/graphql/graphql-context/ecommerce-application-context"
-      },
-      {
-        "source": "root/client/infrastructure/graphql/graphql-context",
-        "target": "root/client/infrastructure/graphql/graphql-context/dev-client-ecommerce-application"
-      },
-      {
-        "source": "root/client/infrastructure/graphql/graphql-context",
-        "target": "root/client/infrastructure/graphql/graphql-context/test-client-ecommerce-application"
-      },
-      {
-        "source": "root/client/infrastructure/graphql/graphql-context",
-        "target": "root/client/infrastructure/graphql/graphql-context/pro-client-ecommerce-application"
+        "source": "root/client/presentation/contexts",
+        "target": "root/client/presentation/contexts/ecommerce-application-context"
       },
       {
         "source": "root/server",
@@ -2099,7 +2678,7 @@
       },
       {
         "source": "root/server/infrastructure/graphql",
-        "target": "root/server/infrastructure/graphql/graphql-server"
+        "target": "root/server/infrastructure/graphql/server"
       },
       {
         "source": "root/server/infrastructure/graphql",
@@ -2107,7 +2686,11 @@
       },
       {
         "source": "root/server/infrastructure/graphql",
-        "target": "root/server/infrastructure/graphql/generated"
+        "target": "root/server/infrastructure/graphql/types"
+      },
+      {
+        "source": "root/server/infrastructure/graphql",
+        "target": "root/server/infrastructure/graphql/context"
       },
       {
         "source": "root/app",
@@ -2118,8 +2701,20 @@
         "target": "root/app/products/page"
       },
       {
-        "source": "@tanstack",
-        "target": "@tanstack/react-query"
+        "source": "root/app/products",
+        "target": "root/app/products/create"
+      },
+      {
+        "source": "root/app/products",
+        "target": "root/app/products/[product-id]"
+      },
+      {
+        "source": "root/app/products/create",
+        "target": "root/app/products/create/page"
+      },
+      {
+        "source": "root/app/products/[product-id]",
+        "target": "root/app/products/[product-id]/page"
       },
       {
         "source": "root/core",
@@ -2143,11 +2738,19 @@
       },
       {
         "source": "root/core/infrastructure",
+        "target": "root/core/infrastructure/graphql"
+      },
+      {
+        "source": "root/core/infrastructure",
         "target": "root/core/infrastructure/mappers"
       },
       {
         "source": "root/core/infrastructure/contexts",
         "target": "root/core/infrastructure/contexts/application-context"
+      },
+      {
+        "source": "@tanstack",
+        "target": "@tanstack/react-query"
       },
       {
         "source": "root/core/domain",
@@ -2230,6 +2833,38 @@
         "target": "root/ecommerce/domain/repositories/categories-repository"
       },
       {
+        "source": "root/client/infrastructure",
+        "target": "root/client/infrastructure/graphql"
+      },
+      {
+        "source": "root/client/infrastructure",
+        "target": "root/client/infrastructure/repositories"
+      },
+      {
+        "source": "root/client/infrastructure",
+        "target": "root/client/infrastructure/mappers"
+      },
+      {
+        "source": "root/client/infrastructure/graphql",
+        "target": "root/client/infrastructure/graphql/application"
+      },
+      {
+        "source": "root/client/infrastructure/graphql",
+        "target": "root/client/infrastructure/graphql/types"
+      },
+      {
+        "source": "root/client/infrastructure/graphql/application",
+        "target": "root/client/infrastructure/graphql/application/dev-client-ecommerce-application"
+      },
+      {
+        "source": "root/client/infrastructure/graphql/application",
+        "target": "root/client/infrastructure/graphql/application/test-client-ecommerce-application"
+      },
+      {
+        "source": "root/client/infrastructure/graphql/application",
+        "target": "root/client/infrastructure/graphql/application/pro-client-ecommerce-application"
+      },
+      {
         "source": "root/client/infrastructure/repositories",
         "target": "root/client/infrastructure/repositories/products-datastore-repository"
       },
@@ -2270,6 +2905,18 @@
         "target": "root/client/application/use-cases/get-product"
       },
       {
+        "source": "root/core/infrastructure/graphql",
+        "target": "root/core/infrastructure/graphql/repository"
+      },
+      {
+        "source": "root/core/infrastructure/graphql",
+        "target": "root/core/infrastructure/graphql/client"
+      },
+      {
+        "source": "root/core/infrastructure/graphql",
+        "target": "root/core/infrastructure/graphql/server"
+      },
+      {
         "source": "graphql-request",
         "target": "graphql-request/build"
       },
@@ -2292,10 +2939,6 @@
       {
         "source": "@apollo",
         "target": "@apollo/server"
-      },
-      {
-        "source": "@as-integrations",
-        "target": "@as-integrations/next"
       },
       {
         "source": "root/ecommerce/infrastructure",
@@ -2326,24 +2969,24 @@
         "target": "root/server/infrastructure/repositories/products-mock-repository"
       },
       {
-        "source": "root/client/presentation",
-        "target": "root/client/presentation/pages"
-      },
-      {
-        "source": "root/client/presentation",
-        "target": "root/client/presentation/hooks"
-      },
-      {
-        "source": "root/client/presentation",
-        "target": "root/client/presentation/components"
-      },
-      {
         "source": "root/client/presentation/pages",
         "target": "root/client/presentation/pages/products-page"
       },
       {
+        "source": "root/client/presentation/pages",
+        "target": "root/client/presentation/pages/product-creation-page"
+      },
+      {
+        "source": "root/client/presentation/pages",
+        "target": "root/client/presentation/pages/product-page"
+      },
+      {
         "source": "next",
         "target": "next/link"
+      },
+      {
+        "source": "next",
+        "target": "next/navigation"
       },
       {
         "source": "root/client/presentation/hooks",
@@ -2362,6 +3005,10 @@
         "target": "root/core/presentation/hooks"
       },
       {
+        "source": "root/core/presentation",
+        "target": "root/core/presentation/components"
+      },
+      {
         "source": "root/core/presentation/hooks",
         "target": "root/core/presentation/hooks/use-use-case"
       },
@@ -2376,27 +3023,111 @@
       {
         "source": "root/client/presentation/components/products",
         "target": "root/client/presentation/components/products/products-grid"
+      },
+      {
+        "source": "root/client/presentation/components/products",
+        "target": "root/client/presentation/components/products/product-creation-form"
+      },
+      {
+        "source": "root/core/presentation/components",
+        "target": "root/core/presentation/components/actions"
+      },
+      {
+        "source": "root/core/presentation/components",
+        "target": "root/core/presentation/components/forms"
+      },
+      {
+        "source": "root/core/presentation/components/actions",
+        "target": "root/core/presentation/components/actions/button"
+      },
+      {
+        "source": "root/core/presentation/components/forms",
+        "target": "root/core/presentation/components/forms/form"
+      },
+      {
+        "source": "root/core/presentation/components/forms",
+        "target": "root/core/presentation/components/forms/field"
+      },
+      {
+        "source": "root/core/presentation/components/forms",
+        "target": "root/core/presentation/components/forms/fields"
+      },
+      {
+        "source": "root/core/presentation/components/forms/form",
+        "target": "root/core/presentation/components/forms/form/form"
+      },
+      {
+        "source": "root/core/presentation/components/forms/field",
+        "target": "root/core/presentation/components/forms/field/field"
+      },
+      {
+        "source": "root/core/presentation/components/forms/field",
+        "target": "root/core/presentation/components/forms/fields/text-field"
+      },
+      {
+        "source": "root/core/presentation/components/forms/field",
+        "target": "root/core/presentation/components/forms/fields/input-field"
+      },
+      {
+        "source": "root/core/presentation/components/forms/field",
+        "target": "root/core/presentation/components/forms/fields/number-field"
+      },
+      {
+        "source": "root/core/presentation/components/forms/field",
+        "target": "root/core/presentation/components/forms/fields/select-field"
+      },
+      {
+        "source": "root/core/presentation/components/forms/field",
+        "target": "root/core/presentation/components/forms/fields/checkboxes-field"
+      },
+      {
+        "source": "root/core/presentation/components/forms/field",
+        "target": "root/core/presentation/components/forms/fields/radiogroup-field"
+      },
+      {
+        "source": "root/core/presentation/components/forms/fields",
+        "target": "root/core/presentation/components/forms/fields/text-field"
+      },
+      {
+        "source": "root/core/presentation/components/forms/fields",
+        "target": "root/core/presentation/components/forms/fields/input-field"
+      },
+      {
+        "source": "root/core/presentation/components/forms/fields",
+        "target": "root/core/presentation/components/forms/fields/number-field"
+      },
+      {
+        "source": "root/core/presentation/components/forms/fields",
+        "target": "root/core/presentation/components/forms/fields/select-field"
+      },
+      {
+        "source": "root/core/presentation/components/forms/fields",
+        "target": "root/core/presentation/components/forms/fields/checkboxes-field"
+      },
+      {
+        "source": "root/core/presentation/components/forms/fields",
+        "target": "root/core/presentation/components/forms/fields/radiogroup-field"
       }
     ]
   },
   "imports": {
     "nodes": [
       {
-        "id": "@/client/infrastructure/graphql/graphql-context/ecommerce-application-context",
-        "filename": "./src/client/infrastructure/graphql/graphql-context/ecommerce-application-context.tsx",
+        "id": "@/client/presentation/contexts/ecommerce-application-context",
+        "filename": "./src/client/presentation/contexts/ecommerce-application-context.tsx",
         "group": "client",
-        "name": "client/infrastructure/EcommerceApplicationContext",
+        "name": "client/presentation/EcommerceApplicationContext",
         "module": "client",
-        "layer": "infrastructure",
-        "type": "graphql",
+        "layer": "presentation",
+        "type": "other",
         "value": 1,
         "external": false
       },
       {
-        "id": "@/server/infrastructure/graphql/graphql-server",
-        "filename": "./src/server/infrastructure/graphql/graphql-server.ts",
+        "id": "@/server/infrastructure/graphql/server",
+        "filename": "./src/server/infrastructure/graphql/server.ts",
         "group": "server",
-        "name": "server/infrastructure/GraphqlServer",
+        "name": "server/infrastructure/Server",
         "module": "server",
         "layer": "infrastructure",
         "type": "graphql",
@@ -2415,15 +3146,26 @@
         "external": false
       },
       {
-        "id": "@tanstack/react-query",
-        "filename": "@tanstack/react-query",
-        "group": "react-query",
-        "name": "external/external/ReactQuery",
-        "module": "external",
-        "layer": "external",
-        "type": "other",
+        "id": "@/app/products/create/page",
+        "filename": "./src/app/products/create/page.tsx",
+        "group": "app",
+        "name": "app/presentation/Page",
+        "module": "app",
+        "layer": "presentation",
+        "type": "page",
         "value": 1,
-        "external": true
+        "external": false
+      },
+      {
+        "id": "@/app/products/[product-id]/page",
+        "filename": "./src/app/products/[product-id]/page.tsx",
+        "group": "app",
+        "name": "app/presentation/Page",
+        "module": "app",
+        "layer": "presentation",
+        "type": "page",
+        "value": 1,
+        "external": false
       },
       {
         "id": "@/core/infrastructure/contexts/application-context",
@@ -2440,6 +3182,17 @@
         "id": "react",
         "filename": "react",
         "name": "external/external/React",
+        "module": "external",
+        "layer": "external",
+        "type": "other",
+        "value": 1,
+        "external": true
+      },
+      {
+        "id": "@tanstack/react-query",
+        "filename": "@tanstack/react-query",
+        "group": "react-query",
+        "name": "external/external/ReactQuery",
         "module": "external",
         "layer": "external",
         "type": "other",
@@ -2623,8 +3376,19 @@
         "external": false
       },
       {
-        "id": "@/client/infrastructure/graphql/graphql-context/dev-client-ecommerce-application",
-        "filename": "@/client/infrastructure/graphql/graphql-context/dev-client-ecommerce-application",
+        "id": "@/client/infrastructure/graphql/application",
+        "filename": "@/client/infrastructure/graphql/application",
+        "group": "client",
+        "name": "client/infrastructure/Application",
+        "module": "client",
+        "layer": "infrastructure",
+        "type": "application",
+        "value": 1,
+        "external": false
+      },
+      {
+        "id": "@/client/infrastructure/graphql/application/dev-client-ecommerce-application",
+        "filename": "@/client/infrastructure/graphql/application/dev-client-ecommerce-application",
         "group": "client",
         "name": "client/infrastructure/DevClientEcommerceApplication",
         "module": "client",
@@ -2700,8 +3464,8 @@
         "external": false
       },
       {
-        "id": "@/client/infrastructure/graphql/graphql-context/test-client-ecommerce-application",
-        "filename": "@/client/infrastructure/graphql/graphql-context/test-client-ecommerce-application",
+        "id": "@/client/infrastructure/graphql/application/test-client-ecommerce-application",
+        "filename": "@/client/infrastructure/graphql/application/test-client-ecommerce-application",
         "group": "client",
         "name": "client/infrastructure/TestClientEcommerceApplication",
         "module": "client",
@@ -2733,8 +3497,8 @@
         "external": false
       },
       {
-        "id": "@/client/infrastructure/graphql/graphql-context/pro-client-ecommerce-application",
-        "filename": "@/client/infrastructure/graphql/graphql-context/pro-client-ecommerce-application",
+        "id": "@/client/infrastructure/graphql/application/pro-client-ecommerce-application",
+        "filename": "@/client/infrastructure/graphql/application/pro-client-ecommerce-application",
         "group": "client",
         "name": "client/infrastructure/ProClientEcommerceApplication",
         "module": "client",
@@ -2755,13 +3519,24 @@
         "external": false
       },
       {
-        "id": "@/core/infrastructure/repositories/graphql-repository",
-        "filename": "@/core/infrastructure/repositories/graphql-repository",
+        "id": "@/core/infrastructure/graphql/repository",
+        "filename": "@/core/infrastructure/graphql/repository",
         "group": "core",
-        "name": "core/infrastructure/GraphqlRepository",
+        "name": "core/infrastructure/Repository",
         "module": "core",
         "layer": "infrastructure",
-        "type": "repository",
+        "type": "graphql",
+        "value": 1,
+        "external": false
+      },
+      {
+        "id": "@/core/infrastructure/graphql/client",
+        "filename": "@/core/infrastructure/graphql/client",
+        "group": "core",
+        "name": "core/infrastructure/Client",
+        "module": "core",
+        "layer": "infrastructure",
+        "type": "graphql",
         "value": 1,
         "external": false
       },
@@ -2787,10 +3562,10 @@
         "external": false
       },
       {
-        "id": "@/client/infrastructure/graphql/generated",
-        "filename": "@/client/infrastructure/graphql/generated",
+        "id": "@/client/infrastructure/graphql/types",
+        "filename": "@/client/infrastructure/graphql/types",
         "group": "client",
-        "name": "client/infrastructure/Generated",
+        "name": "client/infrastructure/Types",
         "module": "client",
         "layer": "infrastructure",
         "type": "graphql",
@@ -2840,21 +3615,21 @@
         "external": false
       },
       {
+        "id": "@/core/infrastructure/graphql/server",
+        "filename": "@/core/infrastructure/graphql/server",
+        "group": "core",
+        "name": "core/infrastructure/Server",
+        "module": "core",
+        "layer": "infrastructure",
+        "type": "graphql",
+        "value": 1,
+        "external": false
+      },
+      {
         "id": "@apollo/server",
         "filename": "@apollo/server",
         "group": "server",
         "name": "external/external/Server",
-        "module": "external",
-        "layer": "external",
-        "type": "other",
-        "value": 1,
-        "external": true
-      },
-      {
-        "id": "@as-integrations/next",
-        "filename": "@as-integrations/next",
-        "group": "next",
-        "name": "external/external/Next",
         "module": "external",
         "layer": "external",
         "type": "other",
@@ -2877,28 +3652,6 @@
         "group": "ecommerce",
         "name": "ecommerce/infrastructure/Schema",
         "module": "ecommerce",
-        "layer": "infrastructure",
-        "type": "graphql",
-        "value": 1,
-        "external": false
-      },
-      {
-        "id": "@/server/infrastructure/graphql/resolvers",
-        "filename": "@/server/infrastructure/graphql/resolvers",
-        "group": "server",
-        "name": "server/infrastructure/Resolvers",
-        "module": "server",
-        "layer": "infrastructure",
-        "type": "graphql",
-        "value": 1,
-        "external": false
-      },
-      {
-        "id": "@/server/infrastructure/graphql/generated",
-        "filename": "@/server/infrastructure/graphql/generated",
-        "group": "server",
-        "name": "server/infrastructure/Generated",
-        "module": "server",
         "layer": "infrastructure",
         "type": "graphql",
         "value": 1,
@@ -2949,6 +3702,39 @@
         "external": false
       },
       {
+        "id": "@/server/infrastructure/graphql/resolvers",
+        "filename": "@/server/infrastructure/graphql/resolvers",
+        "group": "server",
+        "name": "server/infrastructure/Resolvers",
+        "module": "server",
+        "layer": "infrastructure",
+        "type": "graphql",
+        "value": 1,
+        "external": false
+      },
+      {
+        "id": "@/server/infrastructure/graphql/types",
+        "filename": "@/server/infrastructure/graphql/types",
+        "group": "server",
+        "name": "server/infrastructure/Types",
+        "module": "server",
+        "layer": "infrastructure",
+        "type": "graphql",
+        "value": 1,
+        "external": false
+      },
+      {
+        "id": "@/server/infrastructure/graphql/context",
+        "filename": "@/server/infrastructure/graphql/context",
+        "group": "server",
+        "name": "server/infrastructure/Context",
+        "module": "server",
+        "layer": "infrastructure",
+        "type": "graphql",
+        "value": 1,
+        "external": false
+      },
+      {
         "id": "@/server/infrastructure/repositories/products-mock-repository",
         "filename": "@/server/infrastructure/repositories/products-mock-repository",
         "group": "server",
@@ -2975,6 +3761,17 @@
         "filename": "@/core/infrastructure/repositories",
         "group": "core",
         "name": "core/infrastructure/Repositories",
+        "module": "core",
+        "layer": "infrastructure",
+        "type": "repository",
+        "value": 1,
+        "external": false
+      },
+      {
+        "id": "@/core/infrastructure/repositories/graphql-repository",
+        "filename": "@/core/infrastructure/repositories/graphql-repository",
+        "group": "core",
+        "name": "core/infrastructure/GraphqlRepository",
         "module": "core",
         "layer": "infrastructure",
         "type": "repository",
@@ -3079,22 +3876,219 @@
         "type": "component",
         "value": 1,
         "external": false
+      },
+      {
+        "id": "@/client/presentation/pages/product-creation-page",
+        "filename": "@/client/presentation/pages/product-creation-page",
+        "group": "client",
+        "name": "client/presentation/ProductCreationPage",
+        "module": "client",
+        "layer": "presentation",
+        "type": "page",
+        "value": 1,
+        "external": false
+      },
+      {
+        "id": "next/navigation",
+        "filename": "next/navigation",
+        "group": "navigation",
+        "name": "external/external/Navigation",
+        "module": "external",
+        "layer": "external",
+        "type": "other",
+        "value": 1,
+        "external": true
+      },
+      {
+        "id": "@/core/presentation/components/actions/button",
+        "filename": "@/core/presentation/components/actions/button",
+        "group": "core",
+        "name": "core/presentation/Button",
+        "module": "core",
+        "layer": "presentation",
+        "type": "component",
+        "value": 1,
+        "external": false
+      },
+      {
+        "id": "@/client/presentation/components/products/product-creation-form",
+        "filename": "@/client/presentation/components/products/product-creation-form",
+        "group": "client",
+        "name": "client/presentation/ProductCreationForm",
+        "module": "client",
+        "layer": "presentation",
+        "type": "component",
+        "value": 1,
+        "external": false
+      },
+      {
+        "id": "@/core/presentation/components/forms",
+        "filename": "@/core/presentation/components/forms",
+        "group": "core",
+        "name": "core/presentation/Forms",
+        "module": "core",
+        "layer": "presentation",
+        "type": "component",
+        "value": 1,
+        "external": false
+      },
+      {
+        "id": "@/core/presentation/components/forms/form",
+        "filename": "@/core/presentation/components/forms/form",
+        "group": "core",
+        "name": "core/presentation/Form",
+        "module": "core",
+        "layer": "presentation",
+        "type": "component",
+        "value": 1,
+        "external": false
+      },
+      {
+        "id": "@/core/presentation/components/forms/form/form",
+        "filename": "@/core/presentation/components/forms/form/form",
+        "group": "core",
+        "name": "core/presentation/Form",
+        "module": "core",
+        "layer": "presentation",
+        "type": "component",
+        "value": 1,
+        "external": false
+      },
+      {
+        "id": "lodash",
+        "filename": "lodash",
+        "name": "external/external/Lodash",
+        "module": "external",
+        "layer": "external",
+        "type": "other",
+        "value": 1,
+        "external": true
+      },
+      {
+        "id": "@/core/presentation/components/forms/field",
+        "filename": "@/core/presentation/components/forms/field",
+        "group": "core",
+        "name": "core/presentation/Field",
+        "module": "core",
+        "layer": "presentation",
+        "type": "component",
+        "value": 1,
+        "external": false
+      },
+      {
+        "id": "@/core/presentation/components/forms/field/field",
+        "filename": "@/core/presentation/components/forms/field/field",
+        "group": "core",
+        "name": "core/presentation/Field",
+        "module": "core",
+        "layer": "presentation",
+        "type": "component",
+        "value": 1,
+        "external": false
+      },
+      {
+        "id": "@/core/presentation/components/forms/fields",
+        "filename": "@/core/presentation/components/forms/fields",
+        "group": "core",
+        "name": "core/presentation/Fields",
+        "module": "core",
+        "layer": "presentation",
+        "type": "component",
+        "value": 1,
+        "external": false
+      },
+      {
+        "id": "@/core/presentation/components/forms/fields/text-field",
+        "filename": "@/core/presentation/components/forms/fields/text-field",
+        "group": "core",
+        "name": "core/presentation/TextField",
+        "module": "core",
+        "layer": "presentation",
+        "type": "component",
+        "value": 1,
+        "external": false
+      },
+      {
+        "id": "@/core/presentation/components/forms/fields/input-field",
+        "filename": "@/core/presentation/components/forms/fields/input-field",
+        "group": "core",
+        "name": "core/presentation/InputField",
+        "module": "core",
+        "layer": "presentation",
+        "type": "component",
+        "value": 1,
+        "external": false
+      },
+      {
+        "id": "@/core/presentation/components/forms/fields/number-field",
+        "filename": "@/core/presentation/components/forms/fields/number-field",
+        "group": "core",
+        "name": "core/presentation/NumberField",
+        "module": "core",
+        "layer": "presentation",
+        "type": "component",
+        "value": 1,
+        "external": false
+      },
+      {
+        "id": "@/core/presentation/components/forms/fields/select-field",
+        "filename": "@/core/presentation/components/forms/fields/select-field",
+        "group": "core",
+        "name": "core/presentation/SelectField",
+        "module": "core",
+        "layer": "presentation",
+        "type": "component",
+        "value": 1,
+        "external": false
+      },
+      {
+        "id": "@/core/presentation/components/forms/fields/checkboxes-field",
+        "filename": "@/core/presentation/components/forms/fields/checkboxes-field",
+        "group": "core",
+        "name": "core/presentation/CheckboxesField",
+        "module": "core",
+        "layer": "presentation",
+        "type": "component",
+        "value": 1,
+        "external": false
+      },
+      {
+        "id": "@/core/presentation/components/forms/fields/radiogroup-field",
+        "filename": "@/core/presentation/components/forms/fields/radiogroup-field",
+        "group": "core",
+        "name": "core/presentation/RadiogroupField",
+        "module": "core",
+        "layer": "presentation",
+        "type": "component",
+        "value": 1,
+        "external": false
+      },
+      {
+        "id": "@/client/presentation/pages/product-page",
+        "filename": "@/client/presentation/pages/product-page",
+        "group": "client",
+        "name": "client/presentation/ProductPage",
+        "module": "client",
+        "layer": "presentation",
+        "type": "page",
+        "value": 1,
+        "external": false
       }
     ],
     "links": [
       {
-        "target": "@/client/infrastructure/graphql/graphql-context/ecommerce-application-context",
-        "source": "@tanstack/react-query",
-        "external": true
-      },
-      {
-        "target": "@/client/infrastructure/graphql/graphql-context/ecommerce-application-context",
+        "target": "@/client/presentation/contexts/ecommerce-application-context",
         "source": "@/core/infrastructure/contexts/application-context",
         "external": false
       },
       {
         "target": "@/core/infrastructure/contexts/application-context",
         "source": "react",
+        "external": true
+      },
+      {
+        "target": "@/core/infrastructure/contexts/application-context",
+        "source": "@tanstack/react-query",
         "external": true
       },
       {
@@ -3128,7 +4122,7 @@
         "external": false
       },
       {
-        "target": "@/client/infrastructure/graphql/graphql-context/ecommerce-application-context",
+        "target": "@/client/presentation/contexts/ecommerce-application-context",
         "source": "@/ecommerce/application",
         "external": false
       },
@@ -3238,12 +4232,22 @@
         "external": false
       },
       {
-        "target": "@/client/infrastructure/graphql/graphql-context/ecommerce-application-context",
-        "source": "@/client/infrastructure/graphql/graphql-context/dev-client-ecommerce-application",
+        "target": "@/client/presentation/contexts/ecommerce-application-context",
+        "source": "@/client/infrastructure/graphql/application",
         "external": false
       },
       {
-        "target": "@/client/infrastructure/graphql/graphql-context/dev-client-ecommerce-application",
+        "target": "@/client/infrastructure/graphql/application",
+        "source": "@/ecommerce/application",
+        "external": false
+      },
+      {
+        "target": "@/client/infrastructure/graphql/application",
+        "source": "@/client/infrastructure/graphql/application/dev-client-ecommerce-application",
+        "external": false
+      },
+      {
+        "target": "@/client/infrastructure/graphql/application/dev-client-ecommerce-application",
         "source": "@/client/infrastructure/repositories/products-datastore-repository",
         "external": false
       },
@@ -3263,7 +4267,7 @@
         "external": false
       },
       {
-        "target": "@/client/infrastructure/graphql/graphql-context/dev-client-ecommerce-application",
+        "target": "@/client/infrastructure/graphql/application/dev-client-ecommerce-application",
         "source": "@/client/application",
         "external": false
       },
@@ -3328,12 +4332,12 @@
         "external": false
       },
       {
-        "target": "@/client/infrastructure/graphql/graphql-context/ecommerce-application-context",
-        "source": "@/client/infrastructure/graphql/graphql-context/test-client-ecommerce-application",
+        "target": "@/client/infrastructure/graphql/application",
+        "source": "@/client/infrastructure/graphql/application/test-client-ecommerce-application",
         "external": false
       },
       {
-        "target": "@/client/infrastructure/graphql/graphql-context/test-client-ecommerce-application",
+        "target": "@/client/infrastructure/graphql/application/test-client-ecommerce-application",
         "source": "@/client/infrastructure/repositories/products-mock-repository",
         "external": false
       },
@@ -3353,62 +4357,67 @@
         "external": false
       },
       {
-        "target": "@/client/infrastructure/graphql/graphql-context/test-client-ecommerce-application",
+        "target": "@/client/infrastructure/graphql/application/test-client-ecommerce-application",
         "source": "@/client/application",
         "external": false
       },
       {
-        "target": "@/client/infrastructure/graphql/graphql-context/ecommerce-application-context",
-        "source": "@/client/infrastructure/graphql/graphql-context/pro-client-ecommerce-application",
+        "target": "@/client/infrastructure/graphql/application",
+        "source": "@/client/infrastructure/graphql/application/pro-client-ecommerce-application",
         "external": false
       },
       {
-        "target": "@/client/infrastructure/graphql/graphql-context/pro-client-ecommerce-application",
+        "target": "@/client/infrastructure/graphql/application/pro-client-ecommerce-application",
         "source": "@/client/infrastructure/repositories/products-graphql-repository",
         "external": false
       },
       {
         "target": "@/client/infrastructure/repositories/products-graphql-repository",
-        "source": "@/core/infrastructure/repositories/graphql-repository",
+        "source": "@/core/infrastructure/graphql/repository",
         "external": false
       },
       {
-        "target": "@/core/infrastructure/repositories/graphql-repository",
+        "target": "@/core/infrastructure/graphql/repository",
+        "source": "@/core/infrastructure/graphql/client",
+        "external": false
+      },
+      {
+        "target": "@/core/infrastructure/graphql/client",
         "source": "graphql-request",
         "external": true
       },
       {
-        "target": "@/core/infrastructure/repositories/graphql-repository",
+        "target": "@/core/infrastructure/graphql/repository",
         "source": "@/core/domain",
         "external": false
       },
       {
-        "target": "@/core/infrastructure/repositories/graphql-repository",
+        "target": "@/core/infrastructure/graphql/repository",
         "source": "@/core/infrastructure/mappers/graphql-mapper",
         "external": false
       },
       {
         "target": "@/client/infrastructure/repositories/products-graphql-repository",
-        "source": "@/client/infrastructure/graphql/generated",
+        "source": "@/client/infrastructure/graphql/types",
         "external": false
       },
       {
-        "target": "@/client/infrastructure/graphql/generated",
+        "target": "@/client/infrastructure/graphql/types",
         "source": "graphql-request",
         "external": true
       },
       {
-        "target": "@/client/infrastructure/graphql/generated",
+        "target": "@/client/infrastructure/graphql/types",
         "source": "graphql-request/build/cjs/types",
         "external": true
       },
       {
-        "target": "@/client/infrastructure/graphql/generated",
+        "target": "@/client/infrastructure/graphql/types",
         "source": "graphql",
         "external": true
       },
       {
-        "target": "@/client/infrastructure/graphql/generated",
+        "target": "@/client/infrastructure/graphql/types",
         "source": "graphql-tag",
         "external": true
       },
@@ -3424,7 +4433,7 @@
       },
       {
         "target": "@/client/infrastructure/mappers/product-graphql-mapper",
-        "source": "@/client/infrastructure/graphql/generated",
+        "source": "@/client/infrastructure/graphql/types",
         "external": false
       },
       {
@@ -3438,27 +4447,37 @@
         "external": false
       },
       {
-        "target": "@/client/infrastructure/graphql/graphql-context/pro-client-ecommerce-application",
+        "target": "@/client/infrastructure/graphql/application/pro-client-ecommerce-application",
         "source": "@/client/application",
         "external": false
       },
       {
-        "target": "@/server/infrastructure/graphql/graphql-server",
+        "target": "@/server/infrastructure/graphql/server",
+        "source": "@/ecommerce/domain",
+        "external": false
+      },
+      {
+        "target": "@/server/infrastructure/graphql/server",
+        "source": "@/core/infrastructure/graphql/server",
+        "external": false
+      },
+      {
+        "target": "@/core/infrastructure/graphql/server",
+        "source": "@/core/domain",
+        "external": false
+      },
+      {
+        "target": "@/core/infrastructure/graphql/server",
         "source": "@apollo/server",
         "external": true
       },
       {
-        "target": "@/server/infrastructure/graphql/graphql-server",
-        "source": "@as-integrations/next",
-        "external": true
-      },
-      {
-        "target": "@/server/infrastructure/graphql/graphql-server",
+        "target": "@/core/infrastructure/graphql/server",
         "source": "apollo-server-core",
         "external": true
       },
       {
-        "target": "@/server/infrastructure/graphql/graphql-server",
+        "target": "@/server/infrastructure/graphql/server",
         "source": "@/ecommerce/infrastructure/graphql/schema",
         "external": false
       },
@@ -3468,27 +4487,7 @@
         "external": true
       },
       {
-        "target": "@/server/infrastructure/graphql/graphql-server",
-        "source": "@/server/infrastructure/graphql/resolvers",
-        "external": false
-      },
-      {
-        "target": "@/server/infrastructure/graphql/resolvers",
-        "source": "@/ecommerce/domain",
-        "external": false
-      },
-      {
-        "target": "@/server/infrastructure/graphql/resolvers",
-        "source": "@/server/infrastructure/graphql/generated",
-        "external": false
-      },
-      {
-        "target": "@/server/infrastructure/graphql/generated",
-        "source": "graphql",
-        "external": true
-      },
-      {
-        "target": "@/server/infrastructure/graphql/resolvers",
+        "target": "@/server/infrastructure/graphql/server",
         "source": "@/server/application",
         "external": false
       },
@@ -3548,7 +4547,32 @@
         "external": false
       },
       {
-        "target": "@/server/infrastructure/graphql/graphql-server",
+        "target": "@/server/infrastructure/graphql/server",
+        "source": "@/server/infrastructure/graphql/resolvers",
+        "external": false
+      },
+      {
+        "target": "@/server/infrastructure/graphql/resolvers",
+        "source": "@/server/infrastructure/graphql/types",
+        "external": false
+      },
+      {
+        "target": "@/server/infrastructure/graphql/types",
+        "source": "graphql",
+        "external": true
+      },
+      {
+        "target": "@/server/infrastructure/graphql/resolvers",
+        "source": "@/server/infrastructure/graphql/context",
+        "external": false
+      },
+      {
+        "target": "@/server/infrastructure/graphql/context",
+        "source": "@/server/application",
+        "external": false
+      },
+      {
+        "target": "@/server/infrastructure/graphql/server",
         "source": "@/server/infrastructure/repositories/products-mock-repository",
         "external": false
       },
@@ -3578,13 +4602,23 @@
         "external": false
       },
       {
-        "target": "@/core/infrastructure/repositories",
-        "source": "@/core/infrastructure/repositories/mock-repository",
+        "target": "@/core/infrastructure/repositories/graphql-repository",
+        "source": "@/core/domain",
         "external": false
       },
       {
-        "target": "@/server/infrastructure/graphql/graphql-server",
-        "source": "@/server/application",
+        "target": "@/core/infrastructure/repositories/graphql-repository",
+        "source": "@/core/infrastructure/graphql/client",
+        "external": false
+      },
+      {
+        "target": "@/core/infrastructure/repositories/graphql-repository",
+        "source": "@/core/infrastructure/mappers/graphql-mapper",
+        "external": false
+      },
+      {
+        "target": "@/core/infrastructure/repositories",
+        "source": "@/core/infrastructure/repositories/mock-repository",
         "external": false
       },
       {
@@ -3609,11 +4643,6 @@
       },
       {
         "target": "@/client/presentation/hooks/use-get-product",
-        "source": "@/ecommerce/application",
-        "external": false
-      },
-      {
-        "target": "@/client/presentation/hooks/use-get-product",
         "source": "@/core/presentation/hooks/use-use-case",
         "external": false
       },
@@ -3629,7 +4658,12 @@
       },
       {
         "target": "@/client/presentation/hooks/use-get-product",
-        "source": "@/client/infrastructure/graphql/graphql-context/ecommerce-application-context",
+        "source": "@/ecommerce/application",
+        "external": false
+      },
+      {
+        "target": "@/client/presentation/hooks/use-get-product",
+        "source": "@/client/presentation/contexts/ecommerce-application-context",
         "external": false
       },
       {
@@ -3649,7 +4683,7 @@
       },
       {
         "target": "@/client/presentation/hooks/use-get-products",
-        "source": "@/client/infrastructure/graphql/graphql-context/ecommerce-application-context",
+        "source": "@/client/presentation/contexts/ecommerce-application-context",
         "external": false
       },
       {
@@ -3664,7 +4698,7 @@
       },
       {
         "target": "@/client/presentation/hooks/use-create-product",
-        "source": "@/client/infrastructure/graphql/graphql-context/ecommerce-application-context",
+        "source": "@/client/presentation/contexts/ecommerce-application-context",
         "external": false
       },
       {
@@ -3696,6 +4730,156 @@
         "target": "@/client/presentation/components/products/products-grid",
         "source": "@/ecommerce/domain",
         "external": false
+      },
+      {
+        "target": "@/app/products/create/page",
+        "source": "@/client/presentation/pages/product-creation-page",
+        "external": false
+      },
+      {
+        "target": "@/client/presentation/pages/product-creation-page",
+        "source": "next/link",
+        "external": true
+      },
+      {
+        "target": "@/client/presentation/pages/product-creation-page",
+        "source": "next/navigation",
+        "external": true
+      },
+      {
+        "target": "@/client/presentation/pages/product-creation-page",
+        "source": "@/core/presentation/components/actions/button",
+        "external": false
+      },
+      {
+        "target": "@/client/presentation/pages/product-creation-page",
+        "source": "@/client/presentation/hooks/use-create-product",
+        "external": false
+      },
+      {
+        "target": "@/client/presentation/pages/product-creation-page",
+        "source": "@/client/presentation/components/products/product-creation-form",
+        "external": false
+      },
+      {
+        "target": "@/client/presentation/components/products/product-creation-form",
+        "source": "@/ecommerce/domain",
+        "external": false
+      },
+      {
+        "target": "@/client/presentation/components/products/product-creation-form",
+        "source": "@/core/presentation/components/forms",
+        "external": false
+      },
+      {
+        "target": "@/core/presentation/components/forms",
+        "source": "@/core/presentation/components/forms/form",
+        "external": false
+      },
+      {
+        "target": "@/core/presentation/components/forms/form",
+        "source": "@/core/presentation/components/forms/form/form",
+        "external": false
+      },
+      {
+        "target": "@/core/presentation/components/forms/form/form",
+        "source": "lodash",
+        "external": true
+      },
+      {
+        "target": "@/core/presentation/components/forms/form/form",
+        "source": "react",
+        "external": true
+      },
+      {
+        "target": "@/core/presentation/components/forms",
+        "source": "@/core/presentation/components/forms/field",
+        "external": false
+      },
+      {
+        "target": "@/core/presentation/components/forms/field",
+        "source": "@/core/presentation/components/forms/field/field",
+        "external": false
+      },
+      {
+        "target": "@/core/presentation/components/forms/field/field",
+        "source": "react",
+        "external": true
+      },
+      {
+        "target": "@/core/presentation/components/forms/field/field",
+        "source": "@/core/presentation/components/forms/form",
+        "external": false
+      },
+      {
+        "target": "@/core/presentation/components/forms",
+        "source": "@/core/presentation/components/forms/fields",
+        "external": false
+      },
+      {
+        "target": "@/core/presentation/components/forms/fields",
+        "source": "@/core/presentation/components/forms/fields/text-field",
+        "external": false
+      },
+      {
+        "target": "@/core/presentation/components/forms/fields/text-field",
+        "source": "@/core/presentation/components/forms/fields/input-field",
+        "external": false
+      },
+      {
+        "target": "@/core/presentation/components/forms/fields",
+        "source": "@/core/presentation/components/forms/fields/number-field",
+        "external": false
+      },
+      {
+        "target": "@/core/presentation/components/forms/fields/number-field",
+        "source": "@/core/presentation/components/forms/fields/input-field",
+        "external": false
+      },
+      {
+        "target": "@/core/presentation/components/forms/fields",
+        "source": "@/core/presentation/components/forms/fields/select-field",
+        "external": false
+      },
+      {
+        "target": "@/core/presentation/components/forms/fields",
+        "source": "@/core/presentation/components/forms/fields/checkboxes-field",
+        "external": false
+      },
+      {
+        "target": "@/core/presentation/components/forms/fields",
+        "source": "@/core/presentation/components/forms/fields/radiogroup-field",
+        "external": false
+      },
+      {
+        "target": "@/client/presentation/components/products/product-creation-form",
+        "source": "@/ecommerce/application",
+        "external": false
+      },
+      {
+        "target": "@/app/products/[product-id]/page",
+        "source": "@/client/presentation/pages/product-page",
+        "external": false
+      },
+      {
+        "target": "@/client/presentation/pages/product-page",
+        "source": "next/navigation",
+        "external": true
+      },
+      {
+        "target": "@/client/presentation/pages/product-page",
+        "source": "next/link",
+        "external": true
+      },
+      {
+        "target": "@/client/presentation/pages/product-page",
+        "source": "@/client/presentation/hooks",
+        "external": false
+      },
+      {
+        "target": "@/client/presentation/pages/product-page",
+        "source": "@/client/presentation/components/products/product-card",
+        "external": false
       }
     ]
   },
@@ -3704,27 +4888,27 @@
       {
         "id": "client",
         "name": "client",
-        "value": 20
+        "value": 24
       },
       {
         "id": "server",
         "name": "server",
-        "value": 8
+        "value": 9
       },
       {
         "id": "app",
         "name": "app",
-        "value": 1
-      },
-      {
-        "id": "external",
-        "name": "external",
-        "value": 10
+        "value": 3
       },
       {
         "id": "core",
         "name": "core",
-        "value": 13
+        "value": 29
+      },
+      {
+        "id": "external",
+        "name": "external",
+        "value": 11
       },
       {
         "id": "ecommerce",
@@ -3733,10 +4917,6 @@
       }
     ],
     "links": [
-      {
-        "target": "client",
-        "source": "external"
-      },
       {
         "target": "client",
         "source": "core"
@@ -3766,12 +4946,16 @@
         "source": "client"
       },
       {
-        "target": "server",
+        "target": "client",
         "source": "external"
       },
       {
         "target": "server",
         "source": "ecommerce"
+      },
+      {
+        "target": "server",
+        "source": "core"
       },
       {
         "target": "ecommerce",
@@ -3783,7 +4967,7 @@
       },
       {
         "target": "server",
-        "source": "core"
+        "source": "external"
       },
       {
         "target": "app",
@@ -3794,22 +4978,22 @@
   "layers": {
     "nodes": [
       {
-        "id": "infrastructure",
-        "name": "infrastructure",
-        "layer": "infrastructure",
-        "value": 21
-      },
-      {
         "id": "presentation",
         "name": "presentation",
         "layer": "presentation",
-        "value": 9
+        "value": 28
+      },
+      {
+        "id": "infrastructure",
+        "name": "infrastructure",
+        "layer": "infrastructure",
+        "value": 25
       },
       {
         "id": "external",
         "name": "external",
         "layer": "external",
-        "value": 10
+        "value": 11
       },
       {
         "id": "domain",
@@ -3826,12 +5010,12 @@
     ],
     "links": [
       {
-        "target": "infrastructure",
-        "source": "external"
+        "target": "presentation",
+        "source": "infrastructure"
       },
       {
         "target": "infrastructure",
-        "source": "infrastructure"
+        "source": "external"
       },
       {
         "target": "infrastructure",
@@ -3842,7 +5026,7 @@
         "source": "domain"
       },
       {
-        "target": "infrastructure",
+        "target": "presentation",
         "source": "application"
       },
       {
@@ -3852,6 +5036,14 @@
       {
         "target": "application",
         "source": "application"
+      },
+      {
+        "target": "infrastructure",
+        "source": "application"
+      },
+      {
+        "target": "infrastructure",
+        "source": "infrastructure"
       },
       {
         "target": "presentation",
@@ -3863,54 +5055,46 @@
       },
       {
         "target": "presentation",
-        "source": "application"
-      },
-      {
-        "target": "presentation",
         "source": "domain"
-      },
-      {
-        "target": "presentation",
-        "source": "infrastructure"
       }
     ]
   },
   "layersAndModules": {
     "nodes": [
       {
-        "id": "client/infrastructure",
-        "name": "client/infrastructure",
-        "layer": "infrastructure",
+        "id": "client/presentation",
+        "name": "client/presentation",
+        "layer": "presentation",
         "module": "client",
-        "value": 9
+        "value": 11
       },
       {
         "id": "server/infrastructure",
         "name": "server/infrastructure",
         "layer": "infrastructure",
         "module": "server",
-        "value": 4
+        "value": 5
       },
       {
         "id": "app/presentation",
         "name": "app/presentation",
         "layer": "presentation",
         "module": "app",
-        "value": 1
-      },
-      {
-        "id": "external/external",
-        "name": "external/external",
-        "layer": "external",
-        "module": "external",
-        "value": 10
+        "value": 3
       },
       {
         "id": "core/infrastructure",
         "name": "core/infrastructure",
         "layer": "infrastructure",
         "module": "core",
-        "value": 7
+        "value": 10
+      },
+      {
+        "id": "external/external",
+        "name": "external/external",
+        "layer": "external",
+        "module": "external",
+        "value": 11
       },
       {
         "id": "core/domain",
@@ -3934,6 +5118,13 @@
         "value": 7
       },
       {
+        "id": "client/infrastructure",
+        "name": "client/infrastructure",
+        "layer": "infrastructure",
+        "module": "client",
+        "value": 9
+      },
+      {
         "id": "client/application",
         "name": "client/application",
         "layer": "application",
@@ -3955,27 +5146,16 @@
         "value": 4
       },
       {
-        "id": "client/presentation",
-        "name": "client/presentation",
-        "layer": "presentation",
-        "module": "client",
-        "value": 7
-      },
-      {
         "id": "core/presentation",
         "name": "core/presentation",
         "layer": "presentation",
         "module": "core",
-        "value": 1
+        "value": 14
       }
     ],
     "links": [
       {
-        "target": "client/infrastructure",
-        "source": "external/external"
-      },
-      {
-        "target": "client/infrastructure",
+        "target": "client/presentation",
         "source": "core/infrastructure"
       },
       {
@@ -3991,28 +5171,36 @@
         "source": "core/domain"
       },
       {
+        "target": "client/presentation",
+        "source": "ecommerce/application"
+      },
+      {
+        "target": "ecommerce/application",
+        "source": "core/domain"
+      },
+      {
+        "target": "ecommerce/application",
+        "source": "ecommerce/application"
+      },
+      {
+        "target": "ecommerce/application",
+        "source": "ecommerce/domain"
+      },
+      {
+        "target": "ecommerce/domain",
+        "source": "ecommerce/domain"
+      },
+      {
+        "target": "ecommerce/domain",
+        "source": "core/domain"
+      },
+      {
+        "target": "client/presentation",
+        "source": "client/infrastructure"
+      },
+      {
         "target": "client/infrastructure",
         "source": "ecommerce/application"
-      },
-      {
-        "target": "ecommerce/application",
-        "source": "core/domain"
-      },
-      {
-        "target": "ecommerce/application",
-        "source": "ecommerce/application"
-      },
-      {
-        "target": "ecommerce/application",
-        "source": "ecommerce/domain"
-      },
-      {
-        "target": "ecommerce/domain",
-        "source": "ecommerce/domain"
-      },
-      {
-        "target": "ecommerce/domain",
-        "source": "core/domain"
       },
       {
         "target": "client/infrastructure",
@@ -4021,6 +5209,10 @@
       {
         "target": "client/infrastructure",
         "source": "ecommerce/domain"
+      },
+      {
+        "target": "client/infrastructure",
+        "source": "core/infrastructure"
       },
       {
         "target": "client/infrastructure",
@@ -4043,8 +5235,16 @@
         "source": "core/infrastructure"
       },
       {
-        "target": "server/infrastructure",
+        "target": "client/infrastructure",
         "source": "external/external"
+      },
+      {
+        "target": "server/infrastructure",
+        "source": "ecommerce/domain"
+      },
+      {
+        "target": "server/infrastructure",
+        "source": "core/infrastructure"
       },
       {
         "target": "server/infrastructure",
@@ -4053,14 +5253,6 @@
       {
         "target": "ecommerce/infrastructure",
         "source": "external/external"
-      },
-      {
-        "target": "server/infrastructure",
-        "source": "server/infrastructure"
-      },
-      {
-        "target": "server/infrastructure",
-        "source": "ecommerce/domain"
       },
       {
         "target": "server/infrastructure",
@@ -4080,7 +5272,11 @@
       },
       {
         "target": "server/infrastructure",
-        "source": "core/infrastructure"
+        "source": "server/infrastructure"
+      },
+      {
+        "target": "server/infrastructure",
+        "source": "external/external"
       },
       {
         "target": "app/presentation",
@@ -4096,10 +5292,6 @@
       },
       {
         "target": "client/presentation",
-        "source": "ecommerce/application"
-      },
-      {
-        "target": "client/presentation",
         "source": "core/presentation"
       },
       {
@@ -4112,11 +5304,11 @@
       },
       {
         "target": "client/presentation",
-        "source": "client/infrastructure"
+        "source": "ecommerce/domain"
       },
       {
-        "target": "client/presentation",
-        "source": "ecommerce/domain"
+        "target": "core/presentation",
+        "source": "core/presentation"
       }
     ]
   }

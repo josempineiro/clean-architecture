@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Product } from "@/ecommerce/domain"
+import Image from 'next/image'
 
 export interface ProductCardProps {
   product: Product
@@ -12,7 +13,7 @@ export function ProductCard({
     
 <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
     <Link href={`/products/${product.id}`}>
-        <img className="p-8 rounded-t-lg" src="https://flowbite.com/docs/images/products/apple-watch.png" alt="product image" />
+        <Image width={500} height={500} className="p-8 rounded-t-lg" src="https://flowbite.com/docs/images/products/apple-watch.png" alt="product image" />
     </Link>
     <div className="px-5 pb-5">
         <a href="#">

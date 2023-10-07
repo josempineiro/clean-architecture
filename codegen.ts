@@ -6,13 +6,13 @@ const config: CodegenConfig = {
   schema: "http://localhost:3000/graphql",
   documents: "src/client/infrastructure/graphql/documents/**/*.graphql",
   generates: {
-    "src/client/infrastructure/graphql/generated/index.ts": {
+    "src/client/infrastructure/graphql/types.ts": {
       plugins: ['typescript', 'typescript-operations', 'typescript-graphql-request'],
       config: {
         rawRequest: true
       },
     },
-    "src/server/infrastructure/graphql/generated/index.ts": {
+    "src/server/infrastructure/graphql/types.ts": {
       plugins: ['typescript', 'typescript-resolvers'],
       config: {
         useIndexSignature: true

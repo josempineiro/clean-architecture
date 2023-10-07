@@ -280,7 +280,7 @@ useEffect(() => {
       })
         .nodeLabel(node => `${node.name}${node.external?' (external)':''}`)
         .nodeVal(node => 4)
-        .backgroundColor('#000000')
+        .backgroundColor('#00000000')
         .linkColor((link) =>{
           const target = (link.target.id || link.target || '').replace('@/', '')
           const source = (link.source.id || link.source || '').replace('@/', '')
@@ -402,10 +402,11 @@ useEffect(() => {
     }
   }, [groupBy, palette, showInternalLinks, vision]);
   return <div className={"h-full flex-1 overflow-hidden"} ref={wrapperRef}>
-    <header className="absolute top-0 left-0 w-full z-10 flex py-4 px-20 gap-20">
+    <header className="absolute top-0 left-0 w-full z-10 flex py-4 px-4 md:px-10 lg:px-20 gap-20">
       <GraphSettingsForm values={settings} onChange={setSettings} />
     </header>
-    <div ref={ref} className={cn('graph')}></div>
+
+      <div ref={ref} className={cn('graph')}></div>
     <div className="absolute bottom-10 left-10 flex flex-col">
       {getLegendByGroup(groupBy, palette).map((group) => (
         <div key={group.label} className="inline-flex items-center">

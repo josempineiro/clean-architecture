@@ -1,7 +1,7 @@
 'use client'
 import './globals.css'
 import { Inter } from 'next/font/google'
-import EcommerceApplicationProvider from '@/client/infrastructure/graphql/graphql-context/ecommerce-application-context'
+import EcommerceApplicationProvider from '@/client/presentation/contexts/ecommerce-application-context'
 
 const inter = Inter({ subsets: ['latin'] })
 

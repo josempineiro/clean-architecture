@@ -12,18 +12,20 @@ export function Field<TField>({
   children: React.ReactElement
 }) {
   const form = useForm()
-  return  (<div className="flex flex-col">
-    <label htmlFor={field}>{label}</label>
-    {React.cloneElement(children, {
-      label,
-      id: field,
-      name: field,
-      value: form.getFieldValue<TField>(field),
-      onChange: (value: TField, event: React.ChangeEvent<HTMLFormElement>) => {
-        form.setFieldValue<TField>(field, value, event)
-      }
-    })}
-  </div>)
+  return  (
+    <div className="flex flex-col">
+      <label htmlFor={field}>{label}</label>
+      {React.cloneElement(children, {
+        label,
+        id: field,
+        name: field,
+        value: form.getFieldValue<TField>(field),
+        onChange: (value: TField, event: React.ChangeEvent<HTMLFormElement>) => {
+          form.setFieldValue<TField>(field, value, event)
+        }
+      })}
+    </div>
+  )
 }
 
 export default Field

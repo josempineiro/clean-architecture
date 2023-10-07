@@ -17,6 +17,9 @@ const config: Config = {
       white: colors.white,
       gray: colors.gray,
       blue: colors.blue,
+      red: colors.red,
+      green: colors.green,
+      yellow: colors.yellow,
     },
     extend: {
       height: {
@@ -25,6 +28,8 @@ const config: Config = {
     },
   },
   plugins: [
+    require('@tailwindcss/forms'),
+    require('@tailwindcss/typography'),
   ],
 }
 export default config

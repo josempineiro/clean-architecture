@@ -7,9 +7,11 @@ const config =require('./tsconfig.json');
 
 
 const entries = [
-  './src/client/infrastructure/graphql/graphql-context/ecommerce-application-context.tsx',
-  './src/server/infrastructure/graphql/graphql-server.ts',
+  './src/client/presentation/contexts/ecommerce-application-context.tsx',
+  './src/server/infrastructure/graphql/server.ts',
   './src/app/products/page.tsx',
+  './src/app/products/create/page.tsx',
+  './src/app/products/[product-id]/page.tsx',
 ]
 
 

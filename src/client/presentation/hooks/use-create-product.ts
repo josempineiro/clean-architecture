@@ -1,6 +1,6 @@
 import { useUseCaseMutation } from "@/core/presentation/hooks/use-use-case";
 import { UseCaseOptions } from '@/core/presentation/hooks/use-use-case';
-import { useEcommerceApplication } from "@/client/infrastructure/graphql/graphql-context/ecommerce-application-context"
+import { useEcommerceApplication } from "@/client/presentation/contexts/ecommerce-application-context"
 import { CreateProductVariables, CreateProductResult } from '@/ecommerce/application';
 
 

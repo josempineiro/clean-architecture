@@ -1,8 +1,11 @@
 import { Repository, Entity } from '@/core/domain';
 
 export abstract class MockRepository<T extends Entity> implements Repository<T> {
-  private data: T[] = []
+  public data: T[] = []
 
+  constructor(data: T[] = []) {
+    this.data = data
+  }
   public create(entity: T): Promise<T> {
     this.data.push(entity)
     return Promise.resolve(entity)
