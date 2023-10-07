@@ -1,4 +1,5 @@
 import { GraphQLClient } from 'graphql-request';
+// @ts-ignore
 import { GraphQLClientRequestHeaders } from 'graphql-request/build/cjs/types';
 import { print } from 'graphql'
 import gql from 'graphql-tag';
@@ -113,12 +114,15 @@ const ProductDocumentString = print(ProductDocument);
 const ProductsDocumentString = print(ProductsDocument);
 export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = defaultWrapper) {
   return {
+    // @ts-ignore
     createProduct(variables: CreateProductMutationVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<{ data: CreateProductMutation; extensions?: any; headers: Dom.Headers; status: number; }> {
         return withWrapper((wrappedRequestHeaders) => client.rawRequest<CreateProductMutation>(CreateProductDocumentString, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'createProduct', 'mutation');
     },
+    // @ts-ignore
     product(variables: ProductQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<{ data: ProductQuery; extensions?: any; headers: Dom.Headers; status: number; }> {
         return withWrapper((wrappedRequestHeaders) => client.rawRequest<ProductQuery>(ProductDocumentString, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'product', 'query');
     },
+    // @ts-ignore
     products(variables?: ProductsQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<{ data: ProductsQuery; extensions?: any; headers: Dom.Headers; status: number; }> {
         return withWrapper((wrappedRequestHeaders) => client.rawRequest<ProductsQuery>(ProductsDocumentString, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'products', 'query');
     }

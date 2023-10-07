@@ -9,7 +9,7 @@ export default function Home() {
         <header className="mb-4 lg:mb-6 not-format">
           <address className="flex items-center mb-6 not-italic">
             <div className="inline-flex items-center mr-3 text-sm text-gray-900 dark:text-white">
-              <img className="mr-4 w-16 h-16 rounded-full" src="/images/avatar.png" alt="Jese Leos" />
+              <Image width={64} height={64} className="mr-4 w-16 h-16 rounded-full" src="/images/avatar.png" alt="Jose Piñeiro" />
               <div>
                 <a href="#" rel="author" className="text-xl font-bold text-gray-900 dark:text-white">Jose Piñeiro</a>
                 <p className="text-base text-gray-500 dark:text-gray-400">Frontend Engineer</p>
@@ -34,7 +34,7 @@ export default function Home() {
                   <b>This Article is a Work in Progress</b>
                   <div>
                     <p>
-                      I want to inform my readers that this article is currently in draft form and is being actively edited and expanded upon. I am continuously working to enhance and refine the content.
+                      Thank you for visiting this guide on Frontend Clean Architecture. I want to inform my readers that this article is currently in draft form and is being actively edited and expanded upon. I am continuously working to enhance and refine the content.
                     </p>
                     <p>
                       Thank you for your understanding, and we hope you find this guide helpful as it evolves.
@@ -43,7 +43,7 @@ export default function Home() {
                 </div>
               </div>
               <p>
-                Welcome to my comprehensive guide on Frontend Clean Architecture, a design philosophy that has revolutionized software development. In this discussion, we'll explore the principles and benefits of Clean Architecture and illustrate its practical application through the lens of an ecommerce platform.
+                Welcome to my comprehensive guide on Frontend Clean Architecture, a design philosophy that has revolutionized software development. In this discussion, we`ll explore the principles and benefits of Clean Architecture and illustrate its practical application through the lens of an ecommerce platform.
               </p>
 
               <h2>
@@ -69,7 +69,7 @@ export default function Home() {
               </ol>
 
               <h3>Challenges of Clean Architecture</h3>
-              <p>While Clean Architecture offers numerous advantages, it's essential to acknowledge some of the challenges it presents:</p>
+              <p>While Clean Architecture offers numerous advantages, it`s essential to acknowledge some of the challenges it presents:</p>
               <ol>
                   <li><strong>Complexity</strong>. Implementing Clean Architecture can seem complex, especially for smaller projects or development teams that are new to the concept. However, the long-term benefits often outweigh the initial learning curve.</li>
                   <li><strong>Initial Development Time</strong>. Building a system following Clean Architecture principles may require more time and effort upfront. However, this investment pays off as the project progresses and evolves.</li>
