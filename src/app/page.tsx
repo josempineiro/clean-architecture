@@ -1,3 +1,6 @@
+'use client'
+import ArchitectureGraph from '@/client/presentation/components/architecture-graph/architecture-graph'
+import { AutoSizer } from '@/core/presentation/components/dom/auto-sizer'
 import Image from 'next/image'
 
 
@@ -20,9 +23,7 @@ export default function Home() {
             </div>
           </address>
         </header>
-
           <article className="mx-auto w-full max-w-2xl prose lg:prose-xl dark:prose-invert">
-
               <h1>
                 Best practices for building frontend clean architecture
               </h1>
@@ -50,15 +51,24 @@ export default function Home() {
                 Understanding Clean Architecture
               </h2>
               <p>
-                Clean Architecture is a software design approach that prioritizes maintainability, scalability, and testability. Developed by Robert C. Martin, it offers a structured way to organize code, ensuring that it remains adaptable to changes while maintaining a high degree of separation between different system components. At its core, Clean Architecture seeks to solve the problem of tangled, monolithic codebases by promoting a layered and modular architecture.
+                Clean Architecture is a software design approach that prioritizes maintainability, scalability, and testability. Developed by Robert C. Martin, it offers a structured way to organize code, ensuring that it remains adaptable to changes while maintaining a high degree of separation between different system components. At its core, Clean Architecture seeks to solve the problem of tangled, monolithic codebases by promoting a <b>layered</b> and <b>modular</b> architecture.
               </p>
-              <figure>
-                <Image width={600} height={600} src="/images/layers.png" alt="Layers" />
-                <figcaption>Common layers: <span className="text-red-400">domain</span>, <span className="text-yellow-400">application</span>, <span className="text-blue-400">infrastructure</span> and <span className="text-green-400">presentation</span></figcaption>
-              </figure>
-
-
-                
+              <AutoSizer className="w-full aspect-square mx-auto">
+                {({ width, height }) => (
+                  <ArchitectureGraph
+                    width={width}
+                    height={height}
+                    settings={{
+                      vision: '2d',
+                      groupBy: 'layers',
+                      options: {
+                        showInternalLinks: false,
+                        palette: 'layers'
+                      }
+                    }}
+                  />
+                )}
+              </AutoSizer>
               <h2 className="text-lg">
                 Benefits of Clean Architecture
               </h2>

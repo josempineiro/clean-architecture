@@ -1,10 +1,13 @@
 import {  useState } from "react";
 import { Form, Field, RadioGroupField, SelectField, CheckboxesField, FormProps } from "@/core/presentation/components/forms";
 
-interface GraphSettings {
+export interface GraphSettings {
   vision: '2d' | '3d'
   groupBy: 'layers' | 'modules' | 'layersAndModules' | 'imports' | 'files',
-  options: ['showInternalLinks']
+  options: {
+    showInternalLinks: boolean
+    palette: 'layers' | 'modules'
+  }
 }
 
 const visions = [{
