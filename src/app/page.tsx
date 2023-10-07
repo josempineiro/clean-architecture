@@ -69,19 +69,66 @@ export default function Home() {
               </ol>
 
               <h3>Challenges of Clean Architecture</h3>
-              <p>While Clean Architecture offers numerous advantages, it`s essential to acknowledge some of the challenges it presents:</p>
+              <p>While Clean Architecture offers numerous advantages, it is essential to acknowledge some of the challenges it presents:</p>
               <ol>
                   <li><strong>Complexity</strong>. Implementing Clean Architecture can seem complex, especially for smaller projects or development teams that are new to the concept. However, the long-term benefits often outweigh the initial learning curve.</li>
                   <li><strong>Initial Development Time</strong>. Building a system following Clean Architecture principles may require more time and effort upfront. However, this investment pays off as the project progresses and evolves.</li>
               </ol>
 
               <h3>Practical Example: Ecommerce Platform</h3>
+              <h4>
+                Why an Ecommerce Platform?
+              </h4>
+
               <p>
                 Throughout this guide, we will use an ecommerce platform as an example to illustrate Clean Architecture in action. By dissecting the various components and layers of an ecommerce system, we will showcase how Clean Architecture promotes code organization, separation of concerns, and maintainability.
               </p>
               <p>
                 Join us on this journey through Clean Architecture as we delve deeper into its principles and demonstrate how it can transform your software development practices.
               </p>
+              An ecommerce application can be considered one of the most complex types of software applications for several reasons:
+              <ol>
+              <li>
+                <strong>Business Logic Complexity</strong>:
+                Ecommerce platforms involve intricate business rules and workflows. They must handle a wide range of scenarios, including product catalog management, inventory tracking, pricing strategies, payment processing, order management, shipping logistics, and customer support. The complexity of managing these operations efficiently can be substantial.
+               </li>
+                <li>
+                  <strong>Multiple User Interfaces</strong>:
+                  Ecommerce applications typically have multiple user interfaces, including those for customers, administrators, and possibly third-party vendors. Each of these interfaces requires unique functionality, user experiences, and security considerations, which can significantly increase complexity.
+                </li>
+                <li>
+                  <strong>Third-Party Integrations</strong>:
+                  Ecommerce platforms often need to integrate with various external systems, including payment gateways, shipping providers, inventory management software, and customer relationship management (CRM) systems. These integrations can be technically challenging due to differences in APIs and data formats.
+                </li>
+                <li>
+                  <strong>High User Expectations</strong>:
+                  Users have high expectations for the performance, usability, and security of ecommerce websites and apps. Any downtime, slow response times, or security breaches can lead to lost sales, customer dissatisfaction, and damage to the brand.
+                </li>
+                <li>
+                  <strong>Security Concerns</strong>:
+                  Ecommerce applications deal with sensitive information, such as customer personal data and payment details. Ensuring the security and privacy of this information is paramount, and it adds a layer of complexity involving encryption, authentication, and compliance with data protection regulations.
+                </li>
+                <li>
+                  <strong>Scalability</strong>:
+                  Ecommerce platforms must handle varying levels of traffic, which can fluctuate significantly during sales events or holidays. Ensuring the system remains performant and scalable under heavy loads requires careful architecture and resource management.
+                </li>
+                <li>
+                  <strong>Personalization</strong>:
+                  Modern ecommerce applications aim to provide personalized shopping experiences. This involves complex algorithms for recommending products, understanding customer preferences, and tailoring content, which can be challenging to implement effectively.
+                </li>
+                <li>
+                  <strong>Cross-Platform Compatibility</strong>:
+                  Ecommerce applications need to work seamlessly across various devices and platforms, including desktops, smartphones, and tablets. Achieving responsive design and cross-browser compatibility can be intricate.
+                </li>
+                <li>
+                  <strong>Data Management</strong>:
+                  Ecommerce applications generate and handle vast amounts of data, from user interactions to sales transactions. Managing this data efficiently, ensuring data integrity, and providing real-time analytics can be complex tasks.
+                </li>
+                <li>
+                  <strong>Regulatory compliance</strong>:
+                  Ecommerce platforms often need to comply with regional and industry-specific regulations, such as GDPR (General Data Protection Regulation) in Europe or PCI DSS (Payment Card Industry Data Security Standard). Achieving and maintaining compliance adds complexity to development and ongoing operations.
+                </li>
+              </ol>
           </article>
       </div>
     </main>
