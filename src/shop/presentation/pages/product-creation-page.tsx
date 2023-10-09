@@ -5,9 +5,9 @@ import { Button } from '@/core/presentation'
 import { useCreateProduct } from '@/ecommerce/presentation'
 import { ProductCreationForm } from '@/shop/presentation/components/products/product-creation-form'
 
-export function AdminProductCreationView() {
+export function ProductCreationPage() {
   const router = useRouter()
-  const [createProduct, { loading }] = useCreateProduct({
+  const [createProduct, { loading, error }] = useCreateProduct({
     onSuccess: (product) => {
       router.push(`/products/${product.id}`)
     },

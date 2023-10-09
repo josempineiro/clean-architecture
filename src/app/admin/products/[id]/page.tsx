@@ -1,0 +1,1 @@
+export { AdminProductDetailView } from '@/admin/presentation'

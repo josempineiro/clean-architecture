@@ -1,9 +1,9 @@
 'use client'
 import './globals.css'
 import { Inter } from 'next/font/google'
-import { EcommerceApplicationProvider } from '@/client/presentation'
-import { ProductsGraphqlRepository } from '@/client/infrastructure'
-import { ClientEcommerceApplication } from '@/client/application'
+import { EcommerceApplicationProvider } from '@/ecommerce/presentation'
+import { ProductsGraphqlRepository } from '@/shop/infrastructure'
+import { ClientEcommerceApplication } from '@/shop/application'
 
 const productsGraphqlRepository = new ProductsGraphqlRepository('/graphql')
 

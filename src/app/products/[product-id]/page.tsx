@@ -1,2 +1,2 @@
 'use client'
-export { ProductPage as default } from '@/client/presentation'
+export { ProductPage as default } from '@/shop/presentation'

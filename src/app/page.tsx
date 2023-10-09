@@ -1,5 +1,5 @@
 'use client'
-import { ArchitectureGraph } from '@/client/presentation'
+import { ArchitectureGraph } from '@/shop/presentation'
 import { AutoSizer } from '@/core/presentation'
 import Image from 'next/image'
 

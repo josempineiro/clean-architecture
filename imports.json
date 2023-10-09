@@ -63,24 +63,26 @@
       "graphql",
       "@/server/infrastructure/graphql/context",
       "@/server/infrastructure/repositories/products-mock-repository",
-      "@/client/presentation",
-      "@/client/presentation/pages",
-      "@/client/presentation/pages/product-creation-page",
+      "@/shop/presentation",
+      "@/shop/presentation/pages",
+      "@/shop/presentation/pages/product-creation-page",
       "next/link",
       "next/navigation",
-      "@/client/presentation/hooks/use-create-product",
-      "@/client/presentation/contexts/ecommerce-application-context",
-      "@/client/presentation/components/products/product-creation-form",
-      "@/client/presentation/pages/product-page",
-      "@/client/presentation/hooks",
-      "@/client/presentation/hooks/use-get-product",
-      "@/client/presentation/hooks/use-get-products",
-      "@/client/presentation/components/products/product-detail",
-      "@/client/presentation/components/products/product-card",
+      "@/ecommerce/presentation",
+      "@/ecommerce/presentation/hooks",
+      "@/ecommerce/presentation/hooks/use-get-product",
+      "@/ecommerce/presentation/contexts/ecommerce-application-context",
+      "@/ecommerce/presentation/hooks/use-get-products",
+      "@/ecommerce/presentation/contexts",
+      "@/ecommerce/presentation/hooks/use-create-product",
+      "@/shop/presentation/components/products/product-creation-form",
+      "@/shop/presentation/pages/product-page",
+      "@/shop/presentation/components/products/product-detail",
+      "@/shop/presentation/components/products/product-card",
       "next/image",
-      "@/client/presentation/pages/products-page",
-      "@/client/presentation/components/products/products-grid",
-      "@/client/presentation/components/architecture-graph/architecture-graph",
+      "@/shop/presentation/pages/products-page",
+      "@/shop/presentation/components/products/products-grid",
+      "@/shop/presentation/components/architecture-graph/architecture-graph",
       "force-graph",
       "classnames",
       "3d-force-graph",
@@ -88,12 +90,13 @@
       "@/admin/presentation/views",
       "@/admin/presentation/views/product-creation-view",
       "@/admin/presentation/views/products-list-view",
-      "@/admin/presentation/views/product-detail-view"
+      "@/admin/presentation/views/product-detail-view",
+      "@/admin/presentation"
     ],
     "nodes": [
       {
-        "id": "@/client/presentation/contexts/ecommerce-application-context",
-        "filename": "./src/client/presentation/contexts/ecommerce-application-context.tsx",
+        "id": "@/ecommerce/presentation/contexts/ecommerce-application-context",
+        "filename": "./src/ecommerce/presentation/contexts/ecommerce-application-context.tsx",
         "name": "EcommerceApplicationContext",
         "module": "ecommerce",
         "layer": "presentation",
@@ -138,6 +141,30 @@
         "module": "admin",
         "layer": "presentation",
         "type": "other"
+      },
+      {
+        "id": "@/app/admin/products/[id]/page",
+        "filename": "./src/app/admin/products/[id]/page.tsx",
+        "name": "Page",
+        "module": "app",
+        "layer": "presentation",
+        "type": "page"
+      },
+      {
+        "id": "@/app/admin/products/creation/page",
+        "filename": "./src/app/admin/products/creation/page.tsx",
+        "name": "Page",
+        "module": "app",
+        "layer": "presentation",
+        "type": "page"
+      },
+      {
+        "id": "@/app/admin/products/page",
+        "filename": "./src/app/admin/products/page.tsx",
+        "name": "Page",
+        "module": "app",
+        "layer": "presentation",
+        "type": "page"
       },
       {
         "id": "@/core/presentation",
@@ -567,7 +594,7 @@
         "id": "@/server/application",
         "filename": "@/server/application",
         "name": "Application",
-        "module": "server",
+        "module": "app",
         "layer": "application",
         "type": "application"
       },
@@ -575,7 +602,7 @@
         "id": "@/server/application/use-cases/create-product",
         "filename": "@/server/application/use-cases/create-product",
         "name": "CreateProduct",
-        "module": "server",
+        "module": "app",
         "layer": "application",
         "type": "use-case"
       },
@@ -583,7 +610,7 @@
         "id": "@/server/application/use-cases/get-products",
         "filename": "@/server/application/use-cases/get-products",
         "name": "GetProducts",
-        "module": "server",
+        "module": "app",
         "layer": "application",
         "type": "use-case"
       },
@@ -591,7 +618,7 @@
         "id": "@/server/application/use-cases/get-product",
         "filename": "@/server/application/use-cases/get-product",
         "name": "GetProduct",
-        "module": "server",
+        "module": "app",
         "layer": "application",
         "type": "use-case"
       },
@@ -636,26 +663,26 @@
         "type": "repository"
       },
       {
-        "id": "@/client/presentation",
-        "filename": "@/client/presentation",
+        "id": "@/shop/presentation",
+        "filename": "@/shop/presentation",
         "name": "Presentation",
-        "module": "client",
+        "module": "shop",
         "layer": "presentation",
         "type": "other"
       },
       {
-        "id": "@/client/presentation/pages",
-        "filename": "@/client/presentation/pages",
+        "id": "@/shop/presentation/pages",
+        "filename": "@/shop/presentation/pages",
         "name": "Pages",
-        "module": "client",
+        "module": "shop",
         "layer": "presentation",
         "type": "page"
       },
       {
-        "id": "@/client/presentation/pages/product-creation-page",
-        "filename": "@/client/presentation/pages/product-creation-page",
+        "id": "@/shop/presentation/pages/product-creation-page",
+        "filename": "@/shop/presentation/pages/product-creation-page",
         "name": "ProductCreationPage",
-        "module": "client",
+        "module": "shop",
         "layer": "presentation",
         "type": "page"
       },
@@ -676,74 +703,90 @@
         "type": "other"
       },
       {
-        "id": "@/client/presentation/hooks/use-create-product",
-        "filename": "@/client/presentation/hooks/use-create-product",
-        "name": "UseCreateProduct",
-        "module": "client",
+        "id": "@/ecommerce/presentation",
+        "filename": "@/ecommerce/presentation",
+        "name": "Presentation",
+        "module": "ecommerce",
         "layer": "presentation",
         "type": "other"
       },
       {
-        "id": "@/client/presentation/contexts/ecommerce-application-context",
-        "filename": "@/client/presentation/contexts/ecommerce-application-context",
+        "id": "@/ecommerce/presentation/hooks",
+        "filename": "@/ecommerce/presentation/hooks",
+        "name": "Hooks",
+        "module": "ecommerce",
+        "layer": "presentation",
+        "type": "other"
+      },
+      {
+        "id": "@/ecommerce/presentation/hooks/use-get-product",
+        "filename": "@/ecommerce/presentation/hooks/use-get-product",
+        "name": "UseGetProduct",
+        "module": "ecommerce",
+        "layer": "presentation",
+        "type": "other"
+      },
+      {
+        "id": "@/ecommerce/presentation/contexts/ecommerce-application-context",
+        "filename": "@/ecommerce/presentation/contexts/ecommerce-application-context",
         "name": "EcommerceApplicationContext",
         "module": "ecommerce",
         "layer": "presentation",
         "type": "other"
       },
       {
-        "id": "@/client/presentation/components/products/product-creation-form",
-        "filename": "@/client/presentation/components/products/product-creation-form",
+        "id": "@/ecommerce/presentation/hooks/use-get-products",
+        "filename": "@/ecommerce/presentation/hooks/use-get-products",
+        "name": "UseGetProducts",
+        "module": "ecommerce",
+        "layer": "presentation",
+        "type": "other"
+      },
+      {
+        "id": "@/ecommerce/presentation/contexts",
+        "filename": "@/ecommerce/presentation/contexts",
+        "name": "Contexts",
+        "module": "ecommerce",
+        "layer": "presentation",
+        "type": "other"
+      },
+      {
+        "id": "@/ecommerce/presentation/hooks/use-create-product",
+        "filename": "@/ecommerce/presentation/hooks/use-create-product",
+        "name": "UseCreateProduct",
+        "module": "ecommerce",
+        "layer": "presentation",
+        "type": "other"
+      },
+      {
+        "id": "@/shop/presentation/components/products/product-creation-form",
+        "filename": "@/shop/presentation/components/products/product-creation-form",
         "name": "ProductCreationForm",
-        "module": "client",
+        "module": "shop",
         "layer": "presentation",
         "type": "component"
       },
       {
-        "id": "@/client/presentation/pages/product-page",
-        "filename": "@/client/presentation/pages/product-page",
+        "id": "@/shop/presentation/pages/product-page",
+        "filename": "@/shop/presentation/pages/product-page",
         "name": "ProductPage",
-        "module": "client",
+        "module": "shop",
         "layer": "presentation",
         "type": "page"
       },
       {
-        "id": "@/client/presentation/hooks",
-        "filename": "@/client/presentation/hooks",
-        "name": "Hooks",
-        "module": "client",
-        "layer": "presentation",
-        "type": "other"
-      },
-      {
-        "id": "@/client/presentation/hooks/use-get-product",
-        "filename": "@/client/presentation/hooks/use-get-product",
-        "name": "UseGetProduct",
-        "module": "client",
-        "layer": "presentation",
-        "type": "other"
-      },
-      {
-        "id": "@/client/presentation/hooks/use-get-products",
-        "filename": "@/client/presentation/hooks/use-get-products",
-        "name": "UseGetProducts",
-        "module": "client",
-        "layer": "presentation",
-        "type": "other"
-      },
-      {
-        "id": "@/client/presentation/components/products/product-detail",
-        "filename": "@/client/presentation/components/products/product-detail",
+        "id": "@/shop/presentation/components/products/product-detail",
+        "filename": "@/shop/presentation/components/products/product-detail",
         "name": "ProductDetail",
-        "module": "client",
+        "module": "shop",
         "layer": "presentation",
         "type": "component"
       },
       {
-        "id": "@/client/presentation/components/products/product-card",
-        "filename": "@/client/presentation/components/products/product-card",
+        "id": "@/shop/presentation/components/products/product-card",
+        "filename": "@/shop/presentation/components/products/product-card",
         "name": "ProductCard",
-        "module": "client",
+        "module": "shop",
         "layer": "presentation",
         "type": "component"
       },
@@ -756,26 +799,26 @@
         "type": "other"
       },
       {
-        "id": "@/client/presentation/pages/products-page",
-        "filename": "@/client/presentation/pages/products-page",
+        "id": "@/shop/presentation/pages/products-page",
+        "filename": "@/shop/presentation/pages/products-page",
         "name": "ProductsPage",
-        "module": "client",
+        "module": "shop",
         "layer": "presentation",
         "type": "page"
       },
       {
-        "id": "@/client/presentation/components/products/products-grid",
-        "filename": "@/client/presentation/components/products/products-grid",
+        "id": "@/shop/presentation/components/products/products-grid",
+        "filename": "@/shop/presentation/components/products/products-grid",
         "name": "ProductsGrid",
-        "module": "client",
+        "module": "shop",
         "layer": "presentation",
         "type": "component"
       },
       {
-        "id": "@/client/presentation/components/architecture-graph/architecture-graph",
-        "filename": "@/client/presentation/components/architecture-graph/architecture-graph",
+        "id": "@/shop/presentation/components/architecture-graph/architecture-graph",
+        "filename": "@/shop/presentation/components/architecture-graph/architecture-graph",
         "name": "ArchitectureGraph",
-        "module": "client",
+        "module": "shop",
         "layer": "presentation",
         "type": "component"
       },
@@ -842,11 +885,19 @@
         "module": "admin",
         "layer": "presentation",
         "type": "other"
+      },
+      {
+        "id": "@/admin/presentation",
+        "filename": "@/admin/presentation",
+        "name": "Presentation",
+        "module": "admin",
+        "layer": "presentation",
+        "type": "other"
       }
     ],
     "links": [
       {
-        "target": "@/client/presentation/contexts/ecommerce-application-context",
+        "target": "@/ecommerce/presentation/contexts/ecommerce-application-context",
         "source": "@/core/presentation",
         "external": null
       },
@@ -858,7 +909,9 @@
       {
         "target": "@/core/presentation/hooks/use-use-case",
         "source": "@tanstack/react-query",
-        "external": ["external"]
+        "external": [
+          "external"
+        ]
       },
       {
         "target": "@/core/presentation/hooks/use-use-case",
@@ -898,12 +951,16 @@
       {
         "target": "@/core/presentation/contexts/application-context",
         "source": "react",
-        "external": ["external"]
+        "external": [
+          "external"
+        ]
       },
       {
         "target": "@/core/presentation/contexts/application-context",
         "source": "@tanstack/react-query",
-        "external": ["external"]
+        "external": [
+          "external"
+        ]
       },
       {
         "target": "@/core/presentation/contexts/application-context",
@@ -948,12 +1005,16 @@
       {
         "target": "@/core/presentation/components/forms/form/form",
         "source": "lodash",
-        "external": ["external"]
+        "external": [
+          "external"
+        ]
       },
       {
         "target": "@/core/presentation/components/forms/form/form",
         "source": "react",
-        "external": ["external"]
+        "external": [
+          "external"
+        ]
       },
       {
         "target": "@/core/presentation/components/forms",
@@ -1003,7 +1064,9 @@
       {
         "target": "@/core/presentation/components/forms/fields/base-field",
         "source": "react",
-        "external": ["external"]
+        "external": [
+          "external"
+        ]
       },
       {
         "target": "@/core/presentation/components/forms/fields/base-field",
@@ -1023,10 +1086,12 @@
       {
         "target": "@/core/presentation/components/dom/auto-sizer",
         "source": "react",
-        "external": ["external"]
+        "external": [
+          "external"
+        ]
       },
       {
-        "target": "@/client/presentation/contexts/ecommerce-application-context",
+        "target": "@/ecommerce/presentation/contexts/ecommerce-application-context",
         "source": "@/ecommerce/application",
         "external": null
       },
@@ -1193,7 +1258,9 @@
       {
         "target": "@/core/infrastructure/graphql/client",
         "source": "graphql-request",
-        "external": ["external"]
+        "external": [
+          "external"
+        ]
       },
       {
         "target": "@/core/infrastructure/repositories/graphql-repository",
@@ -1273,7 +1340,9 @@
       {
         "target": "@/ecommerce/infrastructure/graphql/schema",
         "source": "graphql-tag",
-        "external": ["external"]
+        "external": [
+          "external"
+        ]
       },
       {
         "target": "@/server/infrastructure/graphql/server",
@@ -1378,7 +1447,9 @@
       {
         "target": "@/server/infrastructure/graphql/types",
         "source": "graphql",
-        "external": ["external"]
+        "external": [
+          "external"
+        ]
       },
       {
         "target": "@/server/infrastructure/graphql/resolvers",
@@ -1407,257 +1478,291 @@
       },
       {
         "target": "@/app/products/page",
-        "source": "@/client/presentation",
+        "source": "@/shop/presentation",
         "external": null
       },
       {
-        "target": "@/client/presentation",
-        "source": "@/client/presentation/pages",
+        "target": "@/shop/presentation",
+        "source": "@/shop/presentation/pages",
         "external": null
       },
       {
-        "target": "@/client/presentation/pages",
-        "source": "@/client/presentation/pages/product-creation-page",
+        "target": "@/shop/presentation/pages",
+        "source": "@/shop/presentation/pages/product-creation-page",
         "external": null
       },
       {
-        "target": "@/client/presentation/pages/product-creation-page",
+        "target": "@/shop/presentation/pages/product-creation-page",
         "source": "next/link",
-        "external": ["external"]
+        "external": [
+          "external"
+        ]
       },
       {
-        "target": "@/client/presentation/pages/product-creation-page",
+        "target": "@/shop/presentation/pages/product-creation-page",
         "source": "next/navigation",
-        "external": ["external"]
+        "external": [
+          "external"
+        ]
       },
       {
-        "target": "@/client/presentation/pages/product-creation-page",
+        "target": "@/shop/presentation/pages/product-creation-page",
         "source": "@/core/presentation",
         "external": null
       },
       {
-        "target": "@/client/presentation/pages/product-creation-page",
-        "source": "@/client/presentation/hooks/use-create-product",
+        "target": "@/shop/presentation/pages/product-creation-page",
+        "source": "@/ecommerce/presentation",
         "external": null
       },
       {
-        "target": "@/client/presentation/hooks/use-create-product",
+        "target": "@/ecommerce/presentation",
+        "source": "@/ecommerce/presentation/hooks",
+        "external": null
+      },
+      {
+        "target": "@/ecommerce/presentation/hooks",
+        "source": "@/ecommerce/presentation/hooks/use-get-product",
+        "external": null
+      },
+      {
+        "target": "@/ecommerce/presentation/hooks/use-get-product",
         "source": "@/core/presentation",
         "external": null
       },
       {
-        "target": "@/client/presentation/hooks/use-create-product",
-        "source": "@/core/presentation",
-        "external": null
-      },
-      {
-        "target": "@/client/presentation/hooks/use-create-product",
+        "target": "@/ecommerce/presentation/hooks/use-get-product",
         "source": "@/ecommerce/application",
         "external": null
       },
       {
-        "target": "@/client/presentation/hooks/use-create-product",
-        "source": "@/client/presentation/contexts/ecommerce-application-context",
+        "target": "@/ecommerce/presentation/hooks/use-get-product",
+        "source": "@/ecommerce/presentation/contexts/ecommerce-application-context",
         "external": null
       },
       {
-        "target": "@/client/presentation/contexts/ecommerce-application-context",
+        "target": "@/ecommerce/presentation/contexts/ecommerce-application-context",
         "source": "@/core/presentation",
         "external": null
       },
       {
-        "target": "@/client/presentation/contexts/ecommerce-application-context",
+        "target": "@/ecommerce/presentation/contexts/ecommerce-application-context",
         "source": "@/ecommerce/application",
         "external": null
       },
       {
-        "target": "@/client/presentation/pages/product-creation-page",
-        "source": "@/client/presentation/components/products/product-creation-form",
+        "target": "@/ecommerce/presentation/hooks",
+        "source": "@/ecommerce/presentation/hooks/use-get-products",
         "external": null
       },
       {
-        "target": "@/client/presentation/components/products/product-creation-form",
+        "target": "@/ecommerce/presentation/hooks/use-get-products",
+        "source": "@/core/presentation",
+        "external": null
+      },
+      {
+        "target": "@/ecommerce/presentation/hooks/use-get-products",
+        "source": "@/ecommerce/application",
+        "external": null
+      },
+      {
+        "target": "@/ecommerce/presentation/hooks/use-get-products",
+        "source": "@/ecommerce/presentation/contexts",
+        "external": null
+      },
+      {
+        "target": "@/ecommerce/presentation/contexts",
+        "source": "@/ecommerce/presentation/contexts/ecommerce-application-context",
+        "external": null
+      },
+      {
+        "target": "@/ecommerce/presentation/hooks",
+        "source": "@/ecommerce/presentation/hooks/use-create-product",
+        "external": null
+      },
+      {
+        "target": "@/ecommerce/presentation/hooks/use-create-product",
+        "source": "@/core/presentation",
+        "external": null
+      },
+      {
+        "target": "@/ecommerce/presentation/hooks/use-create-product",
+        "source": "@/core/presentation",
+        "external": null
+      },
+      {
+        "target": "@/ecommerce/presentation/hooks/use-create-product",
+        "source": "@/ecommerce/application",
+        "external": null
+      },
+      {
+        "target": "@/ecommerce/presentation/hooks/use-create-product",
+        "source": "@/ecommerce/presentation/contexts",
+        "external": null
+      },
+      {
+        "target": "@/ecommerce/presentation",
+        "source": "@/ecommerce/presentation/contexts",
+        "external": null
+      },
+      {
+        "target": "@/shop/presentation/pages/product-creation-page",
+        "source": "@/shop/presentation/components/products/product-creation-form",
+        "external": null
+      },
+      {
+        "target": "@/shop/presentation/components/products/product-creation-form",
         "source": "@/ecommerce/domain",
         "external": null
       },
       {
-        "target": "@/client/presentation/components/products/product-creation-form",
+        "target": "@/shop/presentation/components/products/product-creation-form",
         "source": "@/core/presentation",
         "external": null
       },
       {
-        "target": "@/client/presentation/components/products/product-creation-form",
+        "target": "@/shop/presentation/components/products/product-creation-form",
         "source": "@/ecommerce/application",
         "external": null
       },
       {
-        "target": "@/client/presentation/pages",
-        "source": "@/client/presentation/pages/product-page",
+        "target": "@/shop/presentation/pages",
+        "source": "@/shop/presentation/pages/product-page",
         "external": null
       },
       {
-        "target": "@/client/presentation/pages/product-page",
+        "target": "@/shop/presentation/pages/product-page",
         "source": "next/navigation",
-        "external": ["external"]
+        "external": [
+          "external"
+        ]
       },
       {
-        "target": "@/client/presentation/pages/product-page",
+        "target": "@/shop/presentation/pages/product-page",
         "source": "next/link",
-        "external": ["external"]
+        "external": [
+          "external"
+        ]
       },
       {
-        "target": "@/client/presentation/pages/product-page",
-        "source": "@/client/presentation/hooks",
+        "target": "@/shop/presentation/pages/product-page",
+        "source": "@/ecommerce/presentation",
         "external": null
       },
       {
-        "target": "@/client/presentation/hooks",
-        "source": "@/client/presentation/hooks/use-get-product",
+        "target": "@/shop/presentation/pages/product-page",
+        "source": "@/shop/presentation/components/products/product-detail",
         "external": null
       },
       {
-        "target": "@/client/presentation/hooks/use-get-product",
-        "source": "@/core/presentation",
-        "external": null
-      },
-      {
-        "target": "@/client/presentation/hooks/use-get-product",
-        "source": "@/ecommerce/application",
-        "external": null
-      },
-      {
-        "target": "@/client/presentation/hooks/use-get-product",
-        "source": "@/client/presentation/contexts/ecommerce-application-context",
-        "external": null
-      },
-      {
-        "target": "@/client/presentation/hooks",
-        "source": "@/client/presentation/hooks/use-get-products",
-        "external": null
-      },
-      {
-        "target": "@/client/presentation/hooks/use-get-products",
-        "source": "@/ecommerce/application",
-        "external": null
-      },
-      {
-        "target": "@/client/presentation/hooks/use-get-products",
-        "source": "@/core/presentation",
-        "external": null
-      },
-      {
-        "target": "@/client/presentation/hooks/use-get-products",
-        "source": "@/client/presentation/contexts/ecommerce-application-context",
-        "external": null
-      },
-      {
-        "target": "@/client/presentation/hooks",
-        "source": "@/client/presentation/hooks/use-create-product",
-        "external": null
-      },
-      {
-        "target": "@/client/presentation/pages/product-page",
-        "source": "@/client/presentation/components/products/product-detail",
-        "external": null
-      },
-      {
-        "target": "@/client/presentation/components/products/product-detail",
+        "target": "@/shop/presentation/components/products/product-detail",
         "source": "@/ecommerce/domain",
         "external": null
       },
       {
-        "target": "@/client/presentation/components/products/product-detail",
-        "source": "@/client/presentation/components/products/product-card",
+        "target": "@/shop/presentation/components/products/product-detail",
+        "source": "@/shop/presentation/components/products/product-card",
         "external": null
       },
       {
-        "target": "@/client/presentation/components/products/product-card",
+        "target": "@/shop/presentation/components/products/product-card",
         "source": "next/link",
-        "external": ["external"]
+        "external": [
+          "external"
+        ]
       },
       {
-        "target": "@/client/presentation/components/products/product-card",
+        "target": "@/shop/presentation/components/products/product-card",
         "source": "@/ecommerce/domain",
         "external": null
       },
       {
-        "target": "@/client/presentation/components/products/product-card",
+        "target": "@/shop/presentation/components/products/product-card",
         "source": "next/image",
-        "external": ["external"]
+        "external": [
+          "external"
+        ]
       },
       {
-        "target": "@/client/presentation/pages",
-        "source": "@/client/presentation/pages/products-page",
+        "target": "@/shop/presentation/pages",
+        "source": "@/shop/presentation/pages/products-page",
         "external": null
       },
       {
-        "target": "@/client/presentation/pages/products-page",
+        "target": "@/shop/presentation/pages/products-page",
         "source": "next/link",
-        "external": ["external"]
+        "external": [
+          "external"
+        ]
       },
       {
-        "target": "@/client/presentation/pages/products-page",
-        "source": "@/client/presentation/hooks",
+        "target": "@/shop/presentation/pages/products-page",
+        "source": "@/ecommerce/presentation",
         "external": null
       },
       {
-        "target": "@/client/presentation/pages/products-page",
-        "source": "@/client/presentation/components/products/product-card",
+        "target": "@/shop/presentation/pages/products-page",
+        "source": "@/shop/presentation/components/products/product-card",
         "external": null
       },
       {
-        "target": "@/client/presentation/pages/products-page",
-        "source": "@/client/presentation/components/products/products-grid",
+        "target": "@/shop/presentation/pages/products-page",
+        "source": "@/shop/presentation/components/products/products-grid",
         "external": null
       },
       {
-        "target": "@/client/presentation/components/products/products-grid",
+        "target": "@/shop/presentation/components/products/products-grid",
         "source": "@/ecommerce/domain",
         "external": null
       },
       {
-        "target": "@/client/presentation",
-        "source": "@/client/presentation/contexts/ecommerce-application-context",
+        "target": "@/shop/presentation",
+        "source": "@/shop/presentation/components/architecture-graph/architecture-graph",
         "external": null
       },
       {
-        "target": "@/client/presentation",
-        "source": "@/client/presentation/components/architecture-graph/architecture-graph",
-        "external": null
-      },
-      {
-        "target": "@/client/presentation/components/architecture-graph/architecture-graph",
+        "target": "@/shop/presentation/components/architecture-graph/architecture-graph",
         "source": "react",
-        "external": ["external"]
+        "external": [
+          "external"
+        ]
       },
       {
-        "target": "@/client/presentation/components/architecture-graph/architecture-graph",
+        "target": "@/shop/presentation/components/architecture-graph/architecture-graph",
         "source": "force-graph",
-        "external": ["external"]
+        "external": [
+          "external"
+        ]
       },
       {
-        "target": "@/client/presentation/components/architecture-graph/architecture-graph",
+        "target": "@/shop/presentation/components/architecture-graph/architecture-graph",
         "source": "classnames",
-        "external": ["external"]
+        "external": [
+          "external"
+        ]
       },
       {
-        "target": "@/client/presentation/components/architecture-graph/architecture-graph",
+        "target": "@/shop/presentation/components/architecture-graph/architecture-graph",
         "source": "3d-force-graph",
-        "external": ["external"]
+        "external": [
+          "external"
+        ]
       },
       {
-        "target": "@/client/presentation/components/architecture-graph/architecture-graph",
+        "target": "@/shop/presentation/components/architecture-graph/architecture-graph",
         "source": "@/",
-        "external": ["external"]
+        "external": [
+          "external"
+        ]
       },
       {
         "target": "@/app/products/create/page",
-        "source": "@/client/presentation",
+        "source": "@/shop/presentation",
         "external": null
       },
       {
         "target": "@/app/products/[product-id]/page",
-        "source": "@/client/presentation",
+        "source": "@/shop/presentation",
         "external": null
       },
       {
@@ -1671,6 +1776,35 @@
         "external": null
       },
       {
+        "target": "@/admin/presentation/views/product-creation-view",
+        "source": "next/link",
+        "external": [
+          "external"
+        ]
+      },
+      {
+        "target": "@/admin/presentation/views/product-creation-view",
+        "source": "next/navigation",
+        "external": [
+          "external"
+        ]
+      },
+      {
+        "target": "@/admin/presentation/views/product-creation-view",
+        "source": "@/core/presentation",
+        "external": null
+      },
+      {
+        "target": "@/admin/presentation/views/product-creation-view",
+        "source": "@/ecommerce/presentation",
+        "external": null
+      },
+      {
+        "target": "@/admin/presentation/views/product-creation-view",
+        "source": "@/shop/presentation/components/products/product-creation-form",
+        "external": null
+      },
+      {
         "target": "@/admin/presentation/views",
         "source": "@/admin/presentation/views/products-list-view",
         "external": null
@@ -1678,6 +1812,26 @@
       {
         "target": "@/admin/presentation/views",
         "source": "@/admin/presentation/views/product-detail-view",
+        "external": null
+      },
+      {
+        "target": "@/app/admin/products/[id]/page",
+        "source": "@/admin/presentation",
+        "external": null
+      },
+      {
+        "target": "@/admin/presentation",
+        "source": "@/admin/presentation/views",
+        "external": null
+      },
+      {
+        "target": "@/app/admin/products/creation/page",
+        "source": "@/admin/presentation",
+        "external": null
+      },
+      {
+        "target": "@/app/admin/products/page",
+        "source": "@/admin/presentation",
         "external": null
       }
     ]
@@ -1690,22 +1844,22 @@
         "value": 1
       },
       {
-        "id": "root/client",
-        "name": "client",
+        "id": "root/ecommerce",
+        "name": "ecommerce",
         "value": 1
       },
       {
-        "id": "root/client/presentation",
+        "id": "root/ecommerce/presentation",
         "name": "presentation",
         "value": 1
       },
       {
-        "id": "root/client/presentation/contexts",
+        "id": "root/ecommerce/presentation/contexts",
         "name": "contexts",
         "value": 1
       },
       {
-        "id": "root/client/presentation/contexts/ecommerce-application-context",
+        "id": "root/ecommerce/presentation/contexts/ecommerce-application-context",
         "name": "ecommerce-application-context",
         "value": 1
       },
@@ -1772,6 +1926,41 @@
       {
         "id": "root/admin/presentation",
         "name": "presentation",
+        "value": 1
+      },
+      {
+        "id": "root/app/admin",
+        "name": "admin",
+        "value": 1
+      },
+      {
+        "id": "root/app/admin/products",
+        "name": "products",
+        "value": 1
+      },
+      {
+        "id": "root/app/admin/products/[id]",
+        "name": "[id]",
+        "value": 1
+      },
+      {
+        "id": "root/app/admin/products/[id]/page",
+        "name": "page",
+        "value": 1
+      },
+      {
+        "id": "root/app/admin/products/creation",
+        "name": "creation",
+        "value": 1
+      },
+      {
+        "id": "root/app/admin/products/creation/page",
+        "name": "page",
+        "value": 1
+      },
+      {
+        "id": "root/app/admin/products/page",
+        "name": "page",
         "value": 1
       },
       {
@@ -1932,11 +2121,6 @@
       {
         "id": "root/core/presentation/components/dom/auto-sizer",
         "name": "auto-sizer",
-        "value": 1
-      },
-      {
-        "id": "root/ecommerce",
-        "name": "ecommerce",
         "value": 1
       },
       {
@@ -2155,12 +2339,22 @@
         "value": 1
       },
       {
-        "id": "root/client/presentation/pages",
+        "id": "root/shop",
+        "name": "shop",
+        "value": 1
+      },
+      {
+        "id": "root/shop/presentation",
+        "name": "presentation",
+        "value": 1
+      },
+      {
+        "id": "root/shop/presentation/pages",
         "name": "pages",
         "value": 1
       },
       {
-        "id": "root/client/presentation/pages/product-creation-page",
+        "id": "root/shop/presentation/pages/product-creation-page",
         "name": "product-creation-page",
         "value": 1
       },
@@ -2180,52 +2374,52 @@
         "value": 1
       },
       {
-        "id": "root/client/presentation/hooks",
+        "id": "root/ecommerce/presentation/hooks",
         "name": "hooks",
         "value": 1
       },
       {
-        "id": "root/client/presentation/hooks/use-create-product",
-        "name": "use-create-product",
-        "value": 1
-      },
-      {
-        "id": "root/client/presentation/components",
-        "name": "components",
-        "value": 1
-      },
-      {
-        "id": "root/client/presentation/components/products",
-        "name": "products",
-        "value": 1
-      },
-      {
-        "id": "root/client/presentation/components/products/product-creation-form",
-        "name": "product-creation-form",
-        "value": 1
-      },
-      {
-        "id": "root/client/presentation/pages/product-page",
-        "name": "product-page",
-        "value": 1
-      },
-      {
-        "id": "root/client/presentation/hooks/use-get-product",
+        "id": "root/ecommerce/presentation/hooks/use-get-product",
         "name": "use-get-product",
         "value": 1
       },
       {
-        "id": "root/client/presentation/hooks/use-get-products",
+        "id": "root/ecommerce/presentation/hooks/use-get-products",
         "name": "use-get-products",
         "value": 1
       },
       {
-        "id": "root/client/presentation/components/products/product-detail",
+        "id": "root/ecommerce/presentation/hooks/use-create-product",
+        "name": "use-create-product",
+        "value": 1
+      },
+      {
+        "id": "root/shop/presentation/components",
+        "name": "components",
+        "value": 1
+      },
+      {
+        "id": "root/shop/presentation/components/products",
+        "name": "products",
+        "value": 1
+      },
+      {
+        "id": "root/shop/presentation/components/products/product-creation-form",
+        "name": "product-creation-form",
+        "value": 1
+      },
+      {
+        "id": "root/shop/presentation/pages/product-page",
+        "name": "product-page",
+        "value": 1
+      },
+      {
+        "id": "root/shop/presentation/components/products/product-detail",
         "name": "product-detail",
         "value": 1
       },
       {
-        "id": "root/client/presentation/components/products/product-card",
+        "id": "root/shop/presentation/components/products/product-card",
         "name": "product-card",
         "value": 1
       },
@@ -2235,22 +2429,22 @@
         "value": 1
       },
       {
-        "id": "root/client/presentation/pages/products-page",
+        "id": "root/shop/presentation/pages/products-page",
         "name": "products-page",
         "value": 1
       },
       {
-        "id": "root/client/presentation/components/products/products-grid",
+        "id": "root/shop/presentation/components/products/products-grid",
         "name": "products-grid",
         "value": 1
       },
       {
-        "id": "root/client/presentation/components/architecture-graph",
+        "id": "root/shop/presentation/components/architecture-graph",
         "name": "architecture-graph",
         "value": 1
       },
       {
-        "id": "root/client/presentation/components/architecture-graph/architecture-graph",
+        "id": "root/shop/presentation/components/architecture-graph/architecture-graph",
         "name": "architecture-graph",
         "value": 1
       },
@@ -2298,7 +2492,7 @@
     "links": [
       {
         "source": "root",
-        "target": "root/client"
+        "target": "root/ecommerce"
       },
       {
         "source": "root",
@@ -2318,35 +2512,39 @@
       },
       {
         "source": "root",
-        "target": "root/ecommerce"
+        "target": "root/shop"
       },
       {
         "source": "root",
         "target": "root/"
       },
       {
-        "source": "root/client",
-        "target": "root/client/presentation"
+        "source": "root/ecommerce",
+        "target": "root/ecommerce/presentation"
       },
       {
-        "source": "root/client/presentation",
-        "target": "root/client/presentation/contexts"
+        "source": "root/ecommerce",
+        "target": "root/ecommerce/application"
       },
       {
-        "source": "root/client/presentation",
-        "target": "root/client/presentation/pages"
+        "source": "root/ecommerce",
+        "target": "root/ecommerce/domain"
       },
       {
-        "source": "root/client/presentation",
-        "target": "root/client/presentation/hooks"
+        "source": "root/ecommerce",
+        "target": "root/ecommerce/infrastructure"
       },
       {
-        "source": "root/client/presentation",
-        "target": "root/client/presentation/components"
+        "source": "root/ecommerce/presentation",
+        "target": "root/ecommerce/presentation/contexts"
       },
       {
-        "source": "root/client/presentation/contexts",
-        "target": "root/client/presentation/contexts/ecommerce-application-context"
+        "source": "root/ecommerce/presentation",
+        "target": "root/ecommerce/presentation/hooks"
+      },
+      {
+        "source": "root/ecommerce/presentation/contexts",
+        "target": "root/ecommerce/presentation/contexts/ecommerce-application-context"
       },
       {
         "source": "root/server",
@@ -2385,6 +2583,10 @@
         "target": "root/app/products"
       },
       {
+        "source": "root/app",
+        "target": "root/app/admin"
+      },
+      {
         "source": "root/app/products",
         "target": "root/app/products/page"
       },
@@ -2411,6 +2613,30 @@
       {
         "source": "root/admin/presentation",
         "target": "root/admin/presentation/views"
+      },
+      {
+        "source": "root/app/admin",
+        "target": "root/app/admin/products"
+      },
+      {
+        "source": "root/app/admin/products",
+        "target": "root/app/admin/products/[id]"
+      },
+      {
+        "source": "root/app/admin/products",
+        "target": "root/app/admin/products/creation"
+      },
+      {
+        "source": "root/app/admin/products",
+        "target": "root/app/admin/products/page"
+      },
+      {
+        "source": "root/app/admin/products/[id]",
+        "target": "root/app/admin/products/[id]/page"
+      },
+      {
+        "source": "root/app/admin/products/creation",
+        "target": "root/app/admin/products/creation/page"
       },
       {
         "source": "root/core",
@@ -2529,18 +2755,6 @@
         "target": "root/core/presentation/components/dom/auto-sizer"
       },
       {
-        "source": "root/ecommerce",
-        "target": "root/ecommerce/application"
-      },
-      {
-        "source": "root/ecommerce",
-        "target": "root/ecommerce/domain"
-      },
-      {
-        "source": "root/ecommerce",
-        "target": "root/ecommerce/infrastructure"
-      },
-      {
         "source": "root/ecommerce/application",
         "target": "root/ecommerce/application/use-cases"
       },
@@ -2657,16 +2871,28 @@
         "target": "root/server/infrastructure/repositories/products-mock-repository"
       },
       {
-        "source": "root/client/presentation/pages",
-        "target": "root/client/presentation/pages/product-creation-page"
+        "source": "root/shop",
+        "target": "root/shop/presentation"
       },
       {
-        "source": "root/client/presentation/pages",
-        "target": "root/client/presentation/pages/product-page"
+        "source": "root/shop/presentation",
+        "target": "root/shop/presentation/pages"
       },
       {
-        "source": "root/client/presentation/pages",
-        "target": "root/client/presentation/pages/products-page"
+        "source": "root/shop/presentation",
+        "target": "root/shop/presentation/components"
+      },
+      {
+        "source": "root/shop/presentation/pages",
+        "target": "root/shop/presentation/pages/product-creation-page"
+      },
+      {
+        "source": "root/shop/presentation/pages",
+        "target": "root/shop/presentation/pages/product-page"
+      },
+      {
+        "source": "root/shop/presentation/pages",
+        "target": "root/shop/presentation/pages/products-page"
       },
       {
         "source": "next",
@@ -2681,44 +2907,44 @@
         "target": "next/image"
       },
       {
-        "source": "root/client/presentation/hooks",
-        "target": "root/client/presentation/hooks/use-create-product"
+        "source": "root/ecommerce/presentation/hooks",
+        "target": "root/ecommerce/presentation/hooks/use-get-product"
       },
       {
-        "source": "root/client/presentation/hooks",
-        "target": "root/client/presentation/hooks/use-get-product"
+        "source": "root/ecommerce/presentation/hooks",
+        "target": "root/ecommerce/presentation/hooks/use-get-products"
       },
       {
-        "source": "root/client/presentation/hooks",
-        "target": "root/client/presentation/hooks/use-get-products"
+        "source": "root/ecommerce/presentation/hooks",
+        "target": "root/ecommerce/presentation/hooks/use-create-product"
       },
       {
-        "source": "root/client/presentation/components",
-        "target": "root/client/presentation/components/products"
+        "source": "root/shop/presentation/components",
+        "target": "root/shop/presentation/components/products"
       },
       {
-        "source": "root/client/presentation/components",
-        "target": "root/client/presentation/components/architecture-graph"
+        "source": "root/shop/presentation/components",
+        "target": "root/shop/presentation/components/architecture-graph"
       },
       {
-        "source": "root/client/presentation/components/products",
-        "target": "root/client/presentation/components/products/product-creation-form"
+        "source": "root/shop/presentation/components/products",
+        "target": "root/shop/presentation/components/products/product-creation-form"
       },
       {
-        "source": "root/client/presentation/components/products",
-        "target": "root/client/presentation/components/products/product-detail"
+        "source": "root/shop/presentation/components/products",
+        "target": "root/shop/presentation/components/products/product-detail"
       },
       {
-        "source": "root/client/presentation/components/products",
-        "target": "root/client/presentation/components/products/product-card"
+        "source": "root/shop/presentation/components/products",
+        "target": "root/shop/presentation/components/products/product-card"
       },
       {
-        "source": "root/client/presentation/components/products",
-        "target": "root/client/presentation/components/products/products-grid"
+        "source": "root/shop/presentation/components/products",
+        "target": "root/shop/presentation/components/products/products-grid"
       },
       {
-        "source": "root/client/presentation/components/architecture-graph",
-        "target": "root/client/presentation/components/architecture-graph/architecture-graph"
+        "source": "root/shop/presentation/components/architecture-graph",
+        "target": "root/shop/presentation/components/architecture-graph/architecture-graph"
       },
       {
         "source": "root/admin/presentation/views",
@@ -2737,8 +2963,8 @@
   "imports": {
     "nodes": [
       {
-        "id": "@/client/presentation/contexts/ecommerce-application-context",
-        "filename": "./src/client/presentation/contexts/ecommerce-application-context.tsx",
+        "id": "@/ecommerce/presentation/contexts/ecommerce-application-context",
+        "filename": "./src/ecommerce/presentation/contexts/ecommerce-application-context.tsx",
         "name": "ecommerce/presentation/EcommerceApplicationContext",
         "module": "ecommerce",
         "layer": "presentation",
@@ -2783,6 +3009,30 @@
         "module": "admin",
         "layer": "presentation",
         "type": "other"
+      },
+      {
+        "id": "@/app/admin/products/[id]/page",
+        "filename": "./src/app/admin/products/[id]/page.tsx",
+        "name": "app/presentation/Page",
+        "module": "app",
+        "layer": "presentation",
+        "type": "page"
+      },
+      {
+        "id": "@/app/admin/products/creation/page",
+        "filename": "./src/app/admin/products/creation/page.tsx",
+        "name": "app/presentation/Page",
+        "module": "app",
+        "layer": "presentation",
+        "type": "page"
+      },
+      {
+        "id": "@/app/admin/products/page",
+        "filename": "./src/app/admin/products/page.tsx",
+        "name": "app/presentation/Page",
+        "module": "app",
+        "layer": "presentation",
+        "type": "page"
       },
       {
         "id": "@/core/presentation",
@@ -3211,32 +3461,32 @@
       {
         "id": "@/server/application",
         "filename": "@/server/application",
-        "name": "server/application/Application",
-        "module": "server",
+        "name": "app/application/Application",
+        "module": "app",
         "layer": "application",
         "type": "application"
       },
       {
         "id": "@/server/application/use-cases/create-product",
         "filename": "@/server/application/use-cases/create-product",
-        "name": "server/application/CreateProduct",
-        "module": "server",
+        "name": "app/application/CreateProduct",
+        "module": "app",
         "layer": "application",
         "type": "use-case"
       },
       {
         "id": "@/server/application/use-cases/get-products",
         "filename": "@/server/application/use-cases/get-products",
-        "name": "server/application/GetProducts",
-        "module": "server",
+        "name": "app/application/GetProducts",
+        "module": "app",
         "layer": "application",
         "type": "use-case"
       },
       {
         "id": "@/server/application/use-cases/get-product",
         "filename": "@/server/application/use-cases/get-product",
-        "name": "server/application/GetProduct",
-        "module": "server",
+        "name": "app/application/GetProduct",
+        "module": "app",
         "layer": "application",
         "type": "use-case"
       },
@@ -3281,26 +3531,26 @@
         "type": "repository"
       },
       {
-        "id": "@/client/presentation",
-        "filename": "@/client/presentation",
-        "name": "client/presentation/Presentation",
-        "module": "client",
+        "id": "@/shop/presentation",
+        "filename": "@/shop/presentation",
+        "name": "shop/presentation/Presentation",
+        "module": "shop",
         "layer": "presentation",
         "type": "other"
       },
       {
-        "id": "@/client/presentation/pages",
-        "filename": "@/client/presentation/pages",
-        "name": "client/presentation/Pages",
-        "module": "client",
+        "id": "@/shop/presentation/pages",
+        "filename": "@/shop/presentation/pages",
+        "name": "shop/presentation/Pages",
+        "module": "shop",
         "layer": "presentation",
         "type": "page"
       },
       {
-        "id": "@/client/presentation/pages/product-creation-page",
-        "filename": "@/client/presentation/pages/product-creation-page",
-        "name": "client/presentation/ProductCreationPage",
-        "module": "client",
+        "id": "@/shop/presentation/pages/product-creation-page",
+        "filename": "@/shop/presentation/pages/product-creation-page",
+        "name": "shop/presentation/ProductCreationPage",
+        "module": "shop",
         "layer": "presentation",
         "type": "page"
       },
@@ -3321,66 +3571,82 @@
         "type": "other"
       },
       {
-        "id": "@/client/presentation/hooks/use-create-product",
-        "filename": "@/client/presentation/hooks/use-create-product",
-        "name": "client/presentation/UseCreateProduct",
-        "module": "client",
+        "id": "@/ecommerce/presentation",
+        "filename": "@/ecommerce/presentation",
+        "name": "ecommerce/presentation/Presentation",
+        "module": "ecommerce",
         "layer": "presentation",
         "type": "other"
       },
       {
-        "id": "@/client/presentation/components/products/product-creation-form",
-        "filename": "@/client/presentation/components/products/product-creation-form",
-        "name": "client/presentation/ProductCreationForm",
-        "module": "client",
+        "id": "@/ecommerce/presentation/hooks",
+        "filename": "@/ecommerce/presentation/hooks",
+        "name": "ecommerce/presentation/Hooks",
+        "module": "ecommerce",
+        "layer": "presentation",
+        "type": "other"
+      },
+      {
+        "id": "@/ecommerce/presentation/hooks/use-get-product",
+        "filename": "@/ecommerce/presentation/hooks/use-get-product",
+        "name": "ecommerce/presentation/UseGetProduct",
+        "module": "ecommerce",
+        "layer": "presentation",
+        "type": "other"
+      },
+      {
+        "id": "@/ecommerce/presentation/hooks/use-get-products",
+        "filename": "@/ecommerce/presentation/hooks/use-get-products",
+        "name": "ecommerce/presentation/UseGetProducts",
+        "module": "ecommerce",
+        "layer": "presentation",
+        "type": "other"
+      },
+      {
+        "id": "@/ecommerce/presentation/contexts",
+        "filename": "@/ecommerce/presentation/contexts",
+        "name": "ecommerce/presentation/Contexts",
+        "module": "ecommerce",
+        "layer": "presentation",
+        "type": "other"
+      },
+      {
+        "id": "@/ecommerce/presentation/hooks/use-create-product",
+        "filename": "@/ecommerce/presentation/hooks/use-create-product",
+        "name": "ecommerce/presentation/UseCreateProduct",
+        "module": "ecommerce",
+        "layer": "presentation",
+        "type": "other"
+      },
+      {
+        "id": "@/shop/presentation/components/products/product-creation-form",
+        "filename": "@/shop/presentation/components/products/product-creation-form",
+        "name": "shop/presentation/ProductCreationForm",
+        "module": "shop",
         "layer": "presentation",
         "type": "component"
       },
       {
-        "id": "@/client/presentation/pages/product-page",
-        "filename": "@/client/presentation/pages/product-page",
-        "name": "client/presentation/ProductPage",
-        "module": "client",
+        "id": "@/shop/presentation/pages/product-page",
+        "filename": "@/shop/presentation/pages/product-page",
+        "name": "shop/presentation/ProductPage",
+        "module": "shop",
         "layer": "presentation",
         "type": "page"
       },
       {
-        "id": "@/client/presentation/hooks",
-        "filename": "@/client/presentation/hooks",
-        "name": "client/presentation/Hooks",
-        "module": "client",
-        "layer": "presentation",
-        "type": "other"
-      },
-      {
-        "id": "@/client/presentation/hooks/use-get-product",
-        "filename": "@/client/presentation/hooks/use-get-product",
-        "name": "client/presentation/UseGetProduct",
-        "module": "client",
-        "layer": "presentation",
-        "type": "other"
-      },
-      {
-        "id": "@/client/presentation/hooks/use-get-products",
-        "filename": "@/client/presentation/hooks/use-get-products",
-        "name": "client/presentation/UseGetProducts",
-        "module": "client",
-        "layer": "presentation",
-        "type": "other"
-      },
-      {
-        "id": "@/client/presentation/components/products/product-detail",
-        "filename": "@/client/presentation/components/products/product-detail",
-        "name": "client/presentation/ProductDetail",
-        "module": "client",
+        "id": "@/shop/presentation/components/products/product-detail",
+        "filename": "@/shop/presentation/components/products/product-detail",
+        "name": "shop/presentation/ProductDetail",
+        "module": "shop",
         "layer": "presentation",
         "type": "component"
       },
       {
-        "id": "@/client/presentation/components/products/product-card",
-        "filename": "@/client/presentation/components/products/product-card",
-        "name": "client/presentation/ProductCard",
-        "module": "client",
+        "id": "@/shop/presentation/components/products/product-card",
+        "filename": "@/shop/presentation/components/products/product-card",
+        "name": "shop/presentation/ProductCard",
+        "module": "shop",
         "layer": "presentation",
         "type": "component"
       },
@@ -3393,26 +3659,26 @@
         "type": "other"
       },
       {
-        "id": "@/client/presentation/pages/products-page",
-        "filename": "@/client/presentation/pages/products-page",
-        "name": "client/presentation/ProductsPage",
-        "module": "client",
+        "id": "@/shop/presentation/pages/products-page",
+        "filename": "@/shop/presentation/pages/products-page",
+        "name": "shop/presentation/ProductsPage",
+        "module": "shop",
         "layer": "presentation",
         "type": "page"
       },
       {
-        "id": "@/client/presentation/components/products/products-grid",
-        "filename": "@/client/presentation/components/products/products-grid",
-        "name": "client/presentation/ProductsGrid",
-        "module": "client",
+        "id": "@/shop/presentation/components/products/products-grid",
+        "filename": "@/shop/presentation/components/products/products-grid",
+        "name": "shop/presentation/ProductsGrid",
+        "module": "shop",
         "layer": "presentation",
         "type": "component"
       },
       {
-        "id": "@/client/presentation/components/architecture-graph/architecture-graph",
-        "filename": "@/client/presentation/components/architecture-graph/architecture-graph",
-        "name": "client/presentation/ArchitectureGraph",
-        "module": "client",
+        "id": "@/shop/presentation/components/architecture-graph/architecture-graph",
+        "filename": "@/shop/presentation/components/architecture-graph/architecture-graph",
+        "name": "shop/presentation/ArchitectureGraph",
+        "module": "shop",
         "layer": "presentation",
         "type": "component"
       },
@@ -3483,7 +3749,7 @@
     ],
     "links": [
       {
-        "target": "@/client/presentation/contexts/ecommerce-application-context",
+        "target": "@/ecommerce/presentation/contexts/ecommerce-application-context",
         "source": "@/core/presentation",
         "external": null
       },
@@ -3495,7 +3761,9 @@
       {
         "target": "@/core/presentation/hooks/use-use-case",
         "source": "@tanstack/react-query",
-        "external": ["external"]
+        "external": [
+          "external"
+        ]
       },
       {
         "target": "@/core/presentation/hooks/use-use-case",
@@ -3535,12 +3803,16 @@
       {
         "target": "@/core/presentation/contexts/application-context",
         "source": "react",
-        "external": ["external"]
+        "external": [
+          "external"
+        ]
       },
       {
         "target": "@/core/presentation/contexts/application-context",
         "source": "@tanstack/react-query",
-        "external": ["external"]
+        "external": [
+          "external"
+        ]
       },
       {
         "target": "@/core/presentation/contexts/application-context",
@@ -3580,12 +3852,16 @@
       {
         "target": "@/core/presentation/components/forms/form/form",
         "source": "lodash",
-        "external": ["external"]
+        "external": [
+          "external"
+        ]
       },
       {
         "target": "@/core/presentation/components/forms/form/form",
         "source": "react",
-        "external": ["external"]
+        "external": [
+          "external"
+        ]
       },
       {
         "target": "@/core/presentation/components/forms",
@@ -3635,7 +3911,9 @@
       {
         "target": "@/core/presentation/components/forms/fields/base-field",
         "source": "react",
-        "external": ["external"]
+        "external": [
+          "external"
+        ]
       },
       {
         "target": "@/core/presentation/components/forms/fields/base-field",
@@ -3655,10 +3933,12 @@
       {
         "target": "@/core/presentation/components/dom/auto-sizer",
         "source": "react",
-        "external": ["external"]
+        "external": [
+          "external"
+        ]
       },
       {
-        "target": "@/client/presentation/contexts/ecommerce-application-context",
+        "target": "@/ecommerce/presentation/contexts/ecommerce-application-context",
         "source": "@/ecommerce/application",
         "external": null
       },
@@ -3810,7 +4090,9 @@
       {
         "target": "@/core/infrastructure/graphql/client",
         "source": "graphql-request",
-        "external": ["external"]
+        "external": [
+          "external"
+        ]
       },
       {
         "target": "@/core/infrastructure/repositories/graphql-repository",
@@ -3890,7 +4172,9 @@
       {
         "target": "@/ecommerce/infrastructure/graphql/schema",
         "source": "graphql-tag",
-        "external": ["external"]
+        "external": [
+          "external"
+        ]
       },
       {
         "target": "@/server/infrastructure/graphql/server",
@@ -3965,7 +4249,9 @@
       {
         "target": "@/server/infrastructure/graphql/types",
         "source": "graphql",
-        "external": ["external"]
+        "external": [
+          "external"
+        ]
       },
       {
         "target": "@/server/infrastructure/graphql/resolvers",
@@ -3994,242 +4280,276 @@
       },
       {
         "target": "@/app/products/page",
-        "source": "@/client/presentation",
+        "source": "@/shop/presentation",
         "external": null
       },
       {
-        "target": "@/client/presentation",
-        "source": "@/client/presentation/pages",
+        "target": "@/shop/presentation",
+        "source": "@/shop/presentation/pages",
         "external": null
       },
       {
-        "target": "@/client/presentation/pages",
-        "source": "@/client/presentation/pages/product-creation-page",
+        "target": "@/shop/presentation/pages",
+        "source": "@/shop/presentation/pages/product-creation-page",
         "external": null
       },
       {
-        "target": "@/client/presentation/pages/product-creation-page",
+        "target": "@/shop/presentation/pages/product-creation-page",
         "source": "next/link",
-        "external": ["external"]
+        "external": [
+          "external"
+        ]
       },
       {
-        "target": "@/client/presentation/pages/product-creation-page",
+        "target": "@/shop/presentation/pages/product-creation-page",
         "source": "next/navigation",
-        "external": ["external"]
+        "external": [
+          "external"
+        ]
       },
       {
-        "target": "@/client/presentation/pages/product-creation-page",
+        "target": "@/shop/presentation/pages/product-creation-page",
         "source": "@/core/presentation",
         "external": null
       },
       {
-        "target": "@/client/presentation/pages/product-creation-page",
-        "source": "@/client/presentation/hooks/use-create-product",
+        "target": "@/shop/presentation/pages/product-creation-page",
+        "source": "@/ecommerce/presentation",
         "external": null
       },
       {
-        "target": "@/client/presentation/hooks/use-create-product",
+        "target": "@/ecommerce/presentation",
+        "source": "@/ecommerce/presentation/hooks",
+        "external": null
+      },
+      {
+        "target": "@/ecommerce/presentation/hooks",
+        "source": "@/ecommerce/presentation/hooks/use-get-product",
+        "external": null
+      },
+      {
+        "target": "@/ecommerce/presentation/hooks/use-get-product",
         "source": "@/core/presentation",
         "external": null
       },
       {
-        "target": "@/client/presentation/hooks/use-create-product",
+        "target": "@/ecommerce/presentation/hooks/use-get-product",
         "source": "@/ecommerce/application",
         "external": null
       },
       {
-        "target": "@/client/presentation/hooks/use-create-product",
-        "source": "@/client/presentation/contexts/ecommerce-application-context",
+        "target": "@/ecommerce/presentation/hooks/use-get-product",
+        "source": "@/ecommerce/presentation/contexts/ecommerce-application-context",
         "external": null
       },
       {
-        "target": "@/client/presentation/pages/product-creation-page",
-        "source": "@/client/presentation/components/products/product-creation-form",
+        "target": "@/ecommerce/presentation/hooks",
+        "source": "@/ecommerce/presentation/hooks/use-get-products",
         "external": null
       },
       {
-        "target": "@/client/presentation/components/products/product-creation-form",
+        "target": "@/ecommerce/presentation/hooks/use-get-products",
+        "source": "@/core/presentation",
+        "external": null
+      },
+      {
+        "target": "@/ecommerce/presentation/hooks/use-get-products",
+        "source": "@/ecommerce/application",
+        "external": null
+      },
+      {
+        "target": "@/ecommerce/presentation/hooks/use-get-products",
+        "source": "@/ecommerce/presentation/contexts",
+        "external": null
+      },
+      {
+        "target": "@/ecommerce/presentation/contexts",
+        "source": "@/ecommerce/presentation/contexts/ecommerce-application-context",
+        "external": null
+      },
+      {
+        "target": "@/ecommerce/presentation/hooks",
+        "source": "@/ecommerce/presentation/hooks/use-create-product",
+        "external": null
+      },
+      {
+        "target": "@/ecommerce/presentation/hooks/use-create-product",
+        "source": "@/core/presentation",
+        "external": null
+      },
+      {
+        "target": "@/ecommerce/presentation/hooks/use-create-product",
+        "source": "@/ecommerce/application",
+        "external": null
+      },
+      {
+        "target": "@/ecommerce/presentation/hooks/use-create-product",
+        "source": "@/ecommerce/presentation/contexts",
+        "external": null
+      },
+      {
+        "target": "@/ecommerce/presentation",
+        "source": "@/ecommerce/presentation/contexts",
+        "external": null
+      },
+      {
+        "target": "@/shop/presentation/pages/product-creation-page",
+        "source": "@/shop/presentation/components/products/product-creation-form",
+        "external": null
+      },
+      {
+        "target": "@/shop/presentation/components/products/product-creation-form",
         "source": "@/ecommerce/domain",
         "external": null
       },
       {
-        "target": "@/client/presentation/components/products/product-creation-form",
+        "target": "@/shop/presentation/components/products/product-creation-form",
         "source": "@/core/presentation",
         "external": null
       },
       {
-        "target": "@/client/presentation/components/products/product-creation-form",
+        "target": "@/shop/presentation/components/products/product-creation-form",
         "source": "@/ecommerce/application",
         "external": null
       },
       {
-        "target": "@/client/presentation/pages",
-        "source": "@/client/presentation/pages/product-page",
+        "target": "@/shop/presentation/pages",
+        "source": "@/shop/presentation/pages/product-page",
         "external": null
       },
       {
-        "target": "@/client/presentation/pages/product-page",
+        "target": "@/shop/presentation/pages/product-page",
         "source": "next/navigation",
-        "external": ["external"]
+        "external": [
+          "external"
+        ]
       },
       {
-        "target": "@/client/presentation/pages/product-page",
+        "target": "@/shop/presentation/pages/product-page",
         "source": "next/link",
-        "external": ["external"]
+        "external": [
+          "external"
+        ]
       },
       {
-        "target": "@/client/presentation/pages/product-page",
-        "source": "@/client/presentation/hooks",
+        "target": "@/shop/presentation/pages/product-page",
+        "source": "@/ecommerce/presentation",
         "external": null
       },
       {
-        "target": "@/client/presentation/hooks",
-        "source": "@/client/presentation/hooks/use-get-product",
+        "target": "@/shop/presentation/pages/product-page",
+        "source": "@/shop/presentation/components/products/product-detail",
         "external": null
       },
       {
-        "target": "@/client/presentation/hooks/use-get-product",
-        "source": "@/core/presentation",
-        "external": null
-      },
-      {
-        "target": "@/client/presentation/hooks/use-get-product",
-        "source": "@/ecommerce/application",
-        "external": null
-      },
-      {
-        "target": "@/client/presentation/hooks/use-get-product",
-        "source": "@/client/presentation/contexts/ecommerce-application-context",
-        "external": null
-      },
-      {
-        "target": "@/client/presentation/hooks",
-        "source": "@/client/presentation/hooks/use-get-products",
-        "external": null
-      },
-      {
-        "target": "@/client/presentation/hooks/use-get-products",
-        "source": "@/ecommerce/application",
-        "external": null
-      },
-      {
-        "target": "@/client/presentation/hooks/use-get-products",
-        "source": "@/core/presentation",
-        "external": null
-      },
-      {
-        "target": "@/client/presentation/hooks/use-get-products",
-        "source": "@/client/presentation/contexts/ecommerce-application-context",
-        "external": null
-      },
-      {
-        "target": "@/client/presentation/hooks",
-        "source": "@/client/presentation/hooks/use-create-product",
-        "external": null
-      },
-      {
-        "target": "@/client/presentation/pages/product-page",
-        "source": "@/client/presentation/components/products/product-detail",
-        "external": null
-      },
-      {
-        "target": "@/client/presentation/components/products/product-detail",
+        "target": "@/shop/presentation/components/products/product-detail",
         "source": "@/ecommerce/domain",
         "external": null
       },
       {
-        "target": "@/client/presentation/components/products/product-detail",
-        "source": "@/client/presentation/components/products/product-card",
+        "target": "@/shop/presentation/components/products/product-detail",
+        "source": "@/shop/presentation/components/products/product-card",
         "external": null
       },
       {
-        "target": "@/client/presentation/components/products/product-card",
+        "target": "@/shop/presentation/components/products/product-card",
         "source": "next/link",
-        "external": ["external"]
+        "external": [
+          "external"
+        ]
       },
       {
-        "target": "@/client/presentation/components/products/product-card",
+        "target": "@/shop/presentation/components/products/product-card",
         "source": "@/ecommerce/domain",
         "external": null
       },
       {
-        "target": "@/client/presentation/components/products/product-card",
+        "target": "@/shop/presentation/components/products/product-card",
         "source": "next/image",
-        "external": ["external"]
+        "external": [
+          "external"
+        ]
       },
       {
-        "target": "@/client/presentation/pages",
-        "source": "@/client/presentation/pages/products-page",
+        "target": "@/shop/presentation/pages",
+        "source": "@/shop/presentation/pages/products-page",
         "external": null
       },
       {
-        "target": "@/client/presentation/pages/products-page",
+        "target": "@/shop/presentation/pages/products-page",
         "source": "next/link",
-        "external": ["external"]
+        "external": [
+          "external"
+        ]
       },
       {
-        "target": "@/client/presentation/pages/products-page",
-        "source": "@/client/presentation/hooks",
+        "target": "@/shop/presentation/pages/products-page",
+        "source": "@/ecommerce/presentation",
         "external": null
       },
       {
-        "target": "@/client/presentation/pages/products-page",
-        "source": "@/client/presentation/components/products/product-card",
+        "target": "@/shop/presentation/pages/products-page",
+        "source": "@/shop/presentation/components/products/product-card",
         "external": null
       },
       {
-        "target": "@/client/presentation/pages/products-page",
-        "source": "@/client/presentation/components/products/products-grid",
+        "target": "@/shop/presentation/pages/products-page",
+        "source": "@/shop/presentation/components/products/products-grid",
         "external": null
       },
       {
-        "target": "@/client/presentation/components/products/products-grid",
+        "target": "@/shop/presentation/components/products/products-grid",
         "source": "@/ecommerce/domain",
         "external": null
       },
       {
-        "target": "@/client/presentation",
-        "source": "@/client/presentation/contexts/ecommerce-application-context",
+        "target": "@/shop/presentation",
+        "source": "@/shop/presentation/components/architecture-graph/architecture-graph",
         "external": null
       },
       {
-        "target": "@/client/presentation",
-        "source": "@/client/presentation/components/architecture-graph/architecture-graph",
-        "external": null
-      },
-      {
-        "target": "@/client/presentation/components/architecture-graph/architecture-graph",
+        "target": "@/shop/presentation/components/architecture-graph/architecture-graph",
         "source": "react",
-        "external": ["external"]
+        "external": [
+          "external"
+        ]
       },
       {
-        "target": "@/client/presentation/components/architecture-graph/architecture-graph",
+        "target": "@/shop/presentation/components/architecture-graph/architecture-graph",
         "source": "force-graph",
-        "external": ["external"]
+        "external": [
+          "external"
+        ]
       },
       {
-        "target": "@/client/presentation/components/architecture-graph/architecture-graph",
+        "target": "@/shop/presentation/components/architecture-graph/architecture-graph",
         "source": "classnames",
-        "external": ["external"]
+        "external": [
+          "external"
+        ]
       },
       {
-        "target": "@/client/presentation/components/architecture-graph/architecture-graph",
+        "target": "@/shop/presentation/components/architecture-graph/architecture-graph",
         "source": "3d-force-graph",
-        "external": ["external"]
+        "external": [
+          "external"
+        ]
       },
       {
-        "target": "@/client/presentation/components/architecture-graph/architecture-graph",
+        "target": "@/shop/presentation/components/architecture-graph/architecture-graph",
         "source": "@/",
-        "external": ["external"]
+        "external": [
+          "external"
+        ]
       },
       {
         "target": "@/app/products/create/page",
-        "source": "@/client/presentation",
+        "source": "@/shop/presentation",
         "external": null
       },
       {
         "target": "@/app/products/[product-id]/page",
-        "source": "@/client/presentation",
+        "source": "@/shop/presentation",
         "external": null
       },
       {
@@ -4243,6 +4563,35 @@
         "external": null
       },
       {
+        "target": "@/admin/presentation/views/product-creation-view",
+        "source": "next/link",
+        "external": [
+          "external"
+        ]
+      },
+      {
+        "target": "@/admin/presentation/views/product-creation-view",
+        "source": "next/navigation",
+        "external": [
+          "external"
+        ]
+      },
+      {
+        "target": "@/admin/presentation/views/product-creation-view",
+        "source": "@/core/presentation",
+        "external": null
+      },
+      {
+        "target": "@/admin/presentation/views/product-creation-view",
+        "source": "@/ecommerce/presentation",
+        "external": null
+      },
+      {
+        "target": "@/admin/presentation/views/product-creation-view",
+        "source": "@/shop/presentation/components/products/product-creation-form",
+        "external": null
+      },
+      {
         "target": "@/admin/presentation/views",
         "source": "@/admin/presentation/views/products-list-view",
         "external": null
@@ -4250,6 +4599,21 @@
       {
         "target": "@/admin/presentation/views",
         "source": "@/admin/presentation/views/product-detail-view",
+        "external": null
+      },
+      {
+        "target": "@/app/admin/products/[id]/page",
+        "source": "@/admin/presentation",
+        "external": null
+      },
+      {
+        "target": "@/app/admin/products/creation/page",
+        "source": "@/admin/presentation",
+        "external": null
+      },
+      {
+        "target": "@/app/admin/products/page",
+        "source": "@/admin/presentation",
         "external": null
       }
     ]
@@ -4287,8 +4651,8 @@
         "value": null
       },
       {
-        "id": "client",
-        "name": "client",
+        "id": "shop",
+        "name": "shop",
         "value": null
       }
     ],
@@ -4327,6 +4691,18 @@
       },
       {
         "target": "server",
+        "source": "app"
+      },
+      {
+        "target": "app",
+        "source": "ecommerce"
+      },
+      {
+        "target": "app",
+        "source": "app"
+      },
+      {
+        "target": "server",
         "source": "server"
       },
       {
@@ -4335,26 +4711,46 @@
       },
       {
         "target": "app",
-        "source": "client"
+        "source": "shop"
       },
       {
-        "target": "client",
-        "source": "client"
+        "target": "shop",
+        "source": "shop"
       },
       {
-        "target": "client",
+        "target": "shop",
         "source": "external"
       },
       {
-        "target": "client",
+        "target": "shop",
         "source": "core"
       },
       {
-        "target": "client",
+        "target": "shop",
         "source": "ecommerce"
       },
       {
         "target": "admin",
+        "source": "admin"
+      },
+      {
+        "target": "admin",
+        "source": "external"
+      },
+      {
+        "target": "admin",
+        "source": "core"
+      },
+      {
+        "target": "admin",
+        "source": "ecommerce"
+      },
+      {
+        "target": "admin",
+        "source": "shop"
+      },
+      {
+        "target": "app",
         "source": "admin"
       }
     ]
@@ -4533,17 +4929,17 @@
         "value": null
       },
       {
-        "id": "server/application",
-        "name": "server/application",
+        "id": "app/application",
+        "name": "app/application",
         "layer": "application",
-        "module": "server",
+        "module": "app",
         "value": null
       },
       {
-        "id": "client/presentation",
-        "name": "client/presentation",
+        "id": "shop/presentation",
+        "name": "shop/presentation",
         "layer": "presentation",
-        "module": "client",
+        "module": "shop",
         "value": null
       }
     ],
@@ -4634,18 +5030,18 @@
       },
       {
         "target": "server/infrastructure",
-        "source": "server/application"
+        "source": "app/application"
       },
       {
-        "target": "server/application",
+        "target": "app/application",
         "source": "ecommerce/application"
       },
       {
-        "target": "server/application",
-        "source": "server/application"
+        "target": "app/application",
+        "source": "app/application"
       },
       {
-        "target": "server/application",
+        "target": "app/application",
         "source": "ecommerce/domain"
       },
       {
@@ -4658,34 +5054,58 @@
       },
       {
         "target": "app/presentation",
-        "source": "client/presentation"
+        "source": "shop/presentation"
       },
       {
-        "target": "client/presentation",
-        "source": "client/presentation"
+        "target": "shop/presentation",
+        "source": "shop/presentation"
       },
       {
-        "target": "client/presentation",
+        "target": "shop/presentation",
         "source": "external/external"
       },
       {
-        "target": "client/presentation",
+        "target": "shop/presentation",
         "source": "core/presentation"
       },
       {
-        "target": "client/presentation",
-        "source": "ecommerce/application"
-      },
-      {
-        "target": "client/presentation",
+        "target": "shop/presentation",
         "source": "ecommerce/presentation"
       },
       {
-        "target": "client/presentation",
+        "target": "ecommerce/presentation",
+        "source": "ecommerce/presentation"
+      },
+      {
+        "target": "shop/presentation",
         "source": "ecommerce/domain"
       },
       {
+        "target": "shop/presentation",
+        "source": "ecommerce/application"
+      },
+      {
         "target": "admin/presentation",
+        "source": "admin/presentation"
+      },
+      {
+        "target": "admin/presentation",
+        "source": "external/external"
+      },
+      {
+        "target": "admin/presentation",
+        "source": "core/presentation"
+      },
+      {
+        "target": "admin/presentation",
+        "source": "ecommerce/presentation"
+      },
+      {
+        "target": "admin/presentation",
+        "source": "shop/presentation"
+      },
+      {
+        "target": "app/presentation",
         "source": "admin/presentation"
       }
     ]

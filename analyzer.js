@@ -6,12 +6,15 @@ const ts = require('typescript')
 const config = require('./tsconfig.json')
 
 const entries = [
-  './src/client/presentation/contexts/ecommerce-application-context.tsx',
+  './src/ecommerce/presentation/contexts/ecommerce-application-context.tsx',
   './src/server/infrastructure/graphql/server.ts',
   './src/app/products/page.tsx',
   './src/app/products/create/page.tsx',
   './src/app/products/[product-id]/page.tsx',
   './src/admin/presentation/index.ts',
+  './src/app/admin/products/[id]/page.tsx',
+  './src/app/admin/products/creation/page.tsx',
+  './src/app/admin/products/page.tsx',
 ]
 
 const idToLayer = (id) => {
@@ -25,10 +28,10 @@ const idToLayer = (id) => {
 const idToModule = (id) => {
   if (id.match('core')) return 'core'
   if (id.match('ecommerce')) return 'ecommerce'
+  if (id.match('app')) return 'app'
   if (id.match('admin')) return 'admin'
   if (id.match('server')) return 'server'
-  if (id.match('client')) return 'client'
-  if (id.match('app')) return 'app'
+  if (id.match('shop')) return 'shop'
   return 'external'
 }
 

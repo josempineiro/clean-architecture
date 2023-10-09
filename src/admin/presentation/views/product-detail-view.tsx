@@ -1,3 +1,3 @@
-export function ProductDetailView() {
+export function AdminProductDetailView() {
   return <div>ProductDetailView</div>
 }
