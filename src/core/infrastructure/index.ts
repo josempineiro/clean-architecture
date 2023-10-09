@@ -1,1 +1,5 @@
 export * from '@/core/infrastructure/repositories'
+export * from '@/core/infrastructure/graphql/server'
+export * from '@/core/infrastructure/graphql/client'
+export * from '@/core/infrastructure/graphql/mapper'
+export * from '@/core/infrastructure/graphql/repository'

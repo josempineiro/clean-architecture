@@ -1,5 +1,3 @@
-
-
 export interface CheckboxOption<OptionValue> {
   label: string
   value: OptionValue

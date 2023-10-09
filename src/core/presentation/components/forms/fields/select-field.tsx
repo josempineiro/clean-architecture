@@ -1,5 +1,3 @@
-
-
 export interface SelectOption<OptionValue> {
   label: string
   value: OptionValue

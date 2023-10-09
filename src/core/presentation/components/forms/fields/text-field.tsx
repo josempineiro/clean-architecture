@@ -1,4 +1,5 @@
-import InputField, { InputFieldProps } from '@/core/presentation/components/forms/fields/input-field'
+import { InputField, InputFieldProps } from '@/core/presentation/components/forms/fields/input-field'
+
 export interface TextFieldProps extends Omit<InputFieldProps, 'onChange'> {
   label?: string
   value?: string
@@ -13,8 +14,8 @@ export function TextField({
 }: TextFieldProps) {
   return (
     <InputField
-    value={value}
-      onChange={(event) => {
+      value={value}
+      onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
         onChange(event.target.value, event)
       }}
       {...rest}

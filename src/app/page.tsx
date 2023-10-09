@@ -1,6 +1,6 @@
 'use client'
-import ArchitectureGraph from '@/client/presentation/components/architecture-graph/architecture-graph'
-import { AutoSizer } from '@/core/presentation/components/dom/auto-sizer'
+import { ArchitectureGraph } from '@/client/presentation'
+import { AutoSizer } from '@/core/presentation'
 import Image from 'next/image'
 
 

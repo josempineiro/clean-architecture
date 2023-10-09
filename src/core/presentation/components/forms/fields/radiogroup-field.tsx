@@ -1,5 +1,3 @@
-
-
 export interface RadioGroupOption<OptionValue> {
   label: string
   value: OptionValue

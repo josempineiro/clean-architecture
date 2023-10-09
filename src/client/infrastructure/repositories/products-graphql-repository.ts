@@ -1,8 +1,9 @@
 
-import { GraphqlRepository } from '@/core/infrastructure/graphql/repository'
-import { getSdk, Product as ProductType, CreateProductInput } from '@/client/infrastructure/graphql/types'
 import { Product as ProductDomain, Products } from '@/ecommerce/domain'
+import { GraphqlRepository } from '@/core/infrastructure'
+import { getSdk, Product as ProductType, CreateProductInput } from '@/client/infrastructure/graphql/types'
 import { ProductGraphQLMapper } from '@/client/infrastructure/mappers/product-graphql-mapper';
+
 export class ProductsGraphqlRepository extends GraphqlRepository<ProductType, ProductDomain, CreateProductInput>  {
   constructor(uri: string) {
     super(uri, new ProductGraphQLMapper())

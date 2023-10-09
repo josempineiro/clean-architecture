@@ -34,7 +34,7 @@ const client = new QueryClient({
   },
 })
 
-function ApplicationContextProvider<TApplication extends Application> ({
+export function ApplicationContextProvider<TApplication extends Application> ({
   children,
   application,
 }: ApplicationContextProviderProps<TApplication>) {
@@ -44,5 +44,3 @@ function ApplicationContextProvider<TApplication extends Application> ({
   </ApplicationContext.Provider>
   </QueryClientProvider>
 };
-
-export default ApplicationContextProvider;

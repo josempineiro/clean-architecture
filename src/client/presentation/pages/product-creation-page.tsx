@@ -1,7 +1,7 @@
 'use client';
 import Link from "next/link";
 import { useRouter } from 'next/navigation'
-import { Button } from '@/core/presentation/components/actions/button';
+import { Button } from '@/core/presentation';
 import { useCreateProduct } from "@/client/presentation/hooks/use-create-product";
 import { ProductCreationForm } from '@/client/presentation/components/products/product-creation-form';
 
@@ -34,5 +34,3 @@ export function ProductCreationPage() {
     </>
   )
 }
-
-export default ProductCreationPage

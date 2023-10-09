@@ -19,16 +19,16 @@ const entries = [
 const idToLayer = (id) => {
   if (id.match('/domain')) return 'domain'
   if (id.match('/infrastructure')) return 'infrastructure'
-  if (id.match('/application')) return 'application'
   if (id.match('/presentation') || id.match('@/app')) return 'presentation'
+  if (id.match('/application')) return 'application'
   return 'external'
 }
 
 
 const idToModule = (id) => {
-  if (id.match('admin')) return 'admin'
-  if (id.match('ecommerce')) return 'ecommerce'
   if (id.match('core')) return 'core'
+  if (id.match('ecommerce')) return 'ecommerce'
+  if (id.match('admin')) return 'admin'
   if (id.match('server')) return 'server'
   if (id.match('client')) return 'client'
   if (id.match('app')) return 'app'
@@ -117,10 +117,14 @@ function getImports(fileName, name) {
                 getImports(moduleName.replace('@/', './src/') + '.tsx', moduleName);
               } catch (e) {
                 try {
-                  getImports(moduleName.replace('@/', './src/') + '/index.ts', moduleName);
+                  getImports(moduleName.replace('@/', './src/') + '.jsx', moduleName);
                 } catch (e) {
-                  console.log('NOT FOUND', moduleName)
-                  getImports(moduleName.replace('@/', './src/'), moduleName);
+                  try {
+                    getImports(moduleName.replace('@/', './src/') + '/index.ts', moduleName);
+                  } catch (e) {
+                    console.log('NOT FOUND', moduleName)
+                    getImports(moduleName.replace('@/', './src/'), moduleName);
+                  }
                 }
               }
             }

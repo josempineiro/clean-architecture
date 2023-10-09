@@ -1,5 +1,4 @@
-import {  useState } from "react";
-import { Form, Field, RadioGroupField, SelectField, CheckboxesField, FormProps } from "@/core/presentation/components/forms";
+import { Form, BaseField, RadioGroupField, SelectField, CheckboxesField, FormProps } from "@/core/presentation";
 
 export interface GraphSettings {
   vision: '2d' | '3d'
@@ -59,18 +58,18 @@ const palette = [{
 const GraphSettingsForm = ({ onChange, values}: FormProps<GraphSettings>) => {
   return (
     <Form<GraphSettings> values={values} onChange={onChange} onSubmit={() => {}} className={"flex gap-4"}>
-      <Field<string> field="groupBy" label="Group">
+      <BaseField<string> field="groupBy" label="Group">
         <SelectField options={groups} />
-      </Field>
-      <Field<string> field="vision" label="Vision">
+      </BaseField>
+      <BaseField<string> field="vision" label="Vision">
         <SelectField options={visions} />
-      </Field>
-      <Field<Record<string, boolean>> field="options" label="Options">
+      </BaseField>
+      <BaseField<Record<string, boolean>> field="options" label="Options">
         <CheckboxesField options={options} />
-      </Field>
-      <Field<Record<string, boolean>> field="palette" label="Palette">
+      </BaseField>
+      <BaseField<Record<string, boolean>> field="palette" label="Palette">
         <RadioGroupField options={palette} />
-      </Field>
+      </BaseField>
     </Form>
   )
 };

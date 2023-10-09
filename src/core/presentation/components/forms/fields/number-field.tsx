@@ -1,4 +1,5 @@
-import InputField, { InputFieldProps } from '@/core/presentation/components/forms/fields/input-field'
+import { InputField, InputFieldProps } from '@/core/presentation/components/forms/fields/input-field'
+
 export interface NumberFieldProps extends Omit<InputFieldProps, 'onChange'> {
   label?: string
   value?: number

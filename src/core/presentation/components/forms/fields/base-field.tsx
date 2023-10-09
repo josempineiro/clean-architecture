@@ -2,7 +2,7 @@
 import React from 'react'
 import { useForm } from '@/core/presentation/components/forms/form'
 
-export function Field<TField>({
+export function BaseField<TField>({
   field,
   label,
   children,
@@ -27,5 +27,3 @@ export function Field<TField>({
     </div>
   )
 }
-
-export default Field

@@ -9,16 +9,18 @@ const colors = {
   layers: {
     domain: '#ef4444',
     application: '#fde047',
-    infrastructure: '#60a5fa',
-    presentation: '#65a30d',
+    presentation: '#60a5fa',
+    infrastructure: '#65a30d',
+    external: '#9ca3af',
   },
   modules: {
-    client: '#3178c6',
-    ecommerce: '#65a30d',
-    server: '#f6069e',
     core: '#f1dd35',
+    ecommerce: '#65a30d',
+    client: '#3178c6',
+    server: '#f6069e',
     app: '#61DBFB',
     admin: '#4f46e5',
+    external: '#9ca3af',
   }
 }
 
@@ -31,6 +33,9 @@ const colorByModule = (module) => {
 }
 
 const getModuleColorFromNodeId = (id) => {
+  if (id.match(/core/)) {
+    return colors.modules.core
+  }
   if (id.match(/client/)) {
     return colors.modules.client
   }
@@ -40,30 +45,30 @@ const getModuleColorFromNodeId = (id) => {
   if (id.match(/ecommerce/)) {
     return colors.modules.ecommerce
   }
-  if (id.match(/server/)) {
-    return colors.modules.server
-  }
-  if (id.match(/core/)) {
-    return colors.modules.core
+  if (id.match(/external/)) {
+    return colors.modules.external
   }
   if (id.match(/app/)) {
     return colors.modules.app
+  }
+  if (id.match(/server/)) {
+    return colors.modules.server
   }
   return 'white'
 }
 
 const getLayerColorFromNodeId = (id) => {
-  if (id.match(/domain/)) {
-    return '#ef4444'
-  }
-  if (id.match(/application/)) {
-    return '#fde047'
-  }
   if (id.match(/infrastructure/)) {
-    return '#60a5fa'
+    return colors.layers.infrastructure
   }
   if (id.match(/presentation/)) {
-    return '#65a30d'
+    return colors.layers.presentation
+  }
+  if (id.match(/domain/)) {
+    return colors.layers.domain
+  }
+  if (id.match(/application/)) {
+    return colors.layers.application
   }
   return 'white'
 }
@@ -169,7 +174,7 @@ useEffect(() => {
           return getModuleColorFromNodeId(node.id)
         }
       })
-        .nodeLabel(node => `${node.name}${node.external?' (external)':''}`)
+        .nodeLabel(node => node.name)
         .nodeVal(node => 4)
         .backgroundColor('#00000000')
         .linkColor((link) =>{
@@ -219,7 +224,7 @@ useEffect(() => {
         .linkDirectionalParticleSpeed=(d => 0.001)
         
     }
-  }, [groupBy, palette, showInternalLinks, vision]);
+  }, [groupBy, height, palette, showInternalLinks, vision, width]);
   return (
     <div className="relative w-full h-full">
       <div ref={ref} className={cn('graph')}></div>
@@ -236,5 +241,3 @@ useEffect(() => {
     </div>
   ) 
 };
-
-export default ArchitectureGraph

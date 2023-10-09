@@ -1,4 +1,4 @@
-import { useUseCaseQuery, UseCaseOptions } from '@/core/presentation/hooks/use-use-case';
+import { useUseCaseQuery, UseCaseOptions } from '@/core/presentation';
 import { GetProductVariables, GetProductResult } from '@/ecommerce/application';
 import { useEcommerceApplication } from "@/client/presentation/contexts/ecommerce-application-context"
 

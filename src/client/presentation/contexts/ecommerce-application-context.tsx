@@ -1,18 +1,19 @@
-import ApplicationContextProvider, { useApplicationContext } from '@/core/infrastructure/contexts/application-context'
+import { ApplicationContextProvider, useApplicationContext } from '@/core/presentation'
 import { EcommerceApplication } from '@/ecommerce/application';
-import { clientEcommerceApplication } from '@/client/infrastructure/graphql/application';
 
 export function useEcommerceApplication() {
   return useApplicationContext<EcommerceApplication>()
 }
 
-export default function EcommerceApplicationProvider({
-  children
+export function EcommerceApplicationProvider({
+  children,
+  application
 }: {
   children: React.ReactNode
+  application: EcommerceApplication
 }) {
   return (
-    <ApplicationContextProvider<EcommerceApplication> application={clientEcommerceApplication}>
+    <ApplicationContextProvider<EcommerceApplication> application={application}>
       {children}
     </ApplicationContextProvider>
   )
