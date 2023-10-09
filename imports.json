@@ -80,6 +80,11 @@
       "next/image",
       "@/client/presentation/pages/products-page",
       "@/client/presentation/components/products/products-grid",
+      "@/client/presentation/components/architecture-graph/architecture-graph",
+      "force-graph",
+      "classnames",
+      "3d-force-graph",
+      "@/../imports.json",
       "@/admin/presentation/views",
       "@/admin/presentation/views/product-creation-view",
       "@/admin/presentation/views/products-list-view",
@@ -767,6 +772,46 @@
         "type": "component"
       },
       {
+        "id": "@/client/presentation/components/architecture-graph/architecture-graph",
+        "filename": "@/client/presentation/components/architecture-graph/architecture-graph",
+        "name": "ArchitectureGraph",
+        "module": "client",
+        "layer": "presentation",
+        "type": "component"
+      },
+      {
+        "id": "force-graph",
+        "filename": "force-graph",
+        "name": "ForceGraph",
+        "module": "external",
+        "layer": "external",
+        "type": "other"
+      },
+      {
+        "id": "classnames",
+        "filename": "classnames",
+        "name": "Classnames",
+        "module": "external",
+        "layer": "external",
+        "type": "other"
+      },
+      {
+        "id": "3d-force-graph",
+        "filename": "3d-force-graph",
+        "name": "3DForceGraph",
+        "module": "external",
+        "layer": "external",
+        "type": "other"
+      },
+      {
+        "id": "@/",
+        "filename": "@/../imports.json",
+        "name": "",
+        "module": "external",
+        "layer": "external",
+        "type": "other"
+      },
+      {
         "id": "@/admin/presentation/views",
         "filename": "@/admin/presentation/views",
         "name": "Views",
@@ -813,9 +858,7 @@
       {
         "target": "@/core/presentation/hooks/use-use-case",
         "source": "@tanstack/react-query",
-        "external": [
-          "external"
-        ]
+        "external": ["external"]
       },
       {
         "target": "@/core/presentation/hooks/use-use-case",
@@ -855,16 +898,12 @@
       {
         "target": "@/core/presentation/contexts/application-context",
         "source": "react",
-        "external": [
-          "external"
-        ]
+        "external": ["external"]
       },
       {
         "target": "@/core/presentation/contexts/application-context",
         "source": "@tanstack/react-query",
-        "external": [
-          "external"
-        ]
+        "external": ["external"]
       },
       {
         "target": "@/core/presentation/contexts/application-context",
@@ -909,16 +948,12 @@
       {
         "target": "@/core/presentation/components/forms/form/form",
         "source": "lodash",
-        "external": [
-          "external"
-        ]
+        "external": ["external"]
       },
       {
         "target": "@/core/presentation/components/forms/form/form",
         "source": "react",
-        "external": [
-          "external"
-        ]
+        "external": ["external"]
       },
       {
         "target": "@/core/presentation/components/forms",
@@ -968,9 +1003,7 @@
       {
         "target": "@/core/presentation/components/forms/fields/base-field",
         "source": "react",
-        "external": [
-          "external"
-        ]
+        "external": ["external"]
       },
       {
         "target": "@/core/presentation/components/forms/fields/base-field",
@@ -990,9 +1023,7 @@
       {
         "target": "@/core/presentation/components/dom/auto-sizer",
         "source": "react",
-        "external": [
-          "external"
-        ]
+        "external": ["external"]
       },
       {
         "target": "@/client/presentation/contexts/ecommerce-application-context",
@@ -1162,9 +1193,7 @@
       {
         "target": "@/core/infrastructure/graphql/client",
         "source": "graphql-request",
-        "external": [
-          "external"
-        ]
+        "external": ["external"]
       },
       {
         "target": "@/core/infrastructure/repositories/graphql-repository",
@@ -1244,9 +1273,7 @@
       {
         "target": "@/ecommerce/infrastructure/graphql/schema",
         "source": "graphql-tag",
-        "external": [
-          "external"
-        ]
+        "external": ["external"]
       },
       {
         "target": "@/server/infrastructure/graphql/server",
@@ -1351,9 +1378,7 @@
       {
         "target": "@/server/infrastructure/graphql/types",
         "source": "graphql",
-        "external": [
-          "external"
-        ]
+        "external": ["external"]
       },
       {
         "target": "@/server/infrastructure/graphql/resolvers",
@@ -1398,16 +1423,12 @@
       {
         "target": "@/client/presentation/pages/product-creation-page",
         "source": "next/link",
-        "external": [
-          "external"
-        ]
+        "external": ["external"]
       },
       {
         "target": "@/client/presentation/pages/product-creation-page",
         "source": "next/navigation",
-        "external": [
-          "external"
-        ]
+        "external": ["external"]
       },
       {
         "target": "@/client/presentation/pages/product-creation-page",
@@ -1477,16 +1498,12 @@
       {
         "target": "@/client/presentation/pages/product-page",
         "source": "next/navigation",
-        "external": [
-          "external"
-        ]
+        "external": ["external"]
       },
       {
         "target": "@/client/presentation/pages/product-page",
         "source": "next/link",
-        "external": [
-          "external"
-        ]
+        "external": ["external"]
       },
       {
         "target": "@/client/presentation/pages/product-page",
@@ -1556,9 +1573,7 @@
       {
         "target": "@/client/presentation/components/products/product-card",
         "source": "next/link",
-        "external": [
-          "external"
-        ]
+        "external": ["external"]
       },
       {
         "target": "@/client/presentation/components/products/product-card",
@@ -1568,9 +1583,7 @@
       {
         "target": "@/client/presentation/components/products/product-card",
         "source": "next/image",
-        "external": [
-          "external"
-        ]
+        "external": ["external"]
       },
       {
         "target": "@/client/presentation/pages",
@@ -1580,9 +1593,7 @@
       {
         "target": "@/client/presentation/pages/products-page",
         "source": "next/link",
-        "external": [
-          "external"
-        ]
+        "external": ["external"]
       },
       {
         "target": "@/client/presentation/pages/products-page",
@@ -1608,6 +1619,36 @@
         "target": "@/client/presentation",
         "source": "@/client/presentation/contexts/ecommerce-application-context",
         "external": null
+      },
+      {
+        "target": "@/client/presentation",
+        "source": "@/client/presentation/components/architecture-graph/architecture-graph",
+        "external": null
+      },
+      {
+        "target": "@/client/presentation/components/architecture-graph/architecture-graph",
+        "source": "react",
+        "external": ["external"]
+      },
+      {
+        "target": "@/client/presentation/components/architecture-graph/architecture-graph",
+        "source": "force-graph",
+        "external": ["external"]
+      },
+      {
+        "target": "@/client/presentation/components/architecture-graph/architecture-graph",
+        "source": "classnames",
+        "external": ["external"]
+      },
+      {
+        "target": "@/client/presentation/components/architecture-graph/architecture-graph",
+        "source": "3d-force-graph",
+        "external": ["external"]
+      },
+      {
+        "target": "@/client/presentation/components/architecture-graph/architecture-graph",
+        "source": "@/",
+        "external": ["external"]
       },
       {
         "target": "@/app/products/create/page",
@@ -2204,6 +2245,36 @@
         "value": 1
       },
       {
+        "id": "root/client/presentation/components/architecture-graph",
+        "name": "architecture-graph",
+        "value": 1
+      },
+      {
+        "id": "root/client/presentation/components/architecture-graph/architecture-graph",
+        "name": "architecture-graph",
+        "value": 1
+      },
+      {
+        "id": "force-graph",
+        "name": "force-graph",
+        "value": 1
+      },
+      {
+        "id": "classnames",
+        "name": "classnames",
+        "value": 1
+      },
+      {
+        "id": "3d-force-graph",
+        "name": "3d-force-graph",
+        "value": 1
+      },
+      {
+        "id": "root/",
+        "name": "",
+        "value": 1
+      },
+      {
         "id": "root/admin/presentation/views",
         "name": "views",
         "value": 1
@@ -2248,6 +2319,10 @@
       {
         "source": "root",
         "target": "root/ecommerce"
+      },
+      {
+        "source": "root",
+        "target": "root/"
       },
       {
         "source": "root/client",
@@ -2622,6 +2697,10 @@
         "target": "root/client/presentation/components/products"
       },
       {
+        "source": "root/client/presentation/components",
+        "target": "root/client/presentation/components/architecture-graph"
+      },
+      {
         "source": "root/client/presentation/components/products",
         "target": "root/client/presentation/components/products/product-creation-form"
       },
@@ -2636,6 +2715,10 @@
       {
         "source": "root/client/presentation/components/products",
         "target": "root/client/presentation/components/products/products-grid"
+      },
+      {
+        "source": "root/client/presentation/components/architecture-graph",
+        "target": "root/client/presentation/components/architecture-graph/architecture-graph"
       },
       {
         "source": "root/admin/presentation/views",
@@ -3326,6 +3409,46 @@
         "type": "component"
       },
       {
+        "id": "@/client/presentation/components/architecture-graph/architecture-graph",
+        "filename": "@/client/presentation/components/architecture-graph/architecture-graph",
+        "name": "client/presentation/ArchitectureGraph",
+        "module": "client",
+        "layer": "presentation",
+        "type": "component"
+      },
+      {
+        "id": "force-graph",
+        "filename": "force-graph",
+        "name": "external/external/ForceGraph",
+        "module": "external",
+        "layer": "external",
+        "type": "other"
+      },
+      {
+        "id": "classnames",
+        "filename": "classnames",
+        "name": "external/external/Classnames",
+        "module": "external",
+        "layer": "external",
+        "type": "other"
+      },
+      {
+        "id": "3d-force-graph",
+        "filename": "3d-force-graph",
+        "name": "external/external/3DForceGraph",
+        "module": "external",
+        "layer": "external",
+        "type": "other"
+      },
+      {
+        "id": "@/",
+        "filename": "@/../imports.json",
+        "name": "external/external/",
+        "module": "external",
+        "layer": "external",
+        "type": "other"
+      },
+      {
         "id": "@/admin/presentation/views",
         "filename": "@/admin/presentation/views",
         "name": "admin/presentation/Views",
@@ -3372,9 +3495,7 @@
       {
         "target": "@/core/presentation/hooks/use-use-case",
         "source": "@tanstack/react-query",
-        "external": [
-          "external"
-        ]
+        "external": ["external"]
       },
       {
         "target": "@/core/presentation/hooks/use-use-case",
@@ -3414,16 +3535,12 @@
       {
         "target": "@/core/presentation/contexts/application-context",
         "source": "react",
-        "external": [
-          "external"
-        ]
+        "external": ["external"]
       },
       {
         "target": "@/core/presentation/contexts/application-context",
         "source": "@tanstack/react-query",
-        "external": [
-          "external"
-        ]
+        "external": ["external"]
       },
       {
         "target": "@/core/presentation/contexts/application-context",
@@ -3463,16 +3580,12 @@
       {
         "target": "@/core/presentation/components/forms/form/form",
         "source": "lodash",
-        "external": [
-          "external"
-        ]
+        "external": ["external"]
       },
       {
         "target": "@/core/presentation/components/forms/form/form",
         "source": "react",
-        "external": [
-          "external"
-        ]
+        "external": ["external"]
       },
       {
         "target": "@/core/presentation/components/forms",
@@ -3522,9 +3635,7 @@
       {
         "target": "@/core/presentation/components/forms/fields/base-field",
         "source": "react",
-        "external": [
-          "external"
-        ]
+        "external": ["external"]
       },
       {
         "target": "@/core/presentation/components/forms/fields/base-field",
@@ -3544,9 +3655,7 @@
       {
         "target": "@/core/presentation/components/dom/auto-sizer",
         "source": "react",
-        "external": [
-          "external"
-        ]
+        "external": ["external"]
       },
       {
         "target": "@/client/presentation/contexts/ecommerce-application-context",
@@ -3701,9 +3810,7 @@
       {
         "target": "@/core/infrastructure/graphql/client",
         "source": "graphql-request",
-        "external": [
-          "external"
-        ]
+        "external": ["external"]
       },
       {
         "target": "@/core/infrastructure/repositories/graphql-repository",
@@ -3783,9 +3890,7 @@
       {
         "target": "@/ecommerce/infrastructure/graphql/schema",
         "source": "graphql-tag",
-        "external": [
-          "external"
-        ]
+        "external": ["external"]
       },
       {
         "target": "@/server/infrastructure/graphql/server",
@@ -3860,9 +3965,7 @@
       {
         "target": "@/server/infrastructure/graphql/types",
         "source": "graphql",
-        "external": [
-          "external"
-        ]
+        "external": ["external"]
       },
       {
         "target": "@/server/infrastructure/graphql/resolvers",
@@ -3907,16 +4010,12 @@
       {
         "target": "@/client/presentation/pages/product-creation-page",
         "source": "next/link",
-        "external": [
-          "external"
-        ]
+        "external": ["external"]
       },
       {
         "target": "@/client/presentation/pages/product-creation-page",
         "source": "next/navigation",
-        "external": [
-          "external"
-        ]
+        "external": ["external"]
       },
       {
         "target": "@/client/presentation/pages/product-creation-page",
@@ -3971,16 +4070,12 @@
       {
         "target": "@/client/presentation/pages/product-page",
         "source": "next/navigation",
-        "external": [
-          "external"
-        ]
+        "external": ["external"]
       },
       {
         "target": "@/client/presentation/pages/product-page",
         "source": "next/link",
-        "external": [
-          "external"
-        ]
+        "external": ["external"]
       },
       {
         "target": "@/client/presentation/pages/product-page",
@@ -4050,9 +4145,7 @@
       {
         "target": "@/client/presentation/components/products/product-card",
         "source": "next/link",
-        "external": [
-          "external"
-        ]
+        "external": ["external"]
       },
       {
         "target": "@/client/presentation/components/products/product-card",
@@ -4062,9 +4155,7 @@
       {
         "target": "@/client/presentation/components/products/product-card",
         "source": "next/image",
-        "external": [
-          "external"
-        ]
+        "external": ["external"]
       },
       {
         "target": "@/client/presentation/pages",
@@ -4074,9 +4165,7 @@
       {
         "target": "@/client/presentation/pages/products-page",
         "source": "next/link",
-        "external": [
-          "external"
-        ]
+        "external": ["external"]
       },
       {
         "target": "@/client/presentation/pages/products-page",
@@ -4102,6 +4191,36 @@
         "target": "@/client/presentation",
         "source": "@/client/presentation/contexts/ecommerce-application-context",
         "external": null
+      },
+      {
+        "target": "@/client/presentation",
+        "source": "@/client/presentation/components/architecture-graph/architecture-graph",
+        "external": null
+      },
+      {
+        "target": "@/client/presentation/components/architecture-graph/architecture-graph",
+        "source": "react",
+        "external": ["external"]
+      },
+      {
+        "target": "@/client/presentation/components/architecture-graph/architecture-graph",
+        "source": "force-graph",
+        "external": ["external"]
+      },
+      {
+        "target": "@/client/presentation/components/architecture-graph/architecture-graph",
+        "source": "classnames",
+        "external": ["external"]
+      },
+      {
+        "target": "@/client/presentation/components/architecture-graph/architecture-graph",
+        "source": "3d-force-graph",
+        "external": ["external"]
+      },
+      {
+        "target": "@/client/presentation/components/architecture-graph/architecture-graph",
+        "source": "@/",
+        "external": ["external"]
       },
       {
         "target": "@/app/products/create/page",

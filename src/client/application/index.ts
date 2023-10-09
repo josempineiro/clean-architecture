@@ -15,7 +15,7 @@ export class ClientEcommerceApplication extends EcommerceApplication {
     super({
       getProducts: new GetProductsClientUseCase(dependencies),
       createProduct: new CreateProductClientUseCase(dependencies),
-      getProduct: new GetProductClientUseCase(dependencies)
+      getProduct: new GetProductClientUseCase(dependencies),
     })
   }
 }

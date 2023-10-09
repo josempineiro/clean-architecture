@@ -1,9 +1,8 @@
-import { Repository, Entity } from '@/core/domain';
+import { Repository, Entity } from '@/core/domain'
 
-export class DatastoreRepository<T extends Entity> implements Repository<T>  {
+export class DatastoreRepository<T extends Entity> implements Repository<T> {
   constructor(private key: string) {}
-  
-  
+
   public getEntities<T>(): T | undefined {
     const data = localStorage.getItem(this.key)
     if (data) {
@@ -11,12 +10,12 @@ export class DatastoreRepository<T extends Entity> implements Repository<T>  {
     }
     return undefined
   }
-  
+
   public setEntities<T>(data: T): T {
     localStorage.setItem(this.key, JSON.stringify(data))
     return data
   }
-  public create (entity: T)  {
+  public create(entity: T) {
     const entities = this.getEntities<Array<T>>() || []
     entities.push({
       ...entity,
@@ -26,33 +25,35 @@ export class DatastoreRepository<T extends Entity> implements Repository<T>  {
     return Promise.resolve(entity)
   }
 
-  public findById (id: string)  {
+  public findById(id: string) {
     const entities = this.getEntities<Array<T>>() || []
-    const entity = entities.find(entity => entity.id === id)
+    const entity = entities.find((entity) => entity.id === id)
     if (!entity) {
       throw `Entity not found`
     }
     return Promise.resolve(entity)
   }
 
-  public update (updated: T)   {
+  public update(updated: T) {
     const entities = this.getEntities<Array<T>>() || []
-    this.setEntities(entities.map(entity => {
-      if (entity.id === entity.id) {
-        return updated
-      }
-      return entity
-    }))
+    this.setEntities(
+      entities.map((entity) => {
+        if (entity.id === entity.id) {
+          return updated
+        }
+        return entity
+      }),
+    )
     return Promise.resolve(updated)
   }
 
-  public delete (id: string) {
+  public delete(id: string) {
     const entities = this.getEntities<Array<T>>() || []
-    const find = entities.find(entity => entity.id === id)
+    const find = entities.find((entity) => entity.id === id)
     if (!find) {
       throw 'Entity not found'
     }
-    this.setEntities(entities.filter(entity => entity.id !== id))
+    this.setEntities(entities.filter((entity) => entity.id !== id))
     return Promise.resolve()
   }
 

@@ -8,11 +8,14 @@ export type CreateProductVariables = {
 
 export type CreateProductResult = Product
 
-export abstract class CreateProductUseCase<CreateProductDependencies = any> implements UseCase<CreateProductVariables, CreateProductResult> {
+export abstract class CreateProductUseCase<CreateProductDependencies = any>
+  implements UseCase<CreateProductVariables, CreateProductResult>
+{
   public dependencies: CreateProductDependencies
-  constructor(dependencies: CreateProductDependencies
-  ) {
+  constructor(dependencies: CreateProductDependencies) {
     this.dependencies = dependencies
   }
-  abstract execute(product: CreateProductVariables): Promise<CreateProductResult>
+  abstract execute(
+    product: CreateProductVariables,
+  ): Promise<CreateProductResult>
 }

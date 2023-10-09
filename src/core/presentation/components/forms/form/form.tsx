@@ -1,31 +1,50 @@
-import _ from "lodash";
-import React, { useState } from "react";
+import _ from 'lodash'
+import React, { useState } from 'react'
 
 export interface FormValues {
   [key: string]: any
 }
 
-export interface FormProps<TFormValues extends FormValues> extends Omit<React.FormHTMLAttributes<HTMLFormElement>, 'onChange' | 'onSubmit'> {
+export interface FormProps<TFormValues extends FormValues>
+  extends Omit<
+    React.FormHTMLAttributes<HTMLFormElement>,
+    'onChange' | 'onSubmit'
+  > {
   values: TFormValues
-  onChange?: (values: TFormValues, event: React.ChangeEvent<HTMLFormElement>) => void
+  onChange?: (
+    values: TFormValues,
+    event: React.ChangeEvent<HTMLFormElement>,
+  ) => void
   onSubmit: (values: TFormValues, event: React.FormEvent) => void
 }
 
-export interface FormProviderProps<TFormValues extends FormValues> extends FormProps<TFormValues> {
+export interface FormProviderProps<TFormValues extends FormValues>
+  extends FormProps<TFormValues> {
   children: React.ReactNode
 }
 
 export interface FormContextValue<TFormValues extends FormValues> {
   values: TFormValues
-  onChange: (values: TFormValues, event: React.ChangeEvent<HTMLFormElement>) => void
-  onSubmit: (values: TFormValues, event: React.FormEvent) => void,
-  setFieldValue: <FieldValue>(field: string, value: FieldValue, event: React.ChangeEvent<HTMLFormElement>) => void,
-  getFieldValue: <FieldValue>(field: string) => FieldValue,
+  onChange: (
+    values: TFormValues,
+    event: React.ChangeEvent<HTMLFormElement>,
+  ) => void
+  onSubmit: (values: TFormValues, event: React.FormEvent) => void
+  setFieldValue: <FieldValue>(
+    field: string,
+    value: FieldValue,
+    event: React.ChangeEvent<HTMLFormElement>,
+  ) => void
+  getFieldValue: <FieldValue>(field: string) => FieldValue
 }
 
-export const FormContext = React.createContext<FormContextValue<any> | undefined>(undefined)
- 
-export function useForm<TFormValues extends FormValues>(): FormContextValue<TFormValues> {
+export const FormContext = React.createContext<
+  FormContextValue<any> | undefined
+>(undefined)
+
+export function useForm<
+  TFormValues extends FormValues,
+>(): FormContextValue<TFormValues> {
   const context = React.useContext(FormContext)
   if (context === undefined) {
     throw new Error('useForm must be used within a FormProvider')
@@ -41,8 +60,12 @@ export function Form<TFormValues extends FormValues>({
   ...rest
 }: FormProps<TFormValues>) {
   const [formValues, setTFormValues] = useState<TFormValues>(values)
-  function setFieldValue<FieldValue>(field: string, value: FieldValue, event: React.ChangeEvent<HTMLFormElement>) {
-    const newFormValue = _.set({... formValues}, field, value) as TFormValues
+  function setFieldValue<FieldValue>(
+    field: string,
+    value: FieldValue,
+    event: React.ChangeEvent<HTMLFormElement>,
+  ) {
+    const newFormValue = _.set({ ...formValues }, field, value) as TFormValues
     setTFormValues(newFormValue)
     onChange(newFormValue, event)
   }
@@ -55,13 +78,15 @@ export function Form<TFormValues extends FormValues>({
   }
 
   return (
-    <FormContext.Provider value={{
-      values: formValues,
-      onChange,
-      setFieldValue,
-      getFieldValue,
-      onSubmit,
-    }}>
+    <FormContext.Provider
+      value={{
+        values: formValues,
+        onChange,
+        setFieldValue,
+        getFieldValue,
+        onSubmit,
+      }}
+    >
       <form onSubmit={submit} {...rest}>
         {children}
       </form>

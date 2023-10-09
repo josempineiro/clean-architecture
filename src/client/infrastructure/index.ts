@@ -1,1 +1,1 @@
-export * from "@/client/infrastructure/repositories/products-graphql-repository"
+export * from '@/client/infrastructure/repositories/products-graphql-repository'

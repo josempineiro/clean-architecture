@@ -1,15 +1,11 @@
-import { Product } from "@/ecommerce/domain"
-import { ProductCard } from "@/client/presentation/components/products/product-card"
+import { Product } from '@/ecommerce/domain'
+import { ProductCard } from '@/client/presentation/components/products/product-card'
 export interface ProductDetailProps {
   product: Product
 }
 
-export function ProductDetail({
-  product
-}: ProductDetailProps) {
-  return (
-    <ProductCard product={product} />
-  )
+export function ProductDetail({ product }: ProductDetailProps) {
+  return <ProductCard product={product} />
 }
 
 export default ProductDetail

@@ -16,5 +16,5 @@ export const Products = {
       description: '',
       ...product,
     }
-  }
+  },
 }

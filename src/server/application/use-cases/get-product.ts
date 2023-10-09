@@ -1,6 +1,9 @@
 import { ProductsRepository } from '@/ecommerce/domain'
 import { GetProductUseCase } from '@/ecommerce/application'
-import type { GetProductVariables, GetProductResult } from '@/ecommerce/application'
+import type {
+  GetProductVariables,
+  GetProductResult,
+} from '@/ecommerce/application'
 
 export type GetProductServerUseCaseDependencies = {
   productsRepository: ProductsRepository

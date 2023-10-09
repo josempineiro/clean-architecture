@@ -1,10 +1,9 @@
-const path =require('path');
-const fs = require('fs');
-const _ = require('lodash');
-const { builtinModules } = require('module');
-const ts = require('typescript');
-const config =require('./tsconfig.json');
-
+const path = require('path')
+const fs = require('fs')
+const _ = require('lodash')
+const { builtinModules } = require('module')
+const ts = require('typescript')
+const config = require('./tsconfig.json')
 
 const entries = [
   './src/client/presentation/contexts/ecommerce-application-context.tsx',
@@ -15,7 +14,6 @@ const entries = [
   './src/admin/presentation/index.ts',
 ]
 
-
 const idToLayer = (id) => {
   if (id.match('/domain')) return 'domain'
   if (id.match('/infrastructure')) return 'infrastructure'
@@ -23,7 +21,6 @@ const idToLayer = (id) => {
   if (id.match('/application')) return 'application'
   return 'external'
 }
-
 
 const idToModule = (id) => {
   if (id.match('core')) return 'core'
@@ -34,7 +31,6 @@ const idToModule = (id) => {
   if (id.match('app')) return 'app'
   return 'external'
 }
-
 
 const idToType = (id) => {
   if (id.match('use-cases')) return 'use-case'
@@ -49,98 +45,106 @@ const idToType = (id) => {
 }
 
 const filenameToNode = (filename) => {
-  const id =  filename.replace('./src/', '@/').split('.')[0].replace(/\/index$/, '')
+  const id = filename
+    .replace('./src/', '@/')
+    .split('.')[0]
+    .replace(/\/index$/, '')
   return {
     id,
     filename: filename.replace(/\/index$/, ''),
-    name: _.upperFirst(_.camelCase(id.split('/').reverse()[0])).replace(/\/index$/, ''),
+    name: _.upperFirst(_.camelCase(id.split('/').reverse()[0])).replace(
+      /\/index$/,
+      '',
+    ),
     module: idToModule(id),
     layer: idToLayer(id),
     type: idToType(id),
   }
 }
 
-
 const links = []
 const nodes = entries.map(filenameToNode)
-const importing = [];
+const importing = []
 
-const tsHost = ts.createCompilerHost(
-  config,
-  true,
-);
+const tsHost = ts.createCompilerHost(config, true)
 
 function getImports(fileName, name) {
   console.log(`fileName: ${fileName}`)
 
-    const sourceFile = tsHost.getSourceFile(
-      fileName,
-      ts.ScriptTarget.Latest,
-      (msg) => {
-        console.log(msg);
-        throw new Error(`Failed to parse ${fileName}: ${msg}`);
-      },
-    );
-    if (!sourceFile) {
-      throw new Error(`Failed to parse ${fileName}`);
-    }
-    delintNode(sourceFile);
-    return importing;
+  const sourceFile = tsHost.getSourceFile(
+    fileName,
+    ts.ScriptTarget.Latest,
+    (msg) => {
+      console.log(msg)
+      throw new Error(`Failed to parse ${fileName}: ${msg}`)
+    },
+  )
+  if (!sourceFile) {
+    throw new Error(`Failed to parse ${fileName}`)
+  }
+  delintNode(sourceFile)
+  return importing
 
-    function delintNode(node) {
-      if (ts.isImportDeclaration(node) || ts.isExportDeclaration(node)) {
-        if (!node || !node.moduleSpecifier?.getText) {
-          return
-        }
-        const moduleName = node.moduleSpecifier.getText().replace(/['"]/g, '');
-        if (
-          !moduleName.startsWith('node:') &&
-          !builtinModules.includes(moduleName) &&
-          importing.indexOf(moduleName) === -1
-          ) {
-            importing.push(moduleName);
-          }
-          const moduleNode = filenameToNode(moduleName)
+  function delintNode(node) {
+    if (ts.isImportDeclaration(node) || ts.isExportDeclaration(node)) {
+      if (!node || !node.moduleSpecifier?.getText) {
+        return
+      }
+      const moduleName = node.moduleSpecifier.getText().replace(/['"]/g, '')
+      if (
+        !moduleName.startsWith('node:') &&
+        !builtinModules.includes(moduleName) &&
+        importing.indexOf(moduleName) === -1
+      ) {
+        importing.push(moduleName)
+      }
+      const moduleNode = filenameToNode(moduleName)
 
-          links.push({
-            target: name,
-            source: moduleNode.id,
-            external: moduleNode.module.match('external'),
-          });
-        if (!nodes.find((node) => node.filename === moduleName)) {
-          nodes.push(moduleNode)
-          if (moduleName.startsWith('@/')) {
+      links.push({
+        target: name,
+        source: moduleNode.id,
+        external: moduleNode.module.match('external'),
+      })
+      if (!nodes.find((node) => node.filename === moduleName)) {
+        nodes.push(moduleNode)
+        if (moduleName.startsWith('@/')) {
+          try {
+            getImports(moduleName.replace('@/', './src/') + '.ts', moduleName)
+          } catch (e) {
             try {
-              getImports(moduleName.replace('@/', './src/') + '.ts', moduleName);
+              getImports(
+                moduleName.replace('@/', './src/') + '.tsx',
+                moduleName,
+              )
             } catch (e) {
               try {
-                getImports(moduleName.replace('@/', './src/') + '.tsx', moduleName);
+                getImports(
+                  moduleName.replace('@/', './src/') + '.jsx',
+                  moduleName,
+                )
               } catch (e) {
                 try {
-                  getImports(moduleName.replace('@/', './src/') + '.jsx', moduleName);
+                  getImports(
+                    moduleName.replace('@/', './src/') + '/index.ts',
+                    moduleName,
+                  )
                 } catch (e) {
-                  try {
-                    getImports(moduleName.replace('@/', './src/') + '/index.ts', moduleName);
-                  } catch (e) {
-                    console.log('NOT FOUND', moduleName)
-                    getImports(moduleName.replace('@/', './src/'), moduleName);
-                  }
+                  console.log('NOT FOUND', moduleName)
+                  getImports(moduleName.replace('@/', './src/'), moduleName)
                 }
               }
             }
           }
-        } else {
-          return
         }
-
-        
       } else {
-        ts.forEachChild(node, delintNode)
-      };
+        return
+      }
+    } else {
+      ts.forEachChild(node, delintNode)
     }
+  }
 }
 try {
-
   nodes.forEach((node) => {
     getImports(node.filename, node.id)
   })
@@ -174,26 +178,29 @@ const linksByLayer = _.uniqBy(linksLayer, (link) => link.source + link.target)
 const linksModuleLayer = uniqLinks.map((link) => {
   const targetNode = getNodeByNodeId(link.target)
   const sourceNode = getNodeByNodeId(link.source)
-  return{
+  return {
     target: targetNode.module + '/' + targetNode.layer,
     source: sourceNode.module + '/' + sourceNode.layer,
   }
 })
 
-const linksByModuleLayer = _.uniqBy(linksModuleLayer, (link) => link.source + link.target)
+const linksByModuleLayer = _.uniqBy(
+  linksModuleLayer,
+  (link) => link.source + link.target,
+)
 
 const fileNodes = (function () {
-  const outputPaths = new Set();
+  const outputPaths = new Set()
 
   for (const inputPath of uniqNodes) {
-    const parts = inputPath.id.split('/');
+    const parts = inputPath.id.split('/')
 
     for (let i = 1; i <= parts.length; i++) {
-      const subPath = parts.slice(0, i).join('/');
+      const subPath = parts.slice(0, i).join('/')
       if (subPath === '@') {
-        outputPaths.add('root');
+        outputPaths.add('root')
       } else {
-        outputPaths.add(subPath.replace('@/', 'root/'));
+        outputPaths.add(subPath.replace('@/', 'root/'))
       }
     }
   }
@@ -202,83 +209,99 @@ const fileNodes = (function () {
     id: path,
     name: path.split('/').reverse()[0],
     value: 1,
-  }));
+  }))
 })()
 
 const getProperty = (property) => (node) => node[property]
 
-console.log(`modules: ${_.uniqBy(nodes, 'module').map(getProperty('module')).join(', ')}`)
-console.log(`layers: ${_.uniqBy(nodes, 'layer').map(getProperty('layer')).join(', ')}`)
-console.log(`types: ${_.uniqBy(nodes, 'type').map(getProperty('type')).join(', ')}`)
+console.log(
+  `modules: ${_.uniqBy(nodes, 'module').map(getProperty('module')).join(', ')}`,
+)
+console.log(
+  `layers: ${_.uniqBy(nodes, 'layer').map(getProperty('layer')).join(', ')}`,
+)
+console.log(
+  `types: ${_.uniqBy(nodes, 'type').map(getProperty('type')).join(', ')}`,
+)
 
 fs.writeFileSync(
   path.join(__dirname, 'imports.json'),
-  JSON.stringify({
-    base: {
-      importing,
-      nodes,
-      links,
-    },
-    files: {
-      nodes: fileNodes,
-      links: (function () {
-        const result = [];
+  JSON.stringify(
+    {
+      base: {
+        importing,
+        nodes,
+        links,
+      },
+      files: {
+        nodes: fileNodes,
+        links: (function () {
+          const result = []
 
-        for (let i = 0; i < fileNodes.length; i++) {
-          if (fileNodes[i].module === 'external') continue
-          const sourceParts = fileNodes[i].id.split('/');
-          
-          for (let j = i + 1; j < fileNodes.length; j++) {
-            const targetParts = fileNodes[j].id.split('/');
-            
-            if (
-              sourceParts.length < targetParts.length &&
-              targetParts.join('/').startsWith(sourceParts.join('/')) &&
-              sourceParts.length + 1 === targetParts.length
-            ) {
-              result.push({
-                source: fileNodes[i].id,
-                target: fileNodes[j].id
-              });
+          for (let i = 0; i < fileNodes.length; i++) {
+            if (fileNodes[i].module === 'external') continue
+            const sourceParts = fileNodes[i].id.split('/')
+
+            for (let j = i + 1; j < fileNodes.length; j++) {
+              const targetParts = fileNodes[j].id.split('/')
+
+              if (
+                sourceParts.length < targetParts.length &&
+                targetParts.join('/').startsWith(sourceParts.join('/')) &&
+                sourceParts.length + 1 === targetParts.length
+              ) {
+                result.push({
+                  source: fileNodes[i].id,
+                  target: fileNodes[j].id,
+                })
+              }
             }
           }
-        }
-        return result
-      })(),
+          return result
+        })(),
+      },
+      imports: {
+        nodes: uniqNodes.map((node) => ({
+          ...node,
+          name: node.module + '/' + node.layer + '/' + node.name,
+        })),
+        links: uniqLinks,
+      },
+      modules: {
+        nodes: Object.entries(_.groupBy(uniqNodes, 'module')).map(
+          ([module, nodes]) => ({
+            id: module,
+            name: module,
+            value: nodes.reduce((acc, node) => acc + node.value, 0),
+          }),
+        ),
+        links: linksByModule,
+      },
+      layers: {
+        nodes: Object.entries(_.groupBy(uniqNodes, 'layer')).map(
+          ([layer, nodes]) => ({
+            id: layer,
+            name: layer,
+            layer: layer,
+            value: nodes.reduce((acc, node) => acc + node.value, 0),
+          }),
+        ),
+        links: linksByLayer,
+      },
+      layersAndModules: {
+        nodes: Object.entries(
+          _.groupBy(uniqNodes, (node) => node.module + '/' + node.layer),
+        ).map(([moduleLayer, nodes]) => ({
+          id: moduleLayer,
+          name: moduleLayer,
+          layer: moduleLayer.split('/')[1],
+          module: moduleLayer.split('/')[0],
+          value: nodes.reduce((acc, node) => acc + node.value, 0),
+        })),
+        links: linksByModuleLayer,
+      },
     },
-    imports: {
-      nodes: uniqNodes.map((node) => ({
-        ...node,
-        name: node.module + '/' + node.layer + '/' + node.name,
-      })),
-      links: uniqLinks,
-    },
-    modules: {
-      nodes: Object.entries(_.groupBy(uniqNodes, 'module')).map(([module, nodes]) => ({
-        id: module,
-        name:  module,
-        value: nodes.reduce((acc, node) => acc + node.value, 0),
-      })),
-      links: linksByModule
-    },
-    layers: {
-      nodes: Object.entries(_.groupBy(uniqNodes, 'layer')).map(([layer, nodes]) => ({
-        id: layer,
-        name:  layer,
-        layer: layer,
-        value: nodes.reduce((acc, node) => acc + node.value, 0),
-      })),
-      links: linksByLayer
-    },
-    layersAndModules: {
-      nodes: Object.entries(_.groupBy(uniqNodes, (node) => node.module + '/' + node.layer)).map(([moduleLayer, nodes]) => ({
-        id: moduleLayer,
-        name:  moduleLayer,
-        layer: moduleLayer.split('/')[1],
-        module: moduleLayer.split('/')[0],
-        value: nodes.reduce((acc, node) => acc + node.value, 0),
-      })),
-      links: linksByModuleLayer
-    },
-  }, null, 2),
-);
+    null,
+    2,
+  ),
+)

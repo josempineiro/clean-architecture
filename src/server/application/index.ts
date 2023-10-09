@@ -13,8 +13,8 @@ export type ServerEcommerceApplicationDependencies = {
 }
 
 export type ServerEcommerceApplicationUseCases = {
-  getProducts: GetProductsServerUseCase,
-  createProduct: CreateProductServerUseCase,
+  getProducts: GetProductsServerUseCase
+  createProduct: CreateProductServerUseCase
   getProduct: GetProductServerUseCase
 }
 export class ServerEcommerceApplication extends EcommerceApplication {
@@ -22,7 +22,7 @@ export class ServerEcommerceApplication extends EcommerceApplication {
     super({
       getProducts: new GetProductsServerUseCase(dependencies),
       createProduct: new CreateProductServerUseCase(dependencies),
-      getProduct: new GetProductServerUseCase(dependencies)
+      getProduct: new GetProductServerUseCase(dependencies),
     })
   }
 }

@@ -1,10 +1,22 @@
-import { Product } from "@/ecommerce/domain";
-import { Form, BaseField, FormProps, NumberField, TextField } from "@/core/presentation";
-import { CreateProductVariables } from "@/ecommerce/application";
+import { Product } from '@/ecommerce/domain'
+import {
+  Form,
+  BaseField,
+  FormProps,
+  NumberField,
+  TextField,
+} from '@/core/presentation'
+import { CreateProductVariables } from '@/ecommerce/application'
 
-export const ProductCreationForm = ({ children, ...rest }: FormProps<CreateProductVariables>) => {
+export const ProductCreationForm = ({
+  children,
+  ...rest
+}: FormProps<CreateProductVariables>) => {
   return (
-    <Form<CreateProductVariables> {...rest} className={"flex flex-col gap-4 flex-1"}>
+    <Form<CreateProductVariables>
+      {...rest}
+      className={'flex flex-col gap-4 flex-1'}
+    >
       <div className="flex-1 flex justify-center flex-col gap-5">
         <BaseField<string> field="name" label="Name">
           <TextField />
@@ -16,6 +28,6 @@ export const ProductCreationForm = ({ children, ...rest }: FormProps<CreateProdu
       {children}
     </Form>
   )
-};
+}
 
 export default ProductCreationForm

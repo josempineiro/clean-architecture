@@ -1,4 +1,4 @@
-import { GraphQLClient as GraphQLRequestClient } from 'graphql-request';
+import { GraphQLClient as GraphQLRequestClient } from 'graphql-request'
 
 export class GraphQLClient extends GraphQLRequestClient {
   constructor(uri: string) {

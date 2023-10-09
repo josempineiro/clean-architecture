@@ -1,5 +1,8 @@
-import { ApplicationContextProvider, useApplicationContext } from '@/core/presentation'
-import { EcommerceApplication } from '@/ecommerce/application';
+import {
+  ApplicationContextProvider,
+  useApplicationContext,
+} from '@/core/presentation'
+import { EcommerceApplication } from '@/ecommerce/application'
 
 export function useEcommerceApplication() {
   return useApplicationContext<EcommerceApplication>()
@@ -7,7 +10,7 @@ export function useEcommerceApplication() {
 
 export function EcommerceApplicationProvider({
   children,
-  application
+  application,
 }: {
   children: React.ReactNode
   application: EcommerceApplication

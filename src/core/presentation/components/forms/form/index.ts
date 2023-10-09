@@ -1,1 +1,1 @@
-export * from '@/core/presentation/components/forms/form/form';
+export * from '@/core/presentation/components/forms/form/form'

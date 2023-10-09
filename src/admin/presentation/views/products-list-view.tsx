@@ -1,7 +1,3 @@
 export function ProductsListView() {
-  return (
-    <div>
-      ProductsListView
-    </div>
-  )
+  return <div>ProductsListView</div>
 }

@@ -1,4 +1,4 @@
-import { Product } from "@/ecommerce/domain"
+import { Product } from '@/ecommerce/domain'
 
 export interface RenderProductProps {
   product: Product
@@ -11,13 +11,12 @@ export interface ProductsGridProps {
   renderProduct: (props: RenderProductProps) => React.ReactNode
 }
 
-export function ProductsGrid({
-  products,
-  renderProduct
-}: ProductsGridProps) {
+export function ProductsGrid({ products, renderProduct }: ProductsGridProps) {
   return (
     <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-      {products.map((product, index, products) => renderProduct({ product, index, products }))}  
+      {products.map((product, index, products) =>
+        renderProduct({ product, index, products }),
+      )}
     </div>
   )
 }

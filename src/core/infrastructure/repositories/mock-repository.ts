@@ -1,6 +1,8 @@
-import { Repository, Entity } from '@/core/domain';
+import { Repository, Entity } from '@/core/domain'
 
-export abstract class MockRepository<T extends Entity> implements Repository<T> {
+export abstract class MockRepository<T extends Entity>
+  implements Repository<T>
+{
   public data: T[] = []
 
   constructor(data: T[] = []) {
@@ -16,7 +18,7 @@ export abstract class MockRepository<T extends Entity> implements Repository<T> 
   }
 
   public findById(id: string): Promise<T> {
-    const entity = this.data.find(entity => entity.id === id)
+    const entity = this.data.find((entity) => entity.id === id)
     if (!entity) {
       throw `Entity with id ${id} not found`
     }
@@ -24,7 +26,7 @@ export abstract class MockRepository<T extends Entity> implements Repository<T> 
   }
 
   public update(entity: T): Promise<T> {
-    this.data = this.data.map(item => {
+    this.data = this.data.map((item) => {
       if (item.id === entity.id) {
         return entity
       }
@@ -34,10 +36,10 @@ export abstract class MockRepository<T extends Entity> implements Repository<T> 
   }
 
   public delete(id: string): Promise<void> {
-    this.data = this.data.filter(entity => entity.id !== id)
+    this.data = this.data.filter((entity) => entity.id !== id)
     return Promise.resolve()
   }
-  
+
   public getData(): T[] {
     return this.data
   }
