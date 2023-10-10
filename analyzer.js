@@ -26,12 +26,12 @@ const idToLayer = (id) => {
 }
 
 const idToModule = (id) => {
-  if (id.match('core')) return 'core'
-  if (id.match('ecommerce')) return 'ecommerce'
-  if (id.match('app')) return 'app'
-  if (id.match('admin')) return 'admin'
-  if (id.match('server')) return 'server'
-  if (id.match('shop')) return 'shop'
+  if (id.match('/core/')) return 'core'
+  if (id.match('/ecommerce/')) return 'ecommerce'
+  if (id.match('/app/')) return 'app'
+  if (id.match('/admin/')) return 'admin'
+  if (id.match('/server/')) return 'server'
+  if (id.match('/shop/')) return 'shop'
   return 'external'
 }
 

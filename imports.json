@@ -89,6 +89,7 @@
       "@/../imports.json",
       "@/admin/presentation/views",
       "@/admin/presentation/views/product-creation-view",
+      "@/admin/presentation/components/products/product-creation-form",
       "@/admin/presentation/views/products-list-view",
       "@/admin/presentation/views/product-detail-view",
       "@/admin/presentation"
@@ -546,7 +547,7 @@
         "id": "@apollo/server",
         "filename": "@apollo/server",
         "name": "Server",
-        "module": "server",
+        "module": "external",
         "layer": "external",
         "type": "other"
       },
@@ -554,7 +555,7 @@
         "id": "apollo-server-core",
         "filename": "apollo-server-core",
         "name": "ApolloServerCore",
-        "module": "core",
+        "module": "external",
         "layer": "external",
         "type": "other"
       },
@@ -594,7 +595,7 @@
         "id": "@/server/application",
         "filename": "@/server/application",
         "name": "Application",
-        "module": "app",
+        "module": "server",
         "layer": "application",
         "type": "application"
       },
@@ -602,7 +603,7 @@
         "id": "@/server/application/use-cases/create-product",
         "filename": "@/server/application/use-cases/create-product",
         "name": "CreateProduct",
-        "module": "app",
+        "module": "server",
         "layer": "application",
         "type": "use-case"
       },
@@ -610,7 +611,7 @@
         "id": "@/server/application/use-cases/get-products",
         "filename": "@/server/application/use-cases/get-products",
         "name": "GetProducts",
-        "module": "app",
+        "module": "server",
         "layer": "application",
         "type": "use-case"
       },
@@ -618,7 +619,7 @@
         "id": "@/server/application/use-cases/get-product",
         "filename": "@/server/application/use-cases/get-product",
         "name": "GetProduct",
-        "module": "app",
+        "module": "server",
         "layer": "application",
         "type": "use-case"
       },
@@ -869,6 +870,14 @@
         "module": "admin",
         "layer": "presentation",
         "type": "other"
+      },
+      {
+        "id": "@/admin/presentation/components/products/product-creation-form",
+        "filename": "@/admin/presentation/components/products/product-creation-form",
+        "name": "ProductCreationForm",
+        "module": "admin",
+        "layer": "presentation",
+        "type": "component"
       },
       {
         "id": "@/admin/presentation/views/products-list-view",
@@ -1290,12 +1299,16 @@
       {
         "target": "@/core/infrastructure/graphql/server",
         "source": "@apollo/server",
-        "external": null
+        "external": [
+          "external"
+        ]
       },
       {
         "target": "@/core/infrastructure/graphql/server",
         "source": "apollo-server-core",
-        "external": null
+        "external": [
+          "external"
+        ]
       },
       {
         "target": "@/core/infrastructure",
@@ -1801,7 +1814,17 @@
       },
       {
         "target": "@/admin/presentation/views/product-creation-view",
-        "source": "@/shop/presentation/components/products/product-creation-form",
+        "source": "@/admin/presentation/components/products/product-creation-form",
+        "external": null
+      },
+      {
+        "target": "@/admin/presentation/components/products/product-creation-form",
+        "source": "@/core/presentation",
+        "external": null
+      },
+      {
+        "target": "@/admin/presentation/components/products/product-creation-form",
+        "source": "@/ecommerce/application",
         "external": null
       },
       {
@@ -2479,6 +2502,21 @@
         "value": 1
       },
       {
+        "id": "root/admin/presentation/components",
+        "name": "components",
+        "value": 1
+      },
+      {
+        "id": "root/admin/presentation/components/products",
+        "name": "products",
+        "value": 1
+      },
+      {
+        "id": "root/admin/presentation/components/products/product-creation-form",
+        "name": "product-creation-form",
+        "value": 1
+      },
+      {
         "id": "root/admin/presentation/views/products-list-view",
         "name": "products-list-view",
         "value": 1
@@ -2613,6 +2651,10 @@
       {
         "source": "root/admin/presentation",
         "target": "root/admin/presentation/views"
+      },
+      {
+        "source": "root/admin/presentation",
+        "target": "root/admin/presentation/components"
       },
       {
         "source": "root/app/admin",
@@ -2957,6 +2999,14 @@
       {
         "source": "root/admin/presentation/views",
         "target": "root/admin/presentation/views/product-detail-view"
+      },
+      {
+        "source": "root/admin/presentation/components",
+        "target": "root/admin/presentation/components/products"
+      },
+      {
+        "source": "root/admin/presentation/components/products",
+        "target": "root/admin/presentation/components/products/product-creation-form"
       }
     ]
   },
@@ -3413,16 +3463,16 @@
       {
         "id": "@apollo/server",
         "filename": "@apollo/server",
-        "name": "server/external/Server",
-        "module": "server",
+        "name": "external/external/Server",
+        "module": "external",
         "layer": "external",
         "type": "other"
       },
       {
         "id": "apollo-server-core",
         "filename": "apollo-server-core",
-        "name": "core/external/ApolloServerCore",
-        "module": "core",
+        "name": "external/external/ApolloServerCore",
+        "module": "external",
         "layer": "external",
         "type": "other"
       },
@@ -3461,32 +3511,32 @@
       {
         "id": "@/server/application",
         "filename": "@/server/application",
-        "name": "app/application/Application",
-        "module": "app",
+        "name": "server/application/Application",
+        "module": "server",
         "layer": "application",
         "type": "application"
       },
       {
         "id": "@/server/application/use-cases/create-product",
         "filename": "@/server/application/use-cases/create-product",
-        "name": "app/application/CreateProduct",
-        "module": "app",
+        "name": "server/application/CreateProduct",
+        "module": "server",
         "layer": "application",
         "type": "use-case"
       },
       {
         "id": "@/server/application/use-cases/get-products",
         "filename": "@/server/application/use-cases/get-products",
-        "name": "app/application/GetProducts",
-        "module": "app",
+        "name": "server/application/GetProducts",
+        "module": "server",
         "layer": "application",
         "type": "use-case"
       },
       {
         "id": "@/server/application/use-cases/get-product",
         "filename": "@/server/application/use-cases/get-product",
-        "name": "app/application/GetProduct",
-        "module": "app",
+        "name": "server/application/GetProduct",
+        "module": "server",
         "layer": "application",
         "type": "use-case"
       },
@@ -3729,6 +3779,14 @@
         "module": "admin",
         "layer": "presentation",
         "type": "other"
+      },
+      {
+        "id": "@/admin/presentation/components/products/product-creation-form",
+        "filename": "@/admin/presentation/components/products/product-creation-form",
+        "name": "admin/presentation/ProductCreationForm",
+        "module": "admin",
+        "layer": "presentation",
+        "type": "component"
       },
       {
         "id": "@/admin/presentation/views/products-list-view",
@@ -4122,12 +4180,16 @@
       {
         "target": "@/core/infrastructure/graphql/server",
         "source": "@apollo/server",
-        "external": null
+        "external": [
+          "external"
+        ]
       },
       {
         "target": "@/core/infrastructure/graphql/server",
         "source": "apollo-server-core",
-        "external": null
+        "external": [
+          "external"
+        ]
       },
       {
         "target": "@/core/infrastructure",
@@ -4588,7 +4650,17 @@
       },
       {
         "target": "@/admin/presentation/views/product-creation-view",
-        "source": "@/shop/presentation/components/products/product-creation-form",
+        "source": "@/admin/presentation/components/products/product-creation-form",
+        "external": null
+      },
+      {
+        "target": "@/admin/presentation/components/products/product-creation-form",
+        "source": "@/core/presentation",
+        "external": null
+      },
+      {
+        "target": "@/admin/presentation/components/products/product-creation-form",
+        "source": "@/ecommerce/application",
         "external": null
       },
       {
@@ -4682,24 +4754,8 @@
         "source": "core"
       },
       {
-        "target": "core",
-        "source": "server"
-      },
-      {
         "target": "ecommerce",
         "source": "external"
-      },
-      {
-        "target": "server",
-        "source": "app"
-      },
-      {
-        "target": "app",
-        "source": "ecommerce"
-      },
-      {
-        "target": "app",
-        "source": "app"
       },
       {
         "target": "server",
@@ -4744,10 +4800,6 @@
       {
         "target": "admin",
         "source": "ecommerce"
-      },
-      {
-        "target": "admin",
-        "source": "shop"
       },
       {
         "target": "app",
@@ -4908,20 +4960,6 @@
         "value": null
       },
       {
-        "id": "server/external",
-        "name": "server/external",
-        "layer": "external",
-        "module": "server",
-        "value": null
-      },
-      {
-        "id": "core/external",
-        "name": "core/external",
-        "layer": "external",
-        "module": "core",
-        "value": null
-      },
-      {
         "id": "ecommerce/infrastructure",
         "name": "ecommerce/infrastructure",
         "layer": "infrastructure",
@@ -4929,10 +4967,10 @@
         "value": null
       },
       {
-        "id": "app/application",
-        "name": "app/application",
+        "id": "server/application",
+        "name": "server/application",
         "layer": "application",
-        "module": "app",
+        "module": "server",
         "value": null
       },
       {
@@ -5009,14 +5047,6 @@
         "source": "external/external"
       },
       {
-        "target": "core/infrastructure",
-        "source": "server/external"
-      },
-      {
-        "target": "core/infrastructure",
-        "source": "core/external"
-      },
-      {
         "target": "server/infrastructure",
         "source": "ecommerce/infrastructure"
       },
@@ -5030,18 +5060,18 @@
       },
       {
         "target": "server/infrastructure",
-        "source": "app/application"
+        "source": "server/application"
       },
       {
-        "target": "app/application",
+        "target": "server/application",
         "source": "ecommerce/application"
       },
       {
-        "target": "app/application",
-        "source": "app/application"
+        "target": "server/application",
+        "source": "server/application"
       },
       {
-        "target": "app/application",
+        "target": "server/application",
         "source": "ecommerce/domain"
       },
       {
@@ -5102,7 +5132,7 @@
       },
       {
         "target": "admin/presentation",
-        "source": "shop/presentation"
+        "source": "ecommerce/application"
       },
       {
         "target": "app/presentation",

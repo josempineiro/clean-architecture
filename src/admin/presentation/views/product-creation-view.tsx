@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { Button } from '@/core/presentation'
 import { useCreateProduct } from '@/ecommerce/presentation'
-import { ProductCreationForm } from '@/shop/presentation/components/products/product-creation-form'
+import { ProductCreationForm } from '@/admin/presentation/components/products/product-creation-form'
 
 export function AdminProductCreationView() {
   const router = useRouter()
