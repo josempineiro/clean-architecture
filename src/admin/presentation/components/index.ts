@@ -1,0 +1,1 @@
+export * from '@/admin/presentation/components/products/product-creation-form'

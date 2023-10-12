@@ -1,26 +1,25 @@
 'use client'
 import React from 'react'
 import cn from 'classnames'
-import { usePathname } from 'next/navigation'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
+import { AdminApplicationContext } from '@/admin/presentation'
+import { AdminApplication } from '@/admin/application'
+import { productsRepository } from '@/shop/infrastructure'
+
+const adminApplication = new AdminApplication({
+  productsRepository,
+})
 
 interface AdminLayoutProps {
   children: React.ReactNode
-}
-
-const NextBreadcrumb = ({ path, children, className }: any) => {
-  return (
-    <Link href={path} className={className}>
-      {children}
-    </Link>
-  )
 }
 
 function AdminLayout({ children }: AdminLayoutProps) {
   const paths = usePathname()
   const pathNames = paths.split('/').filter((path) => path)
   return (
-    <>
+    <AdminApplicationContext application={adminApplication}>
       <button
         data-drawer-target="default-sidebar"
         data-drawer-toggle="default-sidebar"
@@ -52,7 +51,10 @@ function AdminLayout({ children }: AdminLayoutProps) {
         aria-label="Sidenav"
       >
         <div className="overflow-y-auto py-5 px-3 h-full bg-white border-r border-gray-200 dark:bg-gray-800 dark:border-gray-700">
-          <Link href="/admin" className="flex items-center justify-between gap-2 p-6">
+          <Link
+            href="/admin"
+            className="flex items-center justify-between gap-2 p-6"
+          >
             <span className="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap dark:text-white">
               ERIDU
             </span>
@@ -87,7 +89,7 @@ function AdminLayout({ children }: AdminLayoutProps) {
         </div>
       </aside>
       <div className="pl-64 min-h-full flex flex-col">{children}</div>
-    </>
+    </AdminApplicationContext>
   )
 }
 export default AdminLayout

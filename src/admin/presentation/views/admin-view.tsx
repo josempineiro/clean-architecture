@@ -1,6 +1,6 @@
 'use client'
 import Link from 'next/link'
-import { useGetProducts } from '@/ecommerce/presentation'
+import { useGetProducts } from '@/admin/presentation'
 import { Loader, ProductIcon } from '@/core/presentation'
 
 export function AdminView() {

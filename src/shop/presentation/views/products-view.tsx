@@ -1,8 +1,7 @@
 'use client'
 import Link from 'next/link'
-import { useGetProducts } from '@/ecommerce/presentation'
-import { ProductCard } from '@/ecommerce/presentation/components/products/product-card'
-import { ProductsGrid } from '@/ecommerce/presentation/components/products/products-grid'
+import { useGetProducts } from '@/shop/presentation'
+import { ProductCard, ProductsGrid } from '@/ecommerce/presentation'
 
 export function ProductsView() {
   const { data: products, error, isLoading } = useGetProducts()
@@ -14,7 +13,7 @@ export function ProductsView() {
         <ProductsGrid
           products={products}
           renderProduct={({ product }) => (
-            <Link href={`/products/${product.id}`}>
+            <Link href={`/shop/products/${product.id}`}>
               <ProductCard key={product.id} product={product} />
             </Link>
           )}

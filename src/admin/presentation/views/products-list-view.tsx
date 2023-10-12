@@ -1,13 +1,13 @@
 'use client'
+import Link from 'next/link'
+import { CollectionViewSelector } from '@/core/presentation'
 import {
-  useGetProducts,
   ProductListItem,
   ProductCard,
   ProductsCollection,
   CollectionView,
 } from '@/ecommerce/presentation'
-import { CollectionViewSelector } from '@/core/presentation'
-import Link from 'next/link'
+import { useGetProducts } from '@/admin/presentation'
 
 export function AdminProductsListView({
   view = 'grid',

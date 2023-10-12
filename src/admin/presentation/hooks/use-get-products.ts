@@ -1,14 +1,12 @@
 import { useUseCaseQuery, UseCaseOptions } from '@/core/presentation'
 import { GetProductsResult } from '@/ecommerce/application'
-import { useEcommerceApplication } from '@/ecommerce/presentation/contexts'
+import { useAdminApplication } from '@/admin/presentation/contexts'
 
 export function useGetProducts(
   options?: UseCaseOptions<void, GetProductsResult>,
 ): ReturnType<typeof useUseCaseQuery<void, GetProductsResult>> {
-  const {
-    useCases: { getProducts },
-  } = useEcommerceApplication()
-  return useUseCaseQuery<void, GetProductsResult>(getProducts, {
+  const adminApplication = useAdminApplication()
+  return useUseCaseQuery<void, GetProductsResult>(adminApplication.useCases.getProducts, {
     key: 'getProducts',
     ...options,
   })

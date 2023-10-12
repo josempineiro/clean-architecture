@@ -7,6 +7,7 @@ const config: Config = {
     './src/blog/presentation/**/*.{js,ts,jsx,tsx,mdx}',
     './src/shop/presentation/**/*.{js,ts,jsx,tsx,mdx}',
     './src/admin/presentation/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/ecommerce/presentation/**/*.{js,ts,jsx,tsx,mdx}',
     './src/core/presentation/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
