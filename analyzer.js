@@ -8,13 +8,16 @@ const config = require('./tsconfig.json')
 const entries = [
   './src/ecommerce/presentation/contexts/ecommerce-application-context.tsx',
   './src/server/infrastructure/graphql/server.ts',
-  './src/app/products/page.tsx',
-  './src/app/products/create/page.tsx',
-  './src/app/products/[product-id]/page.tsx',
   './src/admin/presentation/index.ts',
-  './src/app/admin/products/[id]/page.tsx',
-  './src/app/admin/products/creation/page.tsx',
+  './src/shop/presentation/index.ts',
+  './src/blog/presentation/index.ts',
+  './src/app/admin/page.tsx',
   './src/app/admin/products/page.tsx',
+  './src/app/admin/products/creation/page.tsx',
+  './src/app/products/[product-id]/page.tsx',
+  './src/app/products/page.tsx',
+  './src/app/blog/page.tsx',
+  './src/app/blog/[id]/page.tsx',
 ]
 
 const idToLayer = (id) => {
