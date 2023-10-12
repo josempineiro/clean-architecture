@@ -6,5 +6,3 @@ const productsDatastoreRepository = new ProductsDatastoreRepository()
 export const devClientEcommerceApplication = new ClientEcommerceApplication({
   productsRepository: productsDatastoreRepository,
 })
-
-export default devClientEcommerceApplication

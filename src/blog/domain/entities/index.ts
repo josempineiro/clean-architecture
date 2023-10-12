@@ -1,0 +1,1 @@
+export * from '@/blog/domain/entities/architecture-graphq-settings'

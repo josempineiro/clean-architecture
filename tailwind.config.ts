@@ -4,6 +4,7 @@ import colors from 'tailwindcss/colors'
 const config: Config = {
   content: [
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/blog/presentation/**/*.{js,ts,jsx,tsx,mdx}',
     './src/shop/presentation/**/*.{js,ts,jsx,tsx,mdx}',
     './src/admin/presentation/**/*.{js,ts,jsx,tsx,mdx}',
     './src/core/presentation/**/*.{js,ts,jsx,tsx,mdx}',

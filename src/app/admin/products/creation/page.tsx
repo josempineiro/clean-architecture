@@ -1,1 +1,5 @@
-export { AdminProductsListView as default } from '@/admin/presentation'
+'use client'
+
+import { AdminProductCreationView } from '@/admin/presentation'
+
+export default AdminProductCreationView

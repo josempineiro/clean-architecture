@@ -1,0 +1,1 @@
+export * from "@/core/presentation/components/collections/collection-view-selector"

@@ -1,9 +1,10 @@
+import { BaseField } from '@/core/presentation/components/forms/fields/base-field'
 import {
-  InputField,
-  InputFieldProps,
-} from '@/core/presentation/components/forms/fields/input-field'
+  Input,
+  InputProps,
+} from '@/core/presentation/components/forms/fields/input'
 
-export interface NumberFieldProps extends Omit<InputFieldProps, 'onChange'> {
+export interface NumberFieldProps extends Omit<InputProps, 'onChange'> {
   label?: string
   value?: number
   onChange?: (value: number, event: React.ChangeEvent<HTMLInputElement>) => void
@@ -12,17 +13,29 @@ export interface NumberFieldProps extends Omit<InputFieldProps, 'onChange'> {
 export function NumberField({
   label,
   value,
+  name,
+  disabled,
+  className,
   onChange = () => {},
   ...rest
 }: NumberFieldProps) {
   return (
-    <InputField
-      value={value}
-      type="number"
-      onChange={(event) => {
-        onChange(parseInt(event.target.value, 10), event)
-      }}
-      {...rest}
-    />
+    <BaseField
+      label={label}
+      name={name}
+      disabled={disabled}
+      className={className}
+    >
+      <Input
+        value={value}
+        type="number"
+        name={name}
+        disabled={disabled}
+        onChange={(event) => {
+          onChange(parseInt(event.target.value, 10), event)
+        }}
+        {...rest}
+      />
+    </BaseField>
   )
 }

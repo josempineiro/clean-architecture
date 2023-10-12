@@ -1,31 +1,46 @@
 import { Repository, Entity } from '@/core/domain'
 
+const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms))
+
 export abstract class MockRepository<T extends Entity>
   implements Repository<T>
 {
   public data: T[] = []
+  public delay: number
 
-  constructor(data: T[] = []) {
+  constructor(data: T[] = [], {
+    delay = 3000
+  }: {
+    delay: number
+  } = {
+    delay: 3000
+  }) {
     this.data = data
+    this.delay = delay
   }
-  public create(entity: T): Promise<T> {
+
+  public async create(entity: T): Promise<T> {
     this.data.push(entity)
+    await delay(this.delay)
     return Promise.resolve(entity)
   }
 
-  public findAll(): Promise<T[]> {
+  public async findAll(): Promise<T[]> {
+    await delay(this.delay)
     return Promise.resolve(this.data)
   }
 
-  public findById(id: string): Promise<T> {
+  public async findById(id: string): Promise<T> {
     const entity = this.data.find((entity) => entity.id === id)
     if (!entity) {
       throw `Entity with id ${id} not found`
     }
+    await delay(this.delay)
     return Promise.resolve(entity)
   }
 
-  public update(entity: T): Promise<T> {
+  public async update(entity: T): Promise<T> {
+    await delay(this.delay)
     this.data = this.data.map((item) => {
       if (item.id === entity.id) {
         return entity
@@ -35,7 +50,8 @@ export abstract class MockRepository<T extends Entity>
     return Promise.resolve(entity)
   }
 
-  public delete(id: string): Promise<void> {
+  public async delete(id: string): Promise<void> {
+    await delay(this.delay)
     this.data = this.data.filter((entity) => entity.id !== id)
     return Promise.resolve()
   }

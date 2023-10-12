@@ -7,4 +7,3 @@ export const testClientEcommerceApplication = new ClientEcommerceApplication({
   productsRepository: productsMockRepository,
 })
 
-export default testClientEcommerceApplication

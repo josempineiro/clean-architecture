@@ -1,3 +1,5 @@
+import { BaseField } from '@/core/presentation/components/forms/fields/base-field'
+import { Select } from '@/core/presentation/components/forms/fields/select'
 export interface SelectOption<OptionValue> {
   label: string
   value: OptionValue
@@ -6,8 +8,8 @@ export interface SelectOption<OptionValue> {
 
 export interface SelectFieldProps<OptionValue>
   extends Omit<React.SelectHTMLAttributes<HTMLSelectElement>, 'onChange'> {
-  label?: string
   value?: string
+  label?: React.ReactNode
   onChange?: (
     value: OptionValue | undefined,
     event: React.ChangeEvent<HTMLSelectElement>,
@@ -18,21 +20,27 @@ export function SelectField({
   label,
   value,
   onChange = () => {},
+  name,
   options,
+  disabled,
+  className,
   ...rest
 }: SelectFieldProps<string>) {
   return (
-    <select
-      {...rest}
-      defaultValue={value}
-      onChange={(event) => onChange(event.target.value, event)}
-      className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+    <BaseField
+      name={name}
+      label={label}
+      disabled={disabled}
+      className={className}
     >
-      {options.map((option) => (
-        <option key={option.label} value={option.value}>
-          {option.label}
-        </option>
-      ))}
-    </select>
+      <Select
+        name={name}
+        value={value}
+        options={options}
+        onChange={onChange}
+        disabled={disabled}
+        {...rest}
+      />
+    </BaseField>
   )
 }

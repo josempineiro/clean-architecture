@@ -1,7 +1,7 @@
 import { Resolvers } from '@/server/infrastructure/graphql/types'
 import { GraphQLServerContext } from '@/server/infrastructure/graphql/context'
 
-const resolvers: Resolvers<GraphQLServerContext> = {
+export const resolvers: Resolvers<GraphQLServerContext> = {
   Query: {
     product: async (_, { id }, { application }) =>
       application.useCases.getProduct.execute({ id }),
@@ -13,5 +13,3 @@ const resolvers: Resolvers<GraphQLServerContext> = {
       application.useCases.createProduct.execute(input),
   },
 }
-
-export default resolvers

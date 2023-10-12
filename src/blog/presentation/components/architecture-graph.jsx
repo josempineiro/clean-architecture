@@ -48,11 +48,11 @@ const getModuleColorFromNodeId = (id) => {
   if (id.match(/external/)) {
     return colors.modules.external
   }
-  if (id.match(/app/)) {
-    return colors.modules.app
-  }
   if (id.match(/server/)) {
     return colors.modules.server
+  }
+  if (id.match(/app/)) {
+    return colors.modules.app
   }
   return 'white'
 }
@@ -227,7 +227,7 @@ export const ArchitectureGraph = ({ settings, width, height }) => {
   return (
     <div className="relative w-full h-full">
       <div ref={ref} className={cn('graph')}></div>
-      <div className="absolute bottom-10 left-10 flex flex-col">
+      <div className="absolute bottom-0 left-0 flex flex-col">
         {getLegendByGroup(groupBy, palette).map((group) => (
           <div key={group.label} className="inline-flex items-center">
             <span

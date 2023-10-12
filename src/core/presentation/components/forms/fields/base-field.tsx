@@ -1,31 +1,29 @@
 import React from 'react'
-import { useForm } from '@/core/presentation/components/forms/form'
+import cn from 'classnames'
 
-export function BaseField<TField>({
-  field,
+export interface BaseFieldProps {
+  name?: string
+  label?: React.ReactNode
+  disabled?: boolean
+  children: React.ReactNode
+  className?: string
+}
+
+export function BaseField({
+  name,
   label,
   children,
-}: {
-  field: string
-  label: string
-  children: React.ReactElement
-}) {
-  const form = useForm()
+  disabled,
+  className,
+}: BaseFieldProps) {
   return (
-    <div className="flex flex-col">
-      <label htmlFor={field}>{label}</label>
-      {React.cloneElement(children, {
-        label,
-        id: field,
-        name: field,
-        value: form.getFieldValue<TField>(field),
-        onChange: (
-          value: TField,
-          event: React.ChangeEvent<HTMLFormElement>,
-        ) => {
-          form.setFieldValue<TField>(field, value, event)
-        },
-      })}
+    <div className={cn([
+      className,
+      "flex flex-col", {
+        ['opacity-60']: disabled
+      }])}>
+      {label && <label className="uppercase text-xs font-bold mb-0.5 pl-2" htmlFor={name}>{label}</label>}
+      {children}
     </div>
   )
 }

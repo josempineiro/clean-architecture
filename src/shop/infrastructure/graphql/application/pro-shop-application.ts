@@ -7,5 +7,3 @@ export const productiveClientEcommerceApplication =
   new ClientEcommerceApplication({
     productsRepository: productsDatastoreRepository,
   })
-
-export default productiveClientEcommerceApplication

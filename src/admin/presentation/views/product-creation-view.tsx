@@ -1,5 +1,5 @@
 'use client'
-import Link from 'next/link'
+
 import { useRouter } from 'next/navigation'
 import { Button } from '@/core/presentation'
 import { useCreateProduct } from '@/ecommerce/presentation'
@@ -9,7 +9,7 @@ export function AdminProductCreationView() {
   const router = useRouter()
   const [createProduct, { loading }] = useCreateProduct({
     onSuccess: (product) => {
-      router.push(`/products/${product.id}`)
+      router.push(`/admin/products/${product.id}`)
     },
     onError: (error) => {
       console.log(error)
@@ -17,20 +17,15 @@ export function AdminProductCreationView() {
   })
   return (
     <>
-      <Link
-        href="/products"
-        className="inline-flex items-center justify-center px-5 py-2 text-base font-medium text-gray-500 rounded-lg bg-gray-50 hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700 dark:hover:text-white"
-      >
-        ← Go back to products
-      </Link>
       <ProductCreationForm
         values={{
           name: '',
           description: '',
         }}
         onSubmit={createProduct}
+        disabled={loading}
       >
-        <Button type="submit" disabled={loading}>
+        <Button type="submit" disabled={loading} loading={loading}>
           Create product
         </Button>
       </ProductCreationForm>

@@ -1,15 +1,7 @@
 import { Product } from '@/ecommerce/domain'
+import { ProductsCollectionProps } from '@/ecommerce/presentation/components/products/products-collection'
 
-export interface RenderProductProps {
-  product: Product
-  index: number
-  products: Array<Product>
-}
-
-export interface ProductsGridProps {
-  products: Array<Product>
-  renderProduct: (props: RenderProductProps) => React.ReactNode
-}
+export interface ProductsGridProps extends ProductsCollectionProps {}
 
 export function ProductsGrid({ products, renderProduct }: ProductsGridProps) {
   return (
@@ -20,5 +12,3 @@ export function ProductsGrid({ products, renderProduct }: ProductsGridProps) {
     </div>
   )
 }
-
-export default ProductsGrid

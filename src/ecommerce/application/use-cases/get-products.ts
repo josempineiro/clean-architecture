@@ -12,5 +12,5 @@ export abstract class GetProductsUseCase<GetProductsDependencies = any>
   constructor(dependencies: GetProductsDependencies) {
     this.dependencies = dependencies
   }
-  abstract execute(): Promise<GetProductsResult>
+  abstract execute(variables: GetProductsVariables): Promise<GetProductsResult>
 }

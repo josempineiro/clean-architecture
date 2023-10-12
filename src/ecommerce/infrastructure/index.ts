@@ -1,1 +1,1 @@
-export { default as typeDefs } from '@/ecommerce/infrastructure/graphql/schema'
+export { schema as typeDefs } from '@/ecommerce/infrastructure/graphql/schema'

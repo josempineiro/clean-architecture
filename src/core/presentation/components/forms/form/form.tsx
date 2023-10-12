@@ -1,3 +1,4 @@
+'use client'
 import _ from 'lodash'
 import React, { useState } from 'react'
 
@@ -11,9 +12,10 @@ export interface FormProps<TFormValues extends FormValues>
     'onChange' | 'onSubmit'
   > {
   values: TFormValues
+  disabled?: boolean
   onChange?: (
     values: TFormValues,
-    event: React.ChangeEvent<HTMLFormElement>,
+    event: React.ChangeEvent<HTMLElement>,
   ) => void
   onSubmit: (values: TFormValues, event: React.FormEvent) => void
 }
@@ -25,15 +27,13 @@ export interface FormProviderProps<TFormValues extends FormValues>
 
 export interface FormContextValue<TFormValues extends FormValues> {
   values: TFormValues
-  onChange: (
-    values: TFormValues,
-    event: React.ChangeEvent<HTMLFormElement>,
-  ) => void
+  disabled?: boolean
+  onChange: (values: TFormValues, event: React.ChangeEvent<HTMLElement>) => void
   onSubmit: (values: TFormValues, event: React.FormEvent) => void
   setFieldValue: <FieldValue>(
     field: string,
     value: FieldValue,
-    event: React.ChangeEvent<HTMLFormElement>,
+    event: React.ChangeEvent<HTMLElement>,
   ) => void
   getFieldValue: <FieldValue>(field: string) => FieldValue
 }
@@ -57,13 +57,14 @@ export function Form<TFormValues extends FormValues>({
   onChange = _.noop,
   onSubmit,
   children,
+  disabled,
   ...rest
 }: FormProps<TFormValues>) {
   const [formValues, setTFormValues] = useState<TFormValues>(values)
   function setFieldValue<FieldValue>(
     field: string,
     value: FieldValue,
-    event: React.ChangeEvent<HTMLFormElement>,
+    event: React.ChangeEvent<HTMLElement>,
   ) {
     const newFormValue = _.set({ ...formValues }, field, value) as TFormValues
     setTFormValues(newFormValue)
@@ -85,6 +86,7 @@ export function Form<TFormValues extends FormValues>({
         setFieldValue,
         getFieldValue,
         onSubmit,
+        disabled,
       }}
     >
       <form onSubmit={submit} {...rest}>

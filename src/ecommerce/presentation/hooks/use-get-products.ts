@@ -13,5 +13,3 @@ export function useGetProducts(
     ...options,
   })
 }
-
-export default useGetProducts

@@ -1,3 +1,6 @@
+export * from '@/core/presentation/components/navigation'
 export * from '@/core/presentation/components/actions'
 export * from '@/core/presentation/components/forms'
 export * from '@/core/presentation/components/dom'
+export * from '@/core/presentation/components/icons'
+export * from '@/core/presentation/components/collections'
