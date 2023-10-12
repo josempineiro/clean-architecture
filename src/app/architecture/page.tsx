@@ -4,12 +4,12 @@ import { useRouter } from 'next/navigation'
 import { ArchitectureGraphSettings } from '@/blog/domain'
 import { CleanArchitectureView } from '@/blog/presentation'
 
-function useSettingsearchParams(searchParams: any): ArchitectureGraphSettings {
+function useSettingSearchParams(searchParams: any): ArchitectureGraphSettings {
   return {
     vision: searchParams.vision || '2d',
     groupBy: searchParams.groupBy || 'modules',
     options: {
-      showInternalLinks: searchParams.showInternalLinks || false,
+      showInternalLinks: searchParams.showInternalLinks === 'true',
     },
     palette: searchParams.palette || 'modules',
   }
@@ -17,7 +17,7 @@ function useSettingsearchParams(searchParams: any): ArchitectureGraphSettings {
 
 export default function Page({ searchParams }: any) {
   const router = useRouter()
-  const settings = useSettingsearchParams(searchParams)
+  const settings = useSettingSearchParams(searchParams)
 
   function handleChangeSettings(settings: ArchitectureGraphSettings) {
     const settingsParams = new URLSearchParams({

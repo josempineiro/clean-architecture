@@ -93,6 +93,7 @@ export function ArchitectureGraphSettingsForm({
             }
             return props.value
           })()
+          debugger
           return (
             <RadioGroupField
               label="Palette"

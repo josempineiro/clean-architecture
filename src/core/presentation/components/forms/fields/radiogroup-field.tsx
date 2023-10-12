@@ -50,6 +50,7 @@ export function RadioGroupField({
       >
         {options.map((option) => {
           const checked = Boolean(value && value === option.value)
+          debugger
           return (
             <li
               key={option.value}
@@ -60,7 +61,7 @@ export function RadioGroupField({
                   {...rest}
                   id={option.value}
                   type="radio"
-                  name={name + '-' + option}
+                  name={name + '-' + option.value}
                   disabled={disabled}
                   value={option.value}
                   checked={checked}
