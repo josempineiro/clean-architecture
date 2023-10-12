@@ -1,21 +1,21 @@
 import { EcommerceApplication } from '@/ecommerce/application'
-import { CreateProductClientUseCase } from '@/shop/application/use-cases/create-product'
-import { GetProductsClientUseCase } from '@/shop/application/use-cases/get-products'
-import { GetProductClientUseCase } from '@/shop/application/use-cases/get-product'
+import { CreateProductShopUseCase } from '@/shop/application/use-cases/create-product'
+import { GetProductsShopUseCase } from '@/shop/application/use-cases/get-products'
+import { GetProductShopUseCase } from '@/shop/application/use-cases/get-product'
 import { ProductsRepository } from '@/ecommerce/domain'
 
 export * from '@/shop/application/use-cases/create-product'
 export * from '@/shop/application/use-cases/get-products'
 
-export type ClientEcommerceApplicationDependencies = {
+export type ShopEcommerceApplicationDependencies = {
   productsRepository: ProductsRepository
 }
-export class ClientEcommerceApplication extends EcommerceApplication {
-  constructor(readonly dependencies: ClientEcommerceApplicationDependencies) {
+export class ShopEcommerceApplication extends EcommerceApplication {
+  constructor(readonly dependencies: ShopEcommerceApplicationDependencies) {
     super({
-      getProducts: new GetProductsClientUseCase(dependencies),
-      createProduct: new CreateProductClientUseCase(dependencies),
-      getProduct: new GetProductClientUseCase(dependencies),
+      getProducts: new GetProductsShopUseCase(dependencies),
+      createProduct: new CreateProductShopUseCase(dependencies),
+      getProduct: new GetProductShopUseCase(dependencies),
     })
   }
 }

@@ -4,9 +4,9 @@ import type {
   CreateProductVariables,
   CreateProductResult,
 } from '@/ecommerce/application'
-import type { ClientEcommerceApplicationDependencies } from '@/shop/application'
+import type { ShopEcommerceApplicationDependencies } from '@/shop/application'
 
-export class CreateProductClientUseCase extends CreateProductUseCase<ClientEcommerceApplicationDependencies> {
+export class CreateProductShopUseCase extends CreateProductUseCase<ShopEcommerceApplicationDependencies> {
   async execute(product: CreateProductVariables): Promise<CreateProductResult> {
     return await this.dependencies.productsRepository.create(
       Products.create(product),

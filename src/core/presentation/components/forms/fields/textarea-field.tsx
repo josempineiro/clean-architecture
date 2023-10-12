@@ -33,7 +33,7 @@ export function TextareaField({
         value={value}
         disabled={disabled}
         name={name}
-        onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
+        onChange={(event: React.ChangeEvent<HTMLTextAreaElement>) => {
           onChange(event.target.value, event)
         }}
         {...rest}

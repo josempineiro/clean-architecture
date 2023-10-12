@@ -3,14 +3,13 @@ import './globals.css'
 import { Inter } from 'next/font/google'
 import { EcommerceApplicationProvider } from '@/ecommerce/presentation'
 import { ProductsGraphqlRepository } from '@/shop/infrastructure'
-import { ClientEcommerceApplication } from '@/shop/application'
+import { ShopEcommerceApplication } from '@/shop/application'
 
 const productsGraphqlRepository = new ProductsGraphqlRepository('/graphql')
 
-export const productiveClientEcommerceApplication =
-  new ClientEcommerceApplication({
-    productsRepository: productsGraphqlRepository,
-  })
+export const productiveShopEcommerceApplication = new ShopEcommerceApplication({
+  productsRepository: productsGraphqlRepository,
+})
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -23,7 +22,7 @@ export default function RootLayout({
     <html lang="en" className="dark">
       <body className={inter.className}>
         <EcommerceApplicationProvider
-          application={productiveClientEcommerceApplication}
+          application={productiveShopEcommerceApplication}
         >
           <div className="h-screen w-screen">{children}</div>
         </EcommerceApplicationProvider>
