@@ -225,9 +225,9 @@ export const ArchitectureGraph = ({ settings, width, height }) => {
     }
   }, [groupBy, height, palette, showInternalLinks, vision, width])
   return (
-    <div className="relative w-full h-full">
+    <div className="relative w-full h-full @container">
       <div ref={ref} className={cn('graph')}></div>
-      <div className="absolute bottom-0 left-0 flex flex-col">
+      <div className="absolute bottom-0 left-0 flex flex-col @5xl:bottom-20 @5xl:left-20">
         {getLegendByGroup(groupBy, palette).map((group) => (
           <div key={group.label} className="inline-flex items-center">
             <span

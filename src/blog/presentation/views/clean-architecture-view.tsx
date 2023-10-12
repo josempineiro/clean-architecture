@@ -14,7 +14,7 @@ export function CleanArchitectureView({
   debugger
   return (
     <div className={'h-full flex-1 overflow-hidden relative'}>
-      <header className="absolute top-0 left-0 w-full z-10 flex py-4 px-4 md:px-10 lg:px-20 gap-20">
+       <header className="absolute top-0 left-0 w-full z-10 flex py-4 px-4 md:px-10 lg:px-20 gap-20">
         <ArchitectureGraphSettingsForm
           values={settings}
           onChange={onChangeSettings}
