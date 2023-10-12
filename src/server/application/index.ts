@@ -17,7 +17,7 @@ export type ServerEcommerceApplicationUseCases = {
   createProduct: CreateProductServerUseCase
   getProduct: GetProductServerUseCase
 }
-export class ServerEcommerceApplication extends EcommerceApplication {
+export class ServerEcommerceApplication extends EcommerceApplication<ServerEcommerceApplicationUseCases> {
   constructor(readonly dependencies: ServerEcommerceApplicationDependencies) {
     super({
       getProducts: new GetProductsServerUseCase(dependencies),

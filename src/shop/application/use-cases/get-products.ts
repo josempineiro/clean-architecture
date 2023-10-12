@@ -1,8 +1,8 @@
 import { GetProductsUseCase } from '@/ecommerce/application'
 import type { GetProductsResult } from '@/ecommerce/application'
-import type { ShopEcommerceApplicationDependencies } from '@/shop/application'
+import type { ShopApplicationDependencies } from '@/shop/application'
 
-export class GetProductsShopUseCase extends GetProductsUseCase<ShopEcommerceApplicationDependencies> {
+export class GetProductsShopUseCase extends GetProductsUseCase<ShopApplicationDependencies> {
   async execute(): Promise<GetProductsResult> {
     return await this.dependencies.productsRepository.findAll()
   }

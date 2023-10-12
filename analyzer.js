@@ -14,8 +14,8 @@ const entries = [
   './src/app/admin/page.tsx',
   './src/app/admin/products/page.tsx',
   './src/app/admin/products/creation/page.tsx',
-  './src/app/products/[product-id]/page.tsx',
-  './src/app/products/page.tsx',
+  './src/app/shop/products/[product-id]/page.tsx',
+  './src/app/shop/products/page.tsx',
   './src/app/blog/page.tsx',
   './src/app/blog/[id]/page.tsx',
 ]
