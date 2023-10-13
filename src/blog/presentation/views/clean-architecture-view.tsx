@@ -11,17 +11,16 @@ export function CleanArchitectureView({
   settings: ArchitectureGraphSettings
   onChangeSettings: (settings: ArchitectureGraphSettings) => void
 }) {
-  debugger
   return (
-    <div className={'h-full flex-1 overflow-hidden relative'}>
-       <header className="absolute top-0 left-0 w-full z-10 flex py-4 px-4 md:px-10 lg:px-20 gap-20">
+    <div className={'w-full flex-1 overflow-hidden relative flex flex-col'}>
+      <header className="absolute top-0 left-0 w-full z-10 flex py-4 px-4 md:px-10 lg:px-20 gap-20">
         <ArchitectureGraphSettingsForm
           values={settings}
           onChange={onChangeSettings}
           onSubmit={onChangeSettings}
         />
       </header>
-      <AutoSizer className="w-full h-full">
+      <AutoSizer className="w-full flex-1">
         {({ width, height }) => (
           <ArchitectureGraph
             settings={settings}

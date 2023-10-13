@@ -1,7 +1,7 @@
 'use client'
 
 import { useGetProduct } from '@/admin/presentation'
-import { ProductDetail } from '@/shop/presentation/components/products/product-detail'
+import { ProductDetail } from '@/ecommerce/presentation/components/products/product-detail'
 export interface AdminProductDetailViewProps {
   productId: string
 }

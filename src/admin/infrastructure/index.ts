@@ -1,1 +1,1 @@
-export * from '@/shop/infrastructure/repositories/products-repository'
+export * from '@/admin/infrastructure/repositories/products-repository'

@@ -1,11 +1,12 @@
 'use client'
+
 import React from 'react'
 import cn from 'classnames'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { AdminApplicationContext } from '@/admin/presentation'
 import { AdminApplication } from '@/admin/application'
-import { productsRepository } from '@/shop/infrastructure'
+import { productsRepository } from '@/admin/infrastructure'
 
 const adminApplication = new AdminApplication({
   productsRepository,
@@ -88,7 +89,7 @@ function AdminLayout({ children }: AdminLayoutProps) {
           </ul>
         </div>
       </aside>
-      <div className="pl-64 min-h-full flex flex-col">{children}</div>
+      <div className="sm:pl-64 min-h-full flex flex-col">{children}</div>
     </AdminApplicationContext>
   )
 }

@@ -63,6 +63,9 @@
       "next/image",
       "@/ecommerce/presentation/components/products/product-list-item",
       "next/link",
+      "@/ecommerce/presentation/components/header",
+      "@/ecommerce/presentation/components/header/header",
+      "next/navigation",
       "@/core/infrastructure",
       "@/core/infrastructure/repositories",
       "@/core/infrastructure/repositories/datastore-repository",
@@ -101,11 +104,10 @@
       "@/admin/presentation/components/products/product-creation-form",
       "@/admin/presentation/views",
       "@/admin/presentation/views/product-creation-view",
-      "next/navigation",
       "@/admin/presentation",
       "@/admin/presentation/views/products-list-view",
       "@/admin/presentation/views/product-detail-view",
-      "@/shop/presentation/components/products/product-detail",
+      "@/ecommerce/presentation/components/products/product-detail",
       "@/admin/presentation/views/admin-view",
       "@/shop/presentation/views",
       "@/shop/presentation/views/product-view",
@@ -117,6 +119,7 @@
       "@/shop/application/use-cases/get-product",
       "@/shop/presentation/hooks/use-get-products",
       "@/shop/presentation/components",
+      "@/shop/presentation/components/products/product-detail",
       "@/shop/presentation/views/products-view",
       "@/shop/presentation",
       "@/shop/presentation/contexts",
@@ -729,6 +732,30 @@
         "type": "other"
       },
       {
+        "id": "@/ecommerce/presentation/components/header",
+        "filename": "@/ecommerce/presentation/components/header",
+        "name": "Header",
+        "module": "ecommerce",
+        "layer": "presentation",
+        "type": "component"
+      },
+      {
+        "id": "@/ecommerce/presentation/components/header/header",
+        "filename": "@/ecommerce/presentation/components/header/header",
+        "name": "Header",
+        "module": "ecommerce",
+        "layer": "presentation",
+        "type": "component"
+      },
+      {
+        "id": "next/navigation",
+        "filename": "next/navigation",
+        "name": "Navigation",
+        "module": "external",
+        "layer": "external",
+        "type": "other"
+      },
+      {
         "id": "@/core/infrastructure",
         "filename": "@/core/infrastructure",
         "name": "Infrastructure",
@@ -1033,14 +1060,6 @@
         "type": "other"
       },
       {
-        "id": "next/navigation",
-        "filename": "next/navigation",
-        "name": "Navigation",
-        "module": "external",
-        "layer": "external",
-        "type": "other"
-      },
-      {
         "id": "@/admin/presentation",
         "filename": "@/admin/presentation",
         "name": "Presentation",
@@ -1065,10 +1084,10 @@
         "type": "other"
       },
       {
-        "id": "@/shop/presentation/components/products/product-detail",
-        "filename": "@/shop/presentation/components/products/product-detail",
+        "id": "@/ecommerce/presentation/components/products/product-detail",
+        "filename": "@/ecommerce/presentation/components/products/product-detail",
         "name": "ProductDetail",
-        "module": "shop",
+        "module": "ecommerce",
         "layer": "presentation",
         "type": "component"
       },
@@ -1156,6 +1175,14 @@
         "id": "@/shop/presentation/components",
         "filename": "@/shop/presentation/components",
         "name": "Components",
+        "module": "shop",
+        "layer": "presentation",
+        "type": "component"
+      },
+      {
+        "id": "@/shop/presentation/components/products/product-detail",
+        "filename": "@/shop/presentation/components/products/product-detail",
+        "name": "ProductDetail",
         "module": "shop",
         "layer": "presentation",
         "type": "component"
@@ -1901,6 +1928,51 @@
         "external": null
       },
       {
+        "target": "@/ecommerce/presentation/components",
+        "source": "@/ecommerce/presentation/components/header",
+        "external": null
+      },
+      {
+        "target": "@/ecommerce/presentation/components/header",
+        "source": "@/ecommerce/presentation/components/header/header",
+        "external": null
+      },
+      {
+        "target": "@/ecommerce/presentation/components/header/header",
+        "source": "react",
+        "external": [
+          "external"
+        ]
+      },
+      {
+        "target": "@/ecommerce/presentation/components/header/header",
+        "source": "next/image",
+        "external": [
+          "external"
+        ]
+      },
+      {
+        "target": "@/ecommerce/presentation/components/header/header",
+        "source": "next/link",
+        "external": [
+          "external"
+        ]
+      },
+      {
+        "target": "@/ecommerce/presentation/components/header/header",
+        "source": "next/navigation",
+        "external": [
+          "external"
+        ]
+      },
+      {
+        "target": "@/ecommerce/presentation/components/header/header",
+        "source": "classnames",
+        "external": [
+          "external"
+        ]
+      },
+      {
         "target": "@/ecommerce/presentation/contexts/ecommerce-application-context",
         "source": "@/ecommerce/application",
         "external": null
@@ -2451,16 +2523,16 @@
       },
       {
         "target": "@/admin/presentation/views/product-detail-view",
-        "source": "@/shop/presentation/components/products/product-detail",
+        "source": "@/ecommerce/presentation/components/products/product-detail",
         "external": null
       },
       {
-        "target": "@/shop/presentation/components/products/product-detail",
+        "target": "@/ecommerce/presentation/components/products/product-detail",
         "source": "@/ecommerce/domain",
         "external": null
       },
       {
-        "target": "@/shop/presentation/components/products/product-detail",
+        "target": "@/ecommerce/presentation/components/products/product-detail",
         "source": "@/ecommerce/presentation/components/products/product-card",
         "external": null
       },
@@ -2623,6 +2695,16 @@
       {
         "target": "@/shop/presentation/components",
         "source": "@/shop/presentation/components/products/product-detail",
+        "external": null
+      },
+      {
+        "target": "@/shop/presentation/components/products/product-detail",
+        "source": "@/ecommerce/domain",
+        "external": null
+      },
+      {
+        "target": "@/shop/presentation/components/products/product-detail",
+        "source": "@/ecommerce/presentation/components/products/product-card",
         "external": null
       },
       {
@@ -3395,6 +3477,21 @@
         "value": 1
       },
       {
+        "id": "root/ecommerce/presentation/components/header",
+        "name": "header",
+        "value": 1
+      },
+      {
+        "id": "root/ecommerce/presentation/components/header/header",
+        "name": "header",
+        "value": 1
+      },
+      {
+        "id": "next/navigation",
+        "name": "navigation",
+        "value": 1
+      },
+      {
         "id": "root/core/infrastructure",
         "name": "infrastructure",
         "value": 1
@@ -3620,11 +3717,6 @@
         "value": 1
       },
       {
-        "id": "next/navigation",
-        "name": "navigation",
-        "value": 1
-      },
-      {
         "id": "root/admin/presentation/views/products-list-view",
         "name": "products-list-view",
         "value": 1
@@ -3635,17 +3727,7 @@
         "value": 1
       },
       {
-        "id": "root/shop/presentation/components",
-        "name": "components",
-        "value": 1
-      },
-      {
-        "id": "root/shop/presentation/components/products",
-        "name": "products",
-        "value": 1
-      },
-      {
-        "id": "root/shop/presentation/components/products/product-detail",
+        "id": "root/ecommerce/presentation/components/products/product-detail",
         "name": "product-detail",
         "value": 1
       },
@@ -3707,6 +3789,21 @@
       {
         "id": "root/shop/presentation/hooks/use-get-products",
         "name": "use-get-products",
+        "value": 1
+      },
+      {
+        "id": "root/shop/presentation/components",
+        "name": "components",
+        "value": 1
+      },
+      {
+        "id": "root/shop/presentation/components/products",
+        "name": "products",
+        "value": 1
+      },
+      {
+        "id": "root/shop/presentation/components/products/product-detail",
+        "name": "product-detail",
         "value": 1
       },
       {
@@ -3907,10 +4004,6 @@
       },
       {
         "source": "root/shop/presentation",
-        "target": "root/shop/presentation/components"
-      },
-      {
-        "source": "root/shop/presentation",
         "target": "root/shop/presentation/views"
       },
       {
@@ -3920,6 +4013,10 @@
       {
         "source": "root/shop/presentation",
         "target": "root/shop/presentation/contexts"
+      },
+      {
+        "source": "root/shop/presentation",
+        "target": "root/shop/presentation/components"
       },
       {
         "source": "root/blog",
@@ -4210,6 +4307,10 @@
         "target": "root/ecommerce/presentation/components/products"
       },
       {
+        "source": "root/ecommerce/presentation/components",
+        "target": "root/ecommerce/presentation/components/header"
+      },
+      {
         "source": "root/ecommerce/presentation/components/products",
         "target": "root/ecommerce/presentation/components/products/products-list"
       },
@@ -4230,6 +4331,10 @@
         "target": "root/ecommerce/presentation/components/products/product-list-item"
       },
       {
+        "source": "root/ecommerce/presentation/components/products",
+        "target": "root/ecommerce/presentation/components/products/product-detail"
+      },
+      {
         "source": "next",
         "target": "next/image"
       },
@@ -4244,6 +4349,10 @@
       {
         "source": "next",
         "target": "next/head"
+      },
+      {
+        "source": "root/ecommerce/presentation/components/header",
+        "target": "root/ecommerce/presentation/components/header/header"
       },
       {
         "source": "root/core/infrastructure",
@@ -4370,14 +4479,6 @@
         "target": "root/admin/presentation/views/admin-view"
       },
       {
-        "source": "root/shop/presentation/components",
-        "target": "root/shop/presentation/components/products"
-      },
-      {
-        "source": "root/shop/presentation/components/products",
-        "target": "root/shop/presentation/components/products/product-detail"
-      },
-      {
         "source": "root/shop/presentation/views",
         "target": "root/shop/presentation/views/product-view"
       },
@@ -4408,6 +4509,14 @@
       {
         "source": "root/shop/application/use-cases",
         "target": "root/shop/application/use-cases/get-product"
+      },
+      {
+        "source": "root/shop/presentation/components",
+        "target": "root/shop/presentation/components/products"
+      },
+      {
+        "source": "root/shop/presentation/components/products",
+        "target": "root/shop/presentation/components/products/product-detail"
       },
       {
         "source": "root/blog/presentation/views",
@@ -5022,6 +5131,30 @@
         "type": "other"
       },
       {
+        "id": "@/ecommerce/presentation/components/header",
+        "filename": "@/ecommerce/presentation/components/header",
+        "name": "ecommerce/presentation/Header",
+        "module": "ecommerce",
+        "layer": "presentation",
+        "type": "component"
+      },
+      {
+        "id": "@/ecommerce/presentation/components/header/header",
+        "filename": "@/ecommerce/presentation/components/header/header",
+        "name": "ecommerce/presentation/Header",
+        "module": "ecommerce",
+        "layer": "presentation",
+        "type": "component"
+      },
+      {
+        "id": "next/navigation",
+        "filename": "next/navigation",
+        "name": "external/external/Navigation",
+        "module": "external",
+        "layer": "external",
+        "type": "other"
+      },
+      {
         "id": "@/core/infrastructure",
         "filename": "@/core/infrastructure",
         "name": "core/infrastructure/Infrastructure",
@@ -5326,14 +5459,6 @@
         "type": "other"
       },
       {
-        "id": "next/navigation",
-        "filename": "next/navigation",
-        "name": "external/external/Navigation",
-        "module": "external",
-        "layer": "external",
-        "type": "other"
-      },
-      {
         "id": "@/admin/presentation/views/products-list-view",
         "filename": "@/admin/presentation/views/products-list-view",
         "name": "admin/presentation/ProductsListView",
@@ -5350,10 +5475,10 @@
         "type": "other"
       },
       {
-        "id": "@/shop/presentation/components/products/product-detail",
-        "filename": "@/shop/presentation/components/products/product-detail",
-        "name": "shop/presentation/ProductDetail",
-        "module": "shop",
+        "id": "@/ecommerce/presentation/components/products/product-detail",
+        "filename": "@/ecommerce/presentation/components/products/product-detail",
+        "name": "ecommerce/presentation/ProductDetail",
+        "module": "ecommerce",
         "layer": "presentation",
         "type": "component"
       },
@@ -5441,6 +5566,14 @@
         "id": "@/shop/presentation/components",
         "filename": "@/shop/presentation/components",
         "name": "shop/presentation/Components",
+        "module": "shop",
+        "layer": "presentation",
+        "type": "component"
+      },
+      {
+        "id": "@/shop/presentation/components/products/product-detail",
+        "filename": "@/shop/presentation/components/products/product-detail",
+        "name": "shop/presentation/ProductDetail",
         "module": "shop",
         "layer": "presentation",
         "type": "component"
@@ -6145,6 +6278,51 @@
         "external": null
       },
       {
+        "target": "@/ecommerce/presentation/components",
+        "source": "@/ecommerce/presentation/components/header",
+        "external": null
+      },
+      {
+        "target": "@/ecommerce/presentation/components/header",
+        "source": "@/ecommerce/presentation/components/header/header",
+        "external": null
+      },
+      {
+        "target": "@/ecommerce/presentation/components/header/header",
+        "source": "react",
+        "external": [
+          "external"
+        ]
+      },
+      {
+        "target": "@/ecommerce/presentation/components/header/header",
+        "source": "next/image",
+        "external": [
+          "external"
+        ]
+      },
+      {
+        "target": "@/ecommerce/presentation/components/header/header",
+        "source": "next/link",
+        "external": [
+          "external"
+        ]
+      },
+      {
+        "target": "@/ecommerce/presentation/components/header/header",
+        "source": "next/navigation",
+        "external": [
+          "external"
+        ]
+      },
+      {
+        "target": "@/ecommerce/presentation/components/header/header",
+        "source": "classnames",
+        "external": [
+          "external"
+        ]
+      },
+      {
         "target": "@/server/infrastructure/graphql/server",
         "source": "@/ecommerce/domain",
         "external": null
@@ -6610,16 +6788,16 @@
       },
       {
         "target": "@/admin/presentation/views/product-detail-view",
-        "source": "@/shop/presentation/components/products/product-detail",
+        "source": "@/ecommerce/presentation/components/products/product-detail",
         "external": null
       },
       {
-        "target": "@/shop/presentation/components/products/product-detail",
+        "target": "@/ecommerce/presentation/components/products/product-detail",
         "source": "@/ecommerce/domain",
         "external": null
       },
       {
-        "target": "@/shop/presentation/components/products/product-detail",
+        "target": "@/ecommerce/presentation/components/products/product-detail",
         "source": "@/ecommerce/presentation/components/products/product-card",
         "external": null
       },
@@ -6772,6 +6950,16 @@
       {
         "target": "@/shop/presentation/components",
         "source": "@/shop/presentation/components/products/product-detail",
+        "external": null
+      },
+      {
+        "target": "@/shop/presentation/components/products/product-detail",
+        "source": "@/ecommerce/domain",
+        "external": null
+      },
+      {
+        "target": "@/shop/presentation/components/products/product-detail",
+        "source": "@/ecommerce/presentation/components/products/product-card",
         "external": null
       },
       {
@@ -7120,32 +7308,24 @@
         "source": "external"
       },
       {
-        "target": "admin",
+        "target": "shop",
         "source": "shop"
+      },
+      {
+        "target": "shop",
+        "source": "external"
+      },
+      {
+        "target": "shop",
+        "source": "core"
       },
       {
         "target": "shop",
         "source": "ecommerce"
       },
       {
-        "target": "shop",
-        "source": "shop"
-      },
-      {
-        "target": "shop",
-        "source": "external"
-      },
-      {
-        "target": "shop",
-        "source": "core"
-      },
-      {
         "target": "external",
         "source": "external"
-      },
-      {
-        "target": "external",
-        "source": "core"
       },
       {
         "target": "app",
@@ -7525,18 +7705,6 @@
         "source": "external/external"
       },
       {
-        "target": "admin/presentation",
-        "source": "shop/presentation"
-      },
-      {
-        "target": "shop/presentation",
-        "source": "ecommerce/domain"
-      },
-      {
-        "target": "shop/presentation",
-        "source": "ecommerce/presentation"
-      },
-      {
         "target": "shop/presentation",
         "source": "shop/presentation"
       },
@@ -7554,6 +7722,10 @@
       },
       {
         "target": "shop/presentation",
+        "source": "ecommerce/presentation"
+      },
+      {
+        "target": "shop/presentation",
         "source": "shop/application"
       },
       {
@@ -7566,6 +7738,10 @@
       },
       {
         "target": "shop/application",
+        "source": "ecommerce/domain"
+      },
+      {
+        "target": "shop/presentation",
         "source": "ecommerce/domain"
       },
       {

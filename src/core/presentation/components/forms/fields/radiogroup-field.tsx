@@ -33,7 +33,6 @@ export function RadioGroupField({
   ...rest
 }: RadioGroupFieldProps<string>) {
   const handleChangeOption = (event: React.ChangeEvent<HTMLInputElement>) => {
-    debugger
     onChange(event.target.value, event)
   }
   return (
@@ -50,7 +49,6 @@ export function RadioGroupField({
       >
         {options.map((option) => {
           const checked = Boolean(value && value === option.value)
-          debugger
           return (
             <li
               key={option.value}

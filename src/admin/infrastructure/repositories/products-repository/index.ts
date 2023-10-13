@@ -1,7 +1,7 @@
 import { ProductsRepository } from '@/ecommerce/domain/repositories/products-repository'
-import { ProductsDatastoreRepository } from '@/shop/infrastructure/repositories/products-repository/products-datastore-repository'
-import { ProductsGraphqlRepository } from '@/shop/infrastructure/repositories/products-repository/products-graphql-repository'
-import { ProductsMockRepository } from '@/shop/infrastructure/repositories/products-repository/products-mock-repository'
+import { ProductsDatastoreRepository } from '@/admin/infrastructure/repositories/products-repository/products-datastore-repository'
+import { ProductsGraphqlRepository } from '@/admin/infrastructure/repositories/products-repository/products-graphql-repository'
+import { ProductsMockRepository } from '@/admin/infrastructure/repositories/products-repository/products-mock-repository'
 
 type Environment = 'development' | 'test' | 'production'
 

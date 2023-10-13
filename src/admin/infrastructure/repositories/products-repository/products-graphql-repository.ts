@@ -4,8 +4,8 @@ import {
   getSdk,
   Product as ProductType,
   CreateProductInput,
-} from '@/shop/infrastructure/graphql/types'
-import { ProductGraphQLMapper } from '@/shop/infrastructure/mappers/product-graphql-mapper'
+} from '@/admin/infrastructure/graphql/types'
+import { ProductGraphQLMapper } from '@/admin/infrastructure/mappers/product-graphql-mapper'
 
 export class ProductsGraphqlRepository extends GraphqlRepository<
   ProductType,

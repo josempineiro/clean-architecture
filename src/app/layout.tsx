@@ -1,6 +1,8 @@
 'use client'
-import './globals.css'
+
 import { Inter } from 'next/font/google'
+import { Header } from '@/ecommerce/presentation'
+import './globals.css'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -12,7 +14,10 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <body className={inter.className}>
-        <div className="h-screen w-screen">{children}</div>
+        <div className="h-screen w-screen flex flex-col">
+          <Header />
+          {children}
+        </div>
       </body>
     </html>
   )

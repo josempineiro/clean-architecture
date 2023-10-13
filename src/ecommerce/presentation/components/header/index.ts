@@ -1,0 +1,1 @@
+export * from '@/ecommerce/presentation/components/header/header'
