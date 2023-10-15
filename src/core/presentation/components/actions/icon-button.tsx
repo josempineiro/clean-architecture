@@ -1,20 +1,17 @@
 import cn from 'classnames'
 import { Loader } from '@/core/presentation/components/icons'
-export interface ButtonProps
+export interface IconButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   loading?: boolean
-  variant?: 'default' | 'icon'
-  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl'
 }
 
-export function Button({
+export function IconButton({
   className,
   loading,
   children,
   disabled,
-  variant = 'default',
   ...props
-}: ButtonProps) {
+}: IconButtonProps) {
   return (
     <button
       className={cn([
@@ -22,7 +19,7 @@ export function Button({
         {
           ['opacity-60 pointer-events-none']: disabled,
         },
-        'relative inline-flex items-center justify-center uppercase gap-2 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800',
+        'inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600',
       ])}
       {...props}
     >

@@ -1,6 +1,6 @@
 'use client'
 import Link from 'next/link'
-import { CollectionViewSelector } from '@/core/presentation'
+import { ListItem, CollectionViewSelector } from '@/core/presentation'
 import {
   ProductListItem,
   ProductCard,
@@ -29,9 +29,11 @@ export function AdminProductsListView({
           renderProduct={(itemProps) => {
             if (view === 'list') {
               return (
-                <Link href={`/admin/products/${itemProps.product.id}`}>
-                  <ProductListItem {...itemProps} />
-                </Link>
+                <ListItem>
+                  <Link href={`/admin/products/${itemProps.product.id}`}>
+                    <ProductListItem {...itemProps} />
+                  </Link>
+                </ListItem>
               )
             }
             if (view === 'grid') {

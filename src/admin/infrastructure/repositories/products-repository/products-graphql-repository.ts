@@ -1,4 +1,4 @@
-import { Product as ProductDomain, Products } from '@/ecommerce/domain'
+import { Product as ProductDomain, ProductUtils } from '@/ecommerce/domain'
 import { GraphqlRepository } from '@/core/infrastructure'
 import {
   getSdk,
@@ -29,7 +29,7 @@ export class ProductsGraphqlRepository extends GraphqlRepository<
   }
   update(updated: ProductDomain) {
     return Promise.resolve(
-      Products.create({
+      ProductUtils.create({
         id: 'string',
         name: 'string',
         description: 'string',
@@ -38,7 +38,7 @@ export class ProductsGraphqlRepository extends GraphqlRepository<
   }
   delete(id: string) {
     return Promise.resolve(
-      Products.create({
+      ProductUtils.create({
         id: 'string',
         name: 'string',
         description: 'string',

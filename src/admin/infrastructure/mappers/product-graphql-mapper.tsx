@@ -1,5 +1,5 @@
 import { GraphQLMapper } from '@/core/infrastructure'
-import { Product as ProductDomain } from '@/ecommerce/domain'
+import { Product as ProductDomain, ProductUtils } from '@/ecommerce/domain'
 import {
   Product as ProductGraphql,
   CreateProductInput as CreateProductGraphqlInput,
@@ -11,12 +11,11 @@ export class ProductGraphQLMapper extends GraphQLMapper<
   CreateProductGraphqlInput
 > {
   toEntity(graphql: ProductGraphql): ProductDomain {
-    return {
-      __typename: 'Product',
+    return ProductUtils.create({
       id: graphql.id,
       name: graphql.name,
       description: graphql.description,
-    }
+    })
   }
 
   toGraphql(entity: ProductDomain): ProductGraphql {

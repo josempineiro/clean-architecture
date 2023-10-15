@@ -2,6 +2,7 @@
 
 import { useGetProduct } from '@/admin/presentation'
 import { ProductDetail } from '@/ecommerce/presentation/components/products/product-detail'
+
 export interface AdminProductDetailViewProps {
   productId: string
 }

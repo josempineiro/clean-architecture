@@ -1,14 +1,21 @@
-import { Product } from '@/ecommerce/domain'
 import { ProductsCollectionProps } from '@/ecommerce/presentation/components/products/products-collection'
+import { Grid } from '@/core/presentation'
+import type { GridProps } from '@/core/presentation'
 
-export interface ProductsGridProps extends ProductsCollectionProps {}
+export interface ProductsGridProps
+  extends ProductsCollectionProps,
+    Omit<GridProps, 'children'> {}
 
-export function ProductsGrid({ products, renderProduct }: ProductsGridProps) {
+export function ProductsGrid({
+  products,
+  renderProduct,
+  ...gridProps
+}: ProductsGridProps) {
   return (
-    <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+    <Grid {...gridProps}>
       {products.map((product, index, products) =>
         renderProduct({ product, index, products }),
       )}
-    </div>
+    </Grid>
   )
 }

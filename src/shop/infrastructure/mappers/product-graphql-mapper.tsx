@@ -2,7 +2,7 @@ import {
   Product as ProductGraphql,
   CreateProductInput as CreateProductGraphqlInput,
 } from '@/shop/infrastructure/graphql/types'
-import { Product as ProductDomain } from '@/ecommerce/domain'
+import { Product as ProductDomain, ProductUtils } from '@/ecommerce/domain'
 import { GraphQLMapper } from '@/core/infrastructure'
 
 export class ProductGraphQLMapper extends GraphQLMapper<
@@ -11,12 +11,11 @@ export class ProductGraphQLMapper extends GraphQLMapper<
   CreateProductGraphqlInput
 > {
   toEntity(graphql: ProductGraphql): ProductDomain {
-    return {
-      __typename: 'Product',
+    return ProductUtils.create({
       id: graphql.id,
       name: graphql.name,
       description: graphql.description,
-    }
+    })
   }
 
   toGraphql(entity: ProductDomain): ProductGraphql {

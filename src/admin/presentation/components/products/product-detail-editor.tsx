@@ -1,4 +1,6 @@
+import { Form } from '@/core/domain'
 import { Product } from '@/ecommerce/domain'
+import { UpdateProductVariables } from '@/ecommerce/application'
 
 export interface ProductDetailProps {
   product: Product
