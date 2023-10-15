@@ -1,4 +1,4 @@
-import { Products, ProductUtils } from '@/ecommerce/domain'
+import { ProductUtils } from '@/ecommerce/domain'
 import { GraphQLServer } from '@/core/infrastructure'
 import { typeDefs } from '@/ecommerce/infrastructure'
 import { ServerEcommerceApplication } from '@/server/application'

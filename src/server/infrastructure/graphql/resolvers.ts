@@ -11,5 +11,11 @@ export const resolvers: Resolvers<GraphQLServerContext> = {
   Mutation: {
     createProduct: async (_, { input }, { application }) =>
       application.useCases.createProduct.execute(input),
+    updateProduct: async (_, { id, input }, { application }) =>
+      application.useCases.updateProduct.execute({
+        id,
+        ...(input.name && { name: input.name }), 
+        ...(input.description && { name: input.description }), 
+      }),
   },
 }

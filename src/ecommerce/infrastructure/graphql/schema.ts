@@ -12,17 +12,18 @@ export const schema = gql`
     product(id: ID!): Product!
   }
 
-  input UpdateProductInput {
-    name: String!
-    description: String!
-  }
-
   input CreateProductInput {
     name: String!
     description: String!
   }
 
+  input UpdateProductInput {
+    name: String
+    description: String
+  }
+
   type Mutation {
     createProduct(input: CreateProductInput!): Product!
+    updateProduct(id: ID!, input: UpdateProductInput!): Product!
   }
 `

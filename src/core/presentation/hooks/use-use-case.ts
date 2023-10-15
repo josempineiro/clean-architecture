@@ -1,4 +1,4 @@
-import { useMutation, useQuery } from '@tanstack/react-query'
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import { UseCase } from '@/core/domain'
 
 export interface UseCaseOptions<TVariables, TResult> {
@@ -6,6 +6,9 @@ export interface UseCaseOptions<TVariables, TResult> {
   variables?: TVariables
   onSuccess?: (result: TResult) => void
   onError?: (error: string) => void
+}
+export interface UseCaseMutationOptions<TVariables, TResult>  extends UseCaseOptions<TVariables, TResult> {
+  updateKey:  unknown[] | ((variables: TVariables) => unknown[])
 }
 
 export interface UseCaseResults<TVariables, TResult> {
@@ -35,7 +38,7 @@ export function useUseCaseQuery<TVariables, TResult>(
 
 export function useUseCaseMutation<TVariables, TResult>(
   useCase: UseCase<TVariables, TResult>,
-  options: UseCaseOptions<TVariables, TResult>,
+  {updateKey, ...options}: UseCaseMutationOptions<TVariables, TResult>,
 ): [
   (executionParameters: TVariables) => void,
   {
@@ -43,6 +46,8 @@ export function useUseCaseMutation<TVariables, TResult>(
     error: string
   },
 ] {
+  const queryClient = useQueryClient()
+
   const { key, variables, onSuccess, onError } = options
   const mutation = useMutation<TResult, string, TVariables>(
     [key],
@@ -52,7 +57,16 @@ export function useUseCaseMutation<TVariables, TResult>(
         ...executionVariables,
       }),
     {
-      onSuccess,
+      onSuccess: (result, variables) => {
+        if (updateKey) {
+          if (typeof updateKey === 'function') {
+            queryClient.invalidateQueries(updateKey(variables));
+          } else {
+            queryClient.invalidateQueries(updateKey);
+          }
+        }
+        onSuccess && onSuccess(result)
+      },
       onError,
     },
   )

@@ -34,17 +34,17 @@ export class DatastoreRepository<T extends Entity> implements Repository<T> {
     return Promise.resolve(entity)
   }
 
-  public update(updated: T) {
+  public updateById(id: string, updated: Partial<T>) {
     const entities = this.getEntities<Array<T>>() || []
     this.setEntities(
       entities.map((entity) => {
-        if (entity.id === entity.id) {
+        if (entity.id === id) {
           return updated
         }
         return entity
       }),
     )
-    return Promise.resolve(updated)
+    return Promise.resolve(this.findById(id))
   }
 
   public delete(id: string) {

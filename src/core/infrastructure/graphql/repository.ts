@@ -14,7 +14,7 @@ export abstract class GraphqlRepository<T, D, I> implements Repository<T> {
   }
   abstract create(entity: T): Promise<T>
   abstract findById(id: string): Promise<T>
-  abstract update(updated: T): Promise<T>
+  abstract updateById(id: string, updated: Partial<T>): Promise<T>
   abstract delete(id: string): Promise<T>
   abstract findAll(): Promise<T[]>
 }

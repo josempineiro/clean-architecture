@@ -3,7 +3,7 @@ import { Product as ProductDomain, ProductUtils } from '@/ecommerce/domain'
 import {
   Product as ProductGraphql,
   CreateProductInput as CreateProductGraphqlInput,
-} from '@/admin/infrastructure/graphql/types'
+} from '@/ecommerce/infrastructure/graphql/types'
 
 export class ProductGraphQLMapper extends GraphQLMapper<
   ProductGraphql,

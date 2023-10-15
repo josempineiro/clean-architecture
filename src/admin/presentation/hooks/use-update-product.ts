@@ -1,21 +1,21 @@
 import { useUseCaseMutation } from '@/core/presentation'
 import { UseCaseOptions } from '@/core/presentation'
 import {
-  CreateProductVariables,
-  CreateProductResult
+  UpdateProductVariables,
+  UpdateProductResult
 } from '@/ecommerce/application'
 import { useAdminApplication } from '@/admin/presentation/contexts'
 
-export function useCreateProduct(
+export function useUpdateProduct(
   options?: Omit<
-    UseCaseOptions<CreateProductVariables, CreateProductResult>,
+    UseCaseOptions<UpdateProductVariables, UpdateProductResult>,
     'key'
   >,
 ) {
   const adminApplication = useAdminApplication()
-  return useUseCaseMutation(adminApplication.useCases.createProduct, {
-    key: 'createProduct',
-    updateKey: ['products'],
+  return useUseCaseMutation(adminApplication.useCases.updateProduct, {
+    key: 'updateProduct',
+    updateKey: (variables) => ['getProduct', { id: variables.id }],
     ...options,
   })
 }

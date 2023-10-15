@@ -4,7 +4,7 @@ import {
   getSdk,
   Product as ProductType,
   CreateProductInput,
-} from '@/admin/infrastructure/graphql/types'
+} from '@/ecommerce/infrastructure/graphql/types'
 import { ProductGraphQLMapper } from '@/admin/infrastructure/mappers/product-graphql-mapper'
 
 export class ProductsGraphqlRepository extends GraphqlRepository<
@@ -27,14 +27,15 @@ export class ProductsGraphqlRepository extends GraphqlRepository<
       .product({ id })
       .then(({ data }) => this.mapper.toEntity(data.product))
   }
-  update(updated: ProductDomain) {
-    return Promise.resolve(
-      ProductUtils.create({
-        id: 'string',
-        name: 'string',
-        description: 'string',
-      }),
-    )
+  updateById(id:string, updated: Partial<ProductDomain>) {
+    return getSdk(this.client)
+      .updateProduct({ id: id, input:{
+        name: updated.name,
+        description: updated.description,
+      }})
+      .then(({ data }) =>
+        this.mapper.toEntity(data.updateProduct as ProductType),
+      )
   }
   delete(id: string) {
     return Promise.resolve(

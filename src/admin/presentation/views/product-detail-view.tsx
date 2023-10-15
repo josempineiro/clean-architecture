@@ -1,7 +1,7 @@
 'use client'
 
 import { useGetProduct } from '@/admin/presentation'
-import { ProductDetail } from '@/ecommerce/presentation/components/products/product-detail'
+import { ProductDetailEditor } from '@/admin/presentation/components/products/product-detail-editor'
 
 export interface AdminProductDetailViewProps {
   productId: string
@@ -23,7 +23,7 @@ export function AdminProductDetailView({
     <>
       {isLoading && <div>Loading...</div>}
       {error && <div>Error</div>}
-      {product && <ProductDetail product={product} />}
+      {product && <ProductDetailEditor product={product} />}
     </>
   )
 }

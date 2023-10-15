@@ -9,11 +9,11 @@ export abstract class MockRepository<T extends Entity>
   public delay: number
 
   constructor(data: T[] = [], {
-    delay = 3000
+    delay = 600
   }: {
     delay: number
   } = {
-    delay: 3000
+    delay: 600
   }) {
     this.data = data
     this.delay = delay
@@ -39,15 +39,18 @@ export abstract class MockRepository<T extends Entity>
     return Promise.resolve(entity)
   }
 
-  public async update(entity: T): Promise<T> {
+  public async updateById(id: string, entity: Partial<T>): Promise<T> {
     await delay(this.delay)
     this.data = this.data.map((item) => {
-      if (item.id === entity.id) {
-        return entity
+      if (item.id === id) {
+        return {
+          ...item,
+          ...entity
+        }
       }
       return item
     })
-    return Promise.resolve(entity)
+    return Promise.resolve(this.findById(id))
   }
 
   public async delete(id: string): Promise<void> {

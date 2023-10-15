@@ -3,9 +3,10 @@ import { CreateProductUseCase } from '@/ecommerce/application/use-cases/create-p
 import { GetProductsUseCase } from '@/ecommerce/application/use-cases/get-products'
 import { GetProductUseCase } from '@/ecommerce/application/use-cases/get-product'
 
-export * from '@/ecommerce/application/use-cases/create-product'
-export * from '@/ecommerce/application/use-cases/get-products'
 export * from '@/ecommerce/application/use-cases/get-product'
+export * from '@/ecommerce/application/use-cases/get-products'
+export * from '@/ecommerce/application/use-cases/create-product'
+export * from '@/ecommerce/application/use-cases/update-product'
 
 
 export type EcommerceUseCase = CreateProductUseCase | GetProductsUseCase | GetProductUseCase 
