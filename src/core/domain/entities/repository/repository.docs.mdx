@@ -1,0 +1,116 @@
+# Repository\<Entity\> Interface Documentation
+
+Represents a generic interface for a repository, providing standard CRUD (Create, Read, Update, Delete) operations for entities of a specific type.
+
+## Methods
+
+### `getById(id: string): Promise<TEntity>`
+
+Retrieves an entity by its unique identifier.
+
+#### Parameters
+
+- `id`: A string representing the unique identifier of the entity to retrieve.
+
+#### Returns
+
+A Promise that resolves to the retrieved entity of type `TEntity`.
+
+### `getAll(): Promise<TEntity[]>`
+
+Retrieves all entities of the specified type.
+
+#### Returns
+
+A Promise that resolves to an array of entities of type `TEntity`.
+
+### `create(entity: TEntity): Promise<TEntity>`
+
+Creates a new entity.
+
+#### Parameters
+
+- `entity`: An object representing the entity to be created.
+
+#### Returns
+
+A Promise that resolves to the created entity of type `TEntity`.
+
+### `updateById(id: string, entity: TEntity): Promise<TEntity>`
+
+Updates an existing entity with the provided data.
+
+#### Parameters
+
+- `id`: A string representing the unique identifier of the entity to update.
+- `entity`: An object representing the updated data for the entity.
+
+#### Returns
+
+A Promise that resolves to the updated entity of type `TEntity`.
+
+### `deleteById(id: string): Promise<void>`
+
+Deletes an entity by its unique identifier.
+
+#### Parameters
+
+- `id`: A string representing the unique identifier of the entity to delete.
+
+#### Returns
+
+A Promise that resolves to `void` indicating successful deletion.
+
+## Example Usage
+
+```typescript
+import { Repository, Entity, EntityUtils} from '@/core/domain';
+
+interface Product extends Entity {
+  _type: 'Product';
+  id: string;
+  name: string;
+}
+
+const ProductUtils: EntityUtils<Product> = {
+  getId: (product) => product.id,
+  create: (product) => {
+    id: '',
+    name: '',
+    _type: 'Product',
+    ...product,
+  }
+}
+
+// Implement the Repository interface for Product
+class ProductsRepository implements Repository<Product> {
+  async getById(id: string): Promise<Product> {
+    // Implementation logic to retrieve entity by ID
+    // ...
+    return {} as Product;
+  }
+
+  async getAll(): Promise<Product[]> {
+    // Implementation logic to retrieve all entities
+    // ...
+    return [] as Product[];
+  }
+
+  async create(entity: Product): Promise<Product> {
+    // Implementation logic to create a new entity
+    // ...
+    return {} as Product;
+  }
+
+  async updateById(id: string, entity: Product): Promise<Product> {
+    return {} as Product;
+  }
+
+  async deleteById(id: string): Promise<void> {
+    // Implementation logic to delete an entity by ID
+    // ...
+  }
+}
+```
+
+---

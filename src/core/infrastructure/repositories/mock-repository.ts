@@ -1,4 +1,6 @@
+import { cloneDeep } from 'lodash'
 import { Repository, Entity } from '@/core/domain'
+import { EntityNotFound } from '@/core/domain'
 
 const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms))
 
@@ -19,30 +21,34 @@ export abstract class MockRepository<T extends Entity>
     this.delay = delay
   }
 
+  public getId(entity: T): string {
+    return entity.id as string
+  }
+
   public async create(entity: T): Promise<T> {
     this.data.push(entity)
     await delay(this.delay)
     return Promise.resolve(entity)
   }
 
-  public async findAll(): Promise<T[]> {
+  public async getAll(): Promise<T[]> {
     await delay(this.delay)
-    return Promise.resolve(this.data)
+    return Promise.resolve(this.getData())
   }
 
-  public async findById(id: string): Promise<T> {
-    const entity = this.data.find((entity) => entity.id === id)
+  public async getById(id: string): Promise<T> {
+    const entity = this.data.find((entity) => this.getId(entity) === id)
     if (!entity) {
-      throw `Entity with id ${id} not found`
+      throw new EntityNotFound('Entity', id)
     }
     await delay(this.delay)
     return Promise.resolve(entity)
   }
 
   public async updateById(id: string, entity: Partial<T>): Promise<T> {
-    await delay(this.delay)
+    const updated = await this.getById(id)
     this.data = this.data.map((item) => {
-      if (item.id === id) {
+      if (this.getId(item) === this.getId(updated)) {
         return {
           ...item,
           ...entity
@@ -50,21 +56,21 @@ export abstract class MockRepository<T extends Entity>
       }
       return item
     })
-    return Promise.resolve(this.findById(id))
+    return Promise.resolve(await this.getById(id))
   }
 
-  public async delete(id: string): Promise<void> {
-    await delay(this.delay)
-    this.data = this.data.filter((entity) => entity.id !== id)
+  public async deleteById(id: string): Promise<void> {
+    const deleted = await this.getById(id)
+    this.data = this.data.filter((entity) => this.getId(entity) !== this.getId(deleted))
     return Promise.resolve()
   }
 
   public getData(): T[] {
-    return this.data
+    return cloneDeep(this.data)
   }
 
   public setData(data: T[]): T[] {
     this.data = data
-    return data
+    return cloneDeep(data)
   }
 }

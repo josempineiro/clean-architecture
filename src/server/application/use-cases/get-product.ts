@@ -11,6 +11,6 @@ export type GetProductServerUseCaseDependencies = {
 
 export class GetProductServerUseCase extends GetProductUseCase<GetProductServerUseCaseDependencies> {
   async execute({ id }: GetProductVariables): Promise<GetProductResult> {
-    return await this.dependencies.productsRepository.findById(id)
+    return await this.dependencies.productsRepository.getById(id)
   }
 }

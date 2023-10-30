@@ -8,7 +8,7 @@ export function useAdminApplication() {
   return useEcommerceApplication<AdminApplicationUseCases>()
 }
 
-export function AdminApplicationContext({
+export function AdminApplicationProvider({
   children,
   application,
 }: {

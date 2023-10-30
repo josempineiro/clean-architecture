@@ -1,13 +1,13 @@
 'use client'
 
-import React from 'react'
+import React, { useState } from 'react'
 import cn from 'classnames'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { AdminApplicationContext } from '@/admin/presentation'
+import { AdminApplicationProvider } from '@/admin/presentation'
 import { AdminApplication } from '@/admin/application'
 import { productsRepository } from '@/admin/infrastructure'
-import { IconButton, MenuIcon } from '@/core/presentation'
+import { IconButton, MenuIcon, Sidebar } from '@/core/presentation'
 
 const adminApplication = new AdminApplication({
   productsRepository,
@@ -20,23 +20,20 @@ interface AdminLayoutProps {
 function AdminLayout({ children }: AdminLayoutProps) {
   const paths = usePathname()
   const pathNames = paths.split('/').filter((path) => path)
+  const [visible, setVisible] = useState<boolean>(false)
   return (
-    <AdminApplicationContext application={adminApplication}>
+    <AdminApplicationProvider application={adminApplication}>
       <IconButton
         aria-controls="default-sidebar"
         type="button"
+        className="lg:hidden"
+        onClick={() => setVisible(!visible)}
       >
         <span className="sr-only">Open sidebar</span>
         <MenuIcon className="w-6 h-6" />
       </IconButton>
 
-      <aside
-        id="default-sidebar"
-        className={cn(
-          'fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0',
-        )}
-        aria-label="Sidenav"
-      >
+      <Sidebar visible={visible} id="default-sidebar" aria-label="Sidenav">
         <div className="overflow-y-auto py-5 px-3 h-full bg-white border-r border-gray-200 dark:bg-gray-800 dark:border-gray-700">
           <Link
             href="/admin"
@@ -74,9 +71,9 @@ function AdminLayout({ children }: AdminLayoutProps) {
             </li>
           </ul>
         </div>
-      </aside>
+      </Sidebar>
       <div className="sm:pl-64 min-h-full flex flex-col">{children}</div>
-    </AdminApplicationContext>
+    </AdminApplicationProvider>
   )
 }
 export default AdminLayout

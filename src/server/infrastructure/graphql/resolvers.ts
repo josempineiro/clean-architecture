@@ -15,7 +15,7 @@ export const resolvers: Resolvers<GraphQLServerContext> = {
       application.useCases.updateProduct.execute({
         id,
         ...(input.name && { name: input.name }), 
-        ...(input.description && { name: input.description }), 
+        ...(input.description && { description: input.description }), 
       }),
   },
 }

@@ -1,6 +1,6 @@
 'use client'
 
-import { ShopApplicationContext } from '@/shop/presentation'
+import { ShopApplicationProvider } from '@/shop/presentation'
 import { ShopApplication } from '@/shop/application'
 import { productsRepository } from '@/shop/infrastructure'
 
@@ -14,8 +14,8 @@ export default function ShopApplicationLayout({
   children: React.ReactNode
 }) {
   return (
-    <ShopApplicationContext application={shopApplication}>
+    <ShopApplicationProvider application={shopApplication}>
       {children}
-    </ShopApplicationContext>
+    </ShopApplicationProvider>
   )
 }

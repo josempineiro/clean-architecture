@@ -25,7 +25,7 @@ export class DatastoreRepository<T extends Entity> implements Repository<T> {
     return Promise.resolve(entity)
   }
 
-  public findById(id: string) {
+  public getById(id: string) {
     const entities = this.getEntities<Array<T>>() || []
     const entity = entities.find((entity) => entity.id === id)
     if (!entity) {
@@ -44,10 +44,10 @@ export class DatastoreRepository<T extends Entity> implements Repository<T> {
         return entity
       }),
     )
-    return Promise.resolve(this.findById(id))
+    return Promise.resolve(this.getById(id))
   }
 
-  public delete(id: string) {
+  public deleteById(id: string) {
     const entities = this.getEntities<Array<T>>() || []
     const find = entities.find((entity) => entity.id === id)
     if (!find) {
@@ -57,7 +57,7 @@ export class DatastoreRepository<T extends Entity> implements Repository<T> {
     return Promise.resolve()
   }
 
-  public findAll() {
+  public getAll() {
     const entities = this.getEntities<Array<T>>() || []
     return Promise.resolve(entities)
   }

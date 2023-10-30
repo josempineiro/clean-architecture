@@ -1,22 +1,31 @@
 'use client'
-
 import React from 'react'
 import cn from 'classnames'
+import { motion, AnimatePresence, HTMLMotionProps } from 'framer-motion'
 
-interface SidebarProps {
+interface SidebarProps extends HTMLMotionProps<'aside'> {
   children: React.ReactNode
+  visible: boolean
 }
 
-export function Sidebar({ children }: SidebarProps) {
+export function Sidebar({ children, visible, className, ...rest }: SidebarProps) {
   return (
-    <aside
-      id="default-sidebar"
-      className={cn(
-        'fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0',
-      )}
-      aria-label="Sidenav"
-    >
-      {children}
-    </aside>
+    <AnimatePresence>
+      {visible && (
+        <motion.aside
+
+          initial={{ x: '-100%' }}
+          animate={{ x: '0%' }}
+          exit={{ x: '-100%'}}
+          className={cn(
+            className,
+            'fixed top-0 left-0 z-40 w-64 h-screen',
+          )}
+          {...rest}
+        >
+          {children}
+        </motion.aside>
+        )}
+    </AnimatePresence>
   )
 }

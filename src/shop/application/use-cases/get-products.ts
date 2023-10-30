@@ -4,6 +4,6 @@ import type { ShopApplicationDependencies } from '@/shop/application'
 
 export class GetProductsShopUseCase extends GetProductsUseCase<ShopApplicationDependencies> {
   async execute(): Promise<GetProductsResult> {
-    return await this.dependencies.productsRepository.findAll()
+    return await this.dependencies.productsRepository.getAll()
   }
 }

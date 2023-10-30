@@ -22,7 +22,7 @@ export class ProductsGraphqlRepository extends GraphqlRepository<
         this.mapper.toEntity(data.createProduct as ProductType),
       )
   }
-  findById(id: string) {
+  getById(id: string) {
     return getSdk(this.client)
       .product({ id })
       .then(({ data }) => this.mapper.toEntity(data.product))
@@ -34,16 +34,10 @@ export class ProductsGraphqlRepository extends GraphqlRepository<
       this.mapper.toEntity(data.updateProduct as ProductType),
     )
   }
-  delete(id: string) {
-    return Promise.resolve(
-      ProductUtils.create({
-        id: 'string',
-        name: 'string',
-        description: 'string',
-      }),
-    )
+  deleteById(id: string) {
+    return Promise.resolve()
   }
-  findAll() {
+  getAll() {
     return getSdk(this.client)
       .products()
       .then(({ data }) =>

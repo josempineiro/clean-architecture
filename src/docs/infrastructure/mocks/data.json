@@ -1,0 +1,78 @@
+[
+  {
+    "name": "Core",
+    "path": "docs/core"
+  },
+  {
+    "name": "Domain",
+    "path": "docs/core/domain"
+  },
+  {
+    "name": "Application",
+    "path": "docs/core/domain/entities/application"
+  },
+  {
+    "name": "Entities",
+    "path": "docs/core/domain/entities"
+  },
+  {
+    "name": "Entity",
+    "path": "docs/core/domain/entities/entity"
+  },
+  {
+    "name": "Event",
+    "path": "docs/core/domain/entities/event"
+  },
+  {
+    "name": "Repository",
+    "path": "docs/core/domain/entities/repository"
+  },
+  {
+    "name": "UseCase",
+    "path": "docs/core/domain/entities/use-case"
+  },
+  {
+    "name": "EntityNotFound",
+    "path": "docs/core/domain/errors/entity-not-found"
+  },
+  {
+    "name": "Errors",
+    "path": "docs/core/domain/errors"
+  },
+  {
+    "name": "Events",
+    "path": "docs/core/domain/events"
+  },
+  {
+    "name": "ApplicationContext",
+    "path": "docs/core/presentation/contexts/application-context"
+  },
+  {
+    "name": "Contexts",
+    "path": "docs/core/presentation/contexts"
+  },
+  {
+    "name": "ErrorBoundary",
+    "path": "docs/core/presentation/contexts/error-boundary"
+  },
+  {
+    "name": "EventsContext",
+    "path": "docs/core/presentation/contexts/events-context"
+  },
+  {
+    "name": "MediaQueriesContext",
+    "path": "docs/core/presentation/contexts/media-queries-context"
+  },
+  {
+    "name": "NestedMenuContext",
+    "path": "docs/core/presentation/contexts/nested-menu-context"
+  },
+  {
+    "name": "Presentation",
+    "path": "docs/core/presentation"
+  },
+  {
+    "name": "Docs",
+    "path": "docs"
+  }
+]

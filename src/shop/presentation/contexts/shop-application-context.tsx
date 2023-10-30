@@ -8,7 +8,7 @@ export function useShopApplication() {
   return useEcommerceApplication<ShopApplicationUseCases>()
 }
 
-export function ShopApplicationContext({
+export function ShopApplicationProvider({
   children,
   application,
 }: {

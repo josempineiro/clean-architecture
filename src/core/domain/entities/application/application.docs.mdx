@@ -1,0 +1,55 @@
+# Application abstract class Documentation
+
+`Application` abstract class represents the base application class. It provides a structure for managing use cases and dependencies within an application.
+
+## Type Parameters
+
+### `UseCases`
+
+A dictionary-like object where the keys are strings representing use case names, and the values are instances of the `UseCase` class.
+
+
+## Constructor
+
+### `constructor(useCases: UseCases)`
+
+Creates an instance of the `Application` class.
+
+#### Parameters
+
+- `useCases`: An object containing use case instances. Each use case should implement the `UseCase` interface.
+
+## Properties
+
+### `useCases: UseCases`
+
+A property that holds the use case instances provided during the class instantiation.
+
+## Example Usage
+
+```typescript
+import { Application } from '@/core/domain';
+import { GetProductsUseCase } from '@/products/application';
+import { ProductsRepository } from '@/products/infrastructure';
+
+interface ProductsUseCases {
+  getProducts: GetProductsUseCase
+}
+interface ProductsApplicationDependencies {
+  getProducts: GetProductsUseCase
+}
+
+class ProductsApplication extends Application<ProductsUseCases> {
+  constructor(dependencies: ProductsApplicationDependencies) {
+    super({
+      getProducts: new GetProductsUseCase(dependencies),
+    });
+  }
+}
+const productsApplication = new ProductsApplication({
+  productsRepository: new ProductsRepository(),
+});
+
+const products = await productsApplication.useCases.getProducts.execute();
+
+```

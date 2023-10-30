@@ -1,7 +1,10 @@
 'use client'
 
 import { useGetProduct } from '@/admin/presentation'
-import { ProductDetailEditor } from '@/admin/presentation/components/products/product-detail-editor'
+import {
+  ProductDetailEditor,
+  ProductDetailSkeleton,
+} from '@/admin/presentation/components'
 
 export interface AdminProductDetailViewProps {
   productId: string
@@ -21,9 +24,9 @@ export function AdminProductDetailView({
   })
   return (
     <>
-      {isLoading && <div>Loading...</div>}
+      {isLoading && <ProductDetailSkeleton />}
       {error && <div>Error</div>}
-      {product && <ProductDetailEditor product={product} />}
+      {!isLoading && product && <ProductDetailEditor product={product} />}
     </>
   )
 }

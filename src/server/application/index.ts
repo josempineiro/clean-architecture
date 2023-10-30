@@ -29,7 +29,6 @@ export class ServerEcommerceApplication extends EcommerceApplication<ServerEcomm
       getProducts: new GetProductsServerUseCase(dependencies),
       createProduct: new CreateProductServerUseCase(dependencies),
       updateProduct: new UpdateProductServerUseCase(dependencies),
-
     })
   }
 }

@@ -27,6 +27,10 @@ body {
   background: var(--background);
 }
 
-input {
+input,
+input:focus,
+input:hover {
   background: transparent;
+  box-shadow: none;
+  -webkit-appearance: none;
 }

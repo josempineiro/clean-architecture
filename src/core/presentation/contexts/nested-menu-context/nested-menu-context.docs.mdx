@@ -1,0 +1,59 @@
+# Core Presentation Context: `NestedMenuContext`
+
+## Introduction
+
+The `NestedMenuContext` module within the `core/presentation/contexts` directory provides a flexible and efficient solution for managing nested menu interactions in React applications. It facilitates the handling of menu states, such as opening, closing, and checking the visibility of nested menus. By utilizing this context, developers can create dynamic and interactive menu systems with ease, ensuring a seamless user experience.
+
+## Purpose of `NestedMenuContext`
+
+### Managing Nested Menu State
+
+The primary purpose of the `NestedMenuContext` module is to manage the state of nested menus within a React application. It exposes a set of functions, including `openMenu`, `closeMenu`, `closeAllMenus`, and `openAllMenus`, allowing components to control the visibility of menus based on user interactions. This centralized management ensures consistent menu behavior and simplifies complex menu structures.
+
+### Flexible Menu Interaction
+
+The context provides developers with the flexibility to handle various menu interactions effortlessly. Components can use the exposed functions to open specific menus, close individual menus, close all menus at once, or open all menus simultaneously. This flexibility enables the creation of nested menu systems tailored to specific application requirements.
+
+## Usage Guidelines
+
+### Accessing Nested Menu State
+
+Components can access the nested menu state and functions using the `useNestedMenu` hook provided by the `NestedMenuContext` module. This hook returns an object containing functions for managing nested menus.
+
+```jsx
+import { useNestedMenu } from 'core/presentation/contexts/nested-menu-context';
+
+function MyComponent() {
+  const { openMenu, closeMenu, closeAllMenus, openAllMenus, isOpen } = useNestedMenu();
+
+  // Access and utilize nested menu functions
+  // isOpen('menuId') checks if the menu with 'menuId' is open
+
+  return <div>Interactive Menu Component</div>;
+}
+```
+
+### Providing Nested Menu Context
+
+To make the nested menu functions available to components, wrap your menu components with the `NestedMenuProvider`. This provider requires an array of menu items, a function to get unique IDs for items, and an optional array of initially opened menu IDs.
+
+```jsx
+import { NestedMenuProvider } from 'core/presentation/contexts/nested-menu-context';
+import { MyMenuComponent } from './MyMenuComponent'; // Replace with your menu component
+
+const menuItems = /* array of menu items */;
+const getMenuItemId = (item) => /* return unique ID for the item */;
+const initiallyOpenedMenus = /* optional: array of initially opened menu IDs */;
+
+function App() {
+  return (
+    <NestedMenuProvider items={menuItems} getItemId={getMenuItemId} openedIds={initiallyOpenedMenus}>
+      <MyMenuComponent />
+    </NestedMenuProvider>
+  );
+}
+```
+
+## Conclusion
+
+The `NestedMenuContext` module streamlines the management of nested menu interactions in React applications. By centralizing menu state and interactions, it promotes clean and maintainable code, allowing developers to create sophisticated menu systems without the complexity. Utilizing this context enhances the interactivity of applications and provides users with intuitive navigation options.

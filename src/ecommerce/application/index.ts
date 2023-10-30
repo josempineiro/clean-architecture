@@ -14,10 +14,9 @@ export type EcommerceUseCase = CreateProductUseCase | GetProductsUseCase | GetPr
 export type EcommerceUseCases = Record<string, EcommerceUseCase>
 
 export abstract class EcommerceApplication<TEcommerceUseCases extends EcommerceUseCases>
-  implements Application<TEcommerceUseCases>
+  extends Application<TEcommerceUseCases>
 {
-  public useCases: TEcommerceUseCases
   constructor(useCases: TEcommerceUseCases) {
-    this.useCases = useCases
+    super(useCases)
   }
 }

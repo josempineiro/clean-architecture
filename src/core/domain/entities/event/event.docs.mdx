@@ -1,0 +1,56 @@
+# Event\<Payload\> Interface Documentation
+
+## 1. Introduction
+
+The `Event` interface, residing in the `modules/core/domain/entities/event` module, is a fundamental building block in event-driven architectures within Clean Architecture. This interface defines the structure of events that occur within the application. Events represent significant occurrences or state changes and are used to communicate these changes to other parts of the system. The `Event` interface includes a `name` property representing the unique identifier of the event and a `payload` property carrying the event-specific data.
+
+## 2. Purpose of the `Event` Interface
+
+### 2.1 Definition of Event Structure
+
+The primary purpose of the `Event` interface is to define the structure of events, specifying a name and a payload of type `TPayload`. The `name` property serves as the identifier for the event type, allowing consumers to recognize and handle specific events. The `payload` property carries event-specific data, enabling the transmission of contextually relevant information.
+
+## 3. Usage Guidelines
+
+### 3.1 Implementing Custom Events
+
+Developers can implement custom event classes or objects that conform to the `Event` interface. The generic `TPayload` parameter allows custom events to carry a wide range of data types specific to each event type. By providing a descriptive `name` and defining the appropriate `payload` type, developers can create events tailored to various domain-specific occurrences.
+
+```typescript
+import { Event } from 'modules/core/domain/entities/event';
+
+interface UserEventData {
+  userId: string;
+  userName: string;
+  // ... other user-related properties ...
+}
+
+export class UserEvent implements Event<UserEventData> {
+  name = 'UserEvent';
+  payload: UserEventData;
+
+  constructor(payload: UserEventData) {
+    this.payload = payload;
+  }
+}
+```
+
+### 3.2 Event Handling
+
+Event consumers, such as event listeners or subscribers, should expect events conforming to the `Event` interface. When processing events, consumers can access the `name` property to identify the event type and utilize the `payload` property to obtain the associated data. This approach ensures a consistent and standardized way of handling events across the application.
+
+```typescript
+import { Event } from 'modules/core/domain/entities/event';
+
+function handleUserEvent(event: Event<UserEventData>) {
+  const { name, payload } = event;
+  if (name === 'UserEvent') {
+    const { userId, userName } = payload;
+    // Handle the user event based on payload data
+  }
+}
+```
+
+## 4. Conclusion
+
+The `Event` interface in the `modules/core/domain/entities/event` module provides a structured approach to event-driven communication within Clean Architecture. By defining events with specific payload types, developers can convey meaningful information within events, enabling precise event processing and domain-driven interactions. Embracing this interface promotes a standardized approach to event handling, making it a foundational component of event-driven software design.

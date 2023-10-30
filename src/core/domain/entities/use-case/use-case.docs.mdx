@@ -1,0 +1,48 @@
+# UseCase\<Variables, Result\> Interface Documentation
+
+Represents a generic interface for a use case in the application. A use case typically performs a specific action or business logic.
+
+## Type Parameters
+
+### `Variables`
+
+The type representing the input variables required by the use case.
+
+### `Result`
+
+The type representing the result data returned by the use case.
+
+## Methods
+
+### `execute(variables: Variables): Promise<Result>`
+
+Executes the use case with the provided input variables and returns a promise that resolves to the result data.
+
+#### Parameters
+
+- `variables`: An object containing input variables required by the use case.
+
+#### Returns
+
+A Promise that resolves to the result data produced by the use case execution.
+
+## Example Usage
+
+```typescript
+import { UseCase } from '@/core/domain';
+import { Counter } from '@/counter/domain';
+
+type IncreaseCounterVariables = number
+type IncreaseCounterResult = number;
+
+class IncreaseCounter implements UseCase<IncrementCounterVariables, IncreaseCounterResult> {
+  constructor(private readonly counter: Counter) {}
+  async execute(variables) {
+    return counter.increase(variables);
+  }
+}
+
+const increaseCounterUseCase = new IncreaseCounter(new Counter());
+
+const result = await increaseCounterUseCase.execute(1);
+```

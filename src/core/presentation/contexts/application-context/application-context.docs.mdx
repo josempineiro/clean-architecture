@@ -1,0 +1,61 @@
+# Core Presentation Context: `ApplicationContext`
+
+## Introduction
+
+The `ApplicationContext` module within the `core/presentation/contexts` directory serves as a central hub for managing application-specific logic and use cases in React applications. It provides a convenient way to access and utilize application use cases, ensuring a structured and organized approach to handling business logic. By using this context, components can interact with the application's core functionality, promoting separation of concerns and modularity.
+
+## Purpose of `ApplicationContext`
+
+### Managing Application Use Cases
+
+The primary purpose of the `ApplicationContext` module is to encapsulate and manage application use cases. Use cases represent specific business operations or workflows and encapsulate the logic required to execute these operations. By exposing use cases through the context, components can access and execute them, enabling complex interactions with the application's backend or external services.
+
+### Facilitating Dependency Injection
+
+The module facilitates the practice of dependency injection within the application. By passing an instance of the application (which includes all necessary use cases) through the `ApplicationProvider`, components can access these use cases without the need for direct imports or tight coupling. This promotes a modular and testable architecture where components remain decoupled from the specific implementations of the use cases they rely on.
+
+## Usage Guidelines
+
+### Accessing Application Use Cases
+
+Components can access the application's use cases using the `useApplication` hook provided by the `ApplicationContext` module. This hook returns an instance of the application, allowing components to execute specific use cases and handle business logic.
+
+```jsx
+import { useApplication } from 'core/presentation/contexts/application-context';
+
+function MyComponent() {
+  const application = useApplication();
+
+  // Access and utilize application use cases
+  const fetchData = async () => {
+    const data = await application.useCases.someUseCase.execute();
+    // Handle the retrieved data
+  };
+
+  return <button onClick={fetchData}>Fetch Data</button>;
+}
+```
+
+### Providing the Application Context
+
+To make the application instance available to components, wrap your application components with the `ApplicationProvider`. This provider requires an instance of the application as a prop.
+
+```jsx
+import { ApplicationProvider } from 'core/presentation/contexts/application-context';
+import { MyApp } from './MyApp'; // Replace with your main application component
+
+const applicationInstance = new MyApplication(/* pass required use cases */);
+
+function App() {
+  return (
+    <ApplicationProvider application={applicationInstance}>
+      <MyApp />
+    </ApplicationProvider>
+  );
+}
+```
+
+## Conclusion
+
+The `ApplicationContext` module plays a pivotal role in structuring and organizing the application's core logic. By encapsulating use cases and promoting dependency injection, this context enhances maintainability, testability, and scalability of React applications. Leveraging the `ApplicationContext` ensures a clean separation between presentation and business logic, fostering a robust and adaptable codebase.
+

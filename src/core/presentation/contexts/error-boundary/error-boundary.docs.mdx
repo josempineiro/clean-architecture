@@ -1,0 +1,57 @@
+# Core Presentation Component: `ErrorBoundary`
+
+## Introduction
+
+The `ErrorBoundary` component, located in the `core/presentation/components/errors` directory, serves as a robust error-handling mechanism in React applications. It encapsulates its child components and catches any errors that occur during their rendering. By implementing this boundary, developers can prevent the entire application from crashing due to errors in specific components, ensuring a more stable user experience.
+
+## Purpose of `ErrorBoundary`
+
+### Error Isolation and Display
+
+The primary purpose of the `ErrorBoundary` component is to isolate errors within its child components and display a user-friendly error message instead of crashing the entire application. When an error is caught, the `ErrorBoundary` component renders a custom error message and provides an option to retry the operation. This ensures graceful degradation and allows users to continue interacting with the application after errors occur.
+
+### Custom Error Rendering
+
+The `ErrorBoundary` component allows developers to customize the error message displayed to users. By providing a custom `renderError` function, developers can design error messages that match the application's visual style and provide meaningful information to users about what went wrong and how to resolve the issue.
+
+## Usage Guidelines
+
+### Wrapping Components with `ErrorBoundary`
+
+To utilize the `ErrorBoundary` component, wrap components that might encounter errors during rendering. Specify the `renderError` prop to customize the appearance of error messages.
+
+```jsx
+import ErrorBoundary from 'core/presentation/components/errors/error-boundary';
+import { CustomErrorComponent } from './CustomErrorComponent'; // Replace with your custom error component
+
+function App() {
+  return (
+    <ErrorBoundary renderError={CustomErrorComponent}>
+      {/* Your application components */}
+    </ErrorBoundary>
+  );
+}
+```
+
+### Customizing Error Messages
+
+Developers can customize error messages by providing a `renderError` function that returns a React component. The `renderError` function receives an object with `error` and `onRetry` properties, allowing developers to create informative and actionable error messages.
+
+```jsx
+import { DefaultError } from 'core/presentation/components/errors/default-error';
+
+const CustomErrorComponent = ({ error, onRetry }) => {
+  // Customize the appearance and content of the error message
+  return (
+    <div role="alert">
+      <h1>Something went wrong!</h1>
+      <p>{error.message}</p>
+      <button onClick={onRetry}>Retry</button>
+    </div>
+  );
+};
+```
+
+## Conclusion
+
+The `ErrorBoundary` component enhances the stability and user experience of React applications by gracefully handling errors within specific components. By utilizing this component and customizing error messages, developers can create user-friendly interfaces that inform users about errors and offer options for recovery, ensuring a seamless and reliable application experience.

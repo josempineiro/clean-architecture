@@ -20,6 +20,11 @@ function useMenuLinks(): Array<MenuLink> {
       href: '/',
     },
     {
+      id: 'docs',
+      text: 'Docs',
+      href: '/docs',
+    },
+    {
       id: 'blog',
       text: 'Blog',
       href: '/blog',

@@ -8,7 +8,10 @@ export interface Product extends Entity {
 }
 
 export const ProductUtils: EntityUtils<Product> = {
-  create: (product: Partial<Product>): Product => {
+  getId: (product) => {
+    return product.id
+  },
+  create: (product) => {
     return {
       _type: 'Product',
       id: new Date().getTime().toString(),

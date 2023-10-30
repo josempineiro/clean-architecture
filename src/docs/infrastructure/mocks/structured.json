@@ -1,0 +1,46 @@
+[
+  {
+    "name": "Core",
+    "path": "/docs/core"
+  },
+  {
+    "name": "CoreDomain",
+    "path": "/docs/core/domain"
+  },
+  {
+    "name": "Application",
+    "path": "/docs/core/domain/entities/application"
+  },
+  {
+    "name": "CoreDomainEntities",
+    "path": "/docs/core/domain/entities"
+  },
+  {
+    "name": "Entity",
+    "path": "/docs/core/domain/entities/entity"
+  },
+  {
+    "name": "Repository",
+    "path": "/docs/core/domain/entities/repository"
+  },
+  {
+    "name": "UseCase",
+    "path": "/docs/core/domain/entities/use-case"
+  },
+  {
+    "name": "Errors",
+    "path": "/docs/core/domain/errors"
+  },
+  {
+    "name": "ApplicationContext",
+    "path": "/docs/core/presentation/contexts/application-context"
+  },
+  {
+    "name": "MediaQueries",
+    "path": "/docs/core/presentation/contexts/media-queries"
+  },
+  {
+    "name": "Index",
+    "path": "/docs"
+  }
+]

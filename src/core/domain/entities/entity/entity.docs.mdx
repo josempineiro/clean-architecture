@@ -1,0 +1,81 @@
+# Entity Interface Documentation
+
+Represents a generic interface for an entity within the application. Entities are objects that encapsulate a unique identity and behavior within the domain.
+
+## Properties
+
+### `_type: string`
+
+A property representing the type or class name of the entity. Provides a way to identify the type of the entity.
+
+## Example Usage
+
+```typescript
+import { Entity } from '@/core/domain';
+
+class Product implements Entity {
+  _type: 'Product';
+  name: string
+}
+```
+
+---
+
+# Interface: EntityUtils\<TEntity\>
+
+Represents a utility interface for managing entities within the application. Provides methods for creating and type-checking entities.
+
+## Type Parameters
+
+### `TEntity`
+
+The type representing the entity instances that implement the `Entity` interface.
+
+## Methods
+
+### `create(entity: Partial<TEntity>): TEntity`
+
+Creates a new entity instance based on the provided partial entity data. Returns a fully initialized entity.
+
+#### Parameters
+
+- `entity`: An object containing partial entity data to initialize the entity.
+
+#### Returns
+
+An instance of the TEntity entity type.
+
+### `is(entity: unknown): entity is TEntity`
+
+Checks if the provided object is an instance of the TEntity entity type.
+
+#### Parameters
+
+- `entity`: An object to be checked for its type.
+
+#### Returns
+
+A boolean value indicating whether the object is an instance of the TEntity entity type (`true`) or not (`false`).
+
+## Example Usage
+
+```typescript
+import { EntityUtils, Entity } from '@/path/to/Entity';
+
+// Define a concrete entity implementing the Entity interface
+class MyEntity implements Entity { /* ... */ }
+
+// Create an EntityUtils instance for MyEntity
+const entityUtils: EntityUtils<MyEntity> = {
+  getId: (entity) => entity.id,
+  create: (entityData) => new MyEntity(entityData),
+  is: (entity) => entity instanceof MyEntity,
+};
+
+// Usage example
+const partialEntityData = { _type: 'MyEntity', /* ...other properties */ };
+const newEntity = entityUtils.create(partialEntityData);
+const isMyEntity = entityUtils.is(newEntity); // Returns true if newEntity is an instance of MyEntity
+```
+
+---

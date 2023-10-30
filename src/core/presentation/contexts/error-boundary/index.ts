@@ -1,0 +1,1 @@
+export * from '@/core/presentation/contexts/error-boundary/error-boundary'

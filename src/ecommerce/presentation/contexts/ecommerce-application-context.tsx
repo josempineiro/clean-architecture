@@ -1,14 +1,11 @@
-import {
-  ApplicationContextProvider,
-  useApplicationContext,
-} from '@/core/presentation'
+import { ApplicationProvider, useApplication } from '@/core/presentation'
 import {
   EcommerceApplication,
   EcommerceUseCases,
 } from '@/ecommerce/application'
 
 export function useEcommerceApplication<UseCases extends EcommerceUseCases>() {
-  return useApplicationContext<EcommerceApplication<UseCases>>()
+  return useApplication<EcommerceApplication<UseCases>>()
 }
 
 export function EcommerceApplicationProvider<
@@ -21,10 +18,10 @@ export function EcommerceApplicationProvider<
   application: EcommerceApplication<UseCases>
 }) {
   return (
-    <ApplicationContextProvider<EcommerceApplication<UseCases>>
+    <ApplicationProvider<EcommerceApplication<UseCases>>
       application={application}
     >
       {children}
-    </ApplicationContextProvider>
+    </ApplicationProvider>
   )
 }

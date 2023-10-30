@@ -31,7 +31,7 @@ export function useUseCaseQuery<TVariables, TResult>(
   )
   return {
     data: query.data,
-    isLoading: query.isLoading,
+    isLoading: query.isLoading || query.isFetching,
     error: query.error || '',
   }
 }
@@ -52,10 +52,7 @@ export function useUseCaseMutation<TVariables, TResult>(
   const mutation = useMutation<TResult, string, TVariables>(
     [key],
     (executionVariables: TVariables) =>
-      useCase.execute({
-        ...variables,
-        ...executionVariables,
-      }),
+      useCase.execute(executionVariables),
     {
       onSuccess: (result, variables) => {
         if (updateKey) {

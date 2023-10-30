@@ -1,0 +1,53 @@
+# Core Presentation Context: `MediaQueriesContext`
+
+## Introduction
+
+The `MediaQueriesContext` module within the `core/presentation/contexts` directory provides a powerful and flexible solution for managing responsive designs in React applications. It enables components to adapt their behavior based on the device's screen width, ensuring a seamless user experience across various devices and screen sizes. By utilizing media queries, this context allows developers to create responsive layouts and optimize content presentation.
+
+## Purpose of `MediaQueriesContext`
+
+### Dynamic Media Queries Management
+
+The primary purpose of the `MediaQueriesContext` module is to manage dynamic media queries and provide them to components throughout the application. Developers can define custom breakpoints and their corresponding media query strings, allowing components to respond to specific screen widths. This dynamic management empowers the application to adapt to changing design requirements and support a wide range of devices.
+
+### Hook-Based Media Query Interaction
+
+The module provides two essential hooks: `useMediaQueries` and `useMediaQuery(breakpoint)`. 
+- `useMediaQueries` allows components to access the entire set of media queries defined in the context.
+- `useMediaQuery(breakpoint)` enables components to check whether the current screen width matches a specific breakpoint, facilitating conditional rendering and behavior adjustments.
+
+## Usage Guidelines
+
+### Accessing Media Queries
+
+Components can access the defined media queries using the `useMediaQueries` hook. This hook returns an object containing all the breakpoints and their corresponding media query strings.
+
+```jsx
+import { useMediaQueries } from 'core/presentation/contexts/media-queries-context';
+
+function ResponsiveComponent() {
+  const mediaQueries = useMediaQueries();
+  
+  // Access and utilize media queries here
+  
+  return <div>Responsive Content</div>;
+}
+```
+
+### Conditional Rendering with `useMediaQuery`
+
+Components can use the `useMediaQuery` hook to conditionally render content based on specific breakpoints.
+
+```jsx
+import { useMediaQuery } from 'core/presentation/contexts/media-queries-context';
+
+function ResponsiveComponent() {
+  const isSmallScreen = useMediaQuery('sm');
+  
+  return isSmallScreen ? <MobileView /> : <DesktopView />;
+}
+```
+
+## Conclusion
+
+The `MediaQueriesContext` module simplifies the implementation of responsive design patterns within React applications. By providing dynamic media queries and hook-based interaction, developers can create adaptive and user-friendly interfaces. Leveraging this context enhances the application's accessibility, ensuring optimal user experience on a wide range of devices and screen sizes.

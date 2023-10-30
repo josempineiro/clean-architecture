@@ -1,0 +1,62 @@
+# Core Presentation Context: `EventsContext`
+
+## Introduction
+
+The `EventsContext` module within the `core/presentation/contexts` directory provides a highly efficient and decoupled event management system for React applications. It allows components to publish and subscribe to events without direct dependencies, ensuring modularity and enhancing the application's maintainability. The context serves as a centralized hub for managing events, enabling effective communication and collaboration among various parts of the application.
+
+## Purpose of `EventsContext`
+
+### Optimized Event Handling with `useRef`
+
+The `EventsContext` module is engineered for optimized event handling. The `listen` and `emit` functions, utilizing the `useRef` hook, maintain consistent references across renders. This optimization ensures that event listeners and publishers remain stable, enhancing performance by minimizing unnecessary re-renders and function reallocations.
+
+### Loosely Coupled Component Communication
+
+The primary purpose of the `EventsContext` module is to facilitate loosely coupled communication between components. By subscribing to specific event types using the `listen` function, components can react to events without tight dependencies. Simultaneously, the `emit` function enables components to publish events, triggering appropriate reactions in other parts of the application. This decoupled communication enhances flexibility and scalability.
+
+## Usage Guidelines
+
+### Subscribing to Events
+
+Components can subscribe to specific event types using the `listen` function provided by the `useEvents` hook. The `listen` function remains stable across renders, ensuring consistent event subscriptions without unnecessary re-renders.
+
+```jsx
+import { useEvents } from 'core/presentation/contexts/events-context';
+
+function MyComponent() {
+  const { listen } = useEvents();
+  useEffect(() => {
+    return listen('SomeEventType', (payload) => {
+      // Handle the event based on the payload
+    });
+  }, []);
+
+  return <div>Component content</div>;
+}
+```
+
+### Publishing Events
+
+Components can publish events to the `EventsContext` using the stable `emit` function. Published events are delivered to all components subscribed to the corresponding event type, ensuring reliable communication.
+
+```jsx
+import { useEvents } from 'core/presentation/contexts/events-context';
+
+function AnotherComponent() {
+  const { emit } = useEvents();
+
+  const handleButtonClick = () => {
+    const event = {
+      type: 'SomeEventType',
+      payload: /* event-specific data */,
+    };
+    emit<SomeEventType>(event);
+  };
+
+  return <button onClick={handleButtonClick}>Click me</button>;
+}
+```
+
+## Conclusion
+
+The `EventsContext` module, with its optimized event handling and decoupled communication approach, empowers React applications to achieve high-performance, modular, and maintainable designs. By leveraging the stable `listen` and `emit` functions, developers can ensure consistent event management and foster seamless interactions between components. Embracing the `EventsContext` in the presentation layer promotes a clean, responsive, and adaptable user interface, contributing to an exceptional user experience and efficient development workflows.

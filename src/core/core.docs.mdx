@@ -1,0 +1,50 @@
+export const meta = {
+  author: 'John Doe',
+  title: 'Core documentation'
+}
+
+# Core Module Documentation
+
+## Introduction
+
+The `core` module in Clean Architecture serves as the heart of the application, encapsulating common and essential functionality that is shared across different layers of the architecture. This module houses foundational components, interfaces, and utilities that are vital for the application's functionality. By centralizing common code, the `core` module promotes maintainability, reusability, and testability in adherence to the principles of Clean Architecture.
+
+## Purpose of the Core Module
+
+### Encapsulation of Business Rules and Entities
+
+The `core` module encapsulates the fundamental business rules and entities that define the application's domain. By placing these entities within the core, they remain agnostic of external frameworks and technologies, ensuring the business logic is not tightly coupled to any specific implementation details.
+
+### Definition of Interfaces and Contracts
+
+Interfaces defining the interaction between different architectural layers are declared within the `core` module. These contracts establish clear communication channels between the application's components, enabling seamless integration while maintaining separation of concerns.
+
+### Utility Functions and Helper Classes
+
+Common utility functions, helper classes, and tools that are essential across various parts of the application are housed within the `core` module. These utilities can include date/time formatting, validation routines, encryption methods, and other general-purpose functionalities.
+
+### Exception Handling and Error Codes
+
+The `core` module provides a standardized approach to handle exceptions and define error codes that are consistent throughout the application. By centralizing exception handling, the application can maintain a coherent error reporting strategy, enhancing troubleshooting and debugging processes.
+
+### Cross-Cutting Concerns
+
+Cross-cutting concerns, such as logging, security, and caching mechanisms, are managed within the `core` module. By abstracting these concerns, the core ensures that they are applied consistently across different parts of the application without contaminating the domain or presentation layers.
+
+## Benefits of the Core Module
+
+### Modularity and Reusability
+
+By isolating common functionalities in the `core` module, these components can be reused across different modules and projects. This modularity promotes code reuse, reducing redundancy and development effort.
+
+### Testability and Maintainability
+
+The `core` module's separation from external dependencies enhances testability. Business logic and domain entities can be thoroughly tested without the need for complex setups or external systems. Additionally, maintaining a clear separation between layers ensures that changes in one layer do not impact others, enhancing maintainability.
+
+### Flexibility and Scalability
+
+The `core` module facilitates a flexible and scalable architecture. As business requirements evolve, the core can be extended or modified independently, allowing the application to adapt to changing needs without a complete overhaul of the entire system.
+
+## Conclusion
+
+The `core` module plays a pivotal role in Clean Architecture by encapsulating essential components, interfaces, and utilities. By adhering to the principles of separation of concerns and modularity, the `core` module ensures a robust, maintainable, and flexible application that can evolve with the changing demands of the business.

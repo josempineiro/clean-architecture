@@ -1,3 +1,4 @@
+export * from '@/core/presentation/components/forms/fields/input'
 export * from '@/core/presentation/components/forms/fields/text-field'
 export * from '@/core/presentation/components/forms/fields/number-field'
 export * from '@/core/presentation/components/forms/fields/select-field'

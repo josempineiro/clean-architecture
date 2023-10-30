@@ -3,6 +3,8 @@ import { MockRepository } from '@/core/infrastructure'
 
 export class ProductsMockRepository extends MockRepository<Product> {
   constructor(data: Product[]) {
-    super(data)
+    super(data, {
+      delay: 100,
+    })
   }
 }
